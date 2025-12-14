@@ -1,6 +1,8 @@
 import { NavLink } from "react-router-dom";
 import { Linkedin, Github, Twitter, Facebook, Mail, Phone } from "lucide-react";
 
+import icon2 from "../assets/icon.png";
+
 export default function Footer() {
   return (
     <footer className="bg-sky-50 text-slate-800">
@@ -11,7 +13,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <div className="mb-4">
               <img
-                src="../assets/icon.png"
+                src={icon2}
                 alt="Liha Tech Logo"
                 className="h-12 object-contain"
               />

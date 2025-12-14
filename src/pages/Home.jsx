@@ -14,6 +14,8 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { NavLink } from "react-router-dom";
+import icon2 from "../assets/hero-bg.jpg";
+
 
 import { useEffect, useRef, useState } from "react";
 
@@ -49,7 +51,7 @@ export default function Home() {
       {/* HERO SECTION */}
       <section className="relative min-h-screen flex items-center justify-center">
         <img
-          src="../assets/hero-bg.jpg"
+          src={icon2}
           alt="IT Solutions"
           className="absolute inset-0 w-full h-full object-cover"
         />
