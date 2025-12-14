@@ -81,18 +81,19 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <a
-              href="/services"
+            <NavLink
+              to="/services"
               className="px-6 py-3 bg-sky-500 text-white rounded-full hover:bg-sky-600 transition"
             >
               Explore Services
-            </a>
-            <a
-              href="/contact"
+            </NavLink>
+
+            <NavLink
+              to="/contact"
               className="px-6 py-3 border border-white/30 text-white rounded-full hover:bg-white/10 transition"
             >
               Get Consultation
-            </a>
+            </NavLink>
           </div>
         </div>
       </section>
