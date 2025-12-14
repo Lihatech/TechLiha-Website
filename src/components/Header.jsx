@@ -1,252 +1,184 @@
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
-import React from "react";
-import {
-  Menu,
-  X,
-  ChevronDown,
-  Code,
-  GraduationCap,
-  Briefcase,
-  Cpu,
-  Cloud,
-  Database,
-} from "lucide-react";
-import icon2 from "../assets/icon.png";
-
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, ChevronDown } from "lucide-react";
+import logo from "../assets/icon.png";
 
 export default function Header() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
-  const [techOpen, setTechOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [dropdown, setDropdown] = useState(null);
 
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 10);
+    const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const linkBase =
-    "relative text-sm text-black-200 hover:text-sky-300 transition";
-
-  const underline =
-    "after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-sky-400 after:transition-all after:duration-300 hover:after:w-full";
-
-  const activeLink = "text-sky-400 after:w-full";
-
   return (
-    <header
-      className={`fixed top-0 w-full z-50 transition-all duration-300
-      ${
-        isScrolled
-          ? "bg-white/70 backdrop-blur-xl shadow-lg border-b border-slate-200/30"
-          : "bg-white-900/20 backdrop-blur-md"
+    <motion.header
+      initial={{ y: -30, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
+        scrolled ? "bg-white shadow-sm border-b border-slate-200" : "bg-white"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        {/* Logo only */}
-        <div className="flex items-center">
-          <img
-            src={icon2}
-            alt="Liha Tech"
-            className="h-10 w-auto"
-          />
-        </div>
+      <div className="max-w-7xl mx-auto px-6 h-18 flex items-center justify-between">
+        {/* Logo */}
+        <NavLink to="/" className="flex items-center gap-3">
+          <img src={logo} alt="Company Logo" className="h-9" />
+        </NavLink>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-10 relative">
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              `${linkBase} ${underline} ${isActive && activeLink}`
-            }
+        {/* Desktop Navigation */}
+        <nav className="hidden lg:flex items-center gap-10">
+          <NavItem to="/">Home</NavItem>
+
+          <NavDropdown
+            label="Services"
+            open={dropdown === "solutions"}
+            onOpen={() => setDropdown("solutions")}
+            onClose={() => setDropdown(null)}
           >
-            Home
-          </NavLink>
+            <DropdownLink to="/services/web">Web Developementt</DropdownLink>
+            {/* <DropdownLink to="/services/enterprise">
+              Enterprise Software
+            </DropdownLink> */}
+            <DropdownLink to="/services/cloud">Cloud Migration Development</DropdownLink>
+            <DropdownLink to="/services">View More</DropdownLink>
+          </NavDropdown>
 
-          {/* Services */}
-          <div
-            className="relative"
-            onMouseEnter={() => setServicesOpen(true)}
-            onMouseLeave={() => setServicesOpen(false)}
+          {/* <NavDropdown
+            label="Technologies"
+            open={dropdown === "industries"}
+            onOpen={() => setDropdown("industries")}
+            onClose={() => setDropdown(null)}
           >
-            <button
-              className={`${linkBase} ${underline} flex items-center gap-1`}
-            >
-              Services <ChevronDown size={14} />
-            </button>
+            <DropdownLink to="/tech/python">Python</DropdownLink>
+            <DropdownLink to="/tech/java">Java</DropdownLink>
+            <DropdownLink to="/tech/education">Education</DropdownLink>
+            <DropdownLink to="/tech">View More</DropdownLink>
+          </NavDropdown> */}
 
-            {servicesOpen && (
-              <Dropdown>
-                <DropdownItem
-                  icon={Code}
-                  text="Web Development"
-                  to="/services/web"
-                />
-                <DropdownItem
-                  icon={GraduationCap}
-                  text="IT Training"
-                  to="/services/training"
-                />
-                <DropdownItem
-                  icon={Briefcase}
-                  text="Consulting"
-                  to="/services/consulting"
-                />
-              </Dropdown>
-            )}
-          </div>
-
-          {/* Technologies */}
-          <div
-            className="relative"
-            onMouseEnter={() => setTechOpen(true)}
-            onMouseLeave={() => setTechOpen(false)}
-          >
-            <button
-              className={`${linkBase} ${underline} flex items-center gap-1`}
-            >
-              Technologies <ChevronDown size={14} />
-            </button>
-
-            {techOpen && (
-              <Dropdown>
-                <DropdownItem
-                  icon={Cpu}
-                  text="Frontend (React)"
-                  to="/tech/frontend"
-                />
-                <DropdownItem
-                  icon={Database}
-                  text="Data Analytics"
-                  to="/tech/data"
-                />
-                <DropdownItem
-                  icon={Cloud}
-                  text="Cloud & DevOps"
-                  to="/tech/cloud"
-                />
-              </Dropdown>
-            )}
-          </div>
-
-          <NavLink
-            to="/about"
-            className={({ isActive }) =>
-              `${linkBase} ${underline} ${isActive && activeLink}`
-            }
-          >
-            About
-          </NavLink>
-
-          <NavLink
-            to="/contact"
-            className="px-5 py-2 rounded-full bg-gradient-to-r from-sky-400 to-blue-500 text-white text-sm shadow hover:shadow-sky-400/40 transition"
-          >
-            Contact
-          </NavLink>
+          <NavItem to="/tech">Technologies</NavItem>
+          <NavItem to="/about">About</NavItem>
+          <NavItem to="/contact">Contact</NavItem>
         </nav>
+
+        {/* CTA */}
 
         {/* Mobile Button */}
         <button
-          className="md:hidden text-black"
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={() => setOpen(!open)}
+          className="lg:hidden text-slate-900"
         >
-          {isOpen ? <X /> : <Menu />}
+          {open ? <X /> : <Menu />}
         </button>
       </div>
 
       {/* Mobile Menu */}
-      <div
-        className={`md:hidden overflow-hidden transition-all duration-300
-        ${isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"}`}
-      >
-        <div className="bg-sky-950/90 backdrop-blur-xl border-t border-white/10 px-6 py-6 space-y-4 text-slate-200">
-          <MobileLink to="/" setIsOpen={setIsOpen}>
-            Home
-          </MobileLink>
-
-          <MobileSection title="Services">
-            <MobileSubLink to="/services/web">Web Development</MobileSubLink>
-            <MobileSubLink to="/services/training">IT Training</MobileSubLink>
-            <MobileSubLink to="/services/consulting">Consulting</MobileSubLink>
-          </MobileSection>
-
-          <MobileSection title="Technologies">
-            <MobileSubLink to="/tech/frontend">Frontend</MobileSubLink>
-            <MobileSubLink to="/tech/data">Data Analytics</MobileSubLink>
-            <MobileSubLink to="/tech/cloud">Cloud & DevOps</MobileSubLink>
-          </MobileSection>
-
-          <MobileLink to="/about" setIsOpen={setIsOpen}>
-            About
-          </MobileLink>
-
-          <MobileLink
-            to="/contact"
-            setIsOpen={setIsOpen}
-            className="block text-center bg-sky-500 text-white py-2 rounded-lg"
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="lg:hidden bg-white border-t border-slate-200"
           >
-            Contact
-          </MobileLink>
-        </div>
-      </div>
-    </header>
+            <div className="px-6 py-6 space-y-4 text-slate-800">
+              <MobileLink to="/" close={() => setOpen(false)}>
+                Home
+              </MobileLink>
+              <MobileLink to="/services" close={() => setOpen(false)}>
+                Services
+              </MobileLink>
+              <MobileLink to="/tech" close={() => setOpen(false)}>
+                Technologies
+              </MobileLink>
+              <MobileLink to="/about" close={() => setOpen(false)}>
+                About Us
+              </MobileLink>
+              <MobileLink to="/contact" close={() => setOpen(false)}>
+                Contact
+              </MobileLink>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.header>
   );
 }
 
-/* ---------- Helpers ---------- */
+/* ---------------- Helpers ---------------- */
 
-function Dropdown({ children }) {
-  return (
-    <div className="absolute top-10 left-0 w-64 rounded-xl bg-sky-950/80 backdrop-blur-xl border border-white/10 shadow-xl p-2 animate-fadeIn">
-      {children}
-    </div>
-  );
-}
-
-function DropdownItem({ icon, text, to }) {
+function NavItem({ to, children }) {
   return (
     <NavLink
       to={to}
-      className="flex items-center gap-3 px-4 py-2 rounded-lg text-sm text-slate-200 hover:bg-white/10 transition"
+      className={({ isActive }) =>
+        `relative text-sm font-medium transition-colors duration-200
+         ${isActive ? "text-slate-900" : "text-slate-600 hover:text-slate-900"}
+         after:absolute after:left-0 after:-bottom-1
+         after:h-[1px] after:bg-slate-700
+         after:transition-all after:duration-300
+         ${isActive ? "after:w-full" : "after:w-0 hover:after:w-full"}`
+      }
     >
-      {React.createElement(icon, {
-        size: 16,
-        className: "text-sky-300",
-      })}
-      {text}
+      {children}
     </NavLink>
   );
 }
 
-function MobileLink({ to, setIsOpen, children, className = "" }) {
+function NavDropdown({ label, open, onOpen, onClose, children }) {
+  return (
+    <div onMouseEnter={onOpen} onMouseLeave={onClose} className="relative">
+      <button
+        className="
+    relative text-sm font-medium text-slate-600
+    hover:text-slate-900 transition-colors duration-200
+    after:absolute after:left-0 after:-bottom-1
+    after:h-[1px] after:w-0 after:bg-slate-700
+    after:transition-all after:duration-300
+    hover:after:w-full
+    flex items-center gap-1
+  "
+      >
+        {label}
+        <ChevronDown size={14} />
+      </button>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 10 }}
+            transition={{ duration: 0.2 }}
+            className="absolute top-10 left-0 w-64 bg-white border border-slate-200 rounded-lg shadow-lg"
+          >
+            <div className="py-2">{children}</div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
+function DropdownLink({ to, children }) {
   return (
     <NavLink
       to={to}
-      onClick={() => setIsOpen(false)}
-      className={`block text-sm ${className}`}
+      className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 transition"
     >
       {children}
     </NavLink>
   );
 }
 
-function MobileSection({ title, children }) {
+function MobileLink({ to, children, close }) {
   return (
-    <div>
-      <p className="text-sky-400 text-xs uppercase mb-2 tracking-wider">
-        {title}
-      </p>
-      <div className="ml-3 space-y-2">{children}</div>
-    </div>
-  );
-}
-
-function MobileSubLink({ to, children }) {
-  return (
-    <NavLink to={to} className="block text-slate-300 text-sm">
+    <NavLink to={to} onClick={close} className="block text-sm font-medium">
       {children}
     </NavLink>
   );

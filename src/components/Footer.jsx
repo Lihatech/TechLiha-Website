@@ -52,7 +52,7 @@ export default function Footer() {
                 <Mail size={16} />
                 <a
                   href="mailto:info@liha.tech"
-                  className="hover:text-sky-400 transition"
+                  className="hover:text-gray-400 transition"
                 >
                   info@liha.tech
                 </a>
@@ -61,7 +61,7 @@ export default function Footer() {
                 <Phone size={16} />
                 <a
                   href="tel:+911234567890"
-                  className="hover:text-sky-400 transition"
+                  className="hover:text-gray-400 transition"
                 >
                   +91 12345 67890
                 </a>
@@ -121,7 +121,7 @@ function FooterLink({ to, children }) {
     <li>
       <NavLink
         to={to}
-        className="inline-block hover:text-sky-400 transition
+        className="inline-block hover:text-gray-400 transition
                    hover:translate-x-1 duration-200"
       >
         {children}

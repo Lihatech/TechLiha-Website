@@ -16,7 +16,6 @@ import {
 import { NavLink } from "react-router-dom";
 import icon2 from "../assets/hero-bg.jpg";
 
-
 import { useEffect, useRef, useState } from "react";
 
 /* ---------- Scroll Hook ---------- */
@@ -77,8 +76,8 @@ export default function Home() {
           </h1>
 
           <p className="text-slate-200 text-base sm:text-lg max-w-2xl mx-auto mb-8">
-            We help students grow with modern technology,
-            enterprise-grade solutions, and industry-focused training.
+            We help students grow with modern technology, enterprise-grade
+            solutions, and industry-focused training.
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -171,7 +170,7 @@ export default function Home() {
                 className="bg-white p-6 rounded-xl shadow transition-all duration-300
 hover:-translate-y-1 hover:shadow-xl flex flex-col"
               >
-                <IconComp className="text-sky-500 mb-4" size={28} />
+                <IconComp className="text-black-500 mb-4" size={28} />
 
                 <h3 className="font-semibold text-lg mb-2">{title}</h3>
 
@@ -191,50 +190,54 @@ hover:-translate-y-1 hover:shadow-xl flex flex-col"
 
       {/* WHY CHOOSE US */}
       <section
-  ref={whyRef}
-  className={`py-16 sm:py-20 bg-sky-950 text-white transition-all duration-700
+        ref={whyRef}
+        className={`py-16 sm:py-20 bg-sky-950 text-white transition-all duration-700
     ${whyVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
->
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-10 sm:mb-12">
-      Why Choose Liha Tech
-    </h2>
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-10 sm:mb-12">
+            Why Choose Liha Tech
+          </h2>
 
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 lg:gap-10">
-      {[
-        {
-          icon: Award,
-          title: "Enterprise Experience",
-          desc: "Proven track record delivering IT solutions to businesses across industries.",
-        },
-        {
-          icon: TrendingUp,
-          title: "Certified Professionals",
-          desc: "Our team consists of highly skilled and certified IT experts.",
-        },
-        {
-          icon: Lock,
-          title: "Secure & Scalable Systems",
-          desc: "Robust, secure, and scalable systems tailored for business growth.",
-        },
-        {
-          icon: Briefcase,
-          title: "Cost Effective Solutions",
-          desc: "Providing premium IT solutions that fit your budget.",
-        },
-      ].map(({ icon: Icon, title, desc }) => (
-        <div key={title} className="flex flex-col items-center text-center px-4 sm:px-2 lg:px-0">
-          <div className="bg-sky-700 rounded-full p-3 sm:p-4 mb-3 sm:mb-4">
-            <Icon size={28} className="sm:text-white" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 lg:gap-10">
+            {[
+              {
+                icon: Award,
+                title: "Enterprise Experience",
+                desc: "Proven track record delivering IT solutions to businesses across industries.",
+              },
+              {
+                icon: TrendingUp,
+                title: "Certified Professionals",
+                desc: "Our team consists of highly skilled and certified IT experts.",
+              },
+              {
+                icon: Lock,
+                title: "Secure & Scalable Systems",
+                desc: "Robust, secure, and scalable systems tailored for business growth.",
+              },
+              {
+                icon: Briefcase,
+                title: "Cost Effective Solutions",
+                desc: "Providing premium IT solutions that fit your budget.",
+              },
+            ].map(({ icon: Icon, title, desc }) => (
+              <div
+                key={title}
+                className="flex flex-col items-center text-center px-4 sm:px-2 lg:px-0"
+              >
+                <div className="bg-sky-700 rounded-full p-3 sm:p-4 mb-3 sm:mb-4">
+                  <Icon size={28} className="sm:text-white" />
+                </div>
+                <h3 className="font-semibold text-lg sm:text-xl md:text-lg mb-1 sm:mb-2">
+                  {title}
+                </h3>
+                <p className="text-slate-300 text-sm sm:text-base">{desc}</p>
+              </div>
+            ))}
           </div>
-          <h3 className="font-semibold text-lg sm:text-xl md:text-lg mb-1 sm:mb-2">{title}</h3>
-          <p className="text-slate-300 text-sm sm:text-base">{desc}</p>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
-
+      </section>
     </>
   );
 }
