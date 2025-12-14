@@ -11,7 +11,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <div className="mb-4">
               <img
-                src="/src/assets/icon.png"
+                src="../assets/icon.png"
                 alt="Liha Tech Logo"
                 className="h-12 object-contain"
               />

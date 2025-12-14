@@ -46,7 +46,7 @@ export default function Header() {
         {/* Logo only */}
         <div className="flex items-center">
           <img
-            src="/src/assets/icon.png"
+            src="../assets/icon.png"
             alt="Liha Tech"
             className="h-10 w-auto"
           />

@@ -49,7 +49,7 @@ export default function Home() {
       {/* HERO SECTION */}
       <section className="relative min-h-screen flex items-center justify-center">
         <img
-          src="/src/assets/hero-bg.jpg"
+          src="../assets/hero-bg.jpg"
           alt="IT Solutions"
           className="absolute inset-0 w-full h-full object-cover"
         />
