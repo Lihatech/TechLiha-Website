@@ -1,11 +1,13 @@
 import { Routes, Route, useLocation } from "react-router-dom";
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 
 import RouteLoader from "./components/RouteLoader";
 import PageTransition from "./components/PageTransition";
 import ScrollToTop from "./components/ScrollToTop";
 import MainLayout from "./layout/MainLayout";
+
+import AutoBreadcrumb from "./components/AutoBreadcrumb"; // optional if you use it inside pages
 
 // Service Details
 import BigDataServicePage from "./ServiceDetail/BigDataServDetail";
@@ -40,6 +42,40 @@ const Sap = lazy(() => import("./TechDetails/SapDetail"));
 export default function App() {
   const location = useLocation();
 
+  // Dynamic page titles
+  useEffect(() => {
+    const routeTitles = {
+      "/": "Home",
+      "/services": "Our Services",
+      "/contact": "Contact Us",
+      "/about": "About Us",
+      "/tech": "Technologies",
+
+      // Service Routes
+      "/services/web": "Web Development",
+      "/services/cloud-migration": "Cloud Migration & Development",
+      "/services/big-data": "Big Data Solutions",
+      "/services/ai-data-science": "AI & Data Science Development",
+      "/services/mobile": "Android App Development",
+      "/services/cyber-security": "Cyber Security Solutions",
+      "/services/aws": "AWS Development",
+      "/services/qa-testing": "QA & Testing Services",
+      "/services/enterprise-solutions": "Enterprise Solutions Development",
+      "/services/devops": "DevOps Services",
+
+      // Tech Routes
+      "/tech/python": "Python",
+      "/tech/java": "Java",
+      "/tech/big-data": "Big Data",
+      "/tech/php": "PHP",
+      "/tech/angular": "Angular",
+      "/tech/sap": "SAP",
+    };
+
+    const currentTitle = routeTitles[location.pathname] || "Page Not Found";
+    document.title = `${currentTitle} | LihaTech.com`;
+  }, [location]);
+
   return (
     <>
       <ScrollToTop />
@@ -48,6 +84,7 @@ export default function App() {
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
             <Route element={<MainLayout />}>
+              {/* Pages */}
               <Route
                 path="/"
                 element={
@@ -56,7 +93,6 @@ export default function App() {
                   </PageTransition>
                 }
               />
-
               <Route
                 path="/services"
                 element={
@@ -65,7 +101,6 @@ export default function App() {
                   </PageTransition>
                 }
               />
-
               <Route
                 path="/contact"
                 element={
@@ -74,7 +109,6 @@ export default function App() {
                   </PageTransition>
                 }
               />
-
               <Route
                 path="/about"
                 element={
@@ -83,7 +117,6 @@ export default function App() {
                   </PageTransition>
                 }
               />
-
               <Route
                 path="/tech"
                 element={
@@ -94,27 +127,146 @@ export default function App() {
               />
 
               {/* Service Routes */}
-              <Route path="/services/web" element={<PageTransition><Web /></PageTransition>} />
-              <Route path="/services/cloud-migration" element={<PageTransition><Cloud /></PageTransition>} />
-              <Route path="/services/big-data" element={<PageTransition><BigDataServicePage /></PageTransition>} />
-              <Route path="/services/ai-data-science" element={<PageTransition><AiDataSci /></PageTransition>} />
-              <Route path="/services/mobile" element={<PageTransition><Mobile /></PageTransition>} />
-              <Route path="/services/cyber-security" element={<PageTransition><CyberSecurityServicePage /></PageTransition>} />
-              <Route path="/services/aws" element={<PageTransition><AwsServiceDetail /></PageTransition>} />
-              <Route path="/services/qa-testing" element={<PageTransition><QaTestingServicePage /></PageTransition>} />
-              <Route path="/services/enterprise-solutions" element={<PageTransition><EnterpriseServicePage /></PageTransition>} />
-              <Route path="/services/devops" element={<PageTransition><DevOpsServicePage /></PageTransition>} />
+              <Route
+                path="/services/web"
+                element={
+                  <PageTransition>
+                    <Web />
+                  </PageTransition>
+                }
+              />
+              <Route
+                path="/services/cloud-migration"
+                element={
+                  <PageTransition>
+                    <Cloud />
+                  </PageTransition>
+                }
+              />
+              <Route
+                path="/services/big-data"
+                element={
+                  <PageTransition>
+                    <BigDataServicePage />
+                  </PageTransition>
+                }
+              />
+              <Route
+                path="/services/ai-data-science"
+                element={
+                  <PageTransition>
+                    <AiDataSci />
+                  </PageTransition>
+                }
+              />
+              <Route
+                path="/services/mobile"
+                element={
+                  <PageTransition>
+                    <Mobile />
+                  </PageTransition>
+                }
+              />
+              <Route
+                path="/services/cyber-security"
+                element={
+                  <PageTransition>
+                    <CyberSecurityServicePage />
+                  </PageTransition>
+                }
+              />
+              <Route
+                path="/services/aws"
+                element={
+                  <PageTransition>
+                    <AwsServiceDetail />
+                  </PageTransition>
+                }
+              />
+              <Route
+                path="/services/qa-testing"
+                element={
+                  <PageTransition>
+                    <QaTestingServicePage />
+                  </PageTransition>
+                }
+              />
+              <Route
+                path="/services/enterprise-solutions"
+                element={
+                  <PageTransition>
+                    <EnterpriseServicePage />
+                  </PageTransition>
+                }
+              />
+              <Route
+                path="/services/devops"
+                element={
+                  <PageTransition>
+                    <DevOpsServicePage />
+                  </PageTransition>
+                }
+              />
 
               {/* Tech Routes */}
-              <Route path="/tech/python" element={<PageTransition><Python /></PageTransition>} />
-              <Route path="/tech/java" element={<PageTransition><Java /></PageTransition>} />
-              <Route path="/tech/big-data" element={<PageTransition><Bdata /></PageTransition>} />
-              <Route path="/tech/php" element={<PageTransition><Php /></PageTransition>} />
-              <Route path="/tech/angular" element={<PageTransition><Angular /></PageTransition>} />
-              <Route path="/tech/sap" element={<PageTransition><Sap /></PageTransition>} />
+              <Route
+                path="/tech/python"
+                element={
+                  <PageTransition>
+                    <Python />
+                  </PageTransition>
+                }
+              />
+              <Route
+                path="/tech/java"
+                element={
+                  <PageTransition>
+                    <Java />
+                  </PageTransition>
+                }
+              />
+              <Route
+                path="/tech/big-data"
+                element={
+                  <PageTransition>
+                    <Bdata />
+                  </PageTransition>
+                }
+              />
+              <Route
+                path="/tech/php"
+                element={
+                  <PageTransition>
+                    <Php />
+                  </PageTransition>
+                }
+              />
+              <Route
+                path="/tech/angular"
+                element={
+                  <PageTransition>
+                    <Angular />
+                  </PageTransition>
+                }
+              />
+              <Route
+                path="/tech/sap"
+                element={
+                  <PageTransition>
+                    <Sap />
+                  </PageTransition>
+                }
+              />
 
               {/* 404 */}
-              <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
+              <Route
+                path="*"
+                element={
+                  <PageTransition>
+                    <NotFound />
+                  </PageTransition>
+                }
+              />
             </Route>
           </Routes>
         </AnimatePresence>
