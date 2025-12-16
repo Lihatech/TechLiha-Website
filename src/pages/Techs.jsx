@@ -1,12 +1,20 @@
 import { motion } from "framer-motion";
-import { Code2, Cpu, Layers, Server } from "lucide-react";
+import { SiPython, SiPhp, SiAngular, SiApachehadoop, SiSap } from "react-icons/si";
+import { FaJava } from "react-icons/fa"; 
+import { Link } from "react-router-dom";
 
 export default function Technologies() {
+  const cardAnimation = {
+    initial: { opacity: 0, y: 24 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true },
+    transition: { duration: 0.5 },
+  };
+
   return (
     <section className="relative bg-white text-black overflow-hidden">
-      {/* HERO BACKGROUND */}
+      {/* HERO */}
       <div className="relative">
-        {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -14,140 +22,95 @@ export default function Technologies() {
               "url('https://images.unsplash.com/photo-1518770660439-4636190af475')",
           }}
         />
-
-        {/* Overlay */}
         <div className="absolute inset-0 bg-black/60" />
 
-        {/* Hero Content */}
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="max-w-3xl"
-          >
-            <p className="text-xs sm:text-sm font-semibold tracking-widest uppercase text-white/80">
+        <div className="relative max-w-7xl mx-auto px-4 py-24">
+          <motion.div {...cardAnimation} className="max-w-3xl">
+            <p className="text-sm tracking-widest uppercase text-white/80">
               Technologies
             </p>
-
-            <h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-white">
-              Built on proven,{" "}
-              <span className="font-bold">enterprise-grade</span> foundations
+            <h1 className="mt-4 text-4xl md:text-5xl font-semibold text-white">
+              Built on <span className="font-bold">Enterprise-Grade</span>{" "}
+              Technologies
             </h1>
-
-            <p className="mt-4 text-white/80 text-sm sm:text-base md:text-lg leading-relaxed">
-              At Liha Tech, we focus on technologies that scale reliably, perform
-              consistently, and stand the test of time. Our stack is intentionally
-              focused on platforms trusted by global enterprises.
+            <p className="mt-4 text-white/80 text-lg">
+              At Liha Tech, we use proven technologies trusted by global
+              enterprises to build scalable, secure, and future-ready digital
+              solutions.
             </p>
           </motion.div>
         </div>
       </div>
 
-      {/* CONTENT BELOW HERO */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24">
-        {/* Technologies Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-          {/* Python */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="rounded-2xl border border-black/10 p-8"
-          >
-            <div className="flex items-center gap-4">
-              <Code2 className="w-8 h-8" />
-              <h2 className="text-2xl font-semibold">Python</h2>
-            </div>
-
-            <p className="mt-4 text-black/70 text-sm sm:text-base leading-relaxed">
-              Python is our go-to technology for building flexible, data-driven,
-              and intelligent systems that scale across industries.
-            </p>
-
-            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div className="flex gap-3">
-                <Cpu className="w-5 h-5" />
-                <p className="text-sm text-black/70">
-                  AI & Machine Learning systems
-                </p>
-              </div>
-              <div className="flex gap-3">
-                <Layers className="w-5 h-5" />
-                <p className="text-sm text-black/70">
-                  Enterprise web applications
-                </p>
-              </div>
-              <div className="flex gap-3">
-                <Server className="w-5 h-5" />
-                <p className="text-sm text-black/70">
-                  Cloud-native backends & APIs
-                </p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Java */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="rounded-2xl border border-black/10 p-8"
-          >
-            <div className="flex items-center gap-4">
-              <Layers className="w-8 h-8" />
-              <h2 className="text-2xl font-semibold">Java</h2>
-            </div>
-
-            <p className="mt-4 text-black/70 text-sm sm:text-base leading-relaxed">
-              Java powers mission-critical platforms where stability, security,
-              and long-term maintainability are essential.
-            </p>
-
-            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div className="flex gap-3">
-                <Server className="w-5 h-5" />
-                <p className="text-sm text-black/70">
-                  High-performance backend systems
-                </p>
-              </div>
-              <div className="flex gap-3">
-                <Layers className="w-5 h-5" />
-                <p className="text-sm text-black/70">
-                  Enterprise-grade architectures
-                </p>
-              </div>
-              <div className="flex gap-3">
-                <Cpu className="w-5 h-5" />
-                <p className="text-sm text-black/70">
-                  Secure and scalable APIs
-                </p>
-              </div>
-            </div>
-          </motion.div>
+      {/* TECHNOLOGIES */}
+      <div className="max-w-7xl mx-auto px-4 py-24">
+        <div className="grid gap-px bg-gray-200 md:grid-cols-2 lg:grid-cols-3">
+          <TechCard
+            title="Python Development"
+            description="Highly versatile and enterprise-ready Python solutions including web applications, cloud platforms, PWAs, and intelligent systems built with clean, scalable, and maintainable code."
+            icon={<SiPython className="w-10 h-10 text-yellow-500" />}
+            to="/tech/python"
+          />
+          <TechCard
+            title="Java Development"
+            description="Robust and secure Java web and software applications designed for long-term stability, enterprise scalability, and mission-critical business operations."
+            icon={<FaJava className="w-10 h-10 text-red-600" />}
+            to="/tech/java"
+          />
+          <TechCard
+            title="Big Data Analytics"
+            description="Transform massive volumes of structured and unstructured data into actionable insights through advanced analytics, dashboards, and intelligent reporting."
+            icon={<SiApachehadoop className="w-10 h-10 text-orange-500" />}
+            to="/tech/big-data"
+          />
+          <TechCard
+            title="PHP Development"
+            description="Secure and scalable PHP and LAMP-based solutions for dynamic websites, e-commerce platforms, portals, and content management systems."
+            icon={<SiPhp className="w-10 h-10 text-indigo-600" />}
+            to="/tech/php"
+          />
+          <TechCard
+            title="Angular Development"
+            description="High-performance, secure, and real-time single-page applications built using modern Angular frameworks and enterprise frontend best practices."
+            icon={<SiAngular className="w-10 h-10 text-red-500" />}
+            to="/tech/angular"
+          />
+          <TechCard
+            title="SAP Solutions"
+            description="End-to-end SAP consulting, implementation, and support services that enable intelligent ERP transformation and data-driven business operations."
+            icon={<SiSap className="w-10 h-10 text-blue-600" />}
+            to="/tech/sap"
+          />
         </div>
-
-        {/* Philosophy */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mt-20 max-w-3xl"
-        >
-          <p className="text-xs sm:text-sm font-semibold tracking-widest uppercase text-black">
-            Our Approach
-          </p>
-          <p className="mt-4 text-black/70 text-sm sm:text-base leading-relaxed">
-            We deliberately keep our technology stack focused. Mastery over
-            proven platforms allows us to deliver predictable outcomes,
-            stronger security, and long-term value.
-          </p>
-        </motion.div>
       </div>
     </section>
+  );
+}
+
+function TechCard({ title, description, icon, to }) {
+  return (
+    <Link to={to} className="block">
+      <motion.div
+        whileHover={{ y: -6 }}
+        transition={{ duration: 0.3 }}
+        className="group bg-white p-10 min-h-[320px] flex flex-col justify-between cursor-pointer
+                   transition-colors duration-300 hover:bg-gray-50
+                   focus-visible:ring-2 focus-visible:ring-emerald-500"
+      >
+        <div>
+          <div className="mb-6">{icon}</div>
+
+          <h3 className="text-2xl font-semibold mb-4">{title}</h3>
+
+          <p className="text-black/70 leading-relaxed">{description}</p>
+        </div>
+
+        <div className="flex justify-end mt-6">
+          <span className="text-xl text-emerald-500 transition-transform group-hover:translate-x-2">
+            →
+          </span>
+        </div>
+      </motion.div>
+    </Link>
   );
 }

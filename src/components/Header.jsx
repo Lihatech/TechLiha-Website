@@ -17,62 +17,70 @@ export default function Header() {
 
   return (
     <motion.header
-      initial={{ y: -30, opacity: 0 }}
+      initial={{ y: -50, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-white shadow-sm border-b border-slate-200" : "bg-white"
-      }`}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className={`
+        fixed top-0 inset-x-0 z-50 transition-all duration-300
+        ${
+          scrolled
+            ? "bg-white/80 backdrop-blur-md shadow-lg border-b border-white/20"
+            : "bg-white/30 backdrop-blur-md"
+        }
+      `}
     >
-      <div className="max-w-7xl mx-auto px-6 h-18 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
         {/* Logo */}
         <NavLink to="/" className="flex items-center gap-3">
-          <img src={logo} alt="Company Logo" className="h-9" />
+          <img src={logo} alt="Company Logo" className="h-9 sm:h-10" />
         </NavLink>
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-10">
-          <NavItem to="/">Home</NavItem>
+          <NavItem to="/" scrolled={scrolled}>
+            Home
+          </NavItem>
 
           <NavDropdown
             label="Services"
             open={dropdown === "solutions"}
             onOpen={() => setDropdown("solutions")}
             onClose={() => setDropdown(null)}
+            scrolled={scrolled}
           >
-            <DropdownLink to="/services/web">Web Developementt</DropdownLink>
-            {/* <DropdownLink to="/services/enterprise">
-              Enterprise Software
-            </DropdownLink> */}
-            <DropdownLink to="/services/cloud">Cloud Migration Development</DropdownLink>
+            <DropdownLink to="/services/web">Web Development</DropdownLink>
+            <DropdownLink to="/services/cloud-migration">
+              Cloud Migration Development
+            </DropdownLink>
+            <DropdownLink to="/services/aws">AWS Development</DropdownLink>
+            <DropdownLink to="/services/qa-testing">
+              QA & Testing Development
+            </DropdownLink>
+            <DropdownLink to="/services/enterprise-solutions">
+              Enterprise Solutions Development
+            </DropdownLink>
             <DropdownLink to="/services">View More</DropdownLink>
           </NavDropdown>
 
-          {/* <NavDropdown
-            label="Technologies"
-            open={dropdown === "industries"}
-            onOpen={() => setDropdown("industries")}
-            onClose={() => setDropdown(null)}
-          >
-            <DropdownLink to="/tech/python">Python</DropdownLink>
-            <DropdownLink to="/tech/java">Java</DropdownLink>
-            <DropdownLink to="/tech/education">Education</DropdownLink>
-            <DropdownLink to="/tech">View More</DropdownLink>
-          </NavDropdown> */}
-
-          <NavItem to="/tech">Technologies</NavItem>
-          <NavItem to="/about">About</NavItem>
-          <NavItem to="/contact">Contact</NavItem>
+          <NavItem to="/tech" scrolled={scrolled}>
+            Technologies
+          </NavItem>
+          <NavItem to="/about" scrolled={scrolled}>
+            About
+          </NavItem>
+          <NavItem to="/contact" scrolled={scrolled}>
+            Contact
+          </NavItem>
         </nav>
-
-        {/* CTA */}
 
         {/* Mobile Button */}
         <button
           onClick={() => setOpen(!open)}
-          className="lg:hidden text-slate-900"
+          className={`lg:hidden transition-colors duration-300 text-2xl ${
+            scrolled ? "text-slate-900" : "text-white"
+          }`}
         >
-          {open ? <X /> : <Menu />}
+          {open ? <X size={26} /> : <Menu size={26} />}
         </button>
       </div>
 
@@ -84,9 +92,9 @@ export default function Header() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden bg-white border-t border-slate-200"
+            className="lg:hidden bg-white/30 backdrop-blur-md border-t border-white/20"
           >
-            <div className="px-6 py-6 space-y-4 text-slate-800">
+            <div className="px-6 py-6 space-y-4 flex flex-col text-slate-800">
               <MobileLink to="/" close={() => setOpen(false)}>
                 Home
               </MobileLink>
@@ -112,16 +120,17 @@ export default function Header() {
 
 /* ---------------- Helpers ---------------- */
 
-function NavItem({ to, children }) {
+function NavItem({ to, children, scrolled }) {
   return (
     <NavLink
       to={to}
       className={({ isActive }) =>
-        `relative text-sm font-medium transition-colors duration-200
-         ${isActive ? "text-slate-900" : "text-slate-600 hover:text-slate-900"}
-         after:absolute after:left-0 after:-bottom-1
-         after:h-[1px] after:bg-slate-700
+        `relative text-sm sm:text-base font-medium transition-colors duration-300
+         ${scrolled ? "text-slate-900" : "text-white"}
+         ${isActive ? "font-semibold" : ""}
+         after:absolute after:left-0 after:-bottom-1 after:h-[1px]
          after:transition-all after:duration-300
+         ${scrolled ? "after:bg-slate-900" : "after:bg-white"}
          ${isActive ? "after:w-full" : "after:w-0 hover:after:w-full"}`
       }
     >
@@ -130,22 +139,28 @@ function NavItem({ to, children }) {
   );
 }
 
-function NavDropdown({ label, open, onOpen, onClose, children }) {
+function NavDropdown({ label, open, onOpen, onClose, children, scrolled }) {
   return (
     <div onMouseEnter={onOpen} onMouseLeave={onClose} className="relative">
       <button
-        className="
-    relative text-sm font-medium text-slate-600
-    hover:text-slate-900 transition-colors duration-200
-    after:absolute after:left-0 after:-bottom-1
-    after:h-[1px] after:w-0 after:bg-slate-700
-    after:transition-all after:duration-300
-    hover:after:w-full
-    flex items-center gap-1
-  "
+        className={`
+          relative text-sm sm:text-base font-medium transition-colors duration-300
+          flex items-center gap-1
+          ${scrolled ? "text-slate-900" : "text-white"}
+          after:absolute after:left-0 after:-bottom-1 after:h-[1px]
+          after:transition-all after:duration-300
+          ${scrolled ? "after:bg-slate-900" : "after:bg-white"}
+          hover:after:w-full
+        `}
       >
         {label}
-        <ChevronDown size={14} />
+        <motion.span
+          animate={{ rotate: open ? 180 : 0 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          className="flex items-center"
+        >
+          <ChevronDown size={14} />
+        </motion.span>
       </button>
 
       <AnimatePresence>
@@ -155,9 +170,9 @@ function NavDropdown({ label, open, onOpen, onClose, children }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
             transition={{ duration: 0.2 }}
-            className="absolute top-10 left-0 w-64 bg-white border border-slate-200 rounded-lg shadow-lg"
+            className="absolute top-10 left-0 w-64 sm:w-72 bg-white/90 backdrop-blur-md border border-slate-200 rounded-lg shadow-lg z-50"
           >
-            <div className="py-2">{children}</div>
+            <div className="py-2 flex flex-col">{children}</div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -169,7 +184,7 @@ function DropdownLink({ to, children }) {
   return (
     <NavLink
       to={to}
-      className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 transition"
+      className="block px-4 py-2 text-sm sm:text-base text-slate-700 hover:bg-slate-100 transition rounded-md"
     >
       {children}
     </NavLink>
@@ -178,7 +193,11 @@ function DropdownLink({ to, children }) {
 
 function MobileLink({ to, children, close }) {
   return (
-    <NavLink to={to} onClick={close} className="block text-sm font-medium">
+    <NavLink
+      to={to}
+      onClick={close}
+      className="block text-base font-medium px-4 py-2 rounded-md hover:bg-white/20 transition-colors"
+    >
       {children}
     </NavLink>
   );

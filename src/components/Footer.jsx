@@ -5,7 +5,7 @@ import icon2 from "../assets/icon.png";
 
 export default function Footer() {
   return (
-    <footer className="bg-sky-50 text-slate-800">
+    <footer className="bg-stone-50 text-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         {/* GRID */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
@@ -30,17 +30,30 @@ export default function Footer() {
           <div>
             <h4 className="text-slate-900 font-semibold mb-4">Services</h4>
             <ul className="space-y-2 text-sm">
-              <FooterLink to="/services/ai-ml">
-                AI & Machine Learning
+              <FooterLink to="/services/ai-data-science">
+                AI & Data Science Development
               </FooterLink>
               <FooterLink to="/services/big-data">
                 Big Data Solutions
               </FooterLink>
               <FooterLink to="/services/web">Web Development</FooterLink>
               <FooterLink to="/services/mobile">
-                Mobile App Development
+                Android App Development
               </FooterLink>
-              <FooterLink to="/services/cloud">Cloud & DevOps</FooterLink>
+              <FooterLink to="/services/cloud-migration">
+                Cloud Migration & Development
+              </FooterLink>
+              <FooterLink to="/services/aws">AWS Development</FooterLink>
+              <FooterLink to="/services/qa-testing">
+                QA & Testing Services
+              </FooterLink>
+              <FooterLink to="/services/enterprise-solutions">
+                Enterprise Solutions Development
+              </FooterLink>
+              <FooterLink to="/services/cyber-security">
+                Cyber Security Solutions
+              </FooterLink>
+              <FooterLink to="/services/devops">DevOps Services</FooterLink>
             </ul>
           </div>
 

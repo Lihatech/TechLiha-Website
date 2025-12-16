@@ -1,4 +1,5 @@
-import { Typewriter } from "react-simple-typewriter";
+import { NavLink } from "react-router-dom";
+import { motion } from "framer-motion";
 import {
   Brain,
   Database,
@@ -6,238 +7,279 @@ import {
   Smartphone,
   Cloud,
   ShieldCheck,
-  Bug,
-  Briefcase,
-  Cpu,
   Award,
   Lock,
   TrendingUp,
+  Briefcase,
 } from "lucide-react";
-import { NavLink } from "react-router-dom";
-import icon2 from "../assets/hero-bg.jpg";
 
-import { useEffect, useRef, useState } from "react";
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0 },
+};
 
-/* ---------- Scroll Hook ---------- */
-function useInView() {
-  const ref = useRef(null);
-  const [show, setShow] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setShow(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.15 }
-    );
-
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
-
-  return [ref, show];
-}
+const stagger = {
+  visible: { transition: { staggerChildren: 0.12 } },
+};
 
 export default function Home() {
-  const [servicesRef, servicesVisible] = useInView();
-  const [whyRef, whyVisible] = useInView();
-
   return (
     <>
-      {/* HERO SECTION */}
-      <section className="relative min-h-screen flex items-center justify-center">
+      {/* ================= HERO ================= */}
+      <section className="relative min-h-screen flex items-center bg-gradient-to-b from-black via-zinc-900/90 to-zinc-800/80">
         <img
-          src={icon2}
-          alt="IT Solutions"
+          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1950&q=80"
+          alt="LIHA Tech"
           className="absolute inset-0 w-full h-full object-cover"
         />
+        {/* Black gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80" />
 
-        <div className="absolute inset-0 bg-sky-950/70 backdrop-blur-sm"></div>
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={fadeUp}
+          transition={{ duration: 0.9, ease: "easeOut" }}
+          className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        >
+          <div className="max-w-3xl mx-auto text-center sm:text-left">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-snug">
+              Building Scalable
+              <span className="block text-zinc-400 font-light mt-2">
+                Digital Solutions
+              </span>
+            </h1>
 
-        <div className="relative z-10 text-center px-6 max-w-4xl">
-          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-            <Typewriter
-              words={[
-                "Enterprise IT Solutions",
-                "AI & Data Science Services",
-                "Professional IT Training",
-                "Digital Transformation Experts",
-              ]}
-              loop
-              cursor
-              cursorStyle="|"
-              typeSpeed={60}
-              deleteSpeed={40}
-              delaySpeed={1500}
-            />
-          </h1>
+            <p className="mt-6 text-zinc-300 text-base sm:text-lg md:text-xl">
+              LIHA Tech delivers enterprise-grade software, AI-driven systems,
+              and cloud solutions for modern businesses.
+            </p>
 
-          <p className="text-slate-200 text-base sm:text-lg max-w-2xl mx-auto mb-8">
-            We help students grow with modern technology, enterprise-grade
-            solutions, and industry-focused training.
-          </p>
+            <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center sm:justify-start">
+              <NavLink
+                to="/services"
+                className="px-6 sm:px-7 py-3.5 bg-white text-black rounded-full font-medium hover:bg-zinc-200 transition"
+              >
+                View Services
+              </NavLink>
 
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <NavLink
-              to="/services"
-              className="px-6 py-3 bg-sky-500 text-white rounded-full hover:bg-sky-600 transition"
-            >
-              Explore Services
-            </NavLink>
-
-            <NavLink
-              to="/contact"
-              className="px-6 py-3 border border-white/30 text-white rounded-full hover:bg-white/10 transition"
-            >
-              Get Consultation
-            </NavLink>
+              <NavLink
+                to="/contact"
+                className="px-6 sm:px-7 py-3.5 border border-white/30 text-white rounded-full hover:bg-white/10 transition"
+              >
+                Get Consultation
+              </NavLink>
+            </div>
           </div>
+        </motion.div>
+      </section>
+
+      {/* ================= TRUST STRIP ================= */}
+      <section className="py-8 sm:py-10 bg-gradient-to-r from-zinc-950 via-zinc-900 to-zinc-950 border-t border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 sm:gap-6 text-center text-zinc-400 text-xs sm:text-sm">
+          <span>FinTech</span>
+          <span>Healthcare</span>
+          <span>EdTech</span>
+          <span>SaaS</span>
+          <span>E-Commerce</span>
+          <span>Enterprises</span>
         </div>
       </section>
 
-      {/* SERVICES */}
-      <section
-        ref={servicesRef}
-        className={`py-20 bg-slate-50 transition-all duration-700
-  ${
-    servicesVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-  }`}
-      >
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12">Our Services</h2>
+      {/* ================= SERVICES ================= */}
+      <section className="py-16 sm:py-20 bg-gradient-to-b from-zinc-900 via-zinc-800 to-zinc-900 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.h2
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            className="text-2xl sm:text-3xl md:text-4xl font-semibold text-center mb-12 sm:mb-14"
+          >
+            Our Core Services
+          </motion.h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8"
+          >
             {[
               {
                 icon: Brain,
-                title: "AI & Machine Learning",
-                desc: "Custom AI and machine learning solutions that transform raw data into intelligent insights and predictive models for real business challenges.",
-                link: "/services/ai-ml",
+                title: "AI & Data Science",
+                desc: "Intelligent systems that automate and optimize decision-making.",
+                link: "/services/ai-data-science",
+                color: "text-indigo-400",
               },
               {
                 icon: Database,
                 title: "Big Data Solutions",
-                desc: "End-to-end big data engineering, analytics, and visualization solutions to uncover patterns, trends, and actionable intelligence.",
+                desc: "Scalable platforms to process and analyze massive datasets.",
                 link: "/services/big-data",
+                color: "text-green-400",
               },
               {
                 icon: Globe,
                 title: "Web Development",
-                desc: "High-performance, scalable, and secure web applications designed to reflect your brand and drive business growth.",
+                desc: "Secure and high-performance enterprise web applications.",
                 link: "/services/web",
+                color: "text-blue-400",
               },
               {
                 icon: Smartphone,
-                title: "Mobile App Development",
-                desc: "Robust Android and cross-platform mobile applications with optimized performance, UX, and faster time-to-market.",
+                title: "Mobile Development",
+                desc: "Enterprise-grade Android apps built for scale.",
                 link: "/services/mobile",
+                color: "text-purple-400",
               },
               {
                 icon: Cloud,
-                title: "Cloud & AWS",
-                desc: "Cloud migration, AWS development, and cost-optimized infrastructure that scales with your business needs.",
-                link: "/services/cloud",
-              },
-              {
-                icon: Cpu,
-                title: "DevOps Services",
-                desc: "CI/CD pipelines, automation, monitoring, and DevSecOps practices to improve deployment speed and system reliability.",
-                link: "/services/devops",
+                title: "Cloud & DevOps",
+                desc: "Cloud migration, CI/CD automation, and DevOps excellence.",
+                link: "/services/cloud-migration",
+                color: "text-cyan-400",
               },
               {
                 icon: ShieldCheck,
                 title: "Cyber Security",
-                desc: "Advanced security solutions protecting your systems from data breaches, malware, phishing, and cyber threats.",
+                desc: "Advanced security solutions protecting critical systems.",
                 link: "/services/cyber-security",
+                color: "text-red-400",
               },
-              {
-                icon: Bug,
-                title: "QA & Testing",
-                desc: "Comprehensive software testing services ensuring performance, reliability, usability, and compliance.",
-                link: "/services/testing",
-              },
-              {
-                icon: Briefcase,
-                title: "Enterprise Solutions",
-                desc: "Custom enterprise-grade software solutions built to support large-scale operations and complex business workflows.",
-                link: "/services/enterprise",
-              },
-            ].map(({ icon: IconComp, title, desc, link }) => (
-              <div
+            ].map(({ icon: Icon, title, desc, link, color }) => (
+              <motion.div
                 key={title}
-                className="bg-white p-6 rounded-xl shadow transition-all duration-300
-hover:-translate-y-1 hover:shadow-xl flex flex-col"
+                variants={fadeUp}
+                className="bg-zinc-900/80 border border-white/10 rounded-2xl p-5 sm:p-6 hover:shadow-2xl transition"
               >
-                <IconComp className="text-black-500 mb-4" size={28} />
-
-                <h3 className="font-semibold text-lg mb-2">{title}</h3>
-
-                <p className="text-slate-600 text-sm flex-grow">{desc}</p>
+                <Icon className={`${color} mb-3 sm:mb-4`} size={28} />
+                <h3 className="font-medium text-lg sm:text-xl mb-1 sm:mb-2">
+                  {title}
+                </h3>
+                <p className="text-zinc-400 text-sm sm:text-base">{desc}</p>
 
                 <NavLink
                   to={link}
-                  className="mt-4 text-sky-500 text-sm font-medium hover:underline"
+                  className="inline-block mt-3 sm:mt-4 text-sm sm:text-base text-white font-medium hover:underline"
                 >
                   Learn More →
                 </NavLink>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* WHY CHOOSE US */}
-      <section
-        ref={whyRef}
-        className={`py-16 sm:py-20 bg-sky-950 text-white transition-all duration-700
-    ${whyVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
-      >
+      {/* ================= WHY CHOOSE US ================= */}
+      <section className="py-16 sm:py-20 bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-10 sm:mb-12">
-            Why Choose Liha Tech
-          </h2>
+          <motion.h2
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-12 sm:mb-14"
+          >
+            Why LIHA Tech
+          </motion.h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 lg:gap-10">
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-10"
+          >
             {[
               {
                 icon: Award,
                 title: "Enterprise Experience",
-                desc: "Proven track record delivering IT solutions to businesses across industries.",
+                desc: "Proven delivery of complex IT systems.",
+                color: "text-yellow-400",
               },
               {
                 icon: TrendingUp,
-                title: "Certified Professionals",
-                desc: "Our team consists of highly skilled and certified IT experts.",
+                title: "Certified Engineers",
+                desc: "Highly skilled and certified professionals.",
+                color: "text-green-400",
               },
               {
                 icon: Lock,
-                title: "Secure & Scalable Systems",
-                desc: "Robust, secure, and scalable systems tailored for business growth.",
+                title: "Security First",
+                desc: "Robust, secure, scalable architectures.",
+                color: "text-red-400",
               },
               {
                 icon: Briefcase,
-                title: "Cost Effective Solutions",
-                desc: "Providing premium IT solutions that fit your budget.",
+                title: "Cost Effective",
+                desc: "Enterprise quality without enterprise cost.",
+                color: "text-blue-400",
               },
-            ].map(({ icon: Icon, title, desc }) => (
-              <div
-                key={title}
-                className="flex flex-col items-center text-center px-4 sm:px-2 lg:px-0"
-              >
-                <div className="bg-sky-700 rounded-full p-3 sm:p-4 mb-3 sm:mb-4">
-                  <Icon size={28} className="sm:text-white" />
+            ].map(({ icon: Icon, title, desc, color }) => (
+              <motion.div key={title} variants={fadeUp}>
+                <div
+                  className={`inline-flex p-4 sm:p-5 bg-zinc-800 rounded-full mb-3 sm:mb-4 ${color}`}
+                >
+                  <Icon size={28} />
                 </div>
-                <h3 className="font-semibold text-lg sm:text-xl md:text-lg mb-1 sm:mb-2">
-                  {title}
-                </h3>
-                <p className="text-slate-300 text-sm sm:text-base">{desc}</p>
-              </div>
+                <h3 className="font-medium text-lg sm:text-xl">{title}</h3>
+                <p className="text-zinc-400 text-sm sm:text-base mt-1 sm:mt-2">
+                  {desc}
+                </p>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
+      </section>
+
+      {/* ================= STATS ================= */}
+      <section className="py-12 sm:py-16 bg-gradient-to-r from-black via-zinc-900 to-black text-white border-t border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8 text-center">
+          {[
+            ["50+", "Projects Delivered"],
+            ["10+", "Technologies"],
+            ["5+", "Years Experience"],
+            ["24×7", "Support"],
+          ].map(([num, label]) => (
+            <motion.div
+              key={label}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-white">
+                {num}
+              </h3>
+              <p className="text-zinc-400 text-sm sm:text-base mt-1">{label}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* ================= CTA ================= */}
+      <section className="py-16 sm:py-20 bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950 text-white text-center px-4 sm:px-6 lg:px-8">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-4 sm:mb-6"
+        >
+          Ready to Build Your Next Product?
+        </motion.h2>
+
+        <p className="text-zinc-400 mb-6 sm:mb-8 text-sm sm:text-base">
+          Let’s discuss your requirements and create something scalable.
+        </p>
+
+        <NavLink
+          to="/contact"
+          className="inline-block px-6 sm:px-8 py-3.5 sm:py-4 bg-white text-black rounded-full font-semibold hover:bg-zinc-200 transition"
+        >
+          Get Free Consultation
+        </NavLink>
       </section>
     </>
   );

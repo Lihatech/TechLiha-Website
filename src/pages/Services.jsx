@@ -1,15 +1,93 @@
+// src/pages/ServicesPage.jsx
 import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
 import { ArrowRight, Code2, Cloud } from "lucide-react";
 
+import { FaAndroid, FaShieldAlt } from "react-icons/fa";
+import { SiReact, SiPython, SiApachehadoop } from "react-icons/si";
+import { CheckCircle } from "lucide-react";
+import AWSIcon from "react-aws-icons/dist/aws/logo/AWS";
+
 const MotionLink = motion(NavLink);
+
+const services = [
+  {
+    to: "/services/ai-data-science",
+    title: "AI & Data Science Development",
+    desc: "End-to-end AI and machine learning solutions including predictive systems, preventative algorithms, and industry-specific intelligence built on enterprise data.",
+    icon: <SiPython size={24} />,
+    color: "text-yellow-500",
+  },
+  {
+    to: "/services/big-data",
+    title: "Big Data Solutions",
+    desc: "Scalable big data platforms for processing large, messy, and unstructured datasets using modern cloud and cluster computing technologies.",
+    icon: <SiApachehadoop size={24} />,
+    color: "text-orange-600",
+  },
+  {
+    to: "/services/web",
+    title: "Web Development",
+    desc: "Comprehensive web development services covering design, development, testing, and deployment using modern frameworks and enterprise architectures.",
+    icon: <SiReact size={24} />,
+    color: "text-blue-500",
+  },
+  {
+    to: "/services/mobile",
+    title: "Android App Development",
+    desc: "Enterprise-grade Android applications built with reusable modules, faster delivery cycles, and secure, scalable mobile architectures.",
+    icon: <FaAndroid size={24} />,
+    color: "text-green-500",
+  },
+  {
+    to: "/services/cloud-migration",
+    title: "Cloud Migration & Development",
+    desc: "Migration of legacy systems to modern cloud infrastructures with infrastructure-as-code, automation, and reduced operational costs.",
+    icon: <Cloud size={24} />,
+    color: "text-sky-500",
+  },
+  {
+    to: "/services/aws",
+    title: "AWS Development",
+    desc: "Cloud solutions built on Amazon Web Services including computing, storage, databases, analytics, and scalable application deployment.",
+    icon: <AWSIcon size={24} />,
+    color: "text-orange-600",
+  },
+  {
+    to: "/services/qa-testing",
+    title: "QA & Testing Services",
+    desc: "Quality assurance and testing services designed to reduce development cost, speed up delivery, and improve software reliability and performance.",
+    icon: <CheckCircle size={24} />,
+    color: "text-indigo-500",
+  },
+  {
+    to: "/services/enterprise-solutions",
+    title: "Enterprise Solutions Development",
+    desc: "Strategic enterprise solutions that align business objectives with modern technologies through process automation and system integration.",
+    icon: <Code2 size={24} />,
+    color: "text-purple-500",
+  },
+  {
+    to: "/services/cyber-security",
+    title: "Cyber Security Solutions",
+    desc: "Enterprise-grade protection against malware, ransomware, phishing, DDoS attacks, and security vulnerabilities across systems.",
+    icon: <FaShieldAlt size={24} />,
+    color: "text-rose-500",
+  },
+  {
+    to: "/services/devops",
+    title: "DevOps Services",
+    desc: "DevOps practices that integrate security early, automate infrastructure, support cloud-native development, and improve deployment reliability.",
+    icon: <Cloud size={24} />,
+    color: "text-teal-500",
+  },
+];
 
 export default function ServicesPage() {
   return (
     <>
       {/* ===== Small Hero Background Section ===== */}
       <section className="relative pt-28 sm:pt-32 lg:pt-36 pb-16 sm:pb-20 lg:pb-24">
-        {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -17,11 +95,7 @@ export default function ServicesPage() {
               "url('https://images.unsplash.com/photo-1526378722484-bd91ca387e72?auto=format&fit=crop&w=1920&q=80')",
           }}
         />
-
-        {/* Overlay */}
         <div className="absolute inset-0 bg-slate-900/75" />
-
-        {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -32,14 +106,12 @@ export default function ServicesPage() {
             <p className="text-[11px] sm:text-xs font-semibold text-slate-300 uppercase tracking-[0.25em]">
               Our Services
             </p>
-
             <h1 className="mt-3 sm:mt-4 text-2xl sm:text-3xl md:text-4xl font-semibold text-white leading-tight">
               Enterprise Technology Solutions
               <span className="block text-slate-300 mt-1">
                 Built for Scale, Security & Performance
               </span>
             </h1>
-
             <p className="mt-4 sm:mt-6 text-sm sm:text-base text-slate-300 leading-relaxed max-w-full sm:max-w-2xl">
               We help organizations design, modernize, and operate
               mission-critical digital systems with reliability and long-term
@@ -50,97 +122,60 @@ export default function ServicesPage() {
       </section>
 
       {/* ===== Services Section ===== */}
-      <section className="bg-slate-50 pt-16 sm:pt-20 lg:pt-24 pb-16 sm:pb-20 lg:pb-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12">
-          {/* ================= Service 1 ================= */}
-          <MotionLink
-            to="/services/web"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
-            className="
-              group block
-              bg-white border border-slate-200 rounded-xl
-              p-6 sm:p-8 lg:p-10
-              cursor-pointer
-              transition-all
-              hover:shadow-xl
-              focus-visible:outline-none
-              focus-visible:ring-2
-              focus-visible:ring-slate-900
-            "
-          >
-            <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-5 sm:mb-6">
-              <div className="p-3 rounded-md bg-slate-900 text-white w-fit">
-                <Code2 size={20} />
-              </div>
-              <h3 className="text-lg sm:text-xl font-semibold text-slate-900">
-                Enterprise Web Development
-              </h3>
-            </div>
+      <section className="bg-white py-16 sm:py-20 lg:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border border-slate-200">
+            {services.map((item, i) => (
+              <MotionLink
+                key={i}
+                to={item.to}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.35 }}
+                className={`
+                  group relative
+                  p-6 sm:p-8 lg:p-10
+                  border-b border-slate-200
+                  sm:border-r
+                  lg:[&:nth-child(3n)]:border-r-0
+                  sm:[&:nth-child(2n)]:border-r-0
+                  lg:[&:nth-child(2n)]:border-r
+                  hover:bg-slate-50
+                  transition-colors
+                  focus:outline-none
+                `}
+              >
+                {/* Icon */}
+                <div className={`mb-5 ${item.color} group-hover:${item.color}`}>
+                  {item.icon}
+                </div>
 
-            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-              We engineer robust web platforms that support complex business
-              workflows, high traffic, and strict security requirements.
-              Designed for reliability and long-term maintainability.
-            </p>
+                {/* Title */}
+                <h3 className="text-lg sm:text-xl font-semibold text-slate-900">
+                  {item.title}
+                </h3>
 
-            <ul className="mt-5 sm:mt-6 space-y-2 text-sm text-slate-600">
-              <li>• Modular and scalable architecture</li>
-              <li>• Security, compliance, and performance optimization</li>
-              <li>• Integration with enterprise systems</li>
-            </ul>
+                {/* Description */}
+                <p className="mt-3 sm:mt-4 text-sm text-slate-600 leading-relaxed max-w-none sm:max-w-sm">
+                  {item.desc}
+                </p>
 
-            <div className="mt-6 sm:mt-8 flex items-center gap-2 text-sm font-medium text-slate-900 group-hover:gap-3 transition-all">
-              Learn more <ArrowRight size={16} />
-            </div>
-          </MotionLink>
-
-          {/* ================= Service 2 ================= */}
-          <MotionLink
-            to="/services/cloud"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: 0.05 }}
-            className="
-              group block
-              bg-white border border-slate-200 rounded-xl
-              p-6 sm:p-8 lg:p-10
-              cursor-pointer
-              transition-all
-              hover:shadow-xl
-              focus-visible:outline-none
-              focus-visible:ring-2
-              focus-visible:ring-slate-900
-            "
-          >
-            <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-5 sm:mb-6">
-              <div className="p-3 rounded-md bg-slate-900 text-white w-fit">
-                <Cloud size={20} />
-              </div>
-              <h3 className="text-lg sm:text-xl font-semibold text-slate-900">
-                Cloud & Infrastructure Solutions
-              </h3>
-            </div>
-
-            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-              We modernize enterprise infrastructure through secure cloud
-              migration, automation, and operational optimization to support
-              business continuity and growth.
-            </p>
-
-            <ul className="mt-5 sm:mt-6 space-y-2 text-sm text-slate-600">
-              <li>• Cloud migration and modernization</li>
-              <li>• DevOps automation and CI/CD pipelines</li>
-              <li>• Monitoring, cost optimization, and reliability</li>
-            </ul>
-
-            <div className="mt-6 sm:mt-8 flex items-center gap-2 text-sm font-medium text-slate-900 group-hover:gap-3 transition-all">
-              Learn more <ArrowRight size={16} />
-            </div>
-          </MotionLink>
+                {/* Arrow */}
+                <div
+                  className={`
+                    mt-6 sm:absolute sm:bottom-8 sm:right-8
+                    inline-flex items-center gap-2
+                    text-sm font-medium transition-colors
+                    group-hover:${item.color}
+                  `}
+                >
+                  <span className="sm:hidden">Explore</span>
+                  <ArrowRight size={16} />
+                </div>
+              </MotionLink>
+            ))}
+          </div>
         </div>
       </section>
     </>

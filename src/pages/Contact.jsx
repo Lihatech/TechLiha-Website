@@ -1,138 +1,101 @@
 import { motion } from "framer-motion";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  ShieldCheck,
-  Clock,
-  ArrowRight,
-  Building2,
-} from "lucide-react";
+import { Mail, Phone, MapPin, Clock, Building2 } from "lucide-react";
 
-export default function ContactEnterprise() {
+export default function ContactPage() {
   return (
-    <section className="relative bg-white text-slate-900">
-      {/* subtle background */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(15,23,42,0.04),transparent)]" />
+    <section className="bg-black text-white overflow-hidden">
+      {/* ================= HERO ================= */}+{" "}
+      <div className="relative h-[70vh] sm:h-[75vh] lg:h-[80vh] flex items-center pt-20">
+        {" "}
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage:
+              "url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1920&q=80')",
+          }}
+        />
+        {/* Overlay */}
+<div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/60 to-black" />
+        {/* Content */}
+        <div className="relative z-10 w-full">
+          <div className="max-w-7xl mx-auto px-5 sm:px-6 py-24 sm:py-32">
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold max-w-3xl leading-tight"
+            >
+              Let’s Talk About Your
+              <span className="block text-zinc-400 font-light mt-2 sm:mt-3">
+                Next Digital Solution
+              </span>
+            </motion.h1>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-20 sm:pb-24">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="max-w-3xl"
-        >
-          <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-4 py-1 text-xs font-medium text-slate-600">
-            <ShieldCheck className="w-4 h-4 text-indigo-600" />
-            Enterprise Contact
-          </span>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+              className="mt-5 sm:mt-6 max-w-xl sm:max-w-2xl text-zinc-300 text-sm sm:text-base md:text-lg"
+            >
+              Connect with LIHA Tech for scalable software solutions, enterprise
+              systems, and digital transformation services.
+            </motion.p>
+          </div>
+        </div>
+      </div>
+      {/* ================= CONTACT INFO CARDS ================= */}
+      <div className="relative -mt-12 sm:-mt-16 pb-24 sm:pb-28">
 
-          <h1 className="mt-6 text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight">
-            Let’s discuss your <span className="text-indigo-600">next project</span>
-          </h1>
-          <p className="mt-4 text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed">
-            Connect with our team for enterprise solutions, partnerships, or
-            large-scale product development. We typically respond within one
-            business day.
-          </p>
-        </motion.div>
-
-        {/* Main Grid */}
-        <div className="mt-14 sm:mt-16 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14">
-          {/* Form */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm"
-          >
-            <h2 className="text-xl sm:text-2xl font-semibold">Contact Sales</h2>
-            <p className="mt-2 text-sm sm:text-base text-slate-600">
-              Share your requirements and timelines.
-            </p>
-
-            <form className="mt-8 space-y-5">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <input
-                  placeholder="Full name"
-                  className="h-12 rounded-lg border border-slate-300 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-600"
-                />
-                <input
-                  placeholder="Work email"
-                  type="email"
-                  className="h-12 rounded-lg border border-slate-300 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-600"
-                />
-              </div>
-
-              <input
-                placeholder="Company / Organization"
-                className="h-12 w-full rounded-lg border border-slate-300 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-600"
-              />
-
-              <textarea
-                rows={5}
-                placeholder="Describe your project or inquiry"
-                className="w-full rounded-lg border border-slate-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-600"
-              />
-
-              <button
-                type="submit"
-                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg bg-indigo-600 px-6 py-3 text-sm font-medium text-white hover:bg-indigo-500 transition"
-              >
-                Submit Request
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </form>
-          </motion.div>
-
-          {/* Info Panel */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8 flex flex-col justify-between"
-          >
-            <div className="space-y-6">
-              <h3 className="text-xl sm:text-2xl font-semibold flex items-center gap-2">
-                <Building2 className="w-5 h-5 text-indigo-600" />
-                Corporate Office
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+          {[
+            {
+              icon: Building2,
+              title: "Company",
+              value: "LIHA Tech Solutions Pvt. Ltd.",
+            },
+            {
+              icon: MapPin,
+              title: "Office",
+              value: "Bengaluru, Karnataka, India",
+            },
+            {
+              icon: Phone,
+              title: "Phone",
+              value: "+91 98765 43210",
+            },
+            {
+              icon: Mail,
+              title: "Email",
+              value: "contact@lihatech.com",
+            },
+          ].map(({ icon: Icon, title, value }, index) => (
+            <motion.div
+              key={title}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="bg-zinc-900/90 backdrop-blur-xl border border-white/10 rounded-2xl p-5 sm:p-6 shadow-xl"
+            >
+              <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-zinc-300 mb-3 sm:mb-4" />
+              <h3 className="text-xs sm:text-sm text-zinc-400 uppercase tracking-wide">
+                {title}
               </h3>
-
-              <div className="flex gap-4">
-                <MapPin className="w-5 h-5 text-indigo-600 mt-1" />
-                <p className="text-sm sm:text-base text-slate-600">
-                  123 Innovation Park,<br /> Bengaluru, India
-                </p>
-              </div>
-
-              <div className="flex gap-4">
-                <Phone className="w-5 h-5 text-indigo-600 mt-1" />
-                <p className="text-sm sm:text-base text-slate-600">
-                  +91 98765 43210
-                </p>
-              </div>
-
-              <div className="flex gap-4">
-                <Mail className="w-5 h-5 text-indigo-600 mt-1" />
-                <p className="text-sm sm:text-base text-slate-600">
-                  enterprise@yourcompany.com
-                </p>
-              </div>
-            </div>
-
-            <div className="mt-10 border-t border-slate-200 pt-6">
-              <div className="flex items-center gap-3 text-sm sm:text-base text-slate-600">
-                <Clock className="w-4 h-4" />
-                Mon–Fri · 9:00 AM – 6:00 PM IST
-              </div>
-              <p className="mt-3 text-xs sm:text-sm text-slate-500">
-                Secure communication · NDA available on request
+              <p className="mt-2 text-sm sm:text-base font-medium leading-snug">
+                {value}
               </p>
-            </div>
-          </motion.div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+      {/* ================= BUSINESS HOURS STRIP ================= */}
+      <div className="border-t border-white/10">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 py-8 sm:py-10 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 text-zinc-400">
+          <Clock className="w-5 h-5 flex-shrink-0" />
+          <p className="text-xs sm:text-sm">
+            Business Hours: Monday – Friday · 9:00 AM – 6:00 PM IST
+          </p>
         </div>
       </div>
     </section>

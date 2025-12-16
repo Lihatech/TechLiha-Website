@@ -1,138 +1,182 @@
 import { motion } from "framer-motion";
 import {
-  ShieldCheck,
-  Lightbulb,
   Building2,
+  ShieldCheck,
   Cpu,
   Cloud,
   Users,
+  Target,
+  Settings,
+  Compass,
 } from "lucide-react";
 
 export default function AboutLihaTech() {
   return (
-    <section className="relative bg-white text-black">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="max-w-3xl"
-        >
-          <span className="inline-flex items-center gap-2 rounded-full border border-black/10 px-4 py-1 text-xs font-medium text-black/70">
-            <Building2 className="w-4 h-4" />
-            About Liha Tech
-          </span>
+    <>
+      {/* ================= HERO ================= */}
+      <section className="relative pt-32 pb-28 overflow-hidden">
+        {/* Background */}
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage:
+              "url('https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=1920&q=80')",
+          }}
+        />
+        <div className="absolute inset-0 bg-slate-900/90" />
 
-          <p className="mt-6 text-xs sm:text-sm font-semibold tracking-widest uppercase text-black">
-            Plan · Practice · Patience
-          </p>
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="max-w-3xl"
+          >
+            <p className="text-xs tracking-[0.25em] uppercase text-slate-400">
+              About Liha Tech
+            </p>
 
-          <h2 className="mt-6 text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight">
-            Engineering digital excellence with{" "}
-            <span className="font-bold">clarity & purpose</span>
-          </h2>
+            <h1 className="mt-5 text-4xl sm:text-5xl font-semibold text-white leading-tight">
+              Engineering technology
+              <span className="block text-slate-300 mt-2">
+                with clarity, discipline & scale
+              </span>
+            </h1>
 
-          <p className="mt-6 text-black/70 text-sm sm:text-base md:text-lg leading-relaxed">
-            Liha Tech is a technology partner focused on building secure,
-            scalable, and enterprise-grade digital systems. We work closely with
-            organizations to modernize platforms, strengthen operations, and
-            enable long-term growth through reliable technology.
-          </p>
-        </motion.div>
+            <p className="mt-6 text-slate-300 text-base leading-relaxed">
+              Liha Tech is a technology-driven company delivering secure,
+              scalable, and enterprise-grade digital solutions. We help
+              organizations build resilient systems that support growth,
+              innovation, and long-term business success.
+            </p>
 
-        {/* Main Content */}
-        <div className="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          {/* Left – Narrative */}
+            {/* Tagline */}
+            <p className="mt-6 text-sm font-medium tracking-widest uppercase text-slate-400">
+              Plan · Practice · Patience
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ================= COMPANY OVERVIEW ================= */}
+      <section className="bg-white py-24">
+        <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="space-y-8"
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="grid grid-cols-1 lg:grid-cols-2 gap-16"
           >
-            <p className="text-black/70 text-sm sm:text-base leading-relaxed">
-              Our expertise spans enterprise software engineering, cloud & DevOps,
-              AI and data platforms, cybersecurity, and scalable web and mobile
-              applications. Every engagement is guided by performance,
-              maintainability, and security at scale.
-            </p>
+            {/* Left */}
+            <div>
+              <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 px-4 py-1 text-xs font-medium text-slate-600">
+                <Building2 className="w-4 h-4" />
+                Company Overview
+              </span>
 
-            <p className="text-black/70 text-sm sm:text-base leading-relaxed">
-              We take a disciplined, outcome-driven approach. By aligning
-              technology decisions with business priorities, we ensure systems
-              are built not just for today’s needs, but for long-term resilience
-              and adaptability.
-            </p>
+              <h2 className="mt-6 text-3xl sm:text-4xl font-semibold text-slate-900">
+                Building systems businesses
+                <span className="block mt-2">can depend on</span>
+              </h2>
 
-            {/* Capability List */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-6">
+              <p className="mt-6 text-slate-600 leading-relaxed">
+                At Liha Tech, we design and engineer digital platforms that are
+                secure, maintainable, and built to scale. From enterprise
+                applications to cloud-native architectures, we focus on
+                reliability and long-term performance.
+              </p>
+
+              <p className="mt-4 text-slate-600 leading-relaxed">
+                Our approach is disciplined and outcome-driven. By aligning
+                technology decisions with business objectives, we ensure that
+                every solution delivers measurable value — today and in the
+                future.
+              </p>
+            </div>
+
+            {/* Right – Highlights */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               {[
                 {
                   icon: ShieldCheck,
-                  title: "Enterprise Security",
-                  desc: "Built with governance, compliance, and risk management in mind.",
+                  title: "Security by Design",
+                  desc: "Security, compliance, and risk management built into every solution.",
                 },
                 {
                   icon: Cloud,
                   title: "Cloud & DevOps",
-                  desc: "Modern, automated infrastructure for reliability and scale.",
+                  desc: "Modern, automated infrastructure optimized for scale and cost.",
                 },
                 {
                   icon: Cpu,
                   title: "AI & Data Platforms",
-                  desc: "Data-driven systems that support intelligent decision-making.",
+                  desc: "Intelligent systems that transform data into actionable insights.",
                 },
                 {
                   icon: Users,
-                  title: "Client-Focused Delivery",
-                  desc: "Collaborative partnerships with measurable business outcomes.",
+                  title: "Client Partnership",
+                  desc: "Transparent collaboration with a focus on long-term success.",
                 },
               ].map(({ icon: Icon, title, desc }) => (
-                <div key={title} className="flex gap-4">
-                  <Icon className="w-6 h-6 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-medium">{title}</h4>
-                    <p className="mt-1 text-sm text-black/70">{desc}</p>
+                <div
+                  key={title}
+                  className="rounded-2xl border border-slate-200 p-6 hover:shadow-lg transition-all"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center">
+                    <Icon size={18} />
                   </div>
+                  <h4 className="mt-4 font-medium text-slate-900">{title}</h4>
+                  <p className="mt-2 text-sm text-slate-600 leading-relaxed">
+                    {desc}
+                  </p>
                 </div>
               ))}
             </div>
           </motion.div>
+        </div>
+      </section>
 
-          {/* Right – Mission / Principle Card */}
+      {/* ================= MISSION STRIP ================= */}
+      <section className="bg-slate-900 py-20">
+        <div className="max-w-7xl mx-auto px-6">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="rounded-2xl border border-black/10 bg-white p-10 shadow-sm"
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-12 text-white"
           >
-            <Lightbulb className="w-8 h-8" />
-
-            <h3 className="mt-6 text-xl sm:text-2xl font-semibold">
-              Our Mission
-            </h3>
-
-            <p className="mt-4 text-black/70 text-sm sm:text-base leading-relaxed">
-              To empower organizations with dependable, secure, and future-ready
-              technology—enabling them to innovate with confidence, operate with
-              efficiency, and scale sustainably in an evolving digital
-              landscape.
-            </p>
-
-            <div className="mt-8 border-t border-black/10 pt-6">
-              <p className="text-xs uppercase tracking-widest text-black/60">
-                Guiding Principle
+            <div className="flex flex-col items-start">
+              <Target size={28} className="text-indigo-500" />
+              <h3 className="mt-4 text-xl font-semibold">Our Mission</h3>
+              <p className="mt-3 text-slate-300 text-sm leading-relaxed">
+                To empower organizations with dependable, secure, and
+                future-ready technology that enables confident innovation and
+                sustainable growth.
               </p>
-              <p className="mt-2 text-sm font-medium">
-                Build less. Build right. Build for the long term.
+            </div>
+
+            <div className="flex flex-col items-start">
+              <Settings size={28} className="text-green-500" />
+              <h3 className="mt-4 text-xl font-semibold">Our Approach</h3>
+              <p className="mt-3 text-slate-300 text-sm leading-relaxed">
+                We plan carefully, engineer with discipline, and execute with
+                precision — ensuring solutions are built right the first time.
+              </p>
+            </div>
+
+            <div className="flex flex-col items-start">
+              <Compass size={28} className="text-yellow-500" />
+              <h3 className="mt-4 text-xl font-semibold">Our Philosophy</h3>
+              <p className="mt-3 text-slate-300 text-sm leading-relaxed">
+                Plan with vision. Practice with consistency. Deliver with
+                patience.
               </p>
             </div>
           </motion.div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

@@ -7,8 +7,14 @@ export default function WebDevelopmentService() {
   return (
     <>
       {/* ================= Hero Section ================= */}
-      <section className="relative pt-28 sm:pt-32 pb-20 bg-slate-900">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" />
+      <section
+        className="relative pt-28 sm:pt-32 pb-20 bg-slate-900"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1920&q=80')",
+        }}
+      >
+        <div className="absolute inset-0 bg-slate-900/80" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
           <motion.div
@@ -17,20 +23,16 @@ export default function WebDevelopmentService() {
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="max-w-3xl"
           >
-            {/* ===== Breadcrumb ===== */}
             <AutoBreadcrumb className="mb-5" />
 
-            {/* ===== Section Label ===== */}
             <p className="text-xs uppercase tracking-[0.3em] text-slate-400">
               Services
             </p>
 
-            {/* ===== Heading ===== */}
             <h1 className="mt-4 text-3xl sm:text-4xl font-semibold text-white">
-              Enterprise Web Development
+              Web Development
             </h1>
 
-            {/* ===== Description ===== */}
             <p className="mt-6 text-slate-300 leading-relaxed">
               Scalable, secure, and future-ready web platforms engineered for
               enterprise environments and long-term growth.

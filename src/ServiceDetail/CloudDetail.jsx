@@ -19,7 +19,7 @@ export default function CloudServiceDetail() {
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage:
-              "url('https://images.unsplash.com/photo-1667372393086-9bdf4b9d3b9f?auto=format&fit=crop&w=1920&q=80')",
+              "url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1920&q=80')",
           }}
         />
 
