@@ -7,7 +7,7 @@ import PageTransition from "./components/PageTransition";
 import ScrollToTop from "./components/ScrollToTop";
 import MainLayout from "./layout/MainLayout";
 
-import AutoBreadcrumb from "./components/AutoBreadcrumb"; // optional if you use it inside pages
+import ScrollToTopButton from "./components/ScrollToTopButton";
 
 // Service Details
 import BigDataServicePage from "./ServiceDetail/BigDataServDetail";
@@ -271,6 +271,7 @@ export default function App() {
           </Routes>
         </AnimatePresence>
       </Suspense>
+      <ScrollToTopButton />
     </>
   );
 }

@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { Linkedin, Github, Twitter, Facebook, Mail, Phone } from "lucide-react";
+import { Linkedin, Twitter, Facebook, Mail, Phone } from "lucide-react";
 
 import icon2 from "../assets/icon.png";
 
@@ -9,91 +9,24 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         {/* GRID */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
-          {/* ABOUT */}
+          {/* ABOUT + SOCIAL */}
           <div className="lg:col-span-2">
-            <div className="mb-4">
-              <img
-                src={icon2}
-                alt="Liha Tech Logo"
-                className="h-12 object-contain"
-              />
-            </div>
-            <p className="text-sm sm:text-base leading-relaxed text-slate-700">
+            <img
+              src={icon2}
+              alt="Liha Tech Logo"
+              className="h-12 object-contain mb-4"
+            />
+
+            <p className="text-sm sm:text-base leading-relaxed text-slate-700 text-left sm:text-justify">
               We explore emerging technologies to drive future capabilities and
-              create impact for businesses and students. Liha Tech stays ahead
-              of the tech curve by investing in innovation, research, and
-              industry-driven solutions.
+              create meaningful impact for businesses and students. Liha Tech
+              stays ahead of the technology curve by investing in innovation,
+              research, and industry-driven solutions that are reliable,
+              scalable, and future-ready.
             </p>
-          </div>
 
-          {/* SERVICES */}
-          <div>
-            <h4 className="text-slate-900 font-semibold mb-4">Services</h4>
-            <ul className="space-y-2 text-sm">
-              <FooterLink to="/services/ai-data-science">
-                AI & Data Science Development
-              </FooterLink>
-              <FooterLink to="/services/big-data">
-                Big Data Solutions
-              </FooterLink>
-              <FooterLink to="/services/web">Web Development</FooterLink>
-              <FooterLink to="/services/mobile">
-                Android App Development
-              </FooterLink>
-              <FooterLink to="/services/cloud-migration">
-                Cloud Migration & Development
-              </FooterLink>
-              <FooterLink to="/services/aws">AWS Development</FooterLink>
-              <FooterLink to="/services/qa-testing">
-                QA & Testing Services
-              </FooterLink>
-              <FooterLink to="/services/enterprise-solutions">
-                Enterprise Solutions Development
-              </FooterLink>
-              <FooterLink to="/services/cyber-security">
-                Cyber Security Solutions
-              </FooterLink>
-              <FooterLink to="/services/devops">DevOps Services</FooterLink>
-            </ul>
-          </div>
-
-          {/* CONTACT */}
-          <div>
-            <h4 className="text-slate-900 font-semibold mb-4">Contact</h4>
-            <ul className="space-y-2 text-sm text-slate-700">
-              <li className="flex items-center gap-2">
-                <Mail size={16} />
-                <a
-                  href="mailto:info@liha.tech"
-                  className="hover:text-gray-400 transition"
-                >
-                  info@liha.tech
-                </a>
-              </li>
-              <li className="flex items-center gap-2">
-                <Phone size={16} />
-                <a
-                  href="tel:+911234567890"
-                  className="hover:text-gray-400 transition"
-                >
-                  +91 12345 67890
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* COMPANY */}
-          <div>
-            <h4 className="text-slate-900 font-semibold mb-4">Company</h4>
-            <ul className="space-y-2 text-sm">
-              <FooterLink to="/about">About Us</FooterLink>
-              <FooterLink to="/services">Our Services</FooterLink>
-              <FooterLink to="/contact">Contact Us</FooterLink>
-            </ul>
-
-            {/* FOLLOW US */}
+            {/* SOCIAL ICONS */}
             <div className="mt-6">
-              <h4 className="text-slate-900 font-semibold mb-3">Follow Us</h4>
               <div className="flex gap-3">
                 <SocialIcon
                   icon={Facebook}
@@ -112,6 +45,75 @@ export default function Footer() {
                 />
               </div>
             </div>
+          </div>
+
+          {/* SERVICES */}
+          <div>
+            <h4 className="text-slate-900 font-semibold mb-4">Services</h4>
+            <ul className="space-y-2 text-sm">
+              <FooterLink to="/services/ai-data-science">
+                AI & Data Science
+              </FooterLink>
+              <FooterLink to="/services/big-data">
+                Big Data Solutions
+              </FooterLink>
+              <FooterLink to="/services/web">Web Development</FooterLink>
+              <FooterLink to="/services/mobile">
+                Mobile App Development
+              </FooterLink>
+              <FooterLink to="/services/cloud-migration">
+                Cloud Migration
+              </FooterLink>
+              <FooterLink to="/services/devops">DevOps Services</FooterLink>
+              <FooterLink to="/services/cyber-security">
+                Cyber Security
+              </FooterLink>
+            </ul>
+          </div>
+
+          {/* TECHNOLOGIES */}
+          <div>
+            <h4 className="text-slate-900 font-semibold mb-4">Technologies</h4>
+
+            <ul className="space-y-2 text-sm">
+              <FooterLink to="/tech/python">Python Development</FooterLink>
+
+              <FooterLink to="/tech/java">Java Development</FooterLink>
+
+              <FooterLink to="/tech/big-data">Big Data Analytics</FooterLink>
+
+              <FooterLink to="/tech/php">PHP Development</FooterLink>
+
+              <FooterLink to="/tech/angular">Angular Development</FooterLink>
+
+              <FooterLink to="/tech/sap">SAP Solutions</FooterLink>
+            </ul>
+          </div>
+
+          {/* CONTACT */}
+          <div>
+            <h4 className="text-slate-900 font-semibold mb-4">Contact</h4>
+            <ul className="space-y-3 text-sm text-slate-700">
+              <li className="flex items-center gap-2">
+                <Mail size={16} />
+                <a
+                  href="mailto:info@liha.tech"
+                  className="hover:text-gray-500 transition"
+                >
+                  info@liha.tech
+                </a>
+              </li>
+
+              <li className="flex items-center gap-2">
+                <Phone size={16} />
+                <a
+                  href="tel:+911234567890"
+                  className="hover:text-gray-500 transition"
+                >
+                  +91 12345 67890
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
 
@@ -134,7 +136,7 @@ function FooterLink({ to, children }) {
     <li>
       <NavLink
         to={to}
-        className="inline-block hover:text-gray-400 transition
+        className="inline-block hover:text-gray-500 transition
                    hover:translate-x-1 duration-200"
       >
         {children}
@@ -143,13 +145,13 @@ function FooterLink({ to, children }) {
   );
 }
 
-function SocialIcon({ icon: Icon, bg = "bg-sky-200", text = "text-sky-700" }) {
+function SocialIcon({ icon: Icon, bg, text }) {
   return (
     <a
       href="#"
       className={`w-9 h-9 flex items-center justify-center rounded-full
                  ${bg} ${text}
-                 hover:opacity-90 hover:-translate-y-0
+                 hover:opacity-90 hover:-translate-y-0.5
                  transition-all duration-300`}
     >
       <Icon size={16} />
