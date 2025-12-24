@@ -86,7 +86,9 @@ export default function Footer() {
 
               <FooterLink to="/tech/angular">Angular Development</FooterLink>
 
-              <FooterLink to="/tech/sap">SAP Solutions</FooterLink>
+              <FooterLink to="/tech/sap">SAP Development</FooterLink>
+              
+              <FooterLink to="/tech/devops">DevOps Development</FooterLink>
             </ul>
           </div>
 
