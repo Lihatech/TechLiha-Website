@@ -2,18 +2,14 @@ import { NavLink, useLocation } from "react-router-dom";
 
 export default function AutoBreadcrumb({
   className = "",
-  activeClass = "text-slate-400",
+  activeClass = "text-slate-900 dark:text-white font-medium",
 }) {
   const location = useLocation();
 
-  const segments = location.pathname
-    .split("/")
-    .filter(Boolean);
+  const segments = location.pathname.split("/").filter(Boolean);
 
   const crumbs = segments.map((segment, index) => {
     const path = "/" + segments.slice(0, index + 1).join("/");
-
-    // Format label
     const label = segment
       .replace(/-/g, " ")
       .replace(/\b\w/g, (l) => l.toUpperCase());
@@ -24,30 +20,39 @@ export default function AutoBreadcrumb({
   return (
     <nav
       aria-label="Breadcrumb"
-      className={`flex items-center gap-2 text-xs sm:text-sm text-slate-300 ${className}`}
+      className={`flex items-center text-sm text-slate-500 dark:text-slate-400 ${className}`}
     >
-      <NavLink to="/" className="hover:text-white transition">
+      <NavLink
+        to="/"
+        className="hover:text-slate-900 dark:hover:text-white transition-colors"
+      >
         Home
       </NavLink>
 
-      {crumbs.map((crumb, index) => (
-        <span key={crumb.path} className="flex items-center gap-2">
-          <span className="opacity-60">/</span>
+      {crumbs.map((crumb, index) => {
+        const isLast = index === crumbs.length - 1;
 
-          {index === crumbs.length - 1 ? (
-            <span className={activeClass}>
-              {crumb.label}
+        return (
+          <div key={crumb.path} className="flex items-center">
+            <span className="mx-3 text-slate-300 dark:text-slate-600">
+              /
             </span>
-          ) : (
-            <NavLink
-              to={crumb.path}
-              className="hover:text-white transition"
-            >
-              {crumb.label}
-            </NavLink>
-          )}
-        </span>
-      ))}
+
+            {isLast ? (
+              <span className={activeClass}>
+                {crumb.label}
+              </span>
+            ) : (
+              <NavLink
+                to={crumb.path}
+                className="hover:text-slate-900 dark:hover:text-white transition-colors"
+              >
+                {crumb.label}
+              </NavLink>
+            )}
+          </div>
+        );
+      })}
     </nav>
   );
 }

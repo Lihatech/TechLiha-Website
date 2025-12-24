@@ -63,7 +63,7 @@ export default function WebDevelopmentService() {
 
             <div className="space-y-5 text-slate-600 leading-relaxed">
               <p>
-                CodeNucleus Solutions is a leading web and mobile design and
+                LihaTech is a leading web and mobile design and
                 development company delivering scalable web development
                 solutions across industries. Our team brings over a decade of
                 experience in building robust, high-performing digital

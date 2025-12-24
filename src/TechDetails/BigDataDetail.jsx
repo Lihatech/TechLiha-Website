@@ -1,208 +1,128 @@
 import { motion } from "framer-motion";
-import {
-  Database,
-  Cpu,
-  Layers,
-  BarChart3,
-  LineChart,
-  ArrowRight,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import AutoBreadcrumb from "../components/AutoBreadcrumb";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
 
 export default function BigDataTechnology() {
   return (
     <section className="bg-white text-black">
-      {/* HERO WITH KPIs */}
+      {/* HERO */}
       <div className="bg-slate-900 text-white">
         <div className="max-w-7xl mx-auto px-6 py-28">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            className="max-w-3xl"
           >
             <AutoBreadcrumb className="mb-5" />
-
             <p className="uppercase tracking-widest text-sm text-white/70">
               Technology
             </p>
             <h1 className="mt-4 text-4xl md:text-5xl font-semibold">
-              Big Data Analytics Solutions
+              Big Data Development
             </h1>
-            <p className="mt-6 text-lg text-white/80 max-w-3xl">
-              Convert massive volumes of structured and unstructured data into
-              meaningful business insights using enterprise-grade analytics,
-              visualization, and reporting solutions.
+            <p className="mt-6 text-lg text-white/80 leading-relaxed">
+              Liha Tech designs and implements Big Data analytics solutions that
+              transform large volumes of raw data into actionable business
+              intelligence. Our platforms prioritize reliability, scalability,
+              and clarity, empowering organizations to make informed decisions
+              with confidence.
             </p>
-
-            {/* KPIs */}
-            <div className="grid md:grid-cols-3 gap-6 mt-14">
-              <KPI title="Data Processed" value="10+ TB/day" />
-              <KPI title="Insight Accuracy" value="99.9%" />
-              <KPI title="Decision Speed" value="5× Faster" />
-            </div>
           </motion.div>
         </div>
       </div>
 
-      {/* DATA PIPELINE */}
+      {/* OVERVIEW */}
       <div className="max-w-7xl mx-auto px-6 py-24">
-        <h2 className="text-3xl font-semibold mb-14">
-          End-to-End Data Pipeline
-        </h2>
-
-        <div className="grid md:grid-cols-5 gap-6 items-center text-center">
-          <PipelineStep icon={<Database />} title="Data Sources" />
-          <Arrow />
-          <PipelineStep icon={<Layers />} title="Processing" />
-          <Arrow />
-          <PipelineStep icon={<Cpu />} title="Analytics Engine" />
-        </div>
-      </div>
-
-      {/* DASHBOARD CAPABILITIES */}
-      <div className="bg-[#FAF7F2]">
-        <div className="max-w-7xl mx-auto px-6 py-24">
-          <h2 className="text-3xl font-semibold mb-14">
-            Analytics Capabilities
-          </h2>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <DashboardCard
-              icon={<Database />}
-              title="Data Collection & Management"
-              text="Automated ingestion, cleaning, and management of large-scale structured and unstructured data."
+        <div className="flex flex-col lg:flex-row items-center gap-8">
+          {/* Left Side Image */}
+          <div className="lg:w-1/2 w-full">
+            <img
+              src="https://source.unsplash.com/800x600/?bigdata,analytics"
+              alt="Enterprise Big Data Solutions"
+              className="w-full h-full object-cover rounded-lg"
             />
+          </div>
 
-            <DashboardCard
-              icon={<BarChart3 />}
-              title="Interactive Dashboards"
-              text="Custom dashboards and real-time reports designed for business owners and analysts."
-            />
+          {/* Right Side Content */}
+          <div className="lg:w-1/2 w-full bg-green-50 p-8 rounded-lg shadow-md">
+            <h2 className="text-3xl font-semibold mb-6">
+              Enterprise Big Data Development
+            </h2>
 
-            <DashboardCard
-              icon={<LineChart />}
-              title="Advanced Analytics"
-              text="Predictive analytics, trend detection, and actionable insights powered by advanced algorithms."
-            />
+            <p className="text-lg text-black/70 leading-relaxed mb-6">
+              Our Big Data solutions capture, process, and analyze data from
+              multiple sources, delivering insights that improve operational
+              efficiency, customer engagement, and strategic planning. We ensure
+              consistent, high-quality data across all analytics workflows.
+            </p>
+
+            <p className="text-lg text-black/70 leading-relaxed">
+              By leveraging scalable architectures, automated data pipelines,
+              and advanced analytics, we help enterprises turn complex datasets
+              into practical insights that drive business growth.
+            </p>
           </div>
         </div>
       </div>
 
-      {/* VISUAL INSIGHTS */}
-      <div className="max-w-7xl mx-auto px-6 py-24">
-        <h2 className="text-3xl font-semibold mb-14">
-          Data Visualization & Insights
-        </h2>
-
-        <div className="grid md:grid-cols-2 gap-12">
-          <InsightBlock title="Actionable Dashboards">
-            Intuitive visualizations that help business leaders quickly identify
-            opportunities, risks, and performance gaps.
-          </InsightBlock>
-
-          <InsightBlock title="Cross-Source Analytics">
-            Unified analytics across multiple data sources, delivering a single
-            source of truth for enterprise decision-making.
-          </InsightBlock>
-
-          <InsightBlock title="Real-Time Monitoring">
-            Continuous monitoring of key metrics to ensure operational and
-            strategic alignment.
-          </InsightBlock>
-
-          <InsightBlock title="Business Intelligence">
-            Transform raw data into meaningful intelligence that drives growth
-            and competitive advantage.
-          </InsightBlock>
+      {/* CAPABILITIES */}
+      <div className="bg-[#FAF7F2]">
+        <div className="max-w-7xl mx-auto px-6 py-24">
+          <h2 className="text-3xl font-semibold mb-6">
+            Core Analytics Capabilities
+          </h2>
+          <p className="text-lg text-black/70 leading-relaxed mb-6">
+            Our analytics capabilities include structured and unstructured data
+            management, real-time monitoring, predictive analytics, and
+            visualization. We design solutions that help organizations identify
+            trends, detect anomalies, and make strategic, data-driven decisions.
+          </p>
+          <p className="text-lg text-black/70 leading-relaxed">
+            We support enterprises in building dashboards, reports, and
+            automated systems that consolidate data into a single source of
+            truth, ensuring clarity and confidence in every business decision.
+          </p>
         </div>
       </div>
 
       {/* BUSINESS IMPACT */}
-      <div className="bg-slate-900 text-white">
-        <div className="max-w-7xl mx-auto px-6 py-24">
-          <h2 className="text-3xl font-semibold mb-14">
-            Measurable Business Impact
-          </h2>
-
-          <div className="grid md:grid-cols-4 gap-8">
-            {[
-              "Faster decision-making",
-              "Improved operational efficiency",
-              "Better customer insights",
-              "Data-driven strategy execution",
-            ].map((impact, index) => (
-              <div
-                key={index}
-                className="border border-white/20 p-6 rounded-xl"
-              >
-                <p className="text-lg">{impact}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+      <div className="max-w-7xl mx-auto px-6 py-24">
+        <h2 className="text-3xl font-semibold mb-6">Business Impact</h2>
+        <p className="text-lg text-black/70 leading-relaxed mb-6">
+          Our Big Data solutions accelerate decision-making, enhance operational
+          efficiency, and provide deeper insights into customers and markets. By
+          enabling data-driven strategies, organizations can respond faster to
+          opportunities and challenges.
+        </p>
+        <p className="text-lg text-black/70 leading-relaxed">
+          The results include improved productivity, enhanced business agility,
+          and the ability to scale analytics as organizational data grows.
+        </p>
       </div>
 
       {/* CTA */}
       <div className="max-w-7xl mx-auto px-6 py-24 text-center">
         <h2 className="text-3xl font-semibold mb-6">
-          Turn Data into a Strategic Asset
+          Unlock the Value of Your Data
         </h2>
-        <p className="text-black/70 max-w-2xl mx-auto mb-10">
-          Our Big Data solutions empower organizations to unlock the full
-          potential of their data with clarity, confidence, and control.
+        <p className="text-black/70 max-w-2xl mx-auto mb-10 leading-relaxed">
+          Liha Tech helps organizations convert complex data into actionable
+          insights, enabling measurable business outcomes and strategic growth.
         </p>
-
         <Link
           to="/contact"
-          className="inline-flex items-center gap-2 px-8 py-4 bg-emerald-600 text-white rounded-full hover:bg-emerald-700 transition"
+          className="inline-flex items-center gap-2 px-8 py-4 bg-gray-600 text-white rounded-full hover:bg-gray-700 transition"
         >
           Talk to Our Data Experts <ArrowRight />
         </Link>
       </div>
     </section>
-  );
-}
-
-/* Components */
-
-function KPI({ title, value }) {
-  return (
-    <div className="bg-white/10 p-6 rounded-xl">
-      <p className="text-white/70 text-sm">{title}</p>
-      <p className="text-3xl font-semibold mt-2">{value}</p>
-    </div>
-  );
-}
-
-function PipelineStep({ icon, title }) {
-  return (
-    <div className="bg-white p-8 rounded-xl border">
-      <div className="mb-4 flex justify-center">{icon}</div>
-      <p className="font-semibold">{title}</p>
-    </div>
-  );
-}
-
-function Arrow() {
-  return <span className="hidden md:block text-2xl">→</span>;
-}
-
-function DashboardCard({ icon, title, text }) {
-  return (
-    <div className="bg-white p-8 rounded-2xl border">
-      <div className="mb-4">{icon}</div>
-      <h3 className="text-xl font-semibold mb-3">{title}</h3>
-      <p className="text-black/70">{text}</p>
-    </div>
-  );
-}
-
-function InsightBlock({ title, children }) {
-  return (
-    <div className="border p-8 rounded-2xl">
-      <h3 className="text-xl font-semibold mb-3">{title}</h3>
-      <p className="text-black/70">{children}</p>
-    </div>
   );
 }

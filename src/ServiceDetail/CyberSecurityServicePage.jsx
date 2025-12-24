@@ -67,7 +67,7 @@ export default function CyberSecurityServicePage() {
             </p>
 
             <p className="mt-4 text-slate-600 leading-relaxed">
-              CodeNucleus Solutions partners with organizations at every stage
+              LihaTech partners with organizations at every stage
               of their technology journey to proactively identify risks,
               strengthen defenses, and build resilient systems.
             </p>
@@ -156,7 +156,7 @@ export default function CyberSecurityServicePage() {
           </h2>
 
           <p className="mt-5 text-slate-300 leading-relaxed">
-            Partner with CodeNucleus Solutions to protect your systems,
+            Partner with LihaTech to protect your systems,
             customers, and reputation with enterprise-grade cyber security.
           </p>
 

@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import { Building2, Target, Settings, Compass } from "lucide-react";
 
-
 import StatsSection from "./StatsSection";
 import Testimonials from "./Testimonials";
+import SEO from "../config/SEO";
 
 /* Animation helpers */
 const fadeUp = {
@@ -14,6 +14,7 @@ const fadeUp = {
 export default function AboutLihaTech() {
   return (
     <>
+      <SEO page="about" />
       {/* ================= HERO ================= */}
       <section className="relative pt-28 sm:pt-32 lg:pt-36 pb-24 overflow-hidden">
         <div
@@ -44,7 +45,8 @@ export default function AboutLihaTech() {
             </h1>
 
             <p className="mt-6 text-slate-300 text-sm sm:text-base leading-relaxed text-left sm:text-justify">
-              Liha Tech is a technology consulting and engineering company focused on building secure, scalable, and future-ready digital
+              Liha Tech is a technology consulting and engineering company
+              focused on building secure, scalable, and future-ready digital
               systems. We partner with organizations to transform complex ideas
               into dependable technology platforms that support long-term
               growth, operational stability, and business confidence.
@@ -181,7 +183,8 @@ export default function AboutLihaTech() {
               <Icon size={28} />
               <h3 className="mt-4 text-xl font-semibold">{title}</h3>
               <p className="mt-3 text-slate-300 leading-relaxed text-left sm:text-justify">
-{text}</p>
+                {text}
+              </p>
             </motion.div>
           ))}
         </div>

@@ -1,191 +1,252 @@
 import { motion } from "framer-motion";
-import { LayoutGrid, Cpu, Layers, Settings, ArrowRight } from "lucide-react";
+import {
+  Layers,
+  Cpu,
+  ShieldCheck,
+  Workflow,
+  BarChart3,
+  Settings,
+  ArrowRight,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import AutoBreadcrumb from "../components/AutoBreadcrumb";
 
 export default function AngularTechnology() {
   return (
-    <section className="bg-white text-black">
-      {/* HERO */}
-      <div className="bg-slate-900 text-white">
+    <section className="bg-white text-slate-900">
+      {/* ================= HERO ================= */}
+      <div className="relative bg-slate-950 text-white">
         <div className="max-w-7xl mx-auto px-6 py-28">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-3xl"
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="max-w-4xl"
           >
-            <AutoBreadcrumb className="mb-5" />
+            <AutoBreadcrumb className="mb-6" />
 
-            <p className="uppercase tracking-widest text-sm text-white/70">
+            <p className="uppercase tracking-wider text-sm text-white/60">
               Technology
             </p>
-            <h1 className="mt-4 text-4xl md:text-5xl font-semibold">
+
+            <h1 className="mt-4 text-4xl md:text-5xl font-semibold leading-tight">
               Angular Development Services
             </h1>
-            <p className="mt-6 text-lg text-white/80 leading-relaxed">
-              Angular enables us to build secure, high-performance, and
-              maintainable single-page applications using a structured,
-              component-driven approach.
+
+            <p className="mt-6 text-lg text-white/75 leading-relaxed">
+              At Liha Tech, we build scalable, secure, and high-performance
+              Angular applications for enterprises and growing businesses. Our
+              development approach focuses on structured architecture, long-term
+              maintainability, and seamless user experiences.
             </p>
           </motion.div>
         </div>
       </div>
 
-      {/* COMPONENT HIERARCHY */}
+      {/* ================= OVERVIEW ================= */}
       <div className="max-w-7xl mx-auto px-6 py-24">
-        <h2 className="text-3xl font-semibold mb-14">
-          Component-Driven Architecture
-        </h2>
+        <div className="bg-slate-50">
+          <div className="max-w-7xl mx-auto px-6 py-24">
+            <div className="grid md:grid-cols-2 gap-16 items-center">
+              {/* IMAGE */}
+              <div className="relative">
+                <div className="absolute inset-0 bg-emerald-100 rounded-3xl -z-10 translate-x-4 translate-y-4" />
+                <img
+                  src="https://images.unsplash.com/photo-1581091012184-5c8e4c7f38b1?auto=format&fit=crop&w=1200&q=80"
+                  alt="Enterprise Angular Development"
+                  className="rounded-3xl shadow-lg object-cover w-full h-[420px]"
+                />
+              </div>
 
-        <div className="grid md:grid-cols-3 gap-10 text-center">
-          <ComponentBlock
-            title="UI Components"
-            description="Reusable UI elements such as buttons, forms, and data tables."
-          />
+              {/* CONTENT */}
+              <div className="max-w-5xl">
+                <h2 className="text-3xl font-semibold mb-6">
+                  Why Angular for Enterprise Applications
+                </h2>
 
-          <ComponentBlock
-            title="Feature Modules"
-            description="Grouped components handling specific business functionality."
-          />
+                <p className="text-lg text-slate-700 leading-relaxed mb-6">
+                  Angular is a powerful frontend framework designed for building
+                  complex, large-scale web applications. Its component-driven
+                  architecture, strong typing, and built-in tooling make it an
+                  ideal choice for enterprise-grade systems that demand
+                  stability, scalability, and long-term performance.
+                </p>
 
-          <ComponentBlock
-            title="Enterprise Applications"
-            description="Scalable, maintainable SPAs built on modular architecture."
-          />
+                <p className="text-lg text-slate-700 leading-relaxed">
+                  At Liha Tech, we leverage Angular to create applications that
+                  are easy to maintain, highly testable, and capable of
+                  supporting evolving business requirements. Our focus is on
+                  clean code, predictable architecture, and delivering
+                  sustainable long-term value.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* CORE CAPABILITIES */}
-      <div className="bg-[#FAF7F2]">
+      {/* ================= CORE CAPABILITIES ================= */}
+      <div className="bg-slate-50">
         <div className="max-w-7xl mx-auto px-6 py-24">
           <h2 className="text-3xl font-semibold mb-14">
-            Angular UX Capabilities
+            Core Angular Capabilities
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <CapabilityCard
-              icon={<LayoutGrid />}
-              title="Single-Page Applications"
-              text="Fast, responsive SPAs delivering seamless user experiences with real-time interactions."
+          <div className="grid md:grid-cols-3 gap-10">
+            <Capability
+              icon={<Layers />}
+              title="Component-Based Architecture"
+              text="Reusable and modular components that ensure consistency,
+              scalability, and easier maintenance across the application."
             />
 
-            <CapabilityCard
+            <Capability
               icon={<Cpu />}
-              title="Enterprise Frontend Systems"
-              text="Robust frontend architectures designed to support complex enterprise workflows."
+              title="High-Performance SPAs"
+              text="Fast and responsive single-page applications optimized
+              for real-time interactions and smooth user experiences."
             />
 
-            <CapabilityCard
-              icon={<Settings />}
-              title="Long-Term Maintenance"
-              text="Stable applications with ongoing support, upgrades, and performance optimization."
+            <Capability
+              icon={<ShieldCheck />}
+              title="Enterprise-Grade Security"
+              text="Secure application structures with role-based access,
+              data validation, and long-term support strategies."
             />
           </div>
         </div>
       </div>
 
-      {/* UX USE CASES */}
+      {/* ================= USE CASES ================= */}
       <div className="max-w-7xl mx-auto px-6 py-24">
         <h2 className="text-3xl font-semibold mb-14">
-          Enterprise UX Use Cases
+          Business & Enterprise Use Cases
         </h2>
 
         <div className="grid md:grid-cols-2 gap-12">
-          <UXUseCase title="Real-Time Dashboards">
-            Live dashboards providing instant insights and data updates.
-          </UXUseCase>
+          <UseCase
+            icon={<BarChart3 />}
+            title="Real-Time Dashboards"
+            text="Interactive dashboards that present live data, analytics,
+            and performance metrics for informed decision-making."
+          />
 
-          <UXUseCase title="Business Portals">
-            Secure portals with role-based access and complex workflows.
-          </UXUseCase>
+          <UseCase
+            icon={<Workflow />}
+            title="Business & Admin Portals"
+            text="Secure portals with complex workflows, approvals, and
+            role-based access control."
+          />
 
-          <UXUseCase title="Customer-Facing Applications">
-            High-performance applications designed for usability and engagement.
-          </UXUseCase>
+          <UseCase
+            icon={<Settings />}
+            title="Internal Enterprise Tools"
+            text="Custom tools that improve operational efficiency,
+            automation, and internal productivity."
+          />
 
-          <UXUseCase title="Internal Enterprise Tools">
-            Efficient tools improving productivity and operational efficiency.
-          </UXUseCase>
+          <UseCase
+            icon={<Layers />}
+            title="Customer-Facing Applications"
+            text="Scalable applications designed for usability,
+            responsiveness, and long-term engagement."
+          />
         </div>
       </div>
 
-      {/* LIFECYCLE & SUPPORT */}
-      <div className="bg-slate-900 text-white">
+      {/* ================= DEVELOPMENT LIFECYCLE ================= */}
+      <div className="bg-slate-950 text-white">
         <div className="max-w-7xl mx-auto px-6 py-24">
           <h2 className="text-3xl font-semibold mb-14">
-            Angular Application Lifecycle
+            Our Angular Development Process
           </h2>
 
           <div className="grid md:grid-cols-4 gap-8">
-            {[
-              "UX Planning & Architecture",
-              "Component Development",
-              "Testing & Optimization",
-              "Support & Maintenance",
-            ].map((step, index) => (
-              <div
-                key={index}
-                className="border border-white/20 p-6 rounded-xl"
-              >
-                <span className="text-emerald-400 font-semibold">
-                  Stage {index + 1}
-                </span>
-                <p className="mt-3">{step}</p>
-              </div>
-            ))}
+            <ProcessStep
+              step="01"
+              title="Planning & Architecture"
+              text="Understanding business goals and designing a scalable,
+              future-ready Angular architecture."
+            />
+
+            <ProcessStep
+              step="02"
+              title="Component Development"
+              text="Building clean, reusable components aligned with best
+              practices and performance standards."
+            />
+
+            <ProcessStep
+              step="03"
+              title="Testing & Optimization"
+              text="Ensuring application stability, security, and performance
+              through rigorous testing."
+            />
+
+            <ProcessStep
+              step="04"
+              title="Support & Maintenance"
+              text="Continuous updates, monitoring, and enhancements to keep
+              applications reliable over time."
+            />
           </div>
         </div>
       </div>
 
-      {/* CTA */}
+      {/* ================= CTA ================= */}
       <div className="max-w-7xl mx-auto px-6 py-24 text-center">
         <h2 className="text-3xl font-semibold mb-6">
-          Build High-Performance Angular Applications
+          Build Scalable Angular Applications with Liha Tech
         </h2>
-        <p className="text-black/70 max-w-2xl mx-auto mb-10">
-          Our Angular developers deliver secure, scalable, and user-focused
-          applications backed by modern frontend best practices.
+
+        <p className="text-slate-700 max-w-2xl mx-auto mb-10">
+          Our Angular experts deliver structured, secure, and high-performance
+          applications tailored to enterprise and business needs.
         </p>
 
         <Link
           to="/contact"
-          className="inline-flex items-center gap-2 px-8 py-4 bg-emerald-600 text-white rounded-full hover:bg-emerald-700 transition"
+          className="inline-flex items-center gap-2 px-8 py-4 rounded-full
+          bg-gray-600 text-white font-medium
+          hover:bg-gray-700 transition"
         >
-          Talk to Our Angular Experts <ArrowRight />
+          Talk to Our Experts <ArrowRight />
         </Link>
       </div>
     </section>
   );
 }
 
-/* Components */
+/* ================= COMPONENTS ================= */
 
-function ComponentBlock({ title, description }) {
+function Capability({ icon, title, text }) {
   return (
-    <div className="border p-8 rounded-2xl">
-      <Layers className="mx-auto mb-4" />
+    <div className="bg-white border rounded-2xl p-8">
+      <div className="mb-5 text-emerald-600">{icon}</div>
       <h3 className="text-xl font-semibold mb-3">{title}</h3>
-      <p className="text-black/70">{description}</p>
+      <p className="text-slate-600 leading-relaxed">{text}</p>
     </div>
   );
 }
 
-function CapabilityCard({ icon, title, text }) {
+function UseCase({ icon, title, text }) {
   return (
-    <div className="bg-white p-8 rounded-2xl border">
-      <div className="mb-4">{icon}</div>
+    <div className="border rounded-2xl p-8">
+      <div className="mb-4 text-emerald-600">{icon}</div>
       <h3 className="text-xl font-semibold mb-3">{title}</h3>
-      <p className="text-black/70">{text}</p>
+      <p className="text-slate-600 leading-relaxed">{text}</p>
     </div>
   );
 }
 
-function UXUseCase({ title, children }) {
+function ProcessStep({ step, title, text }) {
   return (
-    <div className="border p-8 rounded-2xl">
-      <h3 className="text-xl font-semibold mb-3">{title}</h3>
-      <p className="text-black/70">{children}</p>
+    <div className="border border-white/20 rounded-2xl p-6">
+      <span className="text-emerald-400 font-semibold text-sm">
+        Step {step}
+      </span>
+      <h3 className="mt-3 text-lg font-semibold">{title}</h3>
+      <p className="mt-2 text-white/70 text-sm leading-relaxed">{text}</p>
     </div>
   );
 }

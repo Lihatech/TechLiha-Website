@@ -6,6 +6,7 @@ import StatsSection from "./StatsSection";
 import Hero from "./Hero";
 import ServiceCard from "./ServiceCard";
 import HowWeThink from "./HowWeThink";
+import SEO from "../config/SEO";
 
 const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } };
 const stagger = { visible: { transition: { staggerChildren: 0.15 } } };
@@ -14,7 +15,7 @@ export default function Home() {
   return (
     <>
       {/* ================= HERO ================= */}
-
+      <SEO page="/" />
       <div>
         <Hero />
       </div>

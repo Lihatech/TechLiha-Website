@@ -8,47 +8,73 @@ import { SiReact, SiPython, SiApachehadoop } from "react-icons/si";
 import { CheckCircle } from "lucide-react";
 import AWSIcon from "react-aws-icons/dist/aws/logo/AWS";
 
+import SEO from "../config/SEO";
+
 const MotionLink = motion(NavLink);
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.08,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: {
+    opacity: 0,
+    y: 18,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.4,
+      ease: "easeOut",
+    },
+  },
+};
 
 const services = [
   {
     to: "/services/ai-data-science",
-    title: "AI & Data Science Development",
+    title: "AI & Data Science Development services",
     desc: "End-to-end AI and machine learning solutions including predictive systems, preventative algorithms, and industry-specific intelligence built on enterprise data.",
     icon: <SiPython size={24} />,
     color: "text-yellow-500",
   },
   {
     to: "/services/big-data",
-    title: "Big Data Solutions",
+    title: "Big Data Solutions services",
     desc: "Scalable big data platforms for processing large, messy, and unstructured datasets using modern cloud and cluster computing technologies.",
     icon: <SiApachehadoop size={24} />,
     color: "text-orange-600",
   },
   {
     to: "/services/web",
-    title: "Web Development",
+    title: "Web Development services",
     desc: "Comprehensive web development services covering design, development, testing, and deployment using modern frameworks and enterprise architectures.",
     icon: <SiReact size={24} />,
     color: "text-blue-500",
   },
   {
     to: "/services/mobile",
-    title: "Android App Development",
+    title: "Android App Development services",
     desc: "Enterprise-grade Android applications built with reusable modules, faster delivery cycles, and secure, scalable mobile architectures.",
     icon: <FaAndroid size={24} />,
     color: "text-green-500",
   },
   {
     to: "/services/cloud-migration",
-    title: "Cloud Migration & Development",
+    title: "Cloud Migration & Development services",
     desc: "Migration of legacy systems to modern cloud infrastructures with infrastructure-as-code, automation, and reduced operational costs.",
     icon: <Cloud size={24} />,
     color: "text-sky-500",
   },
   {
     to: "/services/aws",
-    title: "AWS Development",
+    title: "AWS Development services",
     desc: "Cloud solutions built on Amazon Web Services including computing, storage, databases, analytics, and scalable application deployment.",
     icon: <AWSIcon size={24} />,
     color: "text-orange-600",
@@ -62,14 +88,14 @@ const services = [
   },
   {
     to: "/services/enterprise-solutions",
-    title: "Enterprise Solutions Development",
+    title: "Enterprise Solutions Development services",
     desc: "Strategic enterprise solutions that align business objectives with modern technologies through process automation and system integration.",
     icon: <Code2 size={24} />,
     color: "text-purple-500",
   },
   {
     to: "/services/cyber-security",
-    title: "Cyber Security Solutions",
+    title: "Cyber Security Solutions services",
     desc: "Enterprise-grade protection against malware, ransomware, phishing, DDoS attacks, and security vulnerabilities across systems.",
     icon: <FaShieldAlt size={24} />,
     color: "text-rose-500",
@@ -80,12 +106,14 @@ const services = [
     desc: "DevOps practices that integrate security early, automate infrastructure, support cloud-native development, and improve deployment reliability.",
     icon: <Cloud size={24} />,
     color: "text-teal-500",
+    featured: true,
   },
 ];
 
 export default function ServicesPage() {
   return (
     <>
+      <SEO page="services" />
       {/* ===== Small Hero Background Section ===== */}
       <section className="relative pt-28 sm:pt-32 lg:pt-36 pb-16 sm:pb-20 lg:pb-24">
         <div
@@ -129,22 +157,32 @@ export default function ServicesPage() {
               <MotionLink
                 key={i}
                 to={item.to}
+                variants={cardVariants}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.35 }}
                 className={`
-                  group relative
-                  p-6 sm:p-8 lg:p-10
-                  border-b border-slate-200
-                  sm:border-r
-                  lg:[&:nth-child(3n)]:border-r-0
-                  sm:[&:nth-child(2n)]:border-r-0
-                  lg:[&:nth-child(2n)]:border-r
-                  hover:bg-slate-50
-                  transition-colors
-                  focus:outline-none
-                `}
+  group relative
+  p-6 sm:p-8 lg:p-10
+  border-b border-slate-200
+  hover:bg-slate-50
+  transition-colors
+  focus:outline-none
+
+  ${item.featured ? "lg:col-span-3 sm:col-span-2" : ""}
+  
+  ${
+    !item.featured
+      ? `
+    sm:border-r
+    lg:[&:nth-child(3n)]:border-r-0
+    sm:[&:nth-child(2n)]:border-r-0
+    lg:[&:nth-child(2n)]:border-r
+  `
+      : ""
+  }
+`}
               >
                 {/* Icon */}
                 <div className={`mb-5 ${item.color} group-hover:${item.color}`}>

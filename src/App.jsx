@@ -38,6 +38,7 @@ const Bdata = lazy(() => import("./TechDetails/BigDataDetail"));
 const Php = lazy(() => import("./TechDetails/PhpDetail"));
 const Angular = lazy(() => import("./TechDetails/AngularDetail"));
 const Sap = lazy(() => import("./TechDetails/SapDetail"));
+const DevOps = lazy(() => import("./TechDetails/DevOpsDetail.jsx"));
 
 export default function App() {
   const location = useLocation();
@@ -70,6 +71,8 @@ export default function App() {
       "/tech/php": "PHP",
       "/tech/angular": "Angular",
       "/tech/sap": "SAP",
+      "/tech/devops": "DevOps",
+
     };
 
     const currentTitle = routeTitles[location.pathname] || "Page Not Found";
@@ -246,6 +249,14 @@ export default function App() {
                 element={
                   <PageTransition>
                     <Angular />
+                  </PageTransition>
+                }
+              />
+              <Route
+                path="/tech/devops"
+                element={
+                  <PageTransition>
+                    <DevOps />
                   </PageTransition>
                 }
               />

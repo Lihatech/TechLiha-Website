@@ -54,7 +54,7 @@ export default function DevOpsServicePage() {
               Secure, Efficient, Cloud-Native DevOps
             </h2>
             <p className="text-slate-600 leading-relaxed">
-              With DevOps solutions from CodeNucleus, security is integrated early into your development lifecycle,
+              With DevOps solutions from LihaTech, security is integrated early into your development lifecycle,
               minimizing vulnerabilities while aligning IT with business objectives.
             </p>
             <p className="text-slate-600 leading-relaxed">

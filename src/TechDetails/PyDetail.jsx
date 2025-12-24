@@ -1,25 +1,24 @@
 import { motion } from "framer-motion";
-import {
-  Cpu,
-  Layers,
-  Server,
-  Database,
-  CheckCircle,
-  ArrowRight,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import AutoBreadcrumb from "../components/AutoBreadcrumb";
+
+/* Animation */
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
 
 export default function PythonTechnology() {
   return (
     <section className="bg-white text-black">
-      {/* HERO */}
-      <div className="relative bg-slate-900 text-white">
+      {/* ================= HERO ================= */}
+      <div className="bg-slate-900 text-white">
         <div className="max-w-7xl mx-auto px-6 py-28">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
             className="max-w-3xl"
           >
             <AutoBreadcrumb className="mb-5" />
@@ -27,173 +26,148 @@ export default function PythonTechnology() {
             <p className="uppercase tracking-widest text-sm text-white/70">
               Technology
             </p>
+
             <h1 className="mt-4 text-4xl md:text-5xl font-semibold">
-              Python Development Services
+              Python Development
             </h1>
+
             <p className="mt-6 text-lg text-white/80 leading-relaxed">
-              Python is an extraordinarily versatile and enterprise-ready
-              programming language used to build scalable web applications,
-              intelligent systems, and high-performance platforms that drive
-              real business growth.
+              Python is a powerful and versatile programming language widely
+              used for building scalable web applications, data-driven
+              platforms, and intelligent enterprise systems. Its simplicity and
+              flexibility enable organizations to develop robust software
+              solutions with long-term maintainability.
             </p>
           </motion.div>
         </div>
       </div>
 
-      {/* WHY PYTHON */}
-      <div className="max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-16">
-        <div>
-          <h2 className="text-3xl font-semibold mb-6">
-            Why Python for Enterprise Solutions?
-          </h2>
-          <p className="text-black/70 leading-relaxed mb-6">
-            Python offers a unique balance of simplicity, flexibility, and
-            performance. Its clean syntax, object-oriented approach, automated
-            memory management, and extensive ecosystem make it a top choice for
-            enterprise-grade software development.
-          </p>
-          <p className="text-black/70 leading-relaxed">
-            From deeply customized websites and cloud platforms to enterprise
-            applications and progressive web apps, Python enables faster
-            development cycles without compromising security or scalability.
-          </p>
-        </div>
-
-        <div className="space-y-4">
-          {[
-            "Readable and maintainable codebase",
-            "Rapid development with proven frameworks",
-            "Enterprise scalability and performance",
-            "Strong support for data, AI, and automation",
-          ].map((item, index) => (
-            <div key={index} className="flex gap-3 items-start">
-              <CheckCircle className="w-5 h-5 text-emerald-600 mt-1" />
-              <p className="text-black/70">{item}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* CORE CAPABILITIES */}
-      <div className="bg-[#FAF7F2]">
-        <div className="max-w-7xl mx-auto px-6 py-24">
-          <h2 className="text-3xl font-semibold mb-12">
-            Our Python Development Capabilities
-          </h2>
-
-          <div className="grid md:grid-cols-3 gap-10">
-            <Capability
-              icon={<Layers />}
-              title="Python Web Development"
-              text="Dynamic websites, enterprise platforms, cloud applications, content management systems, and PWAs tailored to complex business workflows."
+      {/* ================= OVERVIEW ================= */}
+      <div className="max-w-7xl mx-auto px-6 py-24">
+        <div className="grid md:grid-cols-2 gap-16 items-center">
+          {/* LEFT — IMAGE */}
+          <div className="w-full h-full">
+            <img
+              src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4"
+              alt="Enterprise Python Development"
+              className="w-full h-full object-cover rounded-2xl"
             />
+          </div>
 
-            <Capability
-              icon={<Cpu />}
-              title="Python Machine Learning"
-              text="Implementation of predictive machine-learning engines using data analysis and scientific computing libraries for intelligent decision-making."
-            />
+          {/* RIGHT — CONTENT (BG ONLY HERE) */}
+          <div className="bg-[#FAF7F2] p-12 rounded-2xl">
+            <h2 className="text-3xl font-semibold mb-6">
+              Enterprise Python Application Development
+            </h2>
 
-            <Capability
-              icon={<Server />}
-              title="Python Enterprise Solutions"
-              text="High-performing, scalable Python web and mobile applications designed to meet specific enterprise and operational requirements."
-            />
+            <p className="text-lg text-black/70 leading-relaxed mb-6">
+              Python has become a preferred choice for enterprises due to its
+              clean syntax, extensive ecosystem, and ability to support a wide
+              range of application types. From business websites to complex
+              enterprise platforms, Python enables rapid development without
+              compromising performance or security.
+            </p>
+
+            <p className="text-lg text-black/70 leading-relaxed">
+              At Liha Tech, we design and develop Python applications that focus
+              on scalability, code clarity, and architectural consistency. Our
+              solutions are built to evolve with business needs while remaining
+              stable and easy to maintain over time.
+            </p>
           </div>
         </div>
       </div>
 
-      {/* USE CASES */}
-      <div className="max-w-7xl mx-auto px-6 py-24">
-        <h2 className="text-3xl font-semibold mb-12">Enterprise Use Cases</h2>
+      {/* ================= SERVICES ================= */}
+      <div className="bg-[#FAF7F2]">
+        <div className="max-w-7xl mx-auto px-6 py-24">
+          <h2 className="text-3xl font-semibold mb-6">
+            Python Development Services
+          </h2>
 
-        <div className="grid md:grid-cols-2 gap-10">
-          <UseCase title="Enterprise Web Platforms">
-            Secure, scalable business platforms used by SMEs and large
-            enterprises to manage workflows, data, and operations.
-          </UseCase>
+          <p className="text-lg text-black/70 leading-relaxed mb-6">
+            Our Python development services cover the full software lifecycle,
+            including planning, architecture design, development, testing, and
+            deployment. We build custom Python solutions aligned with specific
+            business workflows and operational objectives.
+          </p>
 
-          <UseCase title="Data-Driven Applications">
-            Analytics-heavy applications that leverage Python’s strength in data
-            processing, automation, and intelligent insights.
-          </UseCase>
+          <p className="text-lg text-black/70 leading-relaxed mb-6">
+            Python is particularly effective for developing data-intensive
+            applications, automation systems, and enterprise platforms that
+            require integration with multiple services. Our development approach
+            ensures consistent performance and long-term reliability.
+          </p>
 
-          <UseCase title="Cloud-Native Solutions">
-            Python-powered cloud applications optimized for performance,
-            scalability, and reliability.
-          </UseCase>
-
-          <UseCase title="Automation & Integrations">
-            Automated systems that reduce operational overhead and improve
-            efficiency across business processes.
-          </UseCase>
+          <p className="text-lg text-black/70 leading-relaxed">
+            Security, performance optimization, and scalability are integral to
+            every Python solution we deliver. We follow best practices to ensure
+            applications can handle growth while protecting sensitive business
+            data.
+          </p>
         </div>
       </div>
 
-      {/* PROCESS */}
+      {/* ================= USE CASES ================= */}
+      <div className="max-w-7xl mx-auto px-6 py-24">
+        <h2 className="text-3xl font-semibold mb-6">Common Python Use Cases</h2>
+
+        <p className="text-lg text-black/70 leading-relaxed mb-6">
+          Python is widely used for enterprise web platforms, internal business
+          applications, and data-driven systems. Its adaptability allows
+          organizations to implement solutions ranging from customer-facing
+          platforms to operational dashboards.
+        </p>
+
+        <p className="text-lg text-black/70 leading-relaxed">
+          Businesses also rely on Python for automation, analytics, and
+          integration-driven applications that improve efficiency and support
+          informed decision-making across departments.
+        </p>
+      </div>
+
+      {/* ================= APPROACH ================= */}
       <div className="bg-slate-900 text-white">
         <div className="max-w-7xl mx-auto px-6 py-24">
-          <h2 className="text-3xl font-semibold mb-12">
+          <h2 className="text-3xl font-semibold mb-6">
             Our Python Development Approach
           </h2>
 
-          <div className="grid md:grid-cols-4 gap-8">
-            {[
-              "Requirement Analysis",
-              "Architecture & Planning",
-              "Development & Testing",
-              "Deployment & Support",
-            ].map((step, index) => (
-              <div
-                key={index}
-                className="border border-white/20 p-6 rounded-xl"
-              >
-                <span className="text-emerald-400 font-semibold">
-                  Step {index + 1}
-                </span>
-                <p className="mt-3">{step}</p>
-              </div>
-            ))}
-          </div>
+          <p className="text-lg text-white/75 leading-relaxed mb-6">
+            Our Python development process begins with a clear understanding of
+            business requirements and technical goals. We design architectures
+            that prioritize scalability, maintainability, and operational
+            stability.
+          </p>
+
+          <p className="text-lg text-white/75 leading-relaxed">
+            Through structured development practices, thorough testing, and
+            ongoing support, Liha Tech delivers Python applications that provide
+            long-term value and dependable enterprise performance.
+          </p>
         </div>
       </div>
 
-      {/* CTA */}
+      {/* ================= CTA ================= */}
       <div className="max-w-7xl mx-auto px-6 py-24 text-center">
         <h2 className="text-3xl font-semibold mb-6">
-          Build Scalable Python Solutions with Confidence
+          Build Reliable Python Solutions
         </h2>
+
         <p className="text-black/70 max-w-2xl mx-auto mb-10">
-          Our Python developers stay laser-focused on delivering results-driven
-          solutions that align technology with your business objectives.
+          Partner with Liha Tech to develop scalable, secure Python applications
+          designed to support your business growth and operational goals.
         </p>
 
         <Link
           to="/contact"
-          className="inline-flex items-center gap-2 px-8 py-4 bg-emerald-600 text-white rounded-full hover:bg-emerald-700 transition"
+          className="inline-flex items-center gap-2 px-8 py-4
+          bg-gray-600 text-white rounded-full
+          hover:bg-gray-700 transition"
         >
-          Talk to Our Experts <ArrowRight />
+          Talk to Our Python Experts <ArrowRight />
         </Link>
       </div>
     </section>
-  );
-}
-
-function Capability({ icon, title, text }) {
-  return (
-    <div className="bg-white p-8 rounded-2xl border">
-      <div className="mb-4">{icon}</div>
-      <h3 className="text-xl font-semibold mb-3">{title}</h3>
-      <p className="text-black/70">{text}</p>
-    </div>
-  );
-}
-
-function UseCase({ title, children }) {
-  return (
-    <div className="border p-8 rounded-2xl">
-      <h3 className="text-xl font-semibold mb-3">{title}</h3>
-      <p className="text-black/70">{children}</p>
-    </div>
   );
 }
