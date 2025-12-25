@@ -1,25 +1,16 @@
+// App.jsx
 import { Routes, Route, useLocation } from "react-router-dom";
 import { Suspense, lazy, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
+import { ErrorBoundary } from "react-error-boundary";
 
 import RouteLoader from "./components/RouteLoader";
 import PageTransition from "./components/PageTransition";
 import ScrollToTop from "./components/ScrollToTop";
 import MainLayout from "./layout/MainLayout";
-
 import ScrollToTopButton from "./components/ScrollToTopButton";
 
-// Service Details
-import BigDataServicePage from "./ServiceDetail/BigDataServDetail";
-import AiDataSci from "./ServiceDetail/AiDataSciServDetail";
-import Mobile from "./ServiceDetail/AndroidServDetail";
-import CyberSecurityServicePage from "./ServiceDetail/CyberSecurityServicePage";
-import AwsServiceDetail from "./ServiceDetail/AwsServiceDetail";
-import QaTestingServicePage from "./ServiceDetail/QaTestingServicePage";
-import EnterpriseServicePage from "./ServiceDetail/EnterpriseServicePage.jsx";
-import DevOpsServicePage from "./ServiceDetail/DevOpsServicePage.jsx";
-
-/* -------- Lazy Pages -------- */
+// Lazy Pages
 const Home = lazy(() => import("./pages/Home"));
 const Services = lazy(() => import("./pages/Services"));
 const Contact = lazy(() => import("./pages/Contact"));
@@ -27,261 +18,148 @@ const About = lazy(() => import("./pages/About"));
 const Tech = lazy(() => import("./pages/Techs"));
 const NotFound = lazy(() => import("./pages/NotFoundPage"));
 
-/* -------- Service Details -------- */
+// Lazy Service Details
 const Web = lazy(() => import("./ServiceDetail/WebDetail"));
 const Cloud = lazy(() => import("./ServiceDetail/CloudDetail"));
+const BigDataServicePage = lazy(() => import("./ServiceDetail/BigDataServDetail"));
+const AiDataSci = lazy(() => import("./ServiceDetail/AiDataSciServDetail"));
+const Mobile = lazy(() => import("./ServiceDetail/AndroidServDetail"));
+const CyberSecurityServicePage = lazy(() => import("./ServiceDetail/CyberSecurityServicePage"));
+const AwsServiceDetail = lazy(() => import("./ServiceDetail/AwsServiceDetail"));
+const QaTestingServicePage = lazy(() => import("./ServiceDetail/QaTestingServicePage"));
+const EnterpriseServicePage = lazy(() => import("./ServiceDetail/EnterpriseServicePage"));
+const DevOpsServicePage = lazy(() => import("./ServiceDetail/DevOpsServicePage"));
 
-/* -------- Tech Details -------- */
+// Lazy Tech Details
 const Python = lazy(() => import("./TechDetails/PyDetail"));
 const Java = lazy(() => import("./TechDetails/JavaDetail"));
 const Bdata = lazy(() => import("./TechDetails/BigDataDetail"));
 const Php = lazy(() => import("./TechDetails/PhpDetail"));
 const Angular = lazy(() => import("./TechDetails/AngularDetail"));
 const Sap = lazy(() => import("./TechDetails/SapDetail"));
-const DevOps = lazy(() => import("./TechDetails/DevOpsDetail.jsx"));
+const DevOps = lazy(() => import("./TechDetails/DevOpsDetail"));
+
+// Route Configuration
+const pageRoutes = [
+  { path: "/", component: Home, title: "Home" },
+  { path: "/services", component: Services, title: "Our Services" },
+  { path: "/contact", component: Contact, title: "Contact Us" },
+  { path: "/about", component: About, title: "About Us" },
+  { path: "/tech", component: Tech, title: "Technologies" },
+];
+
+const serviceRoutes = [
+  { path: "/services/web", component: Web, title: "Web Development" },
+  { path: "/services/cloud-migration", component: Cloud, title: "Cloud Migration & Development" },
+  { path: "/services/big-data", component: BigDataServicePage, title: "Big Data Solutions" },
+  { path: "/services/ai-data-science", component: AiDataSci, title: "AI & Data Science Development" },
+  { path: "/services/mobile", component: Mobile, title: "Android App Development" },
+  { path: "/services/cyber-security", component: CyberSecurityServicePage, title: "Cyber Security Solutions" },
+  { path: "/services/aws", component: AwsServiceDetail, title: "AWS Development" },
+  { path: "/services/qa-testing", component: QaTestingServicePage, title: "QA & Testing Services" },
+  { path: "/services/enterprise-solutions", component: EnterpriseServicePage, title: "Enterprise Solutions Development" },
+  { path: "/services/devops", component: DevOpsServicePage, title: "DevOps Services" },
+];
+
+const techRoutes = [
+  { path: "/tech/python", component: Python, title: "Python" },
+  { path: "/tech/java", component: Java, title: "Java" },
+  { path: "/tech/big-data", component: Bdata, title: "Big Data" },
+  { path: "/tech/php", component: Php, title: "PHP" },
+  { path: "/tech/angular", component: Angular, title: "Angular" },
+  { path: "/tech/sap", component: Sap, title: "SAP" },
+  { path: "/tech/devops", component: DevOps, title: "DevOps" },
+];
+
+// SEO Helper Component
+function SEO({ title, description }) {
+  useEffect(() => {
+    document.title = title;
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute("content", description || title);
+  }, [title, description]);
+  return null;
+}
 
 export default function App() {
   const location = useLocation();
 
-  // Dynamic page titles
+  // Update title dynamically
   useEffect(() => {
-    const routeTitles = {
-      "/": "Home",
-      "/services": "Our Services",
-      "/contact": "Contact Us",
-      "/about": "About Us",
-      "/tech": "Technologies",
-
-      // Service Routes
-      "/services/web": "Web Development",
-      "/services/cloud-migration": "Cloud Migration & Development",
-      "/services/big-data": "Big Data Solutions",
-      "/services/ai-data-science": "AI & Data Science Development",
-      "/services/mobile": "Android App Development",
-      "/services/cyber-security": "Cyber Security Solutions",
-      "/services/aws": "AWS Development",
-      "/services/qa-testing": "QA & Testing Services",
-      "/services/enterprise-solutions": "Enterprise Solutions Development",
-      "/services/devops": "DevOps Services",
-
-      // Tech Routes
-      "/tech/python": "Python",
-      "/tech/java": "Java",
-      "/tech/big-data": "Big Data",
-      "/tech/php": "PHP",
-      "/tech/angular": "Angular",
-      "/tech/sap": "SAP",
-      "/tech/devops": "DevOps",
-
-    };
-
-    const currentTitle = routeTitles[location.pathname] || "Page Not Found";
-    document.title = `${currentTitle} | LihaTech.com`;
+    const allRoutes = [...pageRoutes, ...serviceRoutes, ...techRoutes];
+    const current = allRoutes.find(r => r.path === location.pathname);
+    document.title = current ? `${current.title} | LihaTech.com` : "Page Not Found | LihaTech.com";
   }, [location]);
+
+  // Preload route on hover
+  const preloadRoute = (importFunc) => () => importFunc();
 
   return (
     <>
       <ScrollToTop />
 
-      <Suspense fallback={<RouteLoader />}>
-        <AnimatePresence mode="wait">
-          <Routes location={location} key={location.pathname}>
-            <Route element={<MainLayout />}>
-              {/* Pages */}
-              <Route
-                path="/"
-                element={
-                  <PageTransition>
-                    <Home />
-                  </PageTransition>
-                }
-              />
-              <Route
-                path="/services"
-                element={
-                  <PageTransition>
-                    <Services />
-                  </PageTransition>
-                }
-              />
-              <Route
-                path="/contact"
-                element={
-                  <PageTransition>
-                    <Contact />
-                  </PageTransition>
-                }
-              />
-              <Route
-                path="/about"
-                element={
-                  <PageTransition>
-                    <About />
-                  </PageTransition>
-                }
-              />
-              <Route
-                path="/tech"
-                element={
-                  <PageTransition>
-                    <Tech />
-                  </PageTransition>
-                }
-              />
+      <ErrorBoundary fallback={<div>Oops! Something went wrong loading this page.</div>}>
+        <Suspense fallback={<RouteLoader />}>
+          <AnimatePresence mode="wait">
+            <Routes location={location} key={location.pathname}>
+              <Route element={<MainLayout />}>
+                {/* Static Pages */}
+                {pageRoutes.map(({ path, component: Component, title }) => (
+                  <Route
+                    key={path}
+                    path={path}
+                    element={
+                      <PageTransition>
+                        <SEO title={`${title} | LihaTech.com`} />
+                        <Component />
+                      </PageTransition>
+                    }
+                  />
+                ))}
 
-              {/* Service Routes */}
-              <Route
-                path="/services/web"
-                element={
-                  <PageTransition>
-                    <Web />
-                  </PageTransition>
-                }
-              />
-              <Route
-                path="/services/cloud-migration"
-                element={
-                  <PageTransition>
-                    <Cloud />
-                  </PageTransition>
-                }
-              />
-              <Route
-                path="/services/big-data"
-                element={
-                  <PageTransition>
-                    <BigDataServicePage />
-                  </PageTransition>
-                }
-              />
-              <Route
-                path="/services/ai-data-science"
-                element={
-                  <PageTransition>
-                    <AiDataSci />
-                  </PageTransition>
-                }
-              />
-              <Route
-                path="/services/mobile"
-                element={
-                  <PageTransition>
-                    <Mobile />
-                  </PageTransition>
-                }
-              />
-              <Route
-                path="/services/cyber-security"
-                element={
-                  <PageTransition>
-                    <CyberSecurityServicePage />
-                  </PageTransition>
-                }
-              />
-              <Route
-                path="/services/aws"
-                element={
-                  <PageTransition>
-                    <AwsServiceDetail />
-                  </PageTransition>
-                }
-              />
-              <Route
-                path="/services/qa-testing"
-                element={
-                  <PageTransition>
-                    <QaTestingServicePage />
-                  </PageTransition>
-                }
-              />
-              <Route
-                path="/services/enterprise-solutions"
-                element={
-                  <PageTransition>
-                    <EnterpriseServicePage />
-                  </PageTransition>
-                }
-              />
-              <Route
-                path="/services/devops"
-                element={
-                  <PageTransition>
-                    <DevOpsServicePage />
-                  </PageTransition>
-                }
-              />
+                {/* Service Pages */}
+                {serviceRoutes.map(({ path, component: Component, title }) => (
+                  <Route
+                    key={path}
+                    path={path}
+                    element={
+                      <PageTransition>
+                        <SEO title={`${title} | LihaTech.com`} />
+                        <Component />
+                      </PageTransition>
+                    }
+                  />
+                ))}
 
-              {/* Tech Routes */}
-              <Route
-                path="/tech/python"
-                element={
-                  <PageTransition>
-                    <Python />
-                  </PageTransition>
-                }
-              />
-              <Route
-                path="/tech/java"
-                element={
-                  <PageTransition>
-                    <Java />
-                  </PageTransition>
-                }
-              />
-              <Route
-                path="/tech/big-data"
-                element={
-                  <PageTransition>
-                    <Bdata />
-                  </PageTransition>
-                }
-              />
-              <Route
-                path="/tech/php"
-                element={
-                  <PageTransition>
-                    <Php />
-                  </PageTransition>
-                }
-              />
-              <Route
-                path="/tech/angular"
-                element={
-                  <PageTransition>
-                    <Angular />
-                  </PageTransition>
-                }
-              />
-              <Route
-                path="/tech/devops"
-                element={
-                  <PageTransition>
-                    <DevOps />
-                  </PageTransition>
-                }
-              />
-              <Route
-                path="/tech/sap"
-                element={
-                  <PageTransition>
-                    <Sap />
-                  </PageTransition>
-                }
-              />
+                {/* Tech Pages */}
+                {techRoutes.map(({ path, component: Component, title }) => (
+                  <Route
+                    key={path}
+                    path={path}
+                    element={
+                      <PageTransition>
+                        <SEO title={`${title} | LihaTech.com`} />
+                        <Component />
+                      </PageTransition>
+                    }
+                  />
+                ))}
 
-              {/* 404 */}
-              <Route
-                path="*"
-                element={
-                  <PageTransition>
-                    <NotFound />
-                  </PageTransition>
-                }
-              />
-            </Route>
-          </Routes>
-        </AnimatePresence>
-      </Suspense>
+                {/* 404 */}
+                <Route
+                  path="*"
+                  element={
+                    <PageTransition>
+                      <NotFound />
+                    </PageTransition>
+                  }
+                />
+              </Route>
+            </Routes>
+          </AnimatePresence>
+        </Suspense>
+      </ErrorBoundary>
+
       <ScrollToTopButton />
     </>
   );
