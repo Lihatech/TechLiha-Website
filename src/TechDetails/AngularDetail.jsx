@@ -52,7 +52,7 @@ export default function AngularTechnology() {
               <div className="relative">
                 <div className="absolute inset-0 bg-emerald-100 rounded-3xl -z-10 translate-x-4 translate-y-4" />
                 <img
-                  src="https://images.unsplash.com/photo-1581091012184-5c8e4c7f38b1?auto=format&fit=crop&w=1200&q=80"
+                  src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=1200"
                   alt="Enterprise Angular Development"
                   className="rounded-3xl shadow-lg object-cover w-full h-[420px]"
                 />
