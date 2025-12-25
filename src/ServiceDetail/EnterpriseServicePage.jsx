@@ -7,7 +7,7 @@ import AutoBreadcrumb from "../components/AutoBreadcrumb";
 export default function EnterpriseServicePage() {
   return (
     <>
-      {/* ===== Hero Section (unchanged) ===== */}
+      {/* ===== Hero Section ===== */}
       <section className="relative pt-28 sm:pt-32 lg:pt-36 pb-20">
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -34,13 +34,13 @@ export default function EnterpriseServicePage() {
               Enterprise Solutions Development
             </h1>
             <p className="mt-6 text-base sm:text-lg text-slate-300 leading-relaxed">
-              In today’s fast-moving era, organizations need the right balance between evolving technology and business objectives. Transform your enterprise effectively with our strategic technology approach.
+              Transform your enterprise effectively with strategic technology solutions that balance innovation and business objectives.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* ===== Overview ===== */}
+      {/* ===== Overview Section ===== */}
       <section className="bg-slate-50 py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div
@@ -54,13 +54,13 @@ export default function EnterpriseServicePage() {
               Strategic Enterprise Transformation
             </h2>
             <p className="text-slate-600 leading-relaxed">
-              We work closely with customers to understand how their enterprise functions and the processes they follow.
+              We understand your enterprise operations and processes to deliver the right technology platforms.
             </p>
             <p className="text-slate-600 leading-relaxed">
-              Based on this, we select the right technology platforms and packages to automate and optimize operations, ensuring a smooth transformation aligned with business objectives.
+              Select, implement, and optimize technology for seamless business operations aligned with your goals.
             </p>
             <p className="text-slate-600 leading-relaxed">
-              Our experience with multiple Fortune 500 companies gives us the insights and expertise required to overcome enterprise challenges efficiently.
+              Our experience with Fortune 500 companies ensures efficient handling of complex enterprise challenges.
             </p>
           </motion.div>
 
@@ -97,7 +97,7 @@ export default function EnterpriseServicePage() {
         </div>
       </section>
 
-      {/* ===== Core Capabilities (unique icon style & layout) ===== */}
+      {/* ===== Core Enterprise Capabilities ===== */}
       <section className="bg-white py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900 mb-12 text-center">
@@ -146,7 +146,7 @@ export default function EnterpriseServicePage() {
         </div>
       </section>
 
-      {/* ===== CTA ===== */}
+      {/* ===== CTA Section ===== */}
       <section className="bg-slate-900 py-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
           <h3 className="text-xl sm:text-2xl font-semibold text-white text-center sm:text-left">

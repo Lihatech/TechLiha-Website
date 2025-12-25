@@ -7,7 +7,7 @@ import AutoBreadcrumb from "../components/AutoBreadcrumb";
 export default function DevOpsServicePage() {
   return (
     <>
-      {/* ===== Hero Section (unchanged) ===== */}
+      {/* ===== Hero Section ===== */}
       <section className="relative pt-28 sm:pt-32 lg:pt-36 pb-20">
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -101,7 +101,7 @@ export default function DevOpsServicePage() {
         </div>
       </section>
 
-      {/* ===== Core DevOps Capabilities (horizontal cards) ===== */}
+      {/* ===== Core DevOps Capabilities ===== */}
       <section className="bg-white py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900 mb-12 text-center">
