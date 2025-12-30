@@ -11,6 +11,11 @@ import {
 import { Link } from "react-router-dom";
 import AutoBreadcrumb from "../components/AutoBreadcrumb";
 
+const slideIn = {
+  hidden: { opacity: 0, x: -50 }, // slide from left
+  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
+
 export default function AngularTechnology() {
   return (
     <section className="bg-white text-slate-900">
@@ -18,27 +23,42 @@ export default function AngularTechnology() {
       <div className="relative bg-slate-950 text-white">
         <div className="max-w-7xl mx-auto px-6 py-28">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="max-w-4xl"
           >
             <AutoBreadcrumb className="mb-6" />
 
-            <p className="uppercase tracking-wider text-sm text-white/60">
+            <motion.p
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="uppercase tracking-wider text-sm text-white/60"
+            >
               Technology
-            </p>
+            </motion.p>
 
-            <h1 className="mt-4 text-4xl md:text-5xl font-semibold leading-tight">
-              Angular Development Services
-            </h1>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+              className="mt-4 text-4xl md:text-5xl font-semibold leading-tight"
+            >
+              Angular Application
+            </motion.h1>
 
-            <p className="mt-6 text-lg text-white/75 leading-relaxed">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.6 }}
+              className="mt-6 text-lg text-white/75 leading-relaxed"
+            >
               At Liha Tech, we build scalable, secure, and high-performance
               Angular applications for enterprises and growing businesses. Our
-              development approach focuses on structured architecture, long-term
+              approach focuses on structured architecture, long-term
               maintainability, and seamless user experiences.
-            </p>
+            </motion.p>
           </motion.div>
         </div>
       </div>
@@ -60,9 +80,15 @@ export default function AngularTechnology() {
 
               {/* CONTENT */}
               <div className="max-w-5xl">
-                <h2 className="text-3xl font-semibold mb-6">
+                <motion.h2
+                  className="text-3xl font-semibold mb-6"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={slideIn}
+                >
                   Why Angular for Enterprise Applications
-                </h2>
+                </motion.h2>
 
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   Angular is a powerful frontend framework designed for building
@@ -88,9 +114,15 @@ export default function AngularTechnology() {
       {/* ================= CORE CAPABILITIES ================= */}
       <div className="bg-slate-50">
         <div className="max-w-7xl mx-auto px-6 py-24">
-          <h2 className="text-3xl font-semibold mb-14">
+           <motion.h2
+                  className="text-3xl font-semibold mb-6"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={slideIn}
+                >
             Core Angular Capabilities
-          </h2>
+          </motion.h2>
 
           <div className="grid md:grid-cols-3 gap-10">
             <Capability
@@ -119,9 +151,15 @@ export default function AngularTechnology() {
 
       {/* ================= USE CASES ================= */}
       <div className="max-w-7xl mx-auto px-6 py-24">
-        <h2 className="text-3xl font-semibold mb-14">
+         <motion.h2
+                  className="text-3xl font-semibold mb-6"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={slideIn}
+                >
           Business & Enterprise Use Cases
-        </h2>
+        </motion.h2>
 
         <div className="grid md:grid-cols-2 gap-12">
           <UseCase
@@ -157,9 +195,15 @@ export default function AngularTechnology() {
       {/* ================= DEVELOPMENT LIFECYCLE ================= */}
       <div className="bg-slate-950 text-white">
         <div className="max-w-7xl mx-auto px-6 py-24">
-          <h2 className="text-3xl font-semibold mb-14">
+          <motion.h2
+                  className="text-3xl font-semibold mb-6"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={slideIn}
+                >
             Our Angular Development Process
-          </h2>
+          </motion.h2>
 
           <div className="grid md:grid-cols-4 gap-8">
             <ProcessStep

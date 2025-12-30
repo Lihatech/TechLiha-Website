@@ -13,12 +13,19 @@ import { Cloud } from "lucide-react";
 import SEO from "../config/SEO";
 
 export default function Technologies() {
-  const cardAnimation = {
-    initial: { opacity: 0, y: 24 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true },
-    transition: { duration: 0.5 },
-  };
+
+  const headerAnimation = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i = 1) => ({
+    opacity: 1,
+    y: 0,
+    transition: { 
+      delay: i * 0.2, 
+      duration: 0.6, 
+      ease: "easeOut" 
+    },
+  }),
+};
 
   return (
     <>
@@ -36,19 +43,38 @@ export default function Technologies() {
           <div className="absolute inset-0 bg-black/60" />
 
           <div className="relative max-w-7xl mx-auto px-4 py-24">
-            <motion.div {...cardAnimation} className="max-w-3xl">
-              <p className="text-sm tracking-widest uppercase text-white/80">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="max-w-3xl space-y-4"
+            >
+              <motion.p
+                custom={0}
+                variants={headerAnimation}
+                className="text-sm tracking-widest uppercase text-white/80"
+              >
                 Technologies
-              </p>
-              <h1 className="mt-4 text-4xl md:text-5xl font-semibold text-white">
+              </motion.p>
+
+              <motion.h1
+                custom={1}
+                variants={headerAnimation}
+                className="mt-4 text-4xl md:text-5xl font-semibold text-white"
+              >
                 Built on <span className="font-bold">Enterprise-Grade</span>{" "}
                 Technologies
-              </h1>
-              <p className="mt-4 text-white/80 text-lg">
+              </motion.h1>
+
+              <motion.p
+                custom={2}
+                variants={headerAnimation}
+                className="mt-4 text-white/80 text-lg"
+              >
                 At Liha Tech, we use proven technologies trusted by global
                 enterprises to build scalable, secure, and future-ready digital
                 solutions.
-              </p>
+              </motion.p>
             </motion.div>
           </div>
         </div>
@@ -57,43 +83,43 @@ export default function Technologies() {
         <div className="max-w-7xl mx-auto px-4 py-24">
           <div className="grid gap-px bg-gray-200 md:grid-cols-2 lg:grid-cols-3">
             <TechCard
-              title="Python Development"
+              title="Python Solutions"
               description="Highly versatile and enterprise-ready Python solutions including web applications, cloud platforms, PWAs, and intelligent systems built with clean, scalable, and maintainable code."
               icon={<SiPython className="w-10 h-10 text-yellow-500" />}
               to="/tech/python"
             />
             <TechCard
-              title="Java Development"
+              title="Java Solutions"
               description="Robust and secure Java web and software applications designed for long-term stability, enterprise scalability, and mission-critical business operations."
               icon={<FaJava className="w-10 h-10 text-red-600" />}
               to="/tech/java"
             />
             <TechCard
-              title="Big Data Development"
+              title="Big Data Engineering"
               description="Transform massive volumes of structured and unstructured data into actionable insights through advanced analytics, dashboards, and intelligent reporting."
               icon={<SiApachehadoop className="w-10 h-10 text-orange-500" />}
               to="/tech/big-data"
             />
             <TechCard
-              title="PHP Development"
+              title="PHP Solutions"
               description="Secure and scalable PHP and LAMP-based solutions for dynamic websites, e-commerce platforms, portals, and content management systems."
               icon={<SiPhp className="w-10 h-10 text-indigo-600" />}
               to="/tech/php"
             />
             <TechCard
-              title="Angular Development"
+              title="Angular Applications"
               description="High-performance, secure, and real-time single-page applications built using modern Angular frameworks and enterprise frontend best practices."
               icon={<SiAngular className="w-10 h-10 text-red-500" />}
               to="/tech/angular"
             />
             <TechCard
-              title="SAP Develeopment"
+              title="SAP Solutions"
               description="End-to-end SAP consulting, implementation, and support services that enable intelligent ERP transformation and data-driven business operations."
               icon={<SiSap className="w-10 h-10 text-blue-600" />}
               to="/tech/sap"
             />
             <TechCard
-              title="DevOps Development"
+              title="DevOps & Cloud Automation"
               description="Streamline your software delivery pipeline with automated CI/CD, monitoring, and cloud infrastructure solutions."
               icon={<Cloud className="w-10 h-10 text-blue-600" />}
               to="/tech/devops"

@@ -7,7 +7,10 @@ const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
-
+const slideIn = {
+  hidden: { opacity: 0, x: -50 }, // slide from left
+  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
 export default function JavaTechnology() {
   return (
     <section className="bg-white text-black">
@@ -27,7 +30,7 @@ export default function JavaTechnology() {
             </p>
 
             <h1 className="mt-4 text-4xl md:text-5xl font-semibold">
-              Java Development
+              Java Solutions
             </h1>
 
             <p className="mt-6 text-lg text-white/80 leading-relaxed">
@@ -55,9 +58,16 @@ export default function JavaTechnology() {
 
           {/* Right Side Content */}
           <div className="lg:w-1/2 w-full bg-blue-50 p-8 rounded-lg shadow-md">
-            <h2 className="text-3xl font-semibold mb-6">
+            <motion.h2
+                  className="text-3xl font-semibold mb-6"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={slideIn}
+                >
               Enterprise Java Application Development
-            </h2>
+                        </motion.h2>
+
 
             <p className="text-lg text-black/70 leading-relaxed mb-6">
               Java has been the backbone of enterprise software for decades,
@@ -80,9 +90,16 @@ export default function JavaTechnology() {
       {/* ================= JAVA SERVICES ================= */}
       <div className="bg-[#FAF7F2]">
         <div className="max-w-7xl mx-auto px-6 py-24">
-          <h2 className="text-3xl font-semibold mb-6">
+          <motion.h2
+                  className="text-3xl font-semibold mb-6"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={slideIn}
+                >
             Java Development Services
-          </h2>
+                      </motion.h2>
+
 
           <p className="text-lg text-black/70 leading-relaxed mb-6">
             Liha Tech delivers end-to-end Java development services, covering
@@ -110,7 +127,14 @@ export default function JavaTechnology() {
 
       {/* ================= USE CASES ================= */}
       <div className="max-w-7xl mx-auto px-6 py-24">
-        <h2 className="text-3xl font-semibold mb-6">Common Java Use Cases</h2>
+        <motion.h2
+                  className="text-3xl font-semibold mb-6"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={slideIn}
+                >Common Java Use Cases            </motion.h2>
+
 
         <p className="text-lg text-black/70 leading-relaxed mb-6">
           Java is widely used for building enterprise resource planning (ERP)
@@ -130,9 +154,16 @@ export default function JavaTechnology() {
       {/* ================= DEVELOPMENT PROCESS ================= */}
       <div className="bg-slate-900 text-white">
         <div className="max-w-7xl mx-auto px-6 py-24">
-          <h2 className="text-3xl font-semibold mb-6">
+          <motion.h2
+                  className="text-3xl font-semibold mb-6"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={slideIn}
+                >
             Our Java Development Approach
-          </h2>
+                      </motion.h2>
+
 
           <p className="text-lg text-white/75 leading-relaxed mb-6">
             Our development process begins with a thorough understanding of
@@ -152,9 +183,16 @@ export default function JavaTechnology() {
 
       {/* ================= CTA ================= */}
       <div className="max-w-7xl mx-auto px-6 py-24 text-center">
-        <h2 className="text-3xl font-semibold mb-6">
+        <motion.h2
+                  className="text-3xl font-semibold mb-6"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={slideIn}
+                >
           Build Enterprise Applications with Java
-        </h2>
+                    </motion.h2>
+
 
         <p className="text-black/70 max-w-2xl mx-auto mb-10">
           Partner with Liha Tech to develop secure, scalable Java applications

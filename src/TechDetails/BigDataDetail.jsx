@@ -8,6 +8,11 @@ const fadeUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
+const slideIn = {
+  hidden: { opacity: 0, x: -50 }, // slide from left
+  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
+
 export default function BigDataTechnology() {
   return (
     <section className="bg-white text-black">
@@ -52,9 +57,15 @@ export default function BigDataTechnology() {
 
           {/* Right Side Content */}
           <div className="lg:w-1/2 w-full bg-green-50 p-8 rounded-lg shadow-md">
-            <h2 className="text-3xl font-semibold mb-6">
-              Enterprise Big Data Development
-            </h2>
+            <motion.h2
+                  className="text-3xl font-semibold mb-6"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={slideIn}
+                >
+              Big Data Engineering 
+            </motion.h2>
 
             <p className="text-lg text-black/70 leading-relaxed mb-6">
               Our Big Data solutions capture, process, and analyze data from
@@ -75,9 +86,16 @@ export default function BigDataTechnology() {
       {/* CAPABILITIES */}
       <div className="bg-[#FAF7F2]">
         <div className="max-w-7xl mx-auto px-6 py-24">
-          <h2 className="text-3xl font-semibold mb-6">
+          <motion.h2
+                  className="text-3xl font-semibold mb-6"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={slideIn}
+                >
             Core Analytics Capabilities
-          </h2>
+                      </motion.h2>
+
           <p className="text-lg text-black/70 leading-relaxed mb-6">
             Our analytics capabilities include structured and unstructured data
             management, real-time monitoring, predictive analytics, and
@@ -94,7 +112,14 @@ export default function BigDataTechnology() {
 
       {/* BUSINESS IMPACT */}
       <div className="max-w-7xl mx-auto px-6 py-24">
-        <h2 className="text-3xl font-semibold mb-6">Business Impact</h2>
+        <motion.h2
+                  className="text-3xl font-semibold mb-6"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={slideIn}
+                >Business Impact            </motion.h2>
+
         <p className="text-lg text-black/70 leading-relaxed mb-6">
           Our Big Data solutions accelerate decision-making, enhance operational
           efficiency, and provide deeper insights into customers and markets. By
@@ -109,9 +134,16 @@ export default function BigDataTechnology() {
 
       {/* CTA */}
       <div className="max-w-7xl mx-auto px-6 py-24 text-center">
-        <h2 className="text-3xl font-semibold mb-6">
+        <motion.h2
+                  className="text-3xl font-semibold mb-6"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={slideIn}
+                >
           Unlock the Value of Your Data
-        </h2>
+                    </motion.h2>
+
         <p className="text-black/70 max-w-2xl mx-auto mb-10 leading-relaxed">
           Liha Tech helps organizations convert complex data into actionable
           insights, enabling measurable business outcomes and strategic growth.

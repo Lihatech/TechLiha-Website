@@ -9,6 +9,10 @@ const fadeUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
+const slideIn = {
+  hidden: { opacity: 0, x: -50 }, // slide from left
+  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
 export default function PythonTechnology() {
   return (
     <section className="bg-white text-black">
@@ -28,7 +32,7 @@ export default function PythonTechnology() {
             </p>
 
             <h1 className="mt-4 text-4xl md:text-5xl font-semibold">
-              Python Development
+              Python Solutions
             </h1>
 
             <p className="mt-6 text-lg text-white/80 leading-relaxed">
@@ -56,9 +60,16 @@ export default function PythonTechnology() {
 
           {/* RIGHT — CONTENT (BG ONLY HERE) */}
           <div className="bg-[#FAF7F2] p-12 rounded-2xl">
-            <h2 className="text-3xl font-semibold mb-6">
+            <motion.h2
+                  className="text-3xl font-semibold mb-6"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={slideIn}
+                >
               Enterprise Python Application Development
-            </h2>
+                        </motion.h2>
+
 
             <p className="text-lg text-black/70 leading-relaxed mb-6">
               Python has become a preferred choice for enterprises due to its
@@ -81,9 +92,16 @@ export default function PythonTechnology() {
       {/* ================= SERVICES ================= */}
       <div className="bg-[#FAF7F2]">
         <div className="max-w-7xl mx-auto px-6 py-24">
-          <h2 className="text-3xl font-semibold mb-6">
+          <motion.h2
+                  className="text-3xl font-semibold mb-6"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={slideIn}
+                >
             Python Development Services
-          </h2>
+                      </motion.h2>
+
 
           <p className="text-lg text-black/70 leading-relaxed mb-6">
             Our Python development services cover the full software lifecycle,
@@ -110,7 +128,14 @@ export default function PythonTechnology() {
 
       {/* ================= USE CASES ================= */}
       <div className="max-w-7xl mx-auto px-6 py-24">
-        <h2 className="text-3xl font-semibold mb-6">Common Python Use Cases</h2>
+        <motion.h2
+                  className="text-3xl font-semibold mb-6"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={slideIn}
+                >Common Python Use Cases            </motion.h2>
+
 
         <p className="text-lg text-black/70 leading-relaxed mb-6">
           Python is widely used for enterprise web platforms, internal business
@@ -129,9 +154,16 @@ export default function PythonTechnology() {
       {/* ================= APPROACH ================= */}
       <div className="bg-slate-900 text-white">
         <div className="max-w-7xl mx-auto px-6 py-24">
-          <h2 className="text-3xl font-semibold mb-6">
+          <motion.h2
+                  className="text-3xl font-semibold mb-6"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={slideIn}
+                >
             Our Python Development Approach
-          </h2>
+                      </motion.h2>
+
 
           <p className="text-lg text-white/75 leading-relaxed mb-6">
             Our Python development process begins with a clear understanding of
@@ -150,9 +182,16 @@ export default function PythonTechnology() {
 
       {/* ================= CTA ================= */}
       <div className="max-w-7xl mx-auto px-6 py-24 text-center">
-        <h2 className="text-3xl font-semibold mb-6">
+        <motion.h2
+                  className="text-3xl font-semibold mb-6"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={slideIn}
+                >
           Build Reliable Python Solutions
-        </h2>
+                    </motion.h2>
+
 
         <p className="text-black/70 max-w-2xl mx-auto mb-10">
           Partner with Liha Tech to develop scalable, secure Python applications

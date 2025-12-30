@@ -1,5 +1,5 @@
-import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
+import { NavLink } from "react-router-dom";
 import {
   Brain,
   Database,
@@ -7,130 +7,233 @@ import {
   Smartphone,
   Cloud,
   ShieldCheck,
+  ArrowRight,
 } from "lucide-react";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+/* ---------------- ANIMATIONS ---------------- */
+
+const headline = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: "easeOut" },
+  },
 };
+
+const item = {
+  hidden: { opacity: 0, y: 28 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
+/* ---------------- DATA ---------------- */
+
+const headerWrap = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
+
+const lineReveal = {
+  hidden: { scaleX: 0, opacity: 0 },
+  visible: {
+    scaleX: 1,
+    opacity: 1,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
+const textReveal = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
 
 const services = [
   {
     icon: Brain,
     title: "AI & Data Science",
-    desc: "Custom AI models, predictive analytics, and intelligent automation built for scale.",
+    desc: "Production-grade AI systems that turn raw data into predictive intelligence and automation.",
+    points: ["Custom ML models", "NLP & Computer Vision", "MLOps & deployment"],
     link: "/services/ai-data-science",
     color: "text-indigo-400",
-    bgShape: "bg-gradient-to-br from-indigo-700/20 to-indigo-400/10",
   },
   {
     icon: Database,
     title: "Big Data Engineering",
-    desc: "High-volume data pipelines, real-time processing, and enterprise data platforms.",
+    desc: "Scalable data platforms designed to handle massive volume, velocity, and complexity.",
+    points: [
+      "Streaming pipelines",
+      "Enterprise data lakes",
+      "Analytics-ready architecture",
+    ],
     link: "/services/big-data",
     color: "text-emerald-400",
-    bgShape: "bg-gradient-to-br from-emerald-700/20 to-emerald-400/10",
   },
   {
     icon: Globe,
     title: "Web Development",
-    desc: "Secure, scalable, and high-performance web applications for modern businesses.",
+    desc: "Secure, SEO-optimized web platforms built for performance and long-term growth.",
+    points: [
+      "Modern frontend stacks",
+      "Backend APIs",
+      "Performance optimization",
+    ],
     link: "/services/web",
     color: "text-sky-400",
-    bgShape: "bg-gradient-to-br from-sky-700/20 to-sky-400/10",
   },
   {
     icon: Smartphone,
     title: "Mobile App Development",
-    desc: "Robust Android and cross-platform apps designed for growth.",
+    desc: "Robust mobile apps focused on UX, performance, and enterprise security.",
+    points: [
+      "Android & cross-platform",
+      "Clean UI systems",
+      "Secure integrations",
+    ],
     link: "/services/mobile",
     color: "text-violet-400",
-    bgShape: "bg-gradient-to-br from-violet-700/20 to-violet-400/10",
   },
   {
     icon: Cloud,
     title: "Cloud & DevOps",
-    desc: "Cloud migration, CI/CD pipelines, and DevOps automation for reliability.",
+    desc: "Cloud-native infrastructure with automation that ensures reliability and scale.",
+    points: [
+      "AWS & cloud migration",
+      "CI/CD pipelines",
+      "Container orchestration",
+    ],
     link: "/services/cloud-migration",
     color: "text-cyan-400",
-    bgShape: "bg-gradient-to-br from-cyan-700/20 to-cyan-400/10",
   },
   {
     icon: ShieldCheck,
     title: "Cyber Security",
-    desc: "Risk assessments, compliance, and advanced threat protection solutions.",
+    desc: "End-to-end security covering audits, compliance, and proactive threat defense.",
+    points: [
+      "Risk assessments",
+      "Compliance frameworks",
+      "Penetration testing",
+    ],
     link: "/services/cyber-security",
     color: "text-rose-400",
-    bgShape: "bg-gradient-to-br from-rose-700/20 to-rose-400/10",
   },
 ];
 
-export default function Services() {
+/* ---------------- COMPONENT ---------------- */
+
+export default function ServicesNarrative() {
   return (
-    <section className="relative bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950 text-white py-16 sm:py-20 md:py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-zinc-950 text-white py-20 sm:py-28">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <motion.div
+          variants={headerWrap}
           initial="hidden"
-          animate="visible"
-          variants={fadeUp}
-          className="text-center max-w-3xl mx-auto mb-12 sm:mb-14 md:mb-16"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="max-w-3xl mb-16"
         >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold">
-            Our Services
-          </h1>
-          <p className="mt-4 text-zinc-400 text-base sm:text-lg">
-            Enterprise-grade technology solutions designed to accelerate innovation, scalability, and security.
-          </p>
+          {/* Section line */}
+          <motion.span
+            variants={lineReveal}
+            className="block h-px w-16 bg-white/40 mb-6 origin-left"
+          />
+
+          <motion.h2
+            variants={textReveal}
+            className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight"
+          >
+            What We Do
+          </motion.h2>
+
+          <motion.p
+            variants={textReveal}
+            className="mt-4 text-zinc-400 text-base sm:text-lg leading-relaxed"
+          >
+            We design and engineer digital systems that help enterprises move
+            faster, scale smarter, and stay secure.
+          </motion.p>
         </motion.div>
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {services.map(({ icon: Icon, title, desc, link, color, bgShape }) => (
-            <motion.div
-              key={title}
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              whileHover={{ y: -5 }}
-              whileTap={{ scale: 0.97 }}
-              className="relative"
-            >
-              <NavLink
-                to={link}
-                aria-label={`View ${title} service`}
-                className="group block h-full relative bg-zinc-900/80 border border-white/10 rounded-2xl p-6 sm:p-7 overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
+        {/* Services */}
+        <div className="space-y-14">
+          {services.map((service) => {
+            const Icon = service.icon;
+
+            return (
+              <motion.div
+                key={service.title}
+                variants={item}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-80px" }}
+                className="group border border-white/10 rounded-2xl bg-zinc-900/60
+                           hover:bg-zinc-900 transition-colors"
               >
-                {/* Background shape */}
-                <div className={`absolute -top-8 -left-8 w-36 h-36 rounded-full ${bgShape} blur-3xl opacity-40 group-hover:opacity-60 transition-all duration-700`} />
+                <div className="grid md:grid-cols-12 gap-8 p-6 sm:p-8 md:p-10">
+                  {/* LEFT – Identity */}
+                  <div className="md:col-span-4">
+                    <div className="flex items-center gap-4 mb-4">
+                      <motion.div
+                        whileHover={{ scale: 1.1 }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 260,
+                          damping: 18,
+                        }}
+                        className={`w-12 h-12 rounded-xl bg-white/5
+                        flex items-center justify-center ${service.color}`}
+                      >
+                        <Icon size={22} />
+                      </motion.div>
 
-                {/* Corner accent animation */}
-                <span className="absolute inset-0 pointer-events-none">
-                  <span className="absolute top-0 left-0 h-[2px] w-0 bg-gradient-to-r from-transparent via-white/40 to-transparent group-hover:w-full transition-all duration-700" />
-                  <span className="absolute top-0 right-0 w-[2px] h-0 bg-gradient-to-b from-transparent via-white/40 to-transparent group-hover:h-full transition-all duration-700" />
-                </span>
+                      <h3 className="text-xl sm:text-2xl font-semibold">
+                        {service.title}
+                      </h3>
+                    </div>
 
-                {/* Inner glow */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-white/5 via-transparent to-transparent" />
+                    <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
+                      {service.desc}
+                    </p>
+                  </div>
 
-                {/* Icon with hover animation */}
-                <motion.div
-                  whileHover={{ scale: 1.2, rotate: 10 }}
-                  transition={{ type: "spring", stiffness: 200 }}
-                  className={`mb-4 ${color}`}
-                >
-                  <Icon size={28} />
-                </motion.div>
+                  {/* RIGHT – Details */}
+                  <div className="md:col-span-8 flex flex-col justify-between">
+                    <ul className="grid sm:grid-cols-2 gap-3 mb-6">
+                      {service.points.map((point) => (
+                        <li
+                          key={point}
+                          className="flex items-center gap-2 text-sm text-zinc-300"
+                        >
+                          <span className="w-1.5 h-1.5 rounded-full bg-white/40" />
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
 
-                <h3 className="text-lg sm:text-xl font-medium mb-2">{title}</h3>
-                <p className="text-zinc-400 text-sm sm:text-base leading-relaxed mb-6">{desc}</p>
-                <span className="inline-flex items-center gap-1 text-sm font-medium text-white">
-                  Learn More →
-                </span>
-              </NavLink>
-            </motion.div>
-          ))}
+                    <NavLink
+                      to={service.link}
+                      className="inline-flex items-center gap-2 text-sm font-medium
+                                 text-white hover:opacity-80 w-fit"
+                    >
+                      View Service <ArrowRight size={16} />
+                    </NavLink>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

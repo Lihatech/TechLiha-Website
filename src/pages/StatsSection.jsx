@@ -15,44 +15,46 @@ export default function StatsCounter() {
   const [counts, setCounts] = useState(stats.map(() => 0));
 
   useEffect(() => {
-    if (inView) {
-      stats.forEach((stat, idx) => {
-        let start = 0;
-        const end = stat.number;
-        const duration = 1500; // total animation time in ms
-        const increment = end / (duration / 30);
+    if (!inView) return;
+    const startTime = performance.now();
+    const duration = 1500;
 
-        const counter = setInterval(() => {
-          start += increment;
-          if (start >= end) {
-            start = end;
-            clearInterval(counter);
-          }
-          setCounts((prev) => {
-            const newCounts = [...prev];
-            newCounts[idx] = Math.floor(start);
-            return newCounts;
-          });
-        }, 30);
-      });
+    function animate(now) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      setCounts(stats.map((stat) => Math.floor(stat.number * progress)));
+      if (progress < 1) requestAnimationFrame(animate);
     }
+
+    requestAnimationFrame(animate);
   }, [inView]);
 
   return (
     <section className="py-12 sm:py-16 bg-gradient-to-r from-black via-zinc-900 to-black text-white border-t border-white/10">
-      <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 text-center">
+      <div
+        ref={ref}
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 text-center"
+      >
         {stats.map(({ icon: Icon, label, color, suffix }, idx) => (
           <motion.div
             key={label}
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.6, delay: idx * 0.2 }}
-            className="flex flex-col items-center justify-center gap-2"
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: idx * 0.15, ease: "easeOut" }}
+            whileHover={{ scale: 1.05 }}
+            className="relative flex flex-col items-center justify-center gap-2 cursor-pointer group p-4 rounded-xl"
           >
-            <Icon className={`${color} w-10 h-10 sm:w-12 sm:h-12 mb-2`} />
-            <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-white">
-              {counts[idx]}{suffix}
+            {/* Hover glow background */}
+            <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/5 via-white/10 to-white/0 opacity-0 group-hover:opacity-50 transition-opacity duration-500 blur-xl pointer-events-none" />
+
+            <Icon className={`${color} w-10 h-10 sm:w-12 sm:h-12 mb-2 transition-transform duration-500 group-hover:scale-125`} />
+            
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-white transition-transform duration-500 group-hover:translate-y-[-2px]">
+              {counts[idx]}
+              {suffix}
             </h3>
+            
             <p className="text-zinc-400 text-sm sm:text-base mt-1">{label}</p>
           </motion.div>
         ))}

@@ -9,6 +9,11 @@ const fadeUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
+const slideIn = {
+  hidden: { opacity: 0, x: -50 }, // slide from left
+  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
+
 export default function DevOpsTechnology() {
   return (
     <section className="bg-white text-black">
@@ -28,7 +33,7 @@ export default function DevOpsTechnology() {
             </p>
 
             <h1 className="mt-4 text-4xl md:text-5xl font-semibold">
-              DevOps Solutions
+              DevOps & Cloud Automation
             </h1>
 
             <p className="mt-6 text-lg text-white/80 leading-relaxed">
@@ -56,9 +61,16 @@ export default function DevOpsTechnology() {
 
           {/* Right Side Content */}
           <div className="lg:w-1/2 w-full bg-purple-50 p-8 rounded-lg shadow-md">
-            <h2 className="text-3xl font-semibold mb-6">
+            <motion.h2
+                  className="text-3xl font-semibold mb-6"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={slideIn}
+                >
               Accelerate Software Delivery with DevOps
-            </h2>
+                        </motion.h2>
+
 
             <p className="text-lg text-black/70 leading-relaxed mb-6">
               DevOps bridges the gap between software development and IT
@@ -91,7 +103,14 @@ export default function DevOpsTechnology() {
       {/* ================= METHODOLOGY ================= */}
       <div className="bg-[#FAF7F2]">
         <div className="max-w-7xl mx-auto px-6 py-24">
-          <h2 className="text-3xl font-semibold mb-6">Our DevOps Approach</h2>
+          <motion.h2
+                  className="text-3xl font-semibold mb-6"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={slideIn}
+                >Our DevOps Approach            </motion.h2>
+
 
           <p className="text-lg text-black/70 leading-relaxed mb-6">
             Our methodology revolves around establishing the right processes
@@ -122,9 +141,16 @@ export default function DevOpsTechnology() {
 
       {/* ================= CTA ================= */}
       <div className="max-w-7xl mx-auto px-6 py-24 text-center">
-        <h2 className="text-3xl font-semibold mb-6">
+        <motion.h2
+                  className="text-3xl font-semibold mb-6"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={slideIn}
+                >
           Drive Agile Innovation with LIHA TECH DevOps
-        </h2>
+                    </motion.h2>
+
 
         <p className="text-black/70 max-w-2xl mx-auto mb-10">
           Partner with LIHA TECH to implement DevOps solutions that accelerate

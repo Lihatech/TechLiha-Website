@@ -9,6 +9,10 @@ const fadeUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
+const slideIn = {
+  hidden: { opacity: 0, x: -50 }, // slide from left
+  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
 export default function SAPTechnology() {
   return (
     <section className="bg-white text-black">
@@ -56,9 +60,16 @@ export default function SAPTechnology() {
 
           {/* RIGHT — CONTENT (BG ONLY HERE) */}
           <div className="bg-[#FAF7F2] p-12 rounded-2xl">
-            <h2 className="text-3xl font-semibold mb-6">
+            <motion.h2
+                  className="text-3xl font-semibold mb-6"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={slideIn}
+                >
               Enterprise Resource Planning with SAP
-            </h2>
+                        </motion.h2>
+
 
             <p className="text-lg text-black/70 leading-relaxed mb-6">
               SAP ERP is designed to unify business operations within a single,
@@ -80,9 +91,16 @@ export default function SAPTechnology() {
       {/* ================= SAP SERVICES ================= */}
       <div className="bg-[#FAF7F2]">
         <div className="max-w-7xl mx-auto px-6 py-24">
-          <h2 className="text-3xl font-semibold mb-6">
+          <motion.h2
+                  className="text-3xl font-semibold mb-6"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={slideIn}
+                >
             SAP Implementation & Consulting Services
-          </h2>
+                      </motion.h2>
+
 
           <p className="text-lg text-black/70 leading-relaxed mb-6">
             Our SAP services cover the complete ERP lifecycle, including
@@ -110,9 +128,16 @@ export default function SAPTechnology() {
 
       {/* ================= BUSINESS VALUE ================= */}
       <div className="max-w-7xl mx-auto px-6 py-24">
-        <h2 className="text-3xl font-semibold mb-6">
+        <motion.h2
+                  className="text-3xl font-semibold mb-6"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={slideIn}
+                >
           Business Value Delivered by SAP
-        </h2>
+                    </motion.h2>
+
 
         <p className="text-lg text-black/70 leading-relaxed mb-6">
           SAP ERP empowers organizations to streamline operations, automate
@@ -131,9 +156,16 @@ export default function SAPTechnology() {
       {/* ================= IMPLEMENTATION APPROACH ================= */}
       <div className="bg-slate-900 text-white">
         <div className="max-w-7xl mx-auto px-6 py-24">
-          <h2 className="text-3xl font-semibold mb-6">
+          <motion.h2
+                  className="text-3xl font-semibold mb-6"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={slideIn}
+                >
             Our SAP Implementation Approach
-          </h2>
+                      </motion.h2>
+
 
           <p className="text-lg text-white/75 leading-relaxed mb-6">
             Our SAP implementation approach begins with a deep understanding of
@@ -153,9 +185,16 @@ export default function SAPTechnology() {
 
       {/* ================= CTA ================= */}
       <div className="max-w-7xl mx-auto px-6 py-24 text-center">
-        <h2 className="text-3xl font-semibold mb-6">
+        <motion.h2
+                  className="text-3xl font-semibold mb-6"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={slideIn}
+                >
           Transform Enterprise Operations with SAP
-        </h2>
+                    </motion.h2>
+
 
         <p className="text-black/70 max-w-2xl mx-auto mb-10">
           Partner with Liha Tech to implement SAP ERP solutions that improve

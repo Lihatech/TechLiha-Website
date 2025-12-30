@@ -9,6 +9,11 @@ const fadeUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
+const slideIn = {
+  hidden: { opacity: 0, x: -50 }, // slide from left
+  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
+
 export default function PHPTechnology() {
   return (
     <section className="bg-white text-black">
@@ -56,9 +61,16 @@ export default function PHPTechnology() {
 
           {/* Right Side Content */}
           <div className="lg:w-1/2 w-full bg-gray-50 p-8 rounded-lg shadow-md">
-            <h2 className="text-3xl font-semibold mb-6">
-              Enterprise PHP Application Development
-            </h2>
+            <motion.h2
+                  className="text-3xl font-semibold mb-6"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={slideIn}
+                >
+              PHP Solutions 
+                        </motion.h2>
+
 
             <p className="text-lg text-black/70 leading-relaxed mb-6">
               PHP has played a foundational role in web application development
@@ -81,9 +93,16 @@ export default function PHPTechnology() {
       {/* ================= SERVICES ================= */}
       <div className="bg-[#FAF7F2]">
         <div className="max-w-7xl mx-auto px-6 py-24">
-          <h2 className="text-3xl font-semibold mb-6">
+          <motion.h2
+                  className="text-3xl font-semibold mb-6"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={slideIn}
+                >
             PHP Development Services
-          </h2>
+                      </motion.h2>
+
 
           <p className="text-lg text-black/70 leading-relaxed mb-6">
             We offer end-to-end PHP development services covering application
@@ -111,7 +130,14 @@ export default function PHPTechnology() {
 
       {/* ================= USE CASES ================= */}
       <div className="max-w-7xl mx-auto px-6 py-24">
-        <h2 className="text-3xl font-semibold mb-6">Common PHP Use Cases</h2>
+        <motion.h2
+                  className="text-3xl font-semibold mb-6"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={slideIn}
+                >Common PHP Use Cases            </motion.h2>
+
 
         <p className="text-lg text-black/70 leading-relaxed mb-6">
           PHP is commonly used for developing enterprise portals, content-driven
@@ -131,9 +157,16 @@ export default function PHPTechnology() {
       {/* ================= APPROACH ================= */}
       <div className="bg-slate-900 text-white">
         <div className="max-w-7xl mx-auto px-6 py-24">
-          <h2 className="text-3xl font-semibold mb-6">
+          <motion.h2
+                  className="text-3xl font-semibold mb-6"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={slideIn}
+                >
             Our PHP Development Approach
-          </h2>
+                      </motion.h2>
+
 
           <p className="text-lg text-white/75 leading-relaxed mb-6">
             Our PHP development process begins with a detailed understanding of
@@ -152,9 +185,16 @@ export default function PHPTechnology() {
 
       {/* ================= CTA ================= */}
       <div className="max-w-7xl mx-auto px-6 py-24 text-center">
-        <h2 className="text-3xl font-semibold mb-6">
+        <motion.h2
+                  className="text-3xl font-semibold mb-6"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={slideIn}
+                >
           Build Scalable Web Applications with PHP
-        </h2>
+                    </motion.h2>
+
 
         <p className="text-black/70 max-w-2xl mx-auto mb-10">
           Partner with Liha Tech to develop secure, reliable PHP applications

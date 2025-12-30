@@ -4,23 +4,59 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import logo from "../assets/icon.png";
 
+/* ---------------- Animations ---------------- */
+
+const headerAnim = {
+  hidden: { y: -60, opacity: 0 },
+  visible: { y: 0, opacity: 1 },
+};
+
+const dropdownAnim = {
+  hidden: { opacity: 0, y: 10 },
+  visible: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: 10 },
+};
+
+const mobileMenuAnim = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 },
+};
+
+const mobileLinks = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.08 },
+  },
+};
+
+const mobileItem = {
+  hidden: { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0 },
+};
+
+/* ---------------- Component ---------------- */
+
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [dropdown, setDropdown] = useState(false);
 
+  /* Scroll optimize */
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 30);
-    window.addEventListener("scroll", onScroll);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 30);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
     <>
-      {/* ================= NAVBAR ================= */}
+      {/* ================= HEADER ================= */}
       <motion.header
-        initial={{ y: -60, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
+        variants={headerAnim}
+        initial="hidden"
+        animate="visible"
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="fixed top-4 inset-x-0 z-50 px-3 sm:px-6"
       >
@@ -42,12 +78,10 @@ export default function Header() {
               src={logo}
               alt="Company Logo"
               className="h-9 sm:h-10 w-auto object-contain"
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.06 }}
+              whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 300 }}
             />
-            <span className="hidden sm:block font-semibold text-slate-900 text-sm">
-            
-            </span>
           </NavLink>
 
           {/* ================= DESKTOP NAV ================= */}
@@ -60,22 +94,26 @@ export default function Header() {
               onMouseEnter={() => setDropdown(true)}
               onMouseLeave={() => setDropdown(false)}
             >
-              <button className="flex items-center gap-1 font-medium text-slate-900">
+              <motion.button
+                whileHover={{ y: -1 }}
+                className="flex items-center gap-1 font-medium text-slate-900"
+              >
                 Services
                 <ChevronDown
                   size={14}
-                  className={`transition ${
+                  className={`transition-transform duration-200 ${
                     dropdown ? "rotate-180" : ""
                   }`}
                 />
-              </button>
+              </motion.button>
 
               <AnimatePresence>
                 {dropdown && (
                   <motion.div
-                    initial={{ opacity: 0, y: 12 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 12 }}
+                    variants={dropdownAnim}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
                     transition={{ duration: 0.2 }}
                     className="absolute top-12 left-0 w-[460px]
                     bg-white rounded-xl shadow-2xl
@@ -109,12 +147,13 @@ export default function Header() {
           </nav>
 
           {/* ================= MOBILE BUTTON ================= */}
-          <button
+          <motion.button
+            whileTap={{ scale: 0.9 }}
             onClick={() => setOpen(true)}
             className="lg:hidden text-slate-900"
           >
             <Menu size={26} />
-          </button>
+          </motion.button>
         </div>
       </motion.header>
 
@@ -122,32 +161,35 @@ export default function Header() {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            variants={mobileMenuAnim}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
             className="fixed inset-0 z-50 bg-black/90 backdrop-blur-lg"
           >
             {/* Close */}
-            <div className="absolute top-6 right-6">
-              <button onClick={() => setOpen(false)} className="text-white">
-                <X size={28} />
-              </button>
-            </div>
+            <motion.button
+              whileTap={{ scale: 0.9 }}
+              onClick={() => setOpen(false)}
+              className="absolute top-6 right-6 text-white"
+            >
+              <X size={28} />
+            </motion.button>
 
-            {/* Menu */}
+            {/* Links */}
             <motion.div
-              initial={{ y: 40, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.1 }}
+              variants={mobileLinks}
+              initial="hidden"
+              animate="visible"
               className="h-full flex flex-col
               justify-center items-center gap-7
               text-white text-xl"
             >
-              <MobileLink to="/" close={setOpen}>Home</MobileLink>
-              <MobileLink to="/services" close={setOpen}>Services</MobileLink>
-              <MobileLink to="/tech" close={setOpen}>Technologies</MobileLink>
-              <MobileLink to="/about" close={setOpen}>About</MobileLink>
-              <MobileLink to="/contact" close={setOpen}>Contact</MobileLink>
+              <MobileItem to="/" close={setOpen}>Home</MobileItem>
+              <MobileItem to="/services" close={setOpen}>Services</MobileItem>
+              <MobileItem to="/tech" close={setOpen}>Technologies</MobileItem>
+              <MobileItem to="/about" close={setOpen}>About</MobileItem>
+              <MobileItem to="/contact" close={setOpen}>Contact</MobileItem>
             </motion.div>
           </motion.div>
         )}
@@ -156,7 +198,7 @@ export default function Header() {
   );
 }
 
-/* ================= COMPONENTS ================= */
+/* ---------------- Components ---------------- */
 
 function NavItem({ to, children }) {
   return (
@@ -191,14 +233,16 @@ function ServiceLink({ to, title }) {
   );
 }
 
-function MobileLink({ to, children, close }) {
+function MobileItem({ to, children, close }) {
   return (
-    <NavLink
-      to={to}
-      onClick={() => close(false)}
-      className="font-medium hover:opacity-70 transition"
-    >
-      {children}
-    </NavLink>
+    <motion.div variants={mobileItem}>
+      <NavLink
+        to={to}
+        onClick={() => close(false)}
+        className="font-medium hover:opacity-70 transition"
+      >
+        {children}
+      </NavLink>
+    </motion.div>
   );
 }

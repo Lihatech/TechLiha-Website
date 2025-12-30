@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Star } from "lucide-react";
+import { motion } from "framer-motion";
 
 const testimonials = [
   {
@@ -37,87 +35,49 @@ const testimonials = [
   },
 ];
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0 },
-};
-
-export default function TestimonialsSlider() {
-  const [current, setCurrent] = useState(0);
-
-  // Auto-scroll every 5 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
-
+export default function TestimonialsUnique() {
   return (
-    <section className="py-16 sm:py-20 bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section className="py-20 sm:py-28 bg-zinc-950 text-white relative overflow-hidden">
+      <div className="absolute -top-16 -left-16 w-72 h-72 bg-gradient-to-tr from-indigo-600/20 to-pink-400/20 rounded-full blur-3xl" />
+      <div className="absolute -bottom-16 -right-16 w-96 h-96 bg-gradient-to-tr from-cyan-500/20 to-green-400/20 rounded-full blur-3xl" />
 
-        {/* Header */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.h2
-          initial="hidden"
-          whileInView="visible"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          variants={fadeUp}
-          className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-12 sm:mb-14 px-2 sm:px-0"
+          transition={{ duration: 0.8 }}
+          className="text-3xl sm:text-4xl md:text-5xl font-bold mb-12"
         >
           What Our Clients Say
         </motion.h2>
 
-        {/* Carousel */}
-        <div className="relative w-full max-w-3xl mx-auto overflow-hidden">
-          <AnimatePresence mode="wait">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
+          {testimonials.map((t, i) => (
             <motion.div
-              key={current}
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -50 }}
-              transition={{ duration: 0.8 }}
-              className="bg-zinc-800/80 border border-white/10 rounded-2xl p-6 sm:p-8 flex flex-col items-center text-center"
-              drag="x"
-              dragConstraints={{ left: 0, right: 0 }}
-              dragElastic={0.2}
-              onDragEnd={(e, info) => {
-                if (info.offset.x < -50) setCurrent((prev) => (prev + 1) % testimonials.length);
-                if (info.offset.x > 50) setCurrent((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-              }}
+              key={t.name}
+              initial={{ opacity: 0, y: 50, rotate: -1 + i * 0.5 }}
+              whileInView={{ opacity: 1, y: 0, rotate: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: i * 0.15 }}
+              className="relative bg-zinc-900/80 border border-white/10 rounded-3xl p-6 sm:p-8 shadow-2xl flex flex-col items-center text-center hover:scale-105 transition-transform duration-500"
             >
-              <img
-                src={testimonials[current].avatar}
-                alt={testimonials[current].name}
-                className="w-16 h-16 sm:w-20 sm:h-20 rounded-full mb-4"
-              />
-              <p className="text-zinc-300 text-sm sm:text-base md:text-lg mb-4 px-2 sm:px-0">
-                "{testimonials[current].message}"
-              </p>
-              <div className="flex items-center justify-center gap-2 mb-2">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400" />
-                ))}
+              <div className="absolute -top-8 w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border-2 border-white/20">
+                <img src={t.avatar} alt={t.name} className="w-full h-full object-cover" />
               </div>
-              <h4 className="font-semibold text-white text-sm sm:text-base md:text-lg">{testimonials[current].name}</h4>
+
+              <p className="mt-10 text-zinc-300 text-sm sm:text-base md:text-lg leading-relaxed mb-4">
+                "{t.message}"
+              </p>
+
+              <h4 className="text-white font-semibold text-base sm:text-lg md:text-xl">
+                {t.name}
+              </h4>
               <p className="text-zinc-400 text-xs sm:text-sm md:text-base">
-                {testimonials[current].role}, {testimonials[current].company}
+                {t.role}, {t.company}
               </p>
             </motion.div>
-          </AnimatePresence>
-
-          {/* Dots */}
-          <div className="flex justify-center mt-6 gap-2">
-            {testimonials.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setCurrent(idx)}
-                className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full transition ${
-                  idx === current ? "bg-white" : "bg-white/40"
-                }`}
-              ></button>
-            ))}
-          </div>
+          ))}
         </div>
       </div>
     </section>

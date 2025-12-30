@@ -1,57 +1,60 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  Briefcase,
-  TrendingUp,
-  Layers,
-  Users,
-  ChevronDown,
-} from "lucide-react";
+import { Briefcase, TrendingUp, Layers, Users, ChevronDown } from "lucide-react";
 
 const principles = [
   {
     icon: Briefcase,
-    title: "Business First",
-    desc: "We begin with business objectives, constraints, and ROI — not tools or trends.",
+    title: "Business-Driven Approach",
+    desc: "We start with your business objectives and ROI in mind. Every technical solution is aligned with tangible value.",
   },
   {
     icon: TrendingUp,
     title: "Designed for Scale",
-    desc: "Architecture anticipates growth, performance demands, and future change.",
+    desc: "Our architectures anticipate growth, performance demands, and future evolution to ensure long-term sustainability.",
   },
   {
     icon: Layers,
-    title: "Clarity Over Complexity",
-    desc: "Simple, well-structured systems outperform fragile complexity.",
+    title: "Simplicity & Clarity",
+    desc: "Well-structured, maintainable systems outperform over-engineered complexity — reducing risk and increasing agility.",
   },
   {
     icon: Users,
     title: "Partnership Mindset",
-    desc: "We think beyond delivery — focusing on long-term success.",
+    desc: "We view client relationships as long-term partnerships, ensuring knowledge transfer, support, and measurable success.",
   },
 ];
 
 export default function HowWeThink() {
   const [active, setActive] = useState(null);
 
+  const headerAnimation = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+  };
+
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-zinc-950 text-white">
+    <section className="py-16 sm:py-20 lg:py-28 bg-zinc-950 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
 
           {/* LEFT — Accordion */}
           <div>
             <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              variants={headerAnimation}
+              initial="hidden"
+              whileInView="visible"
               viewport={{ once: true }}
               className="max-w-xl mb-10 sm:mb-14"
             >
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold mb-4">
+              <span className="block text-xs tracking-widest uppercase text-zinc-400 mb-3">
+                Our Approach
+              </span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight mb-4">
                 How We Think
               </h2>
-              <p className="text-zinc-400 text-sm sm:text-base md:text-lg">
-                Strategic thinking driven by engineering discipline and long-term business value.
+              <p className="text-zinc-400 text-sm sm:text-base md:text-lg leading-relaxed">
+                At LIHA Tech, strategic thinking drives every engineering decision. Our methodology combines deep technical expertise with business insight to deliver solutions that scale, perform, and create lasting impact.
               </p>
             </motion.div>
 
@@ -60,7 +63,6 @@ export default function HowWeThink() {
 
               {principles.map(({ icon: Icon, title, desc }, i) => {
                 const isOpen = active === i;
-
                 return (
                   <div key={title} className="relative">
                     <button
@@ -104,7 +106,7 @@ export default function HowWeThink() {
                           transition={{ duration: 0.25 }}
                           className="pl-[56px] sm:pl-[68px] pr-2 sm:pr-4"
                         >
-                          <p className="mt-3 text-zinc-400 text-xs sm:text-sm md:text-base leading-relaxed max-w-lg">
+                          <p className="mt-3 text-zinc-400 text-xs sm:text-sm md:text-base leading-relaxed max-w-lg text-justify">
                             {desc}
                           </p>
                         </motion.div>
@@ -121,7 +123,7 @@ export default function HowWeThink() {
             initial={{ opacity: 0, scale: 0.96 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="relative hidden md:block"
           >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
