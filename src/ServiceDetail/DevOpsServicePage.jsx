@@ -11,10 +11,8 @@ export default function DevOpsServicePage() {
       <section className="relative pt-28 sm:pt-32 lg:pt-36 pb-20">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1605902711622-cfb43c443f97?auto=format&fit=crop&w=1920&q=80')",
-          }}
+          style={{ backgroundImage: "url('/images/devops.webp')" }}
+
         />
         <div className="absolute inset-0 bg-slate-900/80" />
 

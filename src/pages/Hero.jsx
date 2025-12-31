@@ -4,18 +4,36 @@ import { useRef, useState, useEffect } from "react";
 import { FaLinkedin, FaTwitter, FaGithub, FaFacebook } from "react-icons/fa";
 
 /* ---------------- Animations ---------------- */
-const container = { hidden: {}, visible: { transition: { staggerChildren: 0.15 } } };
-const item = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } } };
-const typingContainer = { hidden: {}, visible: { transition: { staggerChildren: 0.035 } } };
+const container = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.15 } },
+};
+const item = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+};
+const typingContainer = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.035 } },
+};
 const typingChar = { hidden: { opacity: 0 }, visible: { opacity: 1 } };
 
 // Social panel animation
-const socialContainer = { hidden: {}, visible: { transition: { staggerChildren: 0.15 } } };
-const socialItem = { hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } } };
+const socialContainer = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.15 } },
+};
+const socialItem = {
+  hidden: { opacity: 0, x: -20 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
 
 export default function Hero() {
   const ref = useRef(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
   const isInView = useInView(ref, { once: false, margin: "-50% 0px -50% 0px" });
 
   // Track window width for responsive behaviors
@@ -27,15 +45,32 @@ export default function Hero() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const bgY = useTransform(scrollYProgress, [0, 1], isMobile ? ["0%", "0%"] : ["0%", "12%"]);
-  const contentY = useTransform(scrollYProgress, [0, 1], isMobile ? ["0%", "0%"] : ["0%", "-8%"]);
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.6], [1, isMobile ? 1 : 0]);
+  const bgY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    isMobile ? ["0%", "0%"] : ["0%", "12%"]
+  );
+  const contentY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    isMobile ? ["0%", "0%"] : ["0%", "-8%"]
+  );
+  const contentOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.6],
+    [1, isMobile ? 1 : 0]
+  );
 
   return (
-    <section ref={ref} className="relative min-h-[100svh] overflow-hidden bg-black flex items-center">
+    <section
+      ref={ref}
+      className="relative min-h-[100svh] overflow-hidden bg-black flex items-center"
+    >
       {/* Background Image */}
       <motion.img
-        src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
+        src="/images/home.webp"
+        loading="lazy"
+        decoding="async"
         alt="LIHA Tech"
         style={{ y: bgY }}
         initial={{ scale: 1.05 }}
@@ -81,17 +116,46 @@ export default function Hero() {
           initial="hidden"
           animate="visible"
         >
-          <motion.a href="https://www.linkedin.com/company/liha-tech" target="_blank" rel="noopener noreferrer" className="transition-transform hover:translate-x-1" style={{ color: "white" }} variants={socialItem}>
+          <motion.a
+            href="https://www.linkedin.com/company/liha-tech"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-transform hover:translate-x-1"
+            style={{ color: "white" }}
+            variants={socialItem}
+          >
             <FaLinkedin size={22} className="hover:text-[#0A66C2]" />
           </motion.a>
-          <motion.a href="https://twitter.com/liha-tech" target="_blank" rel="noopener noreferrer" className="transition-transform hover:translate-x-1" style={{ color: "white" }} variants={socialItem}>
+          <motion.a
+            href="https://twitter.com/liha-tech"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-transform hover:translate-x-1"
+            style={{ color: "white" }}
+            variants={socialItem}
+          >
             <FaTwitter size={22} className="hover:text-[#1DA1F2]" />
           </motion.a>
-          <motion.a href="https://facebook.com/liha-tech" target="_blank" rel="noopener noreferrer" className="transition-transform hover:translate-x-1" style={{ color: "white" }} variants={socialItem}>
+          <motion.a
+            href="https://facebook.com/liha-tech"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-transform hover:translate-x-1"
+            style={{ color: "white" }}
+            variants={socialItem}
+          >
             <FaFacebook size={22} className="hover:text-[#1877F2]" />
           </motion.a>
-          <motion.div className="w-px h-12 sm:h-16 bg-white/30 mx-auto" variants={socialItem}></motion.div>
-          <motion.a href="mailto:info@liha-tech.com" className="text-white text-sm transition-colors hover:text-cyan-400" style={{ writingMode: "vertical-rl" }} variants={socialItem}>
+          <motion.div
+            className="w-px h-12 sm:h-16 bg-white/30 mx-auto"
+            variants={socialItem}
+          ></motion.div>
+          <motion.a
+            href="mailto:info@liha-tech.com"
+            className="text-white text-sm transition-colors hover:text-cyan-400"
+            style={{ writingMode: "vertical-rl" }}
+            variants={socialItem}
+          >
             info@liha-tech.com
           </motion.a>
         </motion.div>
@@ -106,9 +170,17 @@ export default function Hero() {
         className="relative z-10 px-4 sm:px-12 md:px-16 lg:px-24 flex flex-col items-start text-left max-w-full md:max-w-5xl"
       >
         {/* Heading */}
-        <motion.h1 variants={item} className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-tight">
+        <motion.h1
+          variants={item}
+          className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-tight"
+        >
           Driving Digital
-          <motion.span variants={typingContainer} initial="hidden" animate="visible" className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-400 font-light mt-2 text-lg sm:text-3xl md:text-4xl lg:text-5xl">
+          <motion.span
+            variants={typingContainer}
+            initial="hidden"
+            animate="visible"
+            className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-400 font-light mt-2 text-lg sm:text-3xl md:text-4xl lg:text-5xl"
+          >
             {"Transformation for Businesses".split("").map((char, i) => (
               <motion.span key={i} variants={typingChar}>
                 {char === " " ? "\u00A0" : char}
@@ -118,12 +190,20 @@ export default function Hero() {
         </motion.h1>
 
         {/* Description */}
-        <motion.p variants={item} className="mt-4 sm:mt-5 text-zinc-300 text-sm sm:text-base md:text-lg lg:text-xl max-w-full">
-          LIHA Tech delivers scalable software solutions, AI-powered platforms, and cloud-native systems that accelerate growth with security and reliability.
+        <motion.p
+          variants={item}
+          className="mt-4 sm:mt-5 text-zinc-300 text-sm sm:text-base md:text-lg lg:text-xl max-w-full"
+        >
+          LIHA Tech delivers scalable software solutions, AI-powered platforms,
+          and cloud-native systems that accelerate growth with security and
+          reliability.
         </motion.p>
 
         {/* Buttons */}
-        <motion.div variants={item} className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+        <motion.div
+          variants={item}
+          className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
+        >
           <motion.div whileHover={{ y: -3 }} whileTap={{ scale: 0.96 }}>
             <NavLink
               to="/services"

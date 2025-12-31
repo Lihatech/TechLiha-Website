@@ -145,7 +145,9 @@ export default function Home() {
             >
               <div className="relative overflow-hidden rounded-2xl shadow-xl group">
                 <img
-                  src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1200&q=80"
+                  src="/images/about-liha.webp"
+                  loading="lazy"
+                  decoding="async"
                   alt="LIHA Tech team collaboration"
                   className="
               w-full

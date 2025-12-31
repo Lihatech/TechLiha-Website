@@ -185,11 +185,21 @@ export default function Header() {
               justify-center items-center gap-7
               text-white text-xl"
             >
-              <MobileItem to="/" close={setOpen}>Home</MobileItem>
-              <MobileItem to="/services" close={setOpen}>Services</MobileItem>
-              <MobileItem to="/tech" close={setOpen}>Technologies</MobileItem>
-              <MobileItem to="/about" close={setOpen}>About</MobileItem>
-              <MobileItem to="/contact" close={setOpen}>Contact</MobileItem>
+              <MobileItem to="/" close={setOpen}>
+                Home
+              </MobileItem>
+              <MobileItem to="/services" close={setOpen}>
+                Services
+              </MobileItem>
+              <MobileItem to="/tech" close={setOpen}>
+                Technologies
+              </MobileItem>
+              <MobileItem to="/about" close={setOpen}>
+                About
+              </MobileItem>
+              <MobileItem to="/contact" close={setOpen}>
+                Contact
+              </MobileItem>
             </motion.div>
           </motion.div>
         )}
@@ -202,19 +212,46 @@ export default function Header() {
 
 function NavItem({ to, children }) {
   return (
-    <NavLink to={to} className="relative px-1">
+    <NavLink to={to} className="relative px-1 group">
       {({ isActive }) => (
         <>
-          {isActive && (
-            <motion.span
-              layoutId="nav-pill"
-              className="absolute -inset-2 rounded-full bg-black/10"
-              transition={{ type: "spring", stiffness: 400, damping: 30 }}
-            />
-          )}
-          <span className="relative font-medium text-slate-900">
+          {/* Text */}
+          <span
+            className={`
+              relative z-10 font-medium transition-colors duration-300
+              ${isActive ? "text-slate-900" : "text-slate-700"}
+            `}
+          >
             {children}
           </span>
+
+          {/* Active underline (shared layout) */}
+          {isActive && (
+            <motion.span
+              layoutId="active-nav-underline"
+              className="
+                absolute left-0 -bottom-1 h-[2px] w-full
+                bg-slate-900 rounded-full
+              "
+              transition={{
+                type: "spring",
+                stiffness: 500,
+                damping: 30,
+              }}
+            />
+          )}
+
+          {/* Hover underline */}
+          <span
+            className="
+              pointer-events-none
+              absolute left-0 -bottom-1 h-[2px] w-full
+              bg-slate-900/40
+              scale-x-0 origin-left
+              transition-transform duration-300 ease-out
+              group-hover:scale-x-100
+            "
+          />
         </>
       )}
     </NavLink>
@@ -223,23 +260,43 @@ function NavItem({ to, children }) {
 
 function ServiceLink({ to, title }) {
   return (
-    <NavLink
-      to={to}
-      className="p-3 rounded-lg border border-slate-200
-      hover:border-black hover:bg-slate-50 transition"
-    >
-      {title}
-    </NavLink>
+    <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
+      <NavLink
+        to={to}
+        className="
+          group p-3 rounded-lg border border-slate-200
+          hover:border-black hover:bg-slate-50
+          transition-all
+          flex items-center justify-between
+        "
+      >
+        <span>{title}</span>
+
+        <motion.span
+          initial={{ opacity: 0, x: -6 }}
+          whileHover={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.2 }}
+          className="text-sm"
+        >
+          →
+        </motion.span>
+      </NavLink>
+    </motion.div>
   );
 }
 
 function MobileItem({ to, children, close }) {
   return (
-    <motion.div variants={mobileItem}>
+    <motion.div
+      variants={mobileItem}
+      whileHover={{ x: 6 }}
+      whileTap={{ scale: 0.95 }}
+      transition={{ type: "spring", stiffness: 300 }}
+    >
       <NavLink
         to={to}
         onClick={() => close(false)}
-        className="font-medium hover:opacity-70 transition"
+        className="font-medium hover:opacity-80 transition"
       >
         {children}
       </NavLink>

@@ -19,10 +19,8 @@ export default function AboutLihaTech() {
       <section className="relative pt-28 sm:pt-32 lg:pt-36 pb-24 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=1920&q=80')",
-          }}
+         style={{ backgroundImage: "url('/images/about.webp')" }}
+
         />
         <div className="absolute inset-0 bg-slate-900/90" />
 
@@ -107,7 +105,9 @@ export default function AboutLihaTech() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d"
+            src="/images/teamabout.webp"
+            loading="lazy"
+            decoding="async"
             alt="Team collaboration"
             className="w-full h-[260px] sm:h-[320px] lg:h-[420px] object-cover rounded-2xl"
           />
@@ -122,7 +122,9 @@ export default function AboutLihaTech() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4"
+            src="/images/tableabout.webp"
+            loading="lazy"
+            decoding="async"
             alt="Professional team"
             className="w-full h-[260px] sm:h-[320px] lg:h-[420px] object-cover rounded-2xl"
           />

@@ -56,10 +56,8 @@ export default function AndroidAppServicePage() {
       <section className="relative pt-28 sm:pt-32 lg:pt-36 pb-20 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?auto=format&fit=crop&w=1920&q=80')",
-          }}
+          style={{ backgroundImage: "url('/images/android.webp')" }}
+
         />
         <div className="absolute inset-0 bg-slate-900/80" />
 

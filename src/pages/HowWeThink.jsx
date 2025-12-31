@@ -1,6 +1,12 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Briefcase, TrendingUp, Layers, Users, ChevronDown } from "lucide-react";
+import {
+  Briefcase,
+  TrendingUp,
+  Layers,
+  Users,
+  ChevronDown,
+} from "lucide-react";
 
 const principles = [
   {
@@ -30,14 +36,17 @@ export default function HowWeThink() {
 
   const headerAnimation = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
   };
 
   return (
     <section className="py-16 sm:py-20 lg:py-28 bg-zinc-950 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-
           {/* LEFT — Accordion */}
           <div>
             <motion.div
@@ -54,7 +63,10 @@ export default function HowWeThink() {
                 How We Think
               </h2>
               <p className="text-zinc-400 text-sm sm:text-base md:text-lg leading-relaxed">
-                At LIHA Tech, strategic thinking drives every engineering decision. Our methodology combines deep technical expertise with business insight to deliver solutions that scale, perform, and create lasting impact.
+                At LIHA Tech, strategic thinking drives every engineering
+                decision. Our methodology combines deep technical expertise with
+                business insight to deliver solutions that scale, perform, and
+                create lasting impact.
               </p>
             </motion.div>
 
@@ -76,9 +88,10 @@ export default function HowWeThink() {
                         }}
                         transition={{ type: "spring", stiffness: 200 }}
                         className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl border flex items-center justify-center flex-shrink-0
-                          ${isOpen
-                            ? "bg-white text-black border-white"
-                            : "bg-zinc-900 border-white/10 text-zinc-200"
+                          ${
+                            isOpen
+                              ? "bg-white text-black border-white"
+                              : "bg-zinc-900 border-white/10 text-zinc-200"
                           }`}
                       >
                         <Icon size={18} />
@@ -128,8 +141,10 @@ export default function HowWeThink() {
           >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
               <img
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=80"
+                src="/images/wethink.webp"
                 alt="Strategic thinking"
+                loading="lazy"
+                decoding="async"
                 className="
                   object-cover w-full h-[280px] sm:h-[340px] md:h-[400px] lg:h-[460px]
                   grayscale
@@ -138,12 +153,14 @@ export default function HowWeThink() {
                   transition-all duration-700 ease-out
                 "
               />
-              <div className="
+              <div
+                className="
                 absolute inset-0
                 bg-gradient-to-tr from-black/60 via-black/30 to-transparent
                 group-hover:from-black/40 group-hover:via-black/20
                 transition-all duration-700
-              " />
+              "
+              />
             </div>
 
             <div className="absolute -bottom-6 left-6 bg-zinc-900 border border-white/10 rounded-xl px-4 py-2">
@@ -152,7 +169,6 @@ export default function HowWeThink() {
               </p>
             </div>
           </motion.div>
-
         </div>
       </div>
     </section>

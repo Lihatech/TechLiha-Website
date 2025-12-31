@@ -13,19 +13,18 @@ import { Cloud } from "lucide-react";
 import SEO from "../config/SEO";
 
 export default function Technologies() {
-
   const headerAnimation = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i = 1) => ({
-    opacity: 1,
-    y: 0,
-    transition: { 
-      delay: i * 0.2, 
-      duration: 0.6, 
-      ease: "easeOut" 
-    },
-  }),
-};
+    hidden: { opacity: 0, y: 20 },
+    visible: (i = 1) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.2,
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    }),
+  };
 
   return (
     <>
@@ -35,10 +34,7 @@ export default function Technologies() {
         <div className="relative">
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{
-              backgroundImage:
-                "url('https://images.unsplash.com/photo-1518770660439-4636190af475')",
-            }}
+            style={{ backgroundImage: "url('/images/tech.webp')" }}
           />
           <div className="absolute inset-0 bg-black/60" />
 

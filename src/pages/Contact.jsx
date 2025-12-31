@@ -7,16 +7,13 @@ export default function ContactPage() {
     <>
       <SEO page="contact" />
       <section className="bg-black text-white overflow-hidden">
-        {/* ================= HERO ================= */}+{" "}
+        {/* ================= HERO ================= */}
         <div className="relative h-[70vh] sm:h-[75vh] lg:h-[80vh] flex items-center pt-20">
           {" "}
           {/* Background Image */}
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{
-              backgroundImage:
-                "url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1920&q=80')",
-            }}
+            style={{ backgroundImage: "url('/images/teamabout.webp')" }}
           />
           {/* Overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/60 to-black" />

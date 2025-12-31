@@ -11,10 +11,8 @@ export default function EnterpriseServicePage() {
       <section className="relative pt-28 sm:pt-32 lg:pt-36 pb-20">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1531497865142-ef0f7d5ff3c6?auto=format&fit=crop&w=1920&q=80')",
-          }}
+          style={{ backgroundImage: "url('/images/erp.webp')" }}
+
         />
         <div className="absolute inset-0 bg-slate-900/80" />
 

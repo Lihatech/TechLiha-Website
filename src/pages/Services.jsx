@@ -3,9 +3,8 @@ import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
 import { ArrowRight, Cloud, Code2, CheckCircle } from "lucide-react";
 
-import { FaAndroid, FaShieldAlt } from "react-icons/fa";
+import { FaAndroid, FaShieldAlt, FaAws } from "react-icons/fa";
 import { SiReact, SiPython, SiApachehadoop } from "react-icons/si";
-import AWSIcon from "react-aws-icons/dist/aws/logo/AWS";
 
 import SEO from "../config/SEO";
 
@@ -65,7 +64,7 @@ export default function ServicesPage() {
               to="/services/aws"
               title="AWS Solutions"
               desc="Secure and scalable solutions built on Amazon Web Services."
-              icon={<AWSIcon />}
+              icon={<FaAws />}
               hoverColor="#f97316" // orange-500
               className="lg:col-span-2"
             />
