@@ -64,7 +64,7 @@ export default function Hero() {
   return (
     <section
       ref={ref}
-      className="relative min-h-[100svh] overflow-hidden bg-black flex items-center"
+      className="relative min-h-[100svh] overflow-hidden bg-white flex items-center"
     >
       {/* Background Image */}
       <motion.img

@@ -57,7 +57,7 @@ export default function Home() {
 
       <ServiceCard />
 
-      <section className="py-16 sm:py-20 lg:py-28 bg-zinc-900 text-white">
+      <section className="py-16 sm:py-20 lg:py-28 bg-zinc-50 text-zinc-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* TEXT */}
@@ -78,7 +78,7 @@ export default function Home() {
                 {/* Section label */}
                 <motion.span
                   variants={labelReveal}
-                  className="block text-xs tracking-widest uppercase text-zinc-400 mb-3"
+                  className="block text-xs tracking-widest uppercase text-zinc-500 mb-3"
                 >
                   About Us
                 </motion.span>
@@ -86,13 +86,13 @@ export default function Home() {
                 {/* Decorative line */}
                 <motion.span
                   variants={lineReveal}
-                  className="block h-px w-12 bg-white/40 mb-4 origin-left"
+                  className="block h-px w-12 bg-zinc-300 mb-4 origin-left"
                 />
 
                 {/* Heading */}
                 <motion.h2
                   variants={titleReveal}
-                  className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight mb-5"
+                  className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight mb-5 text-zinc-900"
                 >
                   About LIHA Tech
                 </motion.h2>
@@ -100,14 +100,14 @@ export default function Home() {
 
               <p
                 className="
-    text-zinc-300
-    text-sm sm:text-base md:text-lg
-    leading-relaxed
-    mb-5
-    max-w-xl
-    text-justify
-    hyphens-auto
-  "
+  text-zinc-700
+  text-sm sm:text-base md:text-lg
+  leading-relaxed
+  mb-5
+  max-w-xl
+  text-justify
+  hyphens-auto
+"
               >
                 At LIHA Tech, we understand the evolving demands of modern
                 technology and the challenges businesses face in a fast-changing
@@ -118,13 +118,13 @@ export default function Home() {
 
               <p
                 className="
-    text-zinc-400
-    text-xs sm:text-sm md:text-base
-    leading-relaxed
-    max-w-xl
-    text-justify
-    hyphens-auto
-  "
+  text-zinc-600
+  text-xs sm:text-sm md:text-base
+  leading-relaxed
+  max-w-xl
+  text-justify
+  hyphens-auto
+"
               >
                 We partner with organizations worldwide to design and implement
                 systems that improve operational efficiency, strengthen
@@ -149,20 +149,10 @@ export default function Home() {
                   loading="lazy"
                   decoding="async"
                   alt="LIHA Tech team collaboration"
-                  className="
-              w-full
-              h-[220px] sm:h-[300px] md:h-[360px] lg:h-[420px]
-              object-cover
-              grayscale
-              group-hover:grayscale-0
-              group-hover:scale-[1.04]
-              transition-transform transition-filter
-              duration-700 ease-out
-            "
                 />
 
                 {/* Subtle overlay for contrast */}
-                <div className="absolute inset-0 bg-black/15 group-hover:bg-black/5 transition duration-700" />
+                <div className="absolute inset-0 bg-white/10 group-hover:bg-transparent transition duration-700" />
               </div>
             </motion.div>
           </div>
@@ -175,23 +165,24 @@ export default function Home() {
       <HowWeThink />
 
       {/* ================= CTA ================= */}
-      <section className="py-16 sm:py-20 bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950 text-white text-center px-4 sm:px-6 lg:px-8">
+      <section className="py-16 sm:py-20 bg-gradient-to-b from-zinc-60 via-zinc-100 to-zinc-50 text-zinc-900 text-center px-4 sm:px-6 lg:px-8">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-4 sm:mb-6"
+          className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-4 sm:mb-6 text-zinc-900"
         >
           Ready to Build Your Next Product?
         </motion.h2>
-
-        <p className="text-zinc-400 mb-6 sm:mb-8 text-sm sm:text-base">
+        <p className="text-zinc-600 mb-6 sm:mb-8 text-sm sm:text-base">
           Let’s discuss your requirements and create something scalable.
         </p>
 
         <NavLink
           to="/contact"
-          className="inline-block px-6 sm:px-8 py-3.5 sm:py-4 bg-white text-black rounded-full font-semibold hover:bg-zinc-200 transition"
+          className="inline-block px-6 sm:px-8 py-3.5 sm:py-4
+             bg-zinc-900 text-white rounded-full font-semibold
+             hover:bg-zinc-800 transition shadow-sm"
         >
           Get Free Consultation
         </NavLink>

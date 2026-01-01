@@ -58,7 +58,6 @@ const textReveal = {
   },
 };
 
-
 const services = [
   {
     icon: Brain,
@@ -134,7 +133,7 @@ const services = [
 
 export default function ServicesNarrative() {
   return (
-    <section className="bg-zinc-950 text-white py-20 sm:py-28">
+    <section className="bg-white text-zinc-900 py-20 sm:py-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <motion.div
@@ -147,7 +146,7 @@ export default function ServicesNarrative() {
           {/* Section line */}
           <motion.span
             variants={lineReveal}
-            className="block h-px w-16 bg-white/40 mb-6 origin-left"
+            className="block h-px w-16 bg-zinc-300 mb-6 origin-left"
           />
 
           <motion.h2
@@ -159,7 +158,7 @@ export default function ServicesNarrative() {
 
           <motion.p
             variants={textReveal}
-            className="mt-4 text-zinc-400 text-base sm:text-lg leading-relaxed"
+            className="mt-4 text-zinc-600 text-base sm:text-lg leading-relaxed"
           >
             We design and engineer digital systems that help enterprises move
             faster, scale smarter, and stay secure.
@@ -178,8 +177,8 @@ export default function ServicesNarrative() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-80px" }}
-                className="group border border-white/10 rounded-2xl bg-zinc-900/60
-                           hover:bg-zinc-900 transition-colors"
+                className="group border border-zinc-200 rounded-2xl bg-white
+           hover:bg-zinc-50 transition-colors"
               >
                 <div className="grid md:grid-cols-12 gap-8 p-6 sm:p-8 md:p-10">
                   {/* LEFT – Identity */}
@@ -192,8 +191,8 @@ export default function ServicesNarrative() {
                           stiffness: 260,
                           damping: 18,
                         }}
-                        className={`w-12 h-12 rounded-xl bg-white/5
-                        flex items-center justify-center ${service.color}`}
+                        className={`w-12 h-12 rounded-xl bg-zinc-100
+flex items-center justify-center ${service.color}`}
                       >
                         <Icon size={22} />
                       </motion.div>
@@ -203,7 +202,7 @@ export default function ServicesNarrative() {
                       </h3>
                     </div>
 
-                    <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
+                    <p className="text-zinc-600 text-sm sm:text-base leading-relaxed">
                       {service.desc}
                     </p>
                   </div>
@@ -214,9 +213,9 @@ export default function ServicesNarrative() {
                       {service.points.map((point) => (
                         <li
                           key={point}
-                          className="flex items-center gap-2 text-sm text-zinc-300"
+                          className="flex items-center gap-2 text-sm text-zinc-700"
                         >
-                          <span className="w-1.5 h-1.5 rounded-full bg-white/40" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-zinc-400" />
                           {point}
                         </li>
                       ))}
@@ -225,7 +224,7 @@ export default function ServicesNarrative() {
                     <NavLink
                       to={service.link}
                       className="inline-flex items-center gap-2 text-sm font-medium
-                                 text-white hover:opacity-80 w-fit"
+           text-zinc-900 hover:text-cyan-600 transition-colors w-fit"
                     >
                       View Service <ArrowRight size={16} />
                     </NavLink>
