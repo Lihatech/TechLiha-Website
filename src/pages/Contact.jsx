@@ -51,17 +51,17 @@ export default function ContactPage() {
               {
                 icon: Building2,
                 title: "Company",
-                value: "LIHA Tech Solutions Pvt. Ltd.",
+                value: "LIHA Tech Pvt. Ltd.",
               },
               {
                 icon: MapPin,
                 title: "Office",
-                value: "Bengaluru, Karnataka, India",
+                value: "Pune, Maharashtra, India",
               },
               {
                 icon: Phone,
                 title: "Phone",
-                value: "+91 98765 43210",
+                value: "+91 97670 37492",
               },
               {
                 icon: Mail,

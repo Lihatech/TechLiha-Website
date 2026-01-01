@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Mail, Phone } from "lucide-react";
 import { FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 
@@ -39,13 +39,23 @@ export default function Footer() {
               Services
             </h4>
             <ul className="space-y-2 text-sm">
-              <FooterLink to="/services/ai-data-science">AI & Data Science</FooterLink>
-              <FooterLink to="/services/big-data">Big Data Solutions</FooterLink>
+              <FooterLink to="/services/ai-data-science">
+                AI & Data Science
+              </FooterLink>
+              <FooterLink to="/services/big-data">
+                Big Data Solutions
+              </FooterLink>
               <FooterLink to="/services/web">Web Development</FooterLink>
-              <FooterLink to="/services/mobile">Mobile App Development</FooterLink>
-              <FooterLink to="/services/cloud-migration">Cloud Migration</FooterLink>
+              <FooterLink to="/services/mobile">
+                Mobile App Development
+              </FooterLink>
+              <FooterLink to="/services/cloud-migration">
+                Cloud Migration
+              </FooterLink>
               <FooterLink to="/services/devops">DevOps Services</FooterLink>
-              <FooterLink to="/services/cyber-security">Cyber Security</FooterLink>
+              <FooterLink to="/services/cyber-security">
+                Cyber Security
+              </FooterLink>
             </ul>
           </div>
 
@@ -86,7 +96,7 @@ export default function Footer() {
                   href="tel:+911234567890"
                   className="hover:text-slate-900 transition-colors duration-200"
                 >
-                  +91 12345 67890
+                  +91 97670 37492
                 </a>
               </li>
             </ul>
@@ -97,7 +107,7 @@ export default function Footer() {
         <div className="border-t border-slate-200 mt-14 pt-6 text-center text-sm text-slate-400">
           © {new Date().getFullYear()} Liha Tech. All rights reserved.
           <span className="block mt-2 text-xs text-slate-500">
-            Made with ♥ by Liha Tech
+            Made with ♥ by <a href="https://lihatech.com">Liha Tech</a>
           </span>
         </div>
       </div>
