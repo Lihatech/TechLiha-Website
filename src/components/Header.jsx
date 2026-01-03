@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import logo from "../assets/icon.png";
@@ -38,17 +38,7 @@ const mobileItem = {
 
 export default function Header() {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [dropdown, setDropdown] = useState(false);
-
-  /* Scroll optimize */
-  useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 30);
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   return (
     <>
@@ -61,16 +51,14 @@ export default function Header() {
         className="fixed top-4 inset-x-0 z-50 px-3 sm:px-6"
       >
         <div
-          className={`mx-auto max-w-7xl
-          flex items-center justify-between
-          px-4 sm:px-6 py-3
-          rounded-2xl backdrop-blur-xl
-          transition-all duration-300
-          ${
-            scrolled
-              ? "bg-white/90 shadow-xl border border-slate-200"
-              : "bg-white/70 border border-white/40"
-          }`}
+          className="
+            mx-auto max-w-7xl
+            flex items-center justify-between
+            px-4 sm:px-6 py-3
+            rounded-2xl backdrop-blur-xl
+            bg-white shadow-xl border border-slate-200
+            transition-all duration-300
+          "
         >
           {/* ================= LOGO ================= */}
           <NavLink to="/" className="flex items-center gap-2 shrink-0">
@@ -185,21 +173,11 @@ export default function Header() {
               justify-center items-center gap-7
               text-white text-xl"
             >
-              <MobileItem to="/" close={setOpen}>
-                Home
-              </MobileItem>
-              <MobileItem to="/services" close={setOpen}>
-                Services
-              </MobileItem>
-              <MobileItem to="/tech" close={setOpen}>
-                Technologies
-              </MobileItem>
-              <MobileItem to="/about" close={setOpen}>
-                About
-              </MobileItem>
-              <MobileItem to="/contact" close={setOpen}>
-                Contact
-              </MobileItem>
+              <MobileItem to="/" close={setOpen}>Home</MobileItem>
+              <MobileItem to="/services" close={setOpen}>Services</MobileItem>
+              <MobileItem to="/tech" close={setOpen}>Technologies</MobileItem>
+              <MobileItem to="/about" close={setOpen}>About</MobileItem>
+              <MobileItem to="/contact" close={setOpen}>Contact</MobileItem>
             </motion.div>
           </motion.div>
         )}
@@ -215,43 +193,22 @@ function NavItem({ to, children }) {
     <NavLink to={to} className="relative px-1 group">
       {({ isActive }) => (
         <>
-          {/* Text */}
           <span
-            className={`
-              relative z-10 font-medium transition-colors duration-300
-              ${isActive ? "text-slate-900" : "text-slate-700"}
-            `}
+            className={`font-medium transition-colors ${
+              isActive ? "text-slate-900" : "text-slate-700"
+            }`}
           >
             {children}
           </span>
 
-          {/* Active underline (shared layout) */}
           {isActive && (
             <motion.span
               layoutId="active-nav-underline"
-              className="
-                absolute left-0 -bottom-1 h-[2px] w-full
-                bg-slate-900 rounded-full
-              "
-              transition={{
-                type: "spring",
-                stiffness: 500,
-                damping: 30,
-              }}
+              className="absolute left-0 -bottom-1 h-[2px] w-full bg-slate-900 rounded-full"
             />
           )}
 
-          {/* Hover underline */}
-          <span
-            className="
-              pointer-events-none
-              absolute left-0 -bottom-1 h-[2px] w-full
-              bg-slate-900/40
-              scale-x-0 origin-left
-              transition-transform duration-300 ease-out
-              group-hover:scale-x-100
-            "
-          />
+          <span className="absolute left-0 -bottom-1 h-[2px] w-full bg-slate-900/40 scale-x-0 origin-left transition-transform group-hover:scale-x-100" />
         </>
       )}
     </NavLink>
@@ -260,26 +217,15 @@ function NavItem({ to, children }) {
 
 function ServiceLink({ to, title }) {
   return (
-    <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
+    <motion.div whileHover={{ y: -2 }}>
       <NavLink
         to={to}
-        className="
-          group p-3 rounded-lg border border-slate-200
-          hover:border-black hover:bg-slate-50
-          transition-all
-          flex items-center justify-between
-        "
+        className="group p-3 rounded-lg border border-slate-200
+        hover:border-black hover:bg-slate-50
+        transition-all flex justify-between"
       >
         <span>{title}</span>
-
-        <motion.span
-          initial={{ opacity: 0, x: -6 }}
-          whileHover={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.2 }}
-          className="text-sm"
-        >
-          →
-        </motion.span>
+        <span className="opacity-0 group-hover:opacity-100 transition">→</span>
       </NavLink>
     </motion.div>
   );
@@ -287,17 +233,8 @@ function ServiceLink({ to, title }) {
 
 function MobileItem({ to, children, close }) {
   return (
-    <motion.div
-      variants={mobileItem}
-      whileHover={{ x: 6 }}
-      whileTap={{ scale: 0.95 }}
-      transition={{ type: "spring", stiffness: 300 }}
-    >
-      <NavLink
-        to={to}
-        onClick={() => close(false)}
-        className="font-medium hover:opacity-80 transition"
-      >
+    <motion.div variants={mobileItem}>
+      <NavLink to={to} onClick={() => close(false)}>
         {children}
       </NavLink>
     </motion.div>

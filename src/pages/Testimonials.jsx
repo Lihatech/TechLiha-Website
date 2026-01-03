@@ -2,36 +2,32 @@ import { motion } from "framer-motion";
 
 const testimonials = [
   {
-    name: "John Doe",
-    company: "FinTech Corp",
-    role: "CTO",
+    name: "Gajana Bhole",
+    role: "Director",
+    company: "VimDigitech, Pune",
     message:
-      "LIHA Tech delivered an exceptional solution that exceeded our expectations. Highly recommend their team!",
-    avatar: "https://i.pravatar.cc/150?img=1",
+      "LIHA Tech demonstrated strong technical expertise and professionalism. The collaboration was smooth and results were delivered as promised.",
   },
   {
-    name: "Jane Smith",
-    company: "HealthPlus",
-    role: "Product Manager",
+    name: "Komal Deshmukh",
+    role: "Founder",
+    company: "CodeNucleus Solutions, Pune",
     message:
-      "Professional, timely, and innovative. The project was delivered seamlessly with excellent support.",
-    avatar: "https://i.pravatar.cc/150?img=2",
+      "Working with LIHA Tech was a great experience. Their team understands business needs and delivers scalable, reliable solutions.",
   },
   {
-    name: "Mark Wilson",
-    company: "EduSmart",
-    role: "CEO",
+    name: "Sushant C.",
+    role: "HR",
+    company: "Deloitte, Hyderabad",
     message:
-      "The AI-driven solutions provided by LIHA Tech transformed our workflow. Truly remarkable results!",
-    avatar: "https://i.pravatar.cc/150?img=3",
+      "The team showed excellent coordination and timely delivery. Their approach and communication were highly professional.",
   },
   {
-    name: "Lisa Brown",
-    company: "SaaSify",
-    role: "Lead Developer",
+    name: "Shahabaj H.",
+    role: "Founder",
+    company: "Maharashtra Academy",
     message:
-      "Efficient, responsive, and high-quality solutions. LIHA Tech is our go-to tech partner!",
-    avatar: "https://i.pravatar.cc/150?img=4",
+      "LIHA Tech provided quality solutions with great attention to detail. Highly recommended for long-term technology partnerships.",
   },
 ];
 
@@ -56,24 +52,16 @@ export default function TestimonialsUnique() {
           {testimonials.map((t, i) => (
             <motion.div
               key={t.name}
-              initial={{ opacity: 0, y: 50, rotate: -1 + i * 0.5 }}
-              whileInView={{ opacity: 1, y: 0, rotate: 0 }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: i * 0.15 }}
               className="relative bg-white border border-zinc-200 rounded-3xl p-6 sm:p-8
-           shadow-sm hover:shadow-lg flex flex-col items-center text-center
-           hover:-translate-y-1 transition-all duration-500"
+              shadow-sm hover:shadow-lg flex flex-col text-center
+              hover:-translate-y-1 transition-all duration-500"
             >
-              <div className="absolute -top-8 w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border-2 border-zinc-200 bg-white">
-                <img
-                  src={t.avatar}
-                  alt={t.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              <p className="mt-10 text-zinc-700 text-sm sm:text-base md:text-lg leading-relaxed mb-4">
-                "{t.message}"
+              <p className="text-zinc-700 text-sm sm:text-base md:text-lg leading-relaxed mb-6">
+                “{t.message}”
               </p>
 
               <h4 className="text-zinc-900 font-semibold text-base sm:text-lg md:text-xl">
@@ -89,3 +77,4 @@ export default function TestimonialsUnique() {
     </section>
   );
 }
+``
