@@ -17,11 +17,14 @@ export default function AboutLihaTech() {
       <SEO page="about" />
       {/* ================= HERO ================= */}
       <section className="relative pt-28 sm:pt-32 lg:pt-36 pb-24 overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-         style={{ backgroundImage: "url('/images/about.webp')" }}
-
+        <img
+          src="/images/about.webp"
+          alt="About background"
+          className="absolute inset-0 w-full h-full object-cover"
+          loading="lazy"
+          decoding="async"
         />
+
         <div className="absolute inset-0 bg-slate-900/90" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
