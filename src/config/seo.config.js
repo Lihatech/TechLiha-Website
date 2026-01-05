@@ -2,8 +2,8 @@
 
 const SITE = {
   name: "Liha Tech",
-  url: "https://www.lihatech.com",
-  defaultImage: "https://www.lihatech.com/og-image.png",
+  url: "https://lihatech.com",
+  defaultImage: "https://lihatech.com/og-image.png",
   twitter: "@lihatech",
 };
 
