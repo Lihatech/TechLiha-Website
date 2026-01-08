@@ -151,12 +151,12 @@ export default function Hero() {
             variants={socialItem}
           ></motion.div>
           <motion.a
-            href="mailto:info@liha-tech.com"
+            href="mailto:info@lihatech.com"
             className="text-white text-sm transition-colors hover:text-cyan-400"
             style={{ writingMode: "vertical-rl" }}
             variants={socialItem}
           >
-            info@liha-tech.com
+            info@lihatech.com
           </motion.a>
         </motion.div>
       )}

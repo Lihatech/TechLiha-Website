@@ -84,10 +84,22 @@ export default function Footer() {
               <li className="flex items-center gap-2">
                 <Mail size={16} className="text-slate-600" />
                 <a
-                  href="mailto:info@liha.tech"
+                  href="mailto:info@lihatech.com"
                   className="hover:text-slate-900 transition-colors duration-200"
                 >
-                  info@liha.tech
+                  info@lihatech.com
+                </a>
+                <a
+                  href="mailto:hr@lihatech.com"
+                  className="hover:text-slate-900 transition-colors duration-200"
+                >
+                  hr@lihatech.com
+                </a>
+                <a
+                  href="mailto:director@lihatech.com"
+                  className="hover:text-slate-900 transition-colors duration-200"
+                >
+                  director@lihatech.com
                 </a>
               </li>
               <li className="flex items-center gap-2">
