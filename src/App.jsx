@@ -24,18 +24,12 @@ const Cloud = lazy(() => import("./ServiceDetail/CloudDetail"));
 const BigDataServicePage = lazy(() =>
   import("./ServiceDetail/BigDataServDetail")
 );
-const AiDataSci = lazy(() =>
-  import("./ServiceDetail/AiDataSciServDetail")
-);
-const Mobile = lazy(() =>
-  import("./ServiceDetail/AndroidServDetail")
-);
+const AiDataSci = lazy(() => import("./ServiceDetail/AiDataSciServDetail"));
+const Mobile = lazy(() => import("./ServiceDetail/AndroidServDetail"));
 const CyberSecurityServicePage = lazy(() =>
   import("./ServiceDetail/CyberSecurityServicePage")
 );
-const AwsServiceDetail = lazy(() =>
-  import("./ServiceDetail/AwsServiceDetail")
-);
+const AwsServiceDetail = lazy(() => import("./ServiceDetail/AwsServiceDetail"));
 const QaTestingServicePage = lazy(() =>
   import("./ServiceDetail/QaTestingServicePage")
 );
@@ -54,6 +48,7 @@ const Php = lazy(() => import("./TechDetails/PhpDetail"));
 const Angular = lazy(() => import("./TechDetails/AngularDetail"));
 const Sap = lazy(() => import("./TechDetails/SapDetail"));
 const DevOps = lazy(() => import("./TechDetails/DevOpsDetail"));
+const Ai = lazy(() => import("./TechDetails/AiDetail"));
 
 /* ---------------- Route Configuration ---------------- */
 const routes = [
@@ -117,6 +112,7 @@ const routes = [
   { path: "/tech/angular", component: Angular, title: "Angular" },
   { path: "/tech/sap", component: Sap, title: "SAP" },
   { path: "/tech/devops", component: DevOps, title: "DevOps" },
+  { path: "/tech/ai", component: Ai, title: "Ai" },
 ];
 
 /* ---------------- SEO Helper ---------------- */

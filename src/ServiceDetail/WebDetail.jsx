@@ -2,6 +2,14 @@ import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, Code2 } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import AutoBreadcrumb from "../components/AutoBreadcrumb";
+import {
+  Layout,
+  Server,
+  ShieldCheck,
+  Gauge,
+  Smartphone,
+  Cloud,
+} from "lucide-react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -75,7 +83,7 @@ export default function WebDevelopmentService() {
                 building robust, high-performing digital platforms.
               </p>
               <p>
-                We specialize in complete web development lifecycles — from
+                We specialize in complete web development lifecycles from
                 strategy and design to development, testing, and deployment. Our
                 developers stay ahead of evolving technologies and enterprise
                 trends to deliver future-proof solutions.
@@ -118,6 +126,76 @@ export default function WebDevelopmentService() {
             </NavLink>
           </motion.aside>
         </motion.div>
+      </section>
+
+      {/* ===== CORE WEB DEVELOPMENT CAPABILITIES ===== */}
+      <section className="bg-slate-50 py-16 sm:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <motion.h2
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="text-2xl sm:text-3xl font-semibold text-slate-900 mb-12"
+          >
+            Core Web Development Capabilities
+          </motion.h2>
+
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+            variants={stagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {[
+              {
+                icon: <Layout size={22} />,
+                title: "Frontend Engineering",
+                text: "High-performance, accessible user interfaces built with modern frameworks and design systems.",
+              },
+              {
+                icon: <Server size={22} />,
+                title: "Backend & API Development",
+                text: "Robust, scalable backend architectures and secure APIs designed for enterprise workloads.",
+              },
+              {
+                icon: <Smartphone size={22} />,
+                title: "Responsive & Cross-Platform",
+                text: "Mobile-first, responsive web applications optimized across devices and browsers.",
+              },
+              {
+                icon: <Gauge size={22} />,
+                title: "Performance Optimization",
+                text: "Speed, scalability, and reliability improvements through modern tooling and best practices.",
+              },
+              {
+                icon: <ShieldCheck size={22} />,
+                title: "Security & Compliance",
+                text: "Secure coding practices, data protection, and compliance with enterprise standards.",
+              },
+              {
+                icon: <Cloud size={22} />,
+                title: "Cloud-Native Deployment",
+                text: "CI/CD pipelines, containerization, and cloud-ready deployments for long-term scalability.",
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                variants={fadeUp}
+                whileHover={{ y: -6 }}
+                transition={{ type: "spring", stiffness: 280 }}
+                className="bg-white border border-slate-200 rounded-xl p-6"
+              >
+                <div className="w-10 h-10 rounded-lg bg-slate-900 text-white flex items-center justify-center mb-4">
+                  {item.icon}
+                </div>
+                <h3 className="font-semibold text-slate-900">{item.title}</h3>
+                <p className="mt-2 text-sm text-slate-600">{item.text}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
       </section>
 
       {/* ===== CTA ===== */}

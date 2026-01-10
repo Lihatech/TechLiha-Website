@@ -65,13 +65,14 @@ export default function Footer() {
               Technologies
             </h4>
             <ul className="space-y-2 text-sm">
-              <FooterLink to="/tech/python">Python Development</FooterLink>
-              <FooterLink to="/tech/java">Java Development</FooterLink>
-              <FooterLink to="/tech/big-data">Big Data Analytics</FooterLink>
-              <FooterLink to="/tech/php">PHP Development</FooterLink>
-              <FooterLink to="/tech/angular">Angular Development</FooterLink>
-              <FooterLink to="/tech/sap">SAP Development</FooterLink>
-              <FooterLink to="/tech/devops">DevOps Development</FooterLink>
+              <FooterLink to="/tech/ai">Ai Solutions</FooterLink>
+              <FooterLink to="/tech/python">Python Solutions</FooterLink>
+              <FooterLink to="/tech/java">Java Solutions</FooterLink>
+              <FooterLink to="/tech/big-data">Big Data Solutions</FooterLink>
+              <FooterLink to="/tech/php">PHP Solutions</FooterLink>
+              <FooterLink to="/tech/angular">Angular Solutions</FooterLink>
+              <FooterLink to="/tech/sap">SAP Solutions</FooterLink>
+              <FooterLink to="/tech/devops">DevOps Solutions</FooterLink>
             </ul>
           </div>
 
@@ -124,9 +125,6 @@ export default function Footer() {
         {/* DIVIDER */}
         <div className="border-t border-slate-200 mt-14 pt-6 text-center text-sm text-slate-400">
           © {new Date().getFullYear()} Liha Tech. All rights reserved.
-          <span className="block mt-2 text-xs text-slate-500">
-            Made with ♥ by <a href="https://lihatech.com">Liha Tech</a>
-          </span>
         </div>
       </div>
     </footer>

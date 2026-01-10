@@ -53,7 +53,6 @@ export default function CloudServiceDetail() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url('/images/cloud.webp')" }}
-
         />
         <div className="absolute inset-0 bg-slate-900/80" />
 
@@ -96,10 +95,7 @@ export default function CloudServiceDetail() {
           viewport={{ once: true, margin: "-80px" }}
         >
           {/* ===== MAIN CONTENT ===== */}
-          <motion.div
-            variants={fadeLeft}
-            className="lg:col-span-2"
-          >
+          <motion.div variants={fadeLeft} className="lg:col-span-2">
             <h2 className="text-2xl font-semibold text-slate-900 mb-6">
               Cloud Migration Development
             </h2>
@@ -114,7 +110,7 @@ export default function CloudServiceDetail() {
             <p className="text-slate-600 leading-relaxed mb-6">
               Cloud migration replaces traditional data silos with a unified,
               scalable infrastructure where data can be stored, accessed, and
-              managed securely—improving availability and operational
+              managed securely improving availability and operational
               flexibility.
             </p>
 
@@ -126,12 +122,24 @@ export default function CloudServiceDetail() {
             </p>
 
             {/* ===== CAPABILITIES ===== */}
+            {/* ===== CORE CAPABILITIES ===== */}
+            <motion.h3
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="mt-12 mb-6 text-xl font-semibold text-slate-900"
+            >
+              Core Cloud Migration Capabilities
+            </motion.h3>
+
+            {/* ===== CAPABILITIES GRID ===== */}
             <motion.div
               variants={stagger}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="mt-12 grid sm:grid-cols-2 gap-6"
+              className="grid sm:grid-cols-2 gap-6"
             >
               <Capability
                 icon={ServerCog}
@@ -209,12 +217,8 @@ function Capability({ icon, title, desc }) {
       </div>
 
       <div>
-        <h4 className="text-sm font-semibold text-slate-900">
-          {title}
-        </h4>
-        <p className="mt-1 text-sm text-slate-600 leading-relaxed">
-          {desc}
-        </p>
+        <h4 className="text-sm font-semibold text-slate-900">{title}</h4>
+        <p className="mt-1 text-sm text-slate-600 leading-relaxed">{desc}</p>
       </div>
     </motion.div>
   );

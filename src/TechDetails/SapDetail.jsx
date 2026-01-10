@@ -52,7 +52,7 @@ export default function SAPTechnology() {
           {/* LEFT — IMAGE */}
           <div className="w-full h-full">
             <img
-              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71"
+              src="https://www.customerservicemanager.com/wp-content/uploads/2023/08/bg-444115211.jpg"
               alt="Enterprise SAP ERP"
               className="w-full h-full object-cover rounded-2xl"
             />
@@ -61,15 +61,14 @@ export default function SAPTechnology() {
           {/* RIGHT — CONTENT (BG ONLY HERE) */}
           <div className="bg-[#FAF7F2] p-12 rounded-2xl">
             <motion.h2
-                  className="text-3xl font-semibold mb-6"
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={slideIn}
-                >
+              className="text-3xl font-semibold mb-6"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={slideIn}
+            >
               Enterprise Resource Planning with SAP
-                        </motion.h2>
-
+            </motion.h2>
 
             <p className="text-lg text-black/70 leading-relaxed mb-6">
               SAP ERP is designed to unify business operations within a single,
@@ -92,15 +91,14 @@ export default function SAPTechnology() {
       <div className="bg-[#FAF7F2]">
         <div className="max-w-7xl mx-auto px-6 py-24">
           <motion.h2
-                  className="text-3xl font-semibold mb-6"
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={slideIn}
-                >
+            className="text-3xl font-semibold mb-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={slideIn}
+          >
             SAP Implementation & Consulting Services
-                      </motion.h2>
-
+          </motion.h2>
 
           <p className="text-lg text-black/70 leading-relaxed mb-6">
             Our SAP services cover the complete ERP lifecycle, including
@@ -129,15 +127,14 @@ export default function SAPTechnology() {
       {/* ================= BUSINESS VALUE ================= */}
       <div className="max-w-7xl mx-auto px-6 py-24">
         <motion.h2
-                  className="text-3xl font-semibold mb-6"
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={slideIn}
-                >
+          className="text-3xl font-semibold mb-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={slideIn}
+        >
           Business Value Delivered by SAP
-                    </motion.h2>
-
+        </motion.h2>
 
         <p className="text-lg text-black/70 leading-relaxed mb-6">
           SAP ERP empowers organizations to streamline operations, automate
@@ -157,15 +154,14 @@ export default function SAPTechnology() {
       <div className="bg-slate-900 text-white">
         <div className="max-w-7xl mx-auto px-6 py-24">
           <motion.h2
-                  className="text-3xl font-semibold mb-6"
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={slideIn}
-                >
+            className="text-3xl font-semibold mb-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={slideIn}
+          >
             Our SAP Implementation Approach
-                      </motion.h2>
-
+          </motion.h2>
 
           <p className="text-lg text-white/75 leading-relaxed mb-6">
             Our SAP implementation approach begins with a deep understanding of
@@ -186,15 +182,14 @@ export default function SAPTechnology() {
       {/* ================= CTA ================= */}
       <div className="max-w-7xl mx-auto px-6 py-24 text-center">
         <motion.h2
-                  className="text-3xl font-semibold mb-6"
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={slideIn}
-                >
+          className="text-3xl font-semibold mb-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={slideIn}
+        >
           Transform Enterprise Operations with SAP
-                    </motion.h2>
-
+        </motion.h2>
 
         <p className="text-black/70 max-w-2xl mx-auto mb-10">
           Partner with Liha Tech to implement SAP ERP solutions that improve

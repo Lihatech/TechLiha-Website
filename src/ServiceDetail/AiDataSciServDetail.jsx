@@ -6,8 +6,11 @@ import {
   LineChart,
   Layers,
   CheckCircle,
+  Brain,
+  Bot,
 } from "lucide-react";
 import { NavLink } from "react-router-dom";
+
 import AutoBreadcrumb from "../components/AutoBreadcrumb";
 
 /* ================= ANIMATION VARIANTS ================= */
@@ -56,8 +59,7 @@ export default function AIDataScienceServicePage() {
       <section className="relative pt-28 sm:pt-32 lg:pt-36 pb-20 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
-         style={{ backgroundImage: "url('/images/ai.webp')" }}
-
+          style={{ backgroundImage: "url('/images/ai.webp')" }}
         />
         <div className="absolute inset-0 bg-slate-900/80" />
 
@@ -102,8 +104,8 @@ export default function AIDataScienceServicePage() {
             <p className="mt-6 text-slate-600 leading-relaxed">
               Artificial intelligence and machine learning are often perceived
               as expensive and complex. Our approach focuses on delivering
-              measurable outcomes through full-cycle AI development — from
-              curated training datasets to production-ready models.
+              measurable outcomes through full-cycle AI development from curated
+              training datasets to production-ready models.
             </p>
             <p className="mt-4 text-slate-600 leading-relaxed">
               We work closely with enterprises to design intelligent systems
@@ -158,6 +160,16 @@ export default function AIDataScienceServicePage() {
           >
             {[
               {
+                icon: <Brain size={22} />,
+                title: "GenAI & LLM Solutions",
+                text: "Enterprise-grade generative AI using large language models, including chatbots, copilots, RAG pipelines, and custom LLM fine-tuning.",
+              },
+              {
+                icon: <Bot size={22} />,
+                title: "Agentic AI Systems",
+                text: "Autonomous AI agents that reason, plan, and execute tasks across tools, APIs, and workflows with minimal human intervention.",
+              },
+              {
                 icon: <LineChart size={22} />,
                 title: "Predictive Analytics",
                 text: "Forecast trends and outcomes using advanced statistical and ML models.",
@@ -188,12 +200,8 @@ export default function AIDataScienceServicePage() {
                 <div className="w-10 h-10 rounded-lg bg-slate-900 text-white flex items-center justify-center mb-4">
                   {item.icon}
                 </div>
-                <h3 className="font-semibold text-slate-900">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-sm text-slate-600">
-                  {item.text}
-                </p>
+                <h3 className="font-semibold text-slate-900">{item.title}</h3>
+                <p className="mt-2 text-sm text-slate-600">{item.text}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -214,7 +222,7 @@ export default function AIDataScienceServicePage() {
           </h2>
           <p className="mt-6 text-slate-600 leading-relaxed">
             Our AI & data science solutions have powered innovation across
-            finance, insurance, healthcare, high-tech, and communications —
+            finance, insurance, healthcare, high-tech, and communications
             helping organizations gain competitive advantage through
             intelligence.
           </p>

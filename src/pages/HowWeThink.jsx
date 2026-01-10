@@ -22,7 +22,7 @@ const principles = [
   {
     icon: Layers,
     title: "Simplicity & Clarity",
-    desc: "Well-structured, maintainable systems outperform over-engineered complexity — reducing risk and increasing agility.",
+    desc: "Well-structured, maintainable systems outperform over-engineered complexity  reducing risk and increasing agility.",
   },
   {
     icon: Users,

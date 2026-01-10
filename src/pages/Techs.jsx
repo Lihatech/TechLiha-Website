@@ -6,7 +6,7 @@ import {
   SiApachehadoop,
   SiSap,
 } from "react-icons/si";
-import { FaJava } from "react-icons/fa";
+import { FaJava, FaBrain } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Cloud } from "lucide-react";
 
@@ -78,6 +78,13 @@ export default function Technologies() {
         {/* TECHNOLOGIES */}
         <div className="max-w-7xl mx-auto px-4 py-24">
           <div className="grid gap-px bg-gray-200 md:grid-cols-2 lg:grid-cols-3">
+            <TechCard
+              title="Ai Solutions"
+              description="Leverage intelligent AI solutions to automate processes, analyze data, and drive smarter business decisions. From predictive analytics to intelligent automation, we build AI systems that scale with your business."
+              icon={<FaBrain className="w-10 h-10 text-blue-700" />}
+              to="/tech/ai"
+              featured
+            />
             <TechCard
               title="Python Solutions"
               description="Highly versatile and enterprise-ready Python solutions including web applications, cloud platforms, PWAs, and intelligent systems built with clean, scalable, and maintainable code."

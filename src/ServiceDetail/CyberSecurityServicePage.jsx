@@ -57,7 +57,7 @@ export default function CyberSecurityServicePage() {
 
             <p className="mt-6 text-slate-300 text-base leading-relaxed">
               We help organizations protect their digital assets against malware,
-              ransomware, phishing, and evolving cyber threats — ensuring long-term
+              ransomware, phishing, and evolving cyber threats  ensuring long-term
               security and business continuity.
             </p>
           </motion.div>

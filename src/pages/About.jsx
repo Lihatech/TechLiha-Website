@@ -55,7 +55,7 @@ export default function AboutLihaTech() {
 
             <p className="mt-4 text-slate-300 text-sm sm:text-base leading-relaxed text-left sm:text-justify">
               Our approach emphasizes thoughtful planning, disciplined
-              engineering practices, and patience in execution—ensuring that
+              engineering practices, and patience in execution ensuring that
               every solution we deliver is reliable today and adaptable for the
               future.
             </p>
@@ -85,7 +85,7 @@ export default function AboutLihaTech() {
             </h2>
 
             <p className="mt-6 text-slate-600 leading-relaxed text-left sm:text-justify">
-              Liha Tech was founded with a clear purpose—to help organizations
+              Liha Tech was founded with a clear purpose to help organizations
               build technology systems that last. We believe true success comes
               from long-term reliability, not short-term delivery.
             </p>
