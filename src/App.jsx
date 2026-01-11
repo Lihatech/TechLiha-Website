@@ -9,6 +9,7 @@ import PageTransition from "./components/PageTransition";
 import ScrollToTop from "./components/ScrollToTop";
 import MainLayout from "./layout/MainLayout";
 import ScrollToTopButton from "./components/ScrollToTopButton";
+import { Analytics } from "@vercel/analytics/next";
 
 /* ---------------- Lazy Pages ---------------- */
 const Home = lazy(() => import("./pages/Home"));
@@ -190,7 +191,7 @@ export default function App() {
           </AnimatePresence>
         </Suspense>
       </ErrorBoundary>
-
+      <Analytics />
       <ScrollToTopButton />
     </>
   );
