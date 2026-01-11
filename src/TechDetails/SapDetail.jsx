@@ -52,7 +52,7 @@ export default function SAPTechnology() {
           {/* LEFT — IMAGE */}
           <div className="w-full h-full">
             <img
-              src="https://www.customerservicemanager.com/wp-content/uploads/2023/08/bg-444115211.jpg"
+              src="/images/techImage/SAP.png"
               alt="Enterprise SAP ERP"
               className="w-full h-full object-cover rounded-2xl"
             />

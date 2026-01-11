@@ -112,7 +112,7 @@ const routes = [
   { path: "/tech/angular", component: Angular, title: "Angular" },
   { path: "/tech/sap", component: Sap, title: "SAP" },
   { path: "/tech/devops", component: DevOps, title: "DevOps" },
-  { path: "/tech/ai", component: Ai, title: "Ai" },
+  { path: "/tech/ai", component: Ai, title: "AI" },
 ];
 
 /* ---------------- SEO Helper ---------------- */

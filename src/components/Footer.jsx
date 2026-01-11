@@ -65,7 +65,7 @@ export default function Footer() {
               Technologies
             </h4>
             <ul className="space-y-2 text-sm">
-              <FooterLink to="/tech/ai">Ai Solutions</FooterLink>
+              <FooterLink to="/tech/ai">AI Solutions</FooterLink>
               <FooterLink to="/tech/python">Python Solutions</FooterLink>
               <FooterLink to="/tech/java">Java Solutions</FooterLink>
               <FooterLink to="/tech/big-data">Big Data Solutions</FooterLink>
@@ -89,24 +89,6 @@ export default function Footer() {
                   className="hover:text-slate-900 transition-colors duration-200"
                 >
                   info@lihatech.com
-                </a>
-              </li>
-              <li className="flex items-center gap-2">
-                <Mail size={16} className="text-slate-600" />
-                <a
-                  href="mailto:hr@lihatech.com"
-                  className="hover:text-slate-900 transition-colors duration-200"
-                >
-                  hr@lihatech.com
-                </a>
-              </li>
-              <li className="flex items-center gap-2">
-                <Mail size={16} className="text-slate-600" />
-                <a
-                  href="mailto:director@lihatech.com"
-                  className="hover:text-slate-900 transition-colors duration-200"
-                >
-                  director@lihatech.com
                 </a>
               </li>
               <li className="flex items-center gap-2">

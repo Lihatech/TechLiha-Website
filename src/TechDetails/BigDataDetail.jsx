@@ -49,7 +49,7 @@ export default function BigDataTechnology() {
           {/* Left Side Image */}
           <div className="lg:w-1/2 w-full">
             <img
-              src="https://subtlesolutions.in/wp-content/uploads/2025/04/big-data-1024x576.webp"
+              src="/images/techImage/big-data.png"
               alt="Enterprise Big Data Solutions"
               className="w-full h-full object-cover rounded-lg"
             />

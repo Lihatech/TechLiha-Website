@@ -66,7 +66,7 @@ export default function ContactPage() {
               {
                 icon: Mail,
                 title: "Email",
-                value: "hr@lihatech.com",
+                value: "info@lihatech.com",
               },
             ].map(({ icon: Icon, title, value }, index) => (
               <motion.div
