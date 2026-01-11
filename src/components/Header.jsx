@@ -39,6 +39,7 @@ const mobileItem = {
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [dropdown, setDropdown] = useState(false);
+  const [dropdowntech, setDropdowntech] = useState(false);
 
   return (
     <>
@@ -129,7 +130,58 @@ export default function Header() {
               </AnimatePresence>
             </div>
 
-            <NavItem to="/tech">Technologies</NavItem>
+            <div
+              className="relative"
+              onMouseEnter={() => setDropdowntech(true)}
+              onMouseLeave={() => setDropdowntech(false)}
+            >
+              <motion.button
+                whileHover={{ y: -1 }}
+                className="flex items-center gap-1 font-medium text-slate-900"
+              >
+                Technologies
+                <ChevronDown
+                  size={14}
+                  className={`transition-transform duration-200 ${
+                    dropdowntech ? "rotate-180" : ""
+                  }`}
+                />
+              </motion.button>
+
+              <AnimatePresence>
+                {dropdowntech && (
+                  <motion.div
+                    variants={dropdownAnim}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-12 w-[410px]
+                    bg-white rounded-xl shadow-2xl
+                    border border-slate-200 p-5"
+                  >
+                    <div className="grid grid-cols-2 gap-4 text-sm">
+                      <ServiceLink to="/tech/ai" title="AI Solutions" />
+                      <ServiceLink to="/tech/python" title="Python Solutions" />
+                      <ServiceLink
+                        to="/tech/big-data"
+                        title="Big Data Solutions"
+                      />
+                      <ServiceLink
+                        to="/tech/java"
+                        title="Java Solutions"
+                      />
+                      <ServiceLink
+                        to="/tech/devops"
+                        title="Devops Solutions"
+                      />
+                      <ServiceLink to="/tech" title="View All →" />
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
             <NavItem to="/about">About</NavItem>
             <NavItem to="/contact">Contact</NavItem>
           </nav>

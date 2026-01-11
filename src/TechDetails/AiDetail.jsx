@@ -104,7 +104,7 @@ export default function AIDevelopmentTechnology() {
           </motion.h2>
 
           <p className="text-lg text-black/70 leading-relaxed mb-6">
-            Our AI development services cover the full lifecycle — from strategy
+            Our AI development services cover the full lifecycle from strategy
             and data preparation to model development, deployment, and ongoing
             optimization. We build intelligent systems aligned with real
             business objectives.
