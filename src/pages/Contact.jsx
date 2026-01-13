@@ -56,7 +56,7 @@ export default function ContactPage() {
               {
                 icon: MapPin,
                 title: "Office",
-                value: "Pune, Maharashtra, India",
+                value: "Mane Park, Datta Colony, Jawahar Nagar Kolhapur 415116",
               },
               {
                 icon: Phone,
