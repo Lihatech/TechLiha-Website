@@ -61,7 +61,7 @@ export default function ContactPage() {
               {
                 icon: Phone,
                 title: "Phone",
-                value: "+91 97670 37492",
+                value: "+91 9172743364",
               },
               {
                 icon: Mail,
