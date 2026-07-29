@@ -29,6 +29,7 @@
 
 .service-catalog-hero__content {
   position: relative;
+  top: 48px;
   z-index: 1;
   max-width: 980px;
   margin-inline: auto;
@@ -497,6 +498,10 @@
   .service-catalog-hero {
     min-height: 0;
     padding: 112px 0 56px;
+  }
+
+  .service-catalog-hero__content {
+    top: 0;
   }
 
   .service-detail__hero {
