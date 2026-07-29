@@ -20,10 +20,10 @@
 }
 
 .service-catalog-hero {
-  min-height: 680px;
+  min-height: 620px;
   display: grid;
   place-items: center;
-  padding: 150px 0 100px;
+  padding: 130px 0 64px;
   text-align: center;
 }
 
@@ -65,6 +65,18 @@
   line-height: 1.7;
 }
 
+.service-catalog-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.service-catalog-hero__actions .service-button--primary {
+  margin-top: 0;
+}
+
 .service-button {
   min-height: 52px;
   width: max-content;
@@ -100,8 +112,22 @@
   box-shadow: 0 16px 34px rgba(4, 90, 185, 0.22);
 }
 
+.service-button--secondary {
+  border-color: rgba(6, 43, 75, 0.2);
+  background: rgba(238, 252, 255, 0.72);
+  color: #062b4b !important;
+  box-shadow: 0 14px 32px rgba(4, 68, 105, 0.1);
+  backdrop-filter: blur(12px);
+}
+
+.service-button--secondary:hover {
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 18px 38px rgba(4, 68, 105, 0.16);
+}
+
 .service-catalog {
-  padding: clamp(85px, 10vw, 145px) 0;
+  padding: clamp(64px, 7vw, 100px) 0 clamp(85px, 10vw, 145px);
+  scroll-margin-top: 90px;
   background: transparent;
 }
 
@@ -470,7 +496,7 @@
 
   .service-catalog-hero {
     min-height: 0;
-    padding: 125px 0 76px;
+    padding: 112px 0 56px;
   }
 
   .service-detail__hero {
@@ -511,6 +537,10 @@
   }
 
   .service-button {
+    width: 100%;
+  }
+
+  .service-catalog-hero__actions {
     width: 100%;
   }
 }

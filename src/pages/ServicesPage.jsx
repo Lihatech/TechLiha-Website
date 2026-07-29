@@ -1,4 +1,5 @@
 import {
+  ArrowDown,
   ArrowRight,
   BadgeCheck,
   BrainCircuit,
@@ -57,10 +58,26 @@ export default function ServicesPage() {
             We architect, build, and secure enterprise-grade systems that
             power mission-critical business operations.
           </p>
+          <div className="service-catalog-hero__actions">
+            <Link
+              className="service-button service-button--primary"
+              to="/contact?topic=project"
+            >
+              Discuss your project
+              <ArrowRight size={18} aria-hidden="true" />
+            </Link>
+            <a
+              className="service-button service-button--secondary"
+              href="#service-catalog"
+            >
+              Explore services
+              <ArrowDown size={18} aria-hidden="true" />
+            </a>
+          </div>
         </MotionDiv>
       </section>
 
-      <section className="service-catalog">
+      <section className="service-catalog" id="service-catalog">
         <div className="service-shell">
           <div className="service-catalog__heading">
             <p className="service-kicker">What we deliver</p>
