@@ -19,15 +19,7 @@
   align-items: center;
   padding: 150px 0 90px;
   overflow: hidden;
-  background:
-    radial-gradient(circle at 82% 18%, rgba(255, 255, 255, 0.48), transparent 27%),
-    radial-gradient(circle at 78% 76%, rgba(72, 199, 243, 0.16), transparent 34%),
-    linear-gradient(
-      145deg,
-      rgba(220, 246, 255, 0.5),
-      rgba(93, 208, 242, 0.22) 66%,
-      rgba(0, 169, 217, 0.06)
-    );
+  background: var(--liha-sky-background);
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 
@@ -69,6 +61,10 @@
   text-transform: uppercase;
 }
 
+.marketing-hero .marketing-eyebrow {
+  color: rgba(6, 43, 75, 0.82);
+}
+
 .marketing-hero h1 {
   max-width: 14ch;
   margin: 0 auto;
@@ -80,7 +76,7 @@
 
 .marketing-hero h1 em {
   display: block;
-  color: #0566be;
+  color: #07578b;
   font-style: normal;
   font-weight: 450;
 }
@@ -88,7 +84,7 @@
 .marketing-hero__copy {
   max-width: 680px;
   margin: 30px auto 0;
-  color: #174867;
+  color: rgba(6, 43, 75, 0.82);
   font-size: clamp(1.05rem, 1.5vw, 1.32rem);
   line-height: 1.7;
 }
