@@ -15,7 +15,7 @@ import { Analytics } from "@vercel/analytics/react";
 /* ---------------- Lazy Pages ---------------- */
 const NotFound = lazy(() => import("./pages/NotFoundPage"));
 const HomePage = lazy(() => import("./pages/HomePage"));
-const Solutions = lazy(() => import("./pages/SolutionsPage"));
+const Services = lazy(() => import("./pages/ServicesPage"));
 const Work = lazy(() => import("./pages/WorkPage"));
 const Technology = lazy(() => import("./pages/TechnologyPage"));
 const Training = lazy(() => import("./pages/TrainingPage"));
@@ -76,7 +76,7 @@ const Ai = lazy(() => import("./features/technologies/AiDetailPage"));
 
 /* ---------------- Route Configuration ---------------- */
 const routes = [
-  { path: "/solutions", component: Solutions, title: "AI & Software Solutions" },
+  { path: "/services", component: Services, title: "Technology Services" },
   { path: "/work", component: Work, title: "Selected Work" },
   { path: "/technology", component: Technology, title: "Technology" },
   { path: "/training", component: Training, title: "Agentic AI Training" },
@@ -207,7 +207,7 @@ export default function App() {
               />
               <Route path="/parallax-lab" element={<Navigate to="/" replace />} />
               <Route element={<MainLayout />}>
-                <Route path="/services" element={<Navigate to="/solutions" replace />} />
+                <Route path="/solutions" element={<Navigate to="/services" replace />} />
                 <Route path="/tech" element={<Navigate to="/technology" replace />} />
                 {routes.map(({ path, component, title }) => (
                   <Route

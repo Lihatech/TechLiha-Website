@@ -389,8 +389,8 @@ function FinalInvitation() {
             <p>Practical, reliable, future-ready technology for businesses and people ready to move forward.</p>
           </div>
           <nav aria-label="Footer">
-            <div><b>EXPLORE</b><a href="/solutions">What we build</a><a href="/work">Selected work</a><a href="/training/course">Agentic AI course</a><a href="/training/internship">Internship</a></div>
-            <div><b>COMPANY</b><a href="/solutions">Solutions</a><a href="/technology">Technology</a><a href="/about">About</a><a href="/contact">Contact</a><a href="https://www.linkedin.com/company/lihatech/posts/?feedView=all" target="_blank" rel="noreferrer">LinkedIn</a></div>
+            <div><b>EXPLORE</b><a href="/services">What we build</a><a href="/work">Selected work</a><a href="/training/course">Agentic AI course</a><a href="/training/internship">Internship</a></div>
+            <div><b>COMPANY</b><a href="/services">Services</a><a href="/technology">Technology</a><a href="/about">About</a><a href="/contact">Contact</a><a href="https://www.linkedin.com/company/lihatech/posts/?feedView=all" target="_blank" rel="noreferrer">LinkedIn</a></div>
             <div><b>CONTACT</b><a href="mailto:info@lihatech.com">info@lihatech.com</a><a href="tel:+919767037492">+91 97670 37492</a><span>Pune, India<br />Working worldwide</span></div>
           </nav>
         </div>

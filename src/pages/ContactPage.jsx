@@ -18,7 +18,7 @@ export default function ContactPage() {
   const emailHref = `mailto:info@lihatech.com?subject=${encodeURIComponent(subject)}`;
   const backLink =
     topic === "project"
-      ? { to: "/solutions", label: "Back to solutions" }
+      ? { to: "/services", label: "Back to services" }
       : ["training", "course", "internship"].includes(topic)
         ? { to: "/training", label: "Back to training" }
         : { to: "/", label: "Back to home" };

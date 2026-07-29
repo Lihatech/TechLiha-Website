@@ -4,7 +4,7 @@ const footerGroups = [
   {
     title: "Explore",
     links: [
-      ["Solutions", "/solutions"],
+      ["Services", "/services"],
       ["Selected work", "/work"],
       ["Technology", "/technology"],
       ["Agentic AI training", "/training"],

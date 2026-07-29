@@ -61,45 +61,6 @@ export const projects = [
   },
 ];
 
-export const solutions = [
-  {
-    title: "Agentic AI & automation",
-    copy: "AI agents, RAG systems, intelligent assistants, and workflow automation designed around measurable business outcomes.",
-    href: "/services/ai-data-science",
-    icon: "bot",
-  },
-  {
-    title: "Custom software",
-    copy: "Purpose-built platforms and internal tools that replace fragmented processes with dependable digital workflows.",
-    href: "/services/enterprise-solutions",
-    icon: "code",
-  },
-  {
-    title: "Web platforms",
-    copy: "Fast, accessible websites and web applications engineered for clear journeys, conversion, and long-term maintainability.",
-    href: "/services/web",
-    icon: "globe",
-  },
-  {
-    title: "Cloud & DevOps",
-    copy: "Secure cloud architecture, CI/CD, observability, and modernization for reliable delivery at scale.",
-    href: "/services/cloud-migration",
-    icon: "cloud",
-  },
-  {
-    title: "Data engineering",
-    copy: "Data pipelines, analytics foundations, and practical reporting systems that turn information into action.",
-    href: "/services/big-data",
-    icon: "database",
-  },
-  {
-    title: "Quality engineering",
-    copy: "Testing strategies and automation that protect performance, reliability, security, and user confidence.",
-    href: "/services/qa-testing",
-    icon: "shield",
-  },
-];
-
 export const technologies = [
   {
     title: "Artificial Intelligence",

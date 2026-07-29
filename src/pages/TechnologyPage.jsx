@@ -19,7 +19,7 @@ export default function TechnologyPage() {
         copy="We choose technology for reliability, maintainability, and fit—not fashion. The stack follows the product and the people who will own it."
         actions={
           <>
-            <PrimaryLink to="/solutions">Explore solutions</PrimaryLink>
+            <PrimaryLink to="/services">Explore services</PrimaryLink>
             <SecondaryLink to="/contact">Discuss your stack</SecondaryLink>
           </>
         }

@@ -7,7 +7,7 @@ const AnimatedMenu = motion.div;
 
 const navItems = [
   { label: "Home", to: "/" },
-  { label: "Solutions", to: "/solutions" },
+  { label: "Services", to: "/services" },
   { label: "Work", to: "/work" },
   { label: "Technology", to: "/technology" },
   { label: "Training", to: "/training" },

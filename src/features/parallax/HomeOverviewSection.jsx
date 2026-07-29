@@ -12,7 +12,7 @@ const offerings = [
     title: "Development",
     copy: "From AI solutions and custom software to websites and digital tools, we create technology designed around real business needs.",
     items: ["AI solutions", "Custom software", "Websites", "Digital tools"],
-    href: "/solutions",
+    href: "/services",
     linkLabel: "Explore development services",
     icon: Braces,
   },
