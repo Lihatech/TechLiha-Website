@@ -1,0 +1,33 @@
+/*
+ * liquidGL renders the refracted panes on one fixed canvas. The original
+ * translucent CSS remains the baseline and is only cleared by the library
+ * after WebGL has been selected.
+ */
+
+.liha-liquid-glass-canvas {
+  pointer-events: none !important;
+}
+
+[data-liquid-glass="webgl"] .liha-liquid-glass {
+  isolation: isolate;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+[data-liquid-glass="webgl"] .liha-liquid-glass--content {
+  z-index: 6;
+}
+
+[data-liquid-glass="webgl"] .liha-liquid-glass > * {
+  position: relative;
+  z-index: 7;
+}
+
+[data-liquid-glass="webgl"] .sky-unlock-glass.liha-liquid-glass {
+  isolation: auto;
+}
+
+@media (max-width: 899px), (prefers-reduced-motion: reduce) {
+  .liha-liquid-glass-canvas {
+    display: none !important;
+  }
+}

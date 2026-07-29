@@ -1,0 +1,324 @@
+.sky-background {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  overflow: hidden;
+  overflow: clip;
+  pointer-events: none;
+}
+
+.cloud-scroll-layer,
+.cloud-pointer-layer,
+.cloud-idle-layer {
+  will-change: transform;
+}
+
+.cloud-scroll-layer {
+  position: absolute;
+  opacity: 0;
+}
+
+.cloud-pointer-layer {
+  width: 100%;
+}
+
+.cloud-idle-layer {
+  width: 100%;
+  height: auto;
+  display: block;
+  user-select: none;
+}
+
+.cloud-layer--large {
+  top: -9rem;
+  left: -12rem;
+  width: clamp(320px, 38vw, 680px);
+}
+
+.cloud-layer--large .cloud-idle-layer {
+  opacity: 0.86;
+  filter: blur(0.35px);
+  transform: scale(1.05);
+}
+
+.cloud-layer--medium {
+  top: 22vh;
+  right: -6rem;
+  width: clamp(220px, 25vw, 440px);
+}
+
+.cloud-layer--medium .cloud-idle-layer {
+  opacity: 0.79;
+}
+
+.cloud-layer--small {
+  top: 69vh;
+  right: 18vw;
+  width: clamp(150px, 17vw, 280px);
+}
+
+.cloud-layer--small .cloud-idle-layer {
+  opacity: 0.63;
+}
+
+.cloud-layer--atmosphere {
+  top: 29vh;
+  left: 26%;
+  width: min(80vw, 920px);
+}
+
+.cloud-layer--atmosphere .cloud-idle-layer {
+  opacity: 0.07;
+  filter: blur(40px);
+  transform: scale(1.8);
+}
+
+.cloud-layer--flow-one {
+  top: 31%;
+  left: -10rem;
+  width: clamp(300px, 36vw, 640px);
+}
+
+.cloud-layer--flow-one .cloud-idle-layer {
+  opacity: 0.72;
+  filter: blur(0.4px);
+}
+
+.cloud-layer--flow-two {
+  top: 57%;
+  right: -9rem;
+  width: clamp(240px, 29vw, 500px);
+}
+
+.cloud-layer--flow-two .cloud-idle-layer {
+  opacity: 0.62;
+  filter: blur(0.8px);
+}
+
+.cloud-layer--flow-three {
+  top: 78%;
+  left: 17vw;
+  width: clamp(180px, 22vw, 350px);
+}
+
+.cloud-layer--flow-three .cloud-idle-layer {
+  opacity: 0.5;
+}
+
+.cloud-layer--upper-drift {
+  top: 18%;
+  right: 5vw;
+  width: clamp(220px, 28vw, 480px);
+}
+
+.cloud-layer--upper-drift .cloud-idle-layer {
+  opacity: 0.58;
+  filter: blur(0.7px);
+}
+
+.cloud-layer--middle-drift {
+  top: 48%;
+  left: 2vw;
+  width: clamp(300px, 34vw, 620px);
+}
+
+.cloud-layer--middle-drift .cloud-idle-layer {
+  opacity: 0.64;
+  filter: blur(0.45px);
+}
+
+.cloud-layer--lower-drift {
+  top: 88%;
+  right: 12vw;
+  width: clamp(180px, 21vw, 340px);
+}
+
+.cloud-layer--lower-drift .cloud-idle-layer {
+  opacity: 0.54;
+}
+
+.cloud-layer--veil-left {
+  top: 12%;
+  left: 8vw;
+  width: clamp(170px, 20vw, 330px);
+}
+
+.cloud-layer--veil-left .cloud-idle-layer {
+  opacity: 0.48;
+  filter: blur(0.5px);
+}
+
+.cloud-layer--veil-right {
+  top: 23%;
+  right: -7rem;
+  width: clamp(250px, 30vw, 520px);
+}
+
+.cloud-layer--veil-right .cloud-idle-layer {
+  opacity: 0.64;
+  filter: blur(0.7px);
+}
+
+.cloud-layer--crosswind-one {
+  top: 36%;
+  right: 9vw;
+  width: clamp(310px, 38vw, 680px);
+}
+
+.cloud-layer--crosswind-one .cloud-idle-layer {
+  opacity: 0.7;
+  filter: blur(0.35px);
+}
+
+.cloud-layer--crosswind-two {
+  top: 43%;
+  left: 10vw;
+  width: clamp(170px, 21vw, 340px);
+}
+
+.cloud-layer--crosswind-two .cloud-idle-layer {
+  opacity: 0.52;
+}
+
+.cloud-layer--project-mist {
+  top: 54%;
+  right: 7vw;
+  width: clamp(240px, 31vw, 530px);
+}
+
+.cloud-layer--project-mist .cloud-idle-layer {
+  opacity: 0.62;
+  filter: blur(0.65px);
+}
+
+.cloud-layer--project-front {
+  top: 63%;
+  left: -11rem;
+  width: clamp(340px, 42vw, 720px);
+}
+
+.cloud-layer--project-front .cloud-idle-layer {
+  opacity: 0.75;
+  filter: blur(0.3px);
+}
+
+.cloud-layer--learning-wisp {
+  top: 71%;
+  right: 16vw;
+  width: clamp(180px, 22vw, 350px);
+}
+
+.cloud-layer--learning-wisp .cloud-idle-layer {
+  opacity: 0.56;
+}
+
+.cloud-layer--voice-bank {
+  top: 81%;
+  left: -7rem;
+  width: clamp(260px, 33vw, 560px);
+}
+
+.cloud-layer--voice-bank .cloud-idle-layer {
+  opacity: 0.67;
+  filter: blur(0.55px);
+}
+
+.cloud-layer--footer-wisp {
+  top: 93%;
+  right: -10rem;
+  width: clamp(320px, 39vw, 690px);
+}
+
+.cloud-layer--footer-wisp .cloud-idle-layer {
+  opacity: 0.7;
+  filter: blur(0.4px);
+}
+
+.cloud-layer--deep-haze {
+  top: 66%;
+  left: 22%;
+  width: min(68vw, 980px);
+}
+
+.cloud-layer--deep-haze .cloud-idle-layer {
+  opacity: 0.075;
+  filter: blur(42px);
+  transform: scale(1.7);
+}
+
+.sky-prototype--show-bounds .cloud-scroll-layer {
+  outline: 1px dashed rgba(255, 33, 99, 0.82);
+  background: rgba(255, 33, 99, 0.05);
+}
+
+@media (max-width: 767px) {
+  /* Mobile optimization: no pointer motion and less scroll travel in JS. */
+  .cloud-layer--large {
+    top: -4rem;
+    left: -10rem;
+    width: clamp(320px, 86vw, 520px);
+  }
+
+  .cloud-layer--medium {
+    top: 71vh;
+    right: -7rem;
+    width: clamp(260px, 72vw, 420px);
+  }
+
+  .cloud-layer--small,
+  .cloud-layer--atmosphere,
+  .cloud-layer--flow-three,
+  .cloud-layer--middle-drift,
+  .cloud-layer--veil-left,
+  .cloud-layer--crosswind-two,
+  .cloud-layer--project-front,
+  .cloud-layer--learning-wisp,
+  .cloud-layer--footer-wisp,
+  .cloud-layer--deep-haze {
+    display: none;
+  }
+
+  .cloud-layer--flow-one {
+    left: -9rem;
+    width: min(92vw, 500px);
+  }
+
+  .cloud-layer--flow-two {
+    right: -8rem;
+    width: min(80vw, 430px);
+  }
+
+  .cloud-layer--upper-drift {
+    right: -6rem;
+    width: min(78vw, 390px);
+  }
+
+  .cloud-layer--lower-drift {
+    right: -5rem;
+    width: min(68vw, 330px);
+  }
+
+  .cloud-layer--veil-right,
+  .cloud-layer--project-mist,
+  .cloud-layer--voice-bank {
+    right: -8rem;
+    width: min(82vw, 430px);
+  }
+
+  .cloud-layer--crosswind-one {
+    right: -10rem;
+    width: min(96vw, 520px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cloud-scroll-layer {
+    opacity: 1;
+  }
+
+  .cloud-scroll-layer,
+  .cloud-pointer-layer,
+  .cloud-idle-layer {
+    will-change: auto;
+  }
+}

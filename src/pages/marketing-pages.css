@@ -1,0 +1,929 @@
+.marketing-page {
+  --marketing-navy: #062b4b;
+  --marketing-blue: #087ed0;
+  --marketing-cyan: #24b9e8;
+  --marketing-mist: #edf9ff;
+  color: var(--marketing-navy);
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+
+.marketing-shell {
+  width: min(calc(100% - 48px), 1400px);
+  margin-inline: auto;
+}
+
+.marketing-hero {
+  position: relative;
+  min-height: 720px;
+  display: grid;
+  align-items: center;
+  padding: 150px 0 90px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(255, 255, 255, 0.48), transparent 27%),
+    radial-gradient(circle at 78% 76%, rgba(72, 199, 243, 0.16), transparent 34%),
+    linear-gradient(
+      145deg,
+      rgba(220, 246, 255, 0.5),
+      rgba(93, 208, 242, 0.22) 66%,
+      rgba(0, 169, 217, 0.06)
+    );
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.marketing-hero::after {
+  content: "";
+  position: absolute;
+  right: -10vw;
+  bottom: -28vw;
+  width: 62vw;
+  height: 62vw;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 8vw rgba(255, 255, 255, 0.07),
+    0 0 0 16vw rgba(255, 255, 255, 0.04);
+  pointer-events: none;
+}
+
+.marketing-hero__grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.65fr);
+  align-items: center;
+  gap: clamp(52px, 8vw, 130px);
+}
+
+.marketing-eyebrow {
+  margin: 0 0 18px;
+  color: #0a6599;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.marketing-hero h1 {
+  max-width: 12ch;
+  margin: 0;
+  font-size: clamp(4rem, 7vw, 7.4rem);
+  font-weight: 750;
+  letter-spacing: -0.075em;
+  line-height: 0.92;
+}
+
+.marketing-hero h1 em {
+  display: block;
+  color: #0566be;
+  font-style: normal;
+  font-weight: 450;
+}
+
+.marketing-hero__copy {
+  max-width: 680px;
+  margin: 30px 0 0;
+  color: #174867;
+  font-size: clamp(1.05rem, 1.5vw, 1.32rem);
+  line-height: 1.7;
+}
+
+.marketing-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 34px;
+}
+
+.marketing-button {
+  min-height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 0 20px;
+  border: 1px solid rgba(5, 61, 104, 0.24);
+  border-radius: 12px;
+  font-size: 0.86rem;
+  font-weight: 750;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.marketing-button:hover {
+  transform: translateY(-2px);
+}
+
+.marketing-button--primary {
+  border-color: #0769df;
+  background: #0769df;
+  color: #fff !important;
+  box-shadow: 0 15px 32px rgba(4, 90, 185, 0.2);
+}
+
+.marketing-button--secondary {
+  background: rgba(247, 253, 255, 0.72);
+  color: #073a66;
+}
+
+.marketing-hero__aside {
+  min-height: 380px;
+  display: grid;
+  place-items: center;
+}
+
+.marketing-orbit,
+.technology-signal,
+.programme-icon,
+.contact-pulse,
+.marketing-count,
+.about-mantra {
+  position: relative;
+  width: min(100%, 390px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.58);
+  border-radius: 34px;
+  background:
+    linear-gradient(145deg, rgba(248, 253, 255, 0.52), rgba(203, 239, 255, 0.24));
+  box-shadow:
+    0 30px 70px rgba(2, 82, 134, 0.15),
+    inset 0 1px rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px) saturate(1.12);
+}
+
+.marketing-orbit::before,
+.marketing-orbit::after {
+  content: "";
+  position: absolute;
+  border: 1px solid rgba(7, 94, 166, 0.22);
+  border-radius: 50%;
+  animation: marketing-orbit 14s linear infinite;
+}
+
+.marketing-orbit::before {
+  width: 72%;
+  height: 72%;
+}
+
+.marketing-orbit::after {
+  width: 48%;
+  height: 48%;
+  animation-direction: reverse;
+}
+
+.marketing-orbit span {
+  z-index: 1;
+  width: 100px;
+  height: 100px;
+  display: grid;
+  place-items: center;
+  border-radius: 28px;
+  background: #0769df;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 800;
+  box-shadow: 0 22px 45px rgba(4, 84, 175, 0.25);
+}
+
+.marketing-orbit i {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+.marketing-orbit i:nth-of-type(1) {
+  top: 22%;
+  right: 23%;
+}
+
+.marketing-orbit i:nth-of-type(2) {
+  bottom: 19%;
+  left: 25%;
+}
+
+.marketing-count {
+  align-content: center;
+  gap: 10px;
+  aspect-ratio: 1.2;
+}
+
+.marketing-count strong {
+  font-size: clamp(6rem, 9vw, 9rem);
+  letter-spacing: -0.09em;
+  line-height: 0.8;
+}
+
+.marketing-count span {
+  max-width: 16ch;
+  color: #164b6c;
+  font-weight: 700;
+  text-align: center;
+}
+
+.marketing-section {
+  position: relative;
+  padding: clamp(90px, 10vw, 150px) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.34);
+  background:
+    linear-gradient(180deg, rgba(231, 250, 255, 0.58), rgba(202, 241, 251, 0.44));
+}
+
+.marketing-section > .marketing-shell {
+  position: relative;
+  z-index: 1;
+}
+
+.marketing-section--blue {
+  background:
+    linear-gradient(135deg, rgba(6, 54, 88, 0.94), rgba(5, 90, 132, 0.88));
+  color: #e9faff;
+}
+
+.marketing-section--blue .marketing-eyebrow {
+  color: #7edcff;
+}
+
+.marketing-section--mist {
+  background:
+    linear-gradient(145deg, rgba(220, 248, 255, 0.5), rgba(138, 220, 243, 0.34));
+}
+
+.marketing-section__heading {
+  max-width: 880px;
+  margin-bottom: 55px;
+}
+
+.marketing-section__heading h2,
+.marketing-cta h2,
+.about-story h2,
+.programme-detail h2,
+.contact-brief h2 {
+  margin: 0;
+  font-size: clamp(2.8rem, 5vw, 5.5rem);
+  font-weight: 720;
+  letter-spacing: -0.065em;
+  line-height: 0.98;
+}
+
+.marketing-section__heading > p:last-child {
+  max-width: 690px;
+  margin: 25px 0 0;
+  color: #41637b;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.solution-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.solution-card {
+  min-height: 370px;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 24px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.82), rgba(225, 247, 255, 0.62));
+  box-shadow:
+    0 20px 50px rgba(3, 64, 105, 0.09),
+    inset 0 1px 0 rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px) saturate(1.08);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.solution-card:hover {
+  transform: translateY(-7px);
+  border-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 28px 65px rgba(3, 64, 105, 0.12);
+}
+
+.solution-card__top,
+.programme-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #0878bd;
+}
+
+.solution-card__top span,
+.programme-card__top span {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.solution-card h3,
+.technology-card h3,
+.programme-card h2,
+.value-grid h3,
+.principles-grid h3,
+.process-row h3 {
+  margin: 55px 0 14px;
+  font-size: 1.75rem;
+  letter-spacing: -0.04em;
+}
+
+.solution-card > p,
+.technology-card p,
+.programme-card > p,
+.value-grid p,
+.principles-grid p {
+  margin: 0;
+  color: #4a6b81;
+  line-height: 1.7;
+}
+
+.solution-card > a,
+.work-case__copy > a,
+.contact-card > a {
+  width: max-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 28px;
+  font-weight: 800;
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: clamp(60px, 9vw, 140px);
+}
+
+.process-row {
+  display: grid;
+  grid-template-columns: 55px 0.6fr 1fr;
+  gap: 25px;
+  align-items: baseline;
+  padding: 28px 0;
+  border-bottom: 1px solid rgba(220, 247, 255, 0.18);
+}
+
+.process-row span {
+  color: #64d2fa;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.process-row h3 {
+  margin: 0;
+}
+
+.process-row p {
+  margin: 0;
+  color: rgba(229, 248, 255, 0.68);
+  line-height: 1.65;
+}
+
+.marketing-cta {
+  position: relative;
+  padding: 22px;
+  overflow: hidden;
+  background: rgba(121, 213, 241, 0.38);
+}
+
+.marketing-cta__inner {
+  min-height: 500px;
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  align-items: center;
+  gap: 70px;
+  padding: clamp(48px, 7vw, 100px);
+  border-radius: 38px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background:
+    radial-gradient(circle at 86% 12%, rgba(77, 194, 235, 0.24), transparent 28%),
+    linear-gradient(135deg, rgba(5, 42, 73, 0.97), rgba(5, 74, 108, 0.94));
+  color: #e9faff;
+  box-shadow: 0 32px 80px rgba(2, 49, 79, 0.2);
+}
+
+.marketing-cta .marketing-eyebrow {
+  color: #73d9ff;
+}
+
+.marketing-cta__inner > div:last-child > p {
+  margin: 0 0 28px;
+  color: rgba(229, 248, 255, 0.7);
+  line-height: 1.75;
+}
+
+.work-list {
+  padding-top: 50px;
+}
+
+.work-case {
+  min-height: 720px;
+  display: grid;
+  grid-template-columns: 0.84fr 1.16fr;
+  gap: clamp(50px, 7vw, 100px);
+  align-items: center;
+  padding: 70px 0;
+  border-bottom: 1px solid rgba(6, 73, 115, 0.14);
+}
+
+.work-case:nth-child(even) .work-case__copy {
+  order: 2;
+}
+
+.work-case__copy h2 {
+  margin: 20px 0;
+  font-size: clamp(3rem, 5vw, 5.2rem);
+  letter-spacing: -0.065em;
+  line-height: 0.96;
+}
+
+.work-case__copy > p {
+  color: #42647a;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.work-case__outcome {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 18px;
+  margin-top: 28px;
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.68);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.42);
+  backdrop-filter: blur(10px);
+}
+
+.work-case__outcome span {
+  color: #0780c9;
+  font-size: 0.7rem;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+}
+
+.work-case__outcome p {
+  margin: 0;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.work-case__copy ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.work-case__copy li {
+  padding: 8px 11px;
+  border: 1px solid rgba(6, 79, 128, 0.16);
+  border-radius: 999px;
+  color: #385e76;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.work-case__visual {
+  height: 610px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.74);
+  background:
+    radial-gradient(circle at 75% 16%, rgba(255, 255, 255, 0.85), transparent 28%),
+    linear-gradient(145deg, rgba(225, 247, 255, 0.82), rgba(111, 206, 240, 0.7));
+  box-shadow:
+    0 30px 80px rgba(3, 75, 120, 0.15),
+    inset 0 1px rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(14px);
+}
+
+.work-case__visual img {
+  width: auto;
+  height: 86%;
+  max-width: 88%;
+  object-fit: contain;
+  filter: drop-shadow(0 22px 24px rgba(0, 55, 95, 0.15));
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.work-case:hover .work-case__visual img {
+  transform: scale(1.025);
+}
+
+.technology-signal {
+  grid-template-columns: repeat(3, 1fr);
+  align-content: center;
+  gap: 12px;
+  padding: 45px;
+}
+
+.technology-signal i {
+  height: 150px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), #0786d1);
+  animation: marketing-signal 2.8s ease-in-out infinite alternate;
+}
+
+.technology-signal i:nth-child(2) {
+  height: 220px;
+  animation-delay: -1s;
+}
+
+.technology-signal i:nth-child(3) {
+  height: 105px;
+  animation-delay: -2s;
+}
+
+.technology-signal span {
+  grid-column: 1 / -1;
+  margin-top: 18px;
+  color: #0b5f93;
+  font-size: 0.7rem;
+  font-weight: 850;
+  letter-spacing: 0.18em;
+  text-align: center;
+}
+
+.technology-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.68);
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 26px 65px rgba(3, 65, 106, 0.1);
+  backdrop-filter: blur(16px);
+}
+
+.technology-card {
+  min-height: 330px;
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  background: rgba(247, 253, 255, 0.76);
+  transition: background 0.3s ease;
+}
+
+.technology-card:hover {
+  background: rgba(224, 247, 255, 0.94);
+}
+
+.technology-card > span {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: #087bd0;
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 850;
+}
+
+.technology-card h3 {
+  margin-top: 50px;
+}
+
+.technology-card a {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  margin-top: auto;
+  border: 1px solid rgba(5, 78, 124, 0.18);
+  border-radius: 50%;
+}
+
+.principles-grid,
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.principles-grid > div,
+.value-grid > div {
+  min-height: 300px;
+  padding: 30px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.68);
+  background: rgba(255, 255, 255, 0.62);
+  box-shadow: 0 20px 50px rgba(3, 65, 106, 0.08);
+  backdrop-filter: blur(14px);
+}
+
+.principles-grid span,
+.value-grid span {
+  color: #0782c9;
+  font-size: 0.75rem;
+  font-weight: 850;
+  letter-spacing: 0.15em;
+}
+
+.programme-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.programme-card {
+  min-height: 620px;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(32px, 5vw, 64px);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 30px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.84), rgba(223, 247, 255, 0.66));
+  box-shadow:
+    0 24px 65px rgba(4, 73, 116, 0.1),
+    inset 0 1px rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(18px);
+}
+
+.programme-card:nth-child(2) {
+  border-color: rgba(126, 220, 255, 0.28);
+  background:
+    linear-gradient(145deg, rgba(6, 48, 81, 0.97), rgba(5, 91, 132, 0.93));
+  color: #e8faff;
+}
+
+.programme-card:nth-child(2) .marketing-eyebrow,
+.programme-card:nth-child(2) .programme-card__top {
+  color: #7ddcff;
+}
+
+.programme-card:nth-child(2) > p {
+  color: rgba(231, 249, 255, 0.68);
+}
+
+.programme-card h2 {
+  margin: 20px 0;
+  font-size: clamp(2.7rem, 4vw, 4.6rem);
+}
+
+.programme-card ul,
+.programme-detail ul,
+.contact-brief ul {
+  display: grid;
+  gap: 13px;
+  margin: 30px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.programme-card li,
+.programme-detail li,
+.contact-brief li {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  line-height: 1.5;
+}
+
+.programme-card .marketing-button {
+  width: max-content;
+  margin-top: auto;
+}
+
+.programme-icon {
+  aspect-ratio: 1.2;
+  color: #0769df;
+}
+
+.programme-detail,
+.about-story,
+.contact-brief {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(60px, 10vw, 150px);
+  align-items: start;
+}
+
+.programme-detail > div > p:last-child,
+.about-story > div:last-child p,
+.contact-brief > div:last-child {
+  color: #42647b;
+  font-size: 1.08rem;
+  line-height: 1.8;
+}
+
+.about-mantra {
+  aspect-ratio: 1.2;
+  align-content: center;
+  justify-items: start;
+  gap: 4px;
+  padding: 50px;
+}
+
+.about-mantra span {
+  font-size: clamp(2rem, 3.2vw, 3.6rem);
+  font-weight: 780;
+  letter-spacing: -0.055em;
+}
+
+.about-mantra span:nth-child(2) {
+  color: #0871c0;
+}
+
+.contact-pulse {
+  aspect-ratio: 1.2;
+  align-content: center;
+  gap: 20px;
+  color: #0769df;
+}
+
+.contact-pulse span {
+  font-size: 0.7rem;
+  font-weight: 850;
+  letter-spacing: 0.16em;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.contact-card {
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 24px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.82), rgba(222, 246, 255, 0.64));
+  box-shadow: 0 22px 55px rgba(3, 67, 107, 0.09);
+  backdrop-filter: blur(16px);
+}
+
+.contact-card > svg {
+  color: #0780c9;
+}
+
+.contact-card .marketing-eyebrow {
+  margin-top: 38px;
+}
+
+.contact-card h2 {
+  margin: 0 0 15px;
+  font-size: 1.5rem;
+  letter-spacing: -0.04em;
+}
+
+.contact-card > p:not(.marketing-eyebrow) {
+  color: #4b6c81;
+  line-height: 1.65;
+}
+
+@keyframes marketing-orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes marketing-signal {
+  to {
+    transform: scaleY(0.72);
+    opacity: 0.64;
+  }
+}
+
+@media (max-width: 980px) {
+  .marketing-hero__grid,
+  .process-grid,
+  .marketing-cta__inner,
+  .programme-detail,
+  .about-story,
+  .contact-brief {
+    grid-template-columns: 1fr;
+  }
+
+  .marketing-hero__aside {
+    min-height: 280px;
+  }
+
+  .marketing-orbit,
+  .technology-signal,
+  .programme-icon,
+  .contact-pulse,
+  .marketing-count,
+  .about-mantra {
+    max-width: 500px;
+    aspect-ratio: 1.6;
+  }
+
+  .solution-grid,
+  .technology-grid,
+  .principles-grid,
+  .value-grid,
+  .contact-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .work-case {
+    grid-template-columns: 1fr;
+  }
+
+  .work-case:nth-child(even) .work-case__copy {
+    order: 0;
+  }
+
+  .work-case__visual {
+    height: 560px;
+  }
+}
+
+@media (max-width: 680px) {
+  .marketing-shell {
+    width: min(calc(100% - 32px), 1400px);
+  }
+
+  .marketing-hero {
+    min-height: 0;
+    padding: 120px 0 70px;
+  }
+
+  .marketing-hero h1 {
+    font-size: clamp(3.2rem, 15vw, 5rem);
+  }
+
+  .marketing-hero__aside {
+    min-height: 210px;
+  }
+
+  .marketing-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .marketing-button {
+    width: 100%;
+  }
+
+  .solution-grid,
+  .technology-grid,
+  .principles-grid,
+  .value-grid,
+  .contact-grid,
+  .programme-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .process-row {
+    grid-template-columns: 42px 1fr;
+  }
+
+  .process-row p {
+    grid-column: 2;
+  }
+
+  .marketing-cta {
+    padding: 10px;
+  }
+
+  .marketing-cta__inner {
+    min-height: 560px;
+    padding: 42px 24px;
+    border-radius: 24px;
+  }
+
+  .work-case {
+    min-height: 0;
+    padding: 55px 0;
+  }
+
+  .work-case__visual {
+    height: 470px;
+  }
+
+  .programme-card {
+    min-height: 580px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marketing-orbit::before,
+  .marketing-orbit::after,
+  .technology-signal i {
+    animation: none;
+  }
+}

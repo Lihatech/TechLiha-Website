@@ -1,141 +1,69 @@
-import { Link, NavLink } from "react-router-dom";
-import { Mail, Phone } from "lucide-react";
-import { FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
-import icon2 from "../assets/icon.png";
+const footerGroups = [
+  {
+    title: "Explore",
+    links: [
+      ["Solutions", "/solutions"],
+      ["Selected work", "/work"],
+      ["Technology", "/technology"],
+      ["Agentic AI training", "/training"],
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      ["About", "/about"],
+      ["Contact", "/contact"],
+      ["Agentic AI course", "/training/course"],
+      ["Internship", "/training/internship"],
+    ],
+  },
+];
 
 export default function Footer() {
   return (
-    <footer className="bg-stone-50 text-slate-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-        {/* GRID */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
-          {/* ABOUT + SOCIAL */}
-          <div className="lg:col-span-2 flex flex-col">
-            <img
-              src={icon2}
-              alt="Liha Tech Logo"
-              className="h-12 object-contain mb-4"
-            />
-            <p className="text-sm sm:text-base leading-relaxed text-slate-700 text-left sm:text-justify">
-              We explore emerging technologies to drive future capabilities and
-              create meaningful impact for businesses and students. Liha Tech
-              stays ahead of the technology curve by investing in innovation,
-              research, and industry-driven solutions that are reliable,
-              scalable, and future-ready.
-            </p>
-
-            {/* SOCIAL ICONS */}
-            <div className="mt-6 flex gap-3">
-              <SocialIcon icon={FaFacebookF} bg="#1877F2" />
-              <SocialIcon icon={FaLinkedinIn} bg="#0A66C2" />
-              <SocialIcon icon={FaTwitter} bg="#1DA1F2" />
-            </div>
-          </div>
-
-          {/* SERVICES */}
-          <div>
-            <h4 className="text-slate-900 font-semibold mb-4 uppercase tracking-wider text-sm">
-              Services
-            </h4>
-            <ul className="space-y-2 text-sm">
-              <FooterLink to="/services/ai-data-science">
-                AI & Data Science
-              </FooterLink>
-              <FooterLink to="/services/big-data">
-                Big Data Solutions
-              </FooterLink>
-              <FooterLink to="/services/web">Web Development</FooterLink>
-              <FooterLink to="/services/mobile">
-                Mobile App Development
-              </FooterLink>
-              <FooterLink to="/services/cloud-migration">
-                Cloud Migration
-              </FooterLink>
-              <FooterLink to="/services/devops">DevOps Services</FooterLink>
-              <FooterLink to="/services/cyber-security">
-                Cyber Security
-              </FooterLink>
-            </ul>
-          </div>
-
-          {/* TECHNOLOGIES */}
-          <div>
-            <h4 className="text-slate-900 font-semibold mb-4 uppercase tracking-wider text-sm">
-              Technologies
-            </h4>
-            <ul className="space-y-2 text-sm">
-              <FooterLink to="/tech/ai">AI Solutions</FooterLink>
-              <FooterLink to="/tech/python">Python Solutions</FooterLink>
-              <FooterLink to="/tech/java">Java Solutions</FooterLink>
-              <FooterLink to="/tech/big-data">Big Data Solutions</FooterLink>
-              <FooterLink to="/tech/php">PHP Solutions</FooterLink>
-              <FooterLink to="/tech/angular">Angular Solutions</FooterLink>
-              <FooterLink to="/tech/sap">SAP Solutions</FooterLink>
-              <FooterLink to="/tech/devops">DevOps Solutions</FooterLink>
-            </ul>
-          </div>
-
-          {/* CONTACT */}
-          <div>
-            <h4 className="text-slate-900 font-semibold mb-4 uppercase tracking-wider text-sm">
-              Contact
-            </h4>
-            <ul className="space-y-3 text-sm text-slate-700">
-              <li className="flex items-center gap-2">
-                <Mail size={16} className="text-slate-600" />
-                <a
-                  href="mailto:info@lihatech.com"
-                  className="hover:text-slate-900 transition-colors duration-200"
-                >
-                  info@lihatech.com
-                </a>
-              </li>
-              <li className="flex items-center gap-2">
-                <Phone size={16} className="text-slate-600" />
-                <a
-                  href="tel:+919172743364"
-                  className="hover:text-slate-900 transition-colors duration-200"
-                >
-                  +91 9172743364
-                </a>
-              </li>
-            </ul>
-          </div>
+    <footer className="site-footer">
+      <div className="site-shell site-footer__main">
+        <div className="site-footer__about">
+          <Link className="site-brand" to="/" aria-label="LihaTech home">
+            <img src="/images/lihatech-logo-official.png" alt="" />
+            <span>
+              <b>LihaTech</b>
+              <small>Plan. Practice. Patience</small>
+            </span>
+          </Link>
+          <p>
+            Practical, reliable, future-ready technology for businesses and
+            people ready to move forward.
+          </p>
         </div>
-
-        {/* DIVIDER */}
-        <div className="border-t border-slate-200 mt-14 pt-6 text-center text-sm text-slate-400">
-          © {new Date().getFullYear()} Liha Tech. All rights reserved.
+        {footerGroups.map((group) => (
+          <nav key={group.title} aria-label={`${group.title} links`}>
+            <b>{group.title}</b>
+            {group.links.map(([label, to]) => (
+              <Link key={to} to={to}>
+                {label}
+              </Link>
+            ))}
+          </nav>
+        ))}
+        <div className="site-footer__contact">
+          <b>Contact</b>
+          <a href="mailto:info@lihatech.com">info@lihatech.com</a>
+          <a href="tel:+919767037492">+91 97670 37492</a>
+          <span>
+            Pune, India
+            <br />
+            Working worldwide
+          </span>
         </div>
       </div>
+      <div className="site-shell site-footer__bottom">
+        <span>© {new Date().getFullYear()} LIHATECH. ALL RIGHTS RESERVED.</span>
+        <span>PLAN · PRACTICE · PATIENCE</span>
+        <a href="#top">BACK TO TOP ↑</a>
+      </div>
     </footer>
-  );
-}
-
-/* ---------- Helpers ---------- */
-
-function FooterLink({ to, children }) {
-  return (
-    <li>
-      <NavLink
-        to={to}
-        className="inline-block hover:text-slate-900 transition-transform duration-200 hover:translate-x-1"
-      >
-        {children}
-      </NavLink>
-    </li>
-  );
-}
-
-function SocialIcon({ icon: Icon, bg }) {
-  return (
-    <a
-      href="#"
-      className="w-10 h-10 flex items-center justify-center rounded-full shadow hover:shadow-md transition-all duration-300"
-      style={{ backgroundColor: bg, color: "#fff" }}
-    >
-      <Icon size={16} />
-    </a>
   );
 }

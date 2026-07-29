@@ -1,23 +1,34 @@
 // App.jsx
-import { Routes, Route, useLocation } from "react-router-dom";
-import { Suspense, lazy, useEffect } from "react";
+import { Navigate, Routes, Route, useLocation } from "react-router-dom";
+import { Suspense, createElement, lazy, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import { ErrorBoundary } from "react-error-boundary";
 
 import RouteLoader from "./components/RouteLoader";
 import PageTransition from "./components/PageTransition";
 import ScrollToTop from "./components/ScrollToTop";
+import LiquidGlassSystem from "./components/LiquidGlassSystem";
 import MainLayout from "./layout/MainLayout";
 import ScrollToTopButton from "./components/ScrollToTopButton";
-import { Analytics } from "@vercel/analytics/next";
+import { Analytics } from "@vercel/analytics/react";
 
 /* ---------------- Lazy Pages ---------------- */
-const Home = lazy(() => import("./pages/Home"));
-const Services = lazy(() => import("./pages/Services"));
-const Contact = lazy(() => import("./pages/Contact"));
-const About = lazy(() => import("./pages/About"));
-const Tech = lazy(() => import("./pages/Techs"));
 const NotFound = lazy(() => import("./pages/NotFoundPage"));
+const ParallaxLab = lazy(() => import("./parallax-lab/ParallaxLab"));
+const loadMarketingPage = (name) =>
+  lazy(() =>
+    import("./pages/MarketingPages").then((module) => ({
+      default: module[name],
+    })),
+  );
+const Solutions = loadMarketingPage("SolutionsPage");
+const Work = loadMarketingPage("WorkPage");
+const Technology = loadMarketingPage("TechnologyPage");
+const Training = loadMarketingPage("TrainingPage");
+const Course = loadMarketingPage("CoursePage");
+const Internship = loadMarketingPage("InternshipPage");
+const About = loadMarketingPage("AboutPage");
+const Contact = loadMarketingPage("ContactPage");
 
 /* ---------------- Service Details ---------------- */
 const Web = lazy(() => import("./ServiceDetail/WebDetail"));
@@ -53,11 +64,18 @@ const Ai = lazy(() => import("./TechDetails/AiDetail"));
 
 /* ---------------- Route Configuration ---------------- */
 const routes = [
-  { path: "/", component: Home, title: "Home" },
-  { path: "/services", component: Services, title: "Our Services" },
+  { path: "/solutions", component: Solutions, title: "AI & Software Solutions" },
+  { path: "/work", component: Work, title: "Selected Work" },
+  { path: "/technology", component: Technology, title: "Technology" },
+  { path: "/training", component: Training, title: "Agentic AI Training" },
+  { path: "/training/course", component: Course, title: "Agentic AI Course" },
+  {
+    path: "/training/internship",
+    component: Internship,
+    title: "Agentic AI Internship",
+  },
   { path: "/contact", component: Contact, title: "Contact Us" },
   { path: "/about", component: About, title: "About Us" },
-  { path: "/tech", component: Tech, title: "Technologies" },
 
   { path: "/services/web", component: Web, title: "Web Development" },
   {
@@ -141,6 +159,7 @@ export default function App() {
   return (
     <>
       <ScrollToTop />
+      <LiquidGlassSystem />
 
       <ErrorBoundary
         fallback={
@@ -162,15 +181,30 @@ export default function App() {
         <Suspense fallback={<RouteLoader />}>
           <AnimatePresence mode="wait">
             <Routes location={location} key={location.pathname}>
+              <Route
+                path="/"
+                element={
+                  <PageTransition>
+                    <SEO
+                      title="AI Solutions, Software & Agentic AI Training | LihaTech"
+                      description="LihaTech builds intelligent digital products and provides practical Agentic AI courses and internships."
+                    />
+                    <ParallaxLab />
+                  </PageTransition>
+                }
+              />
+              <Route path="/parallax-lab" element={<Navigate to="/" replace />} />
               <Route element={<MainLayout />}>
-                {routes.map(({ path, component: Component, title }) => (
+                <Route path="/services" element={<Navigate to="/solutions" replace />} />
+                <Route path="/tech" element={<Navigate to="/technology" replace />} />
+                {routes.map(({ path, component, title }) => (
                   <Route
                     key={path}
                     path={path}
                     element={
                       <PageTransition>
                         <SEO title={`${title} | LihaTech.com`} />
-                        <Component />
+                        {createElement(component)}
                       </PageTransition>
                     }
                   />
