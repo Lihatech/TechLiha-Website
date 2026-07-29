@@ -10,7 +10,6 @@ import { trainingProgrammes } from "../../data/trainingProgrammes";
 
 export default function ProgrammeDetail({ type }) {
   const programme = trainingProgrammes[type];
-  const Icon = programme.icon;
   return (
     <>
       <PageHero
@@ -25,11 +24,6 @@ export default function ProgrammeDetail({ type }) {
             </PrimaryLink>
             <SecondaryLink to="/training">Compare programmes</SecondaryLink>
           </>
-        }
-        aside={
-          <div className="programme-icon">
-            <Icon size={54} aria-hidden="true" />
-          </div>
         }
       />
       <section className="marketing-section">

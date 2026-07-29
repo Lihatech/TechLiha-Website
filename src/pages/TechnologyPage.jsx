@@ -23,14 +23,6 @@ export default function TechnologyPage() {
             <SecondaryLink to="/contact">Discuss your stack</SecondaryLink>
           </>
         }
-        aside={
-          <div className="technology-signal" aria-hidden="true">
-            <i />
-            <i />
-            <i />
-            <span>LIHA / STACK</span>
-          </div>
-        }
       />
       <section className="marketing-section">
         <div className="marketing-shell">

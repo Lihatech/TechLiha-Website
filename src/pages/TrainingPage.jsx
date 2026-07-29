@@ -20,12 +20,6 @@ export default function TrainingPage() {
             Talk to our learning team
           </PrimaryLink>
         }
-        aside={
-          <div className="marketing-count">
-            <strong>02</strong>
-            <span>clear learning pathways</span>
-          </div>
-        }
       />
       <section className="marketing-section">
         <div className="marketing-shell programme-grid">

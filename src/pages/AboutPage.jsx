@@ -20,13 +20,6 @@ export default function AboutPage() {
             <SecondaryLink to="/work">See our work</SecondaryLink>
           </>
         }
-        aside={
-          <div className="about-mantra">
-            <span>PLAN.</span>
-            <span>PRACTICE.</span>
-            <span>PATIENCE.</span>
-          </div>
-        }
       />
       <section className="marketing-section">
         <div className="marketing-shell about-story">

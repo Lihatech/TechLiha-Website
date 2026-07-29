@@ -1,4 +1,4 @@
-import { ArrowRight, Check, Mail, MapPin, Phone, Sparkles } from "lucide-react";
+import { ArrowRight, Check, Mail, MapPin, Phone } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
 import {
   PageHero,
@@ -16,6 +16,12 @@ export default function ContactPage() {
   };
   const subject = subjectMap[topic] || "LihaTech enquiry";
   const emailHref = `mailto:info@lihatech.com?subject=${encodeURIComponent(subject)}`;
+  const backLink =
+    topic === "project"
+      ? { to: "/solutions", label: "Back to solutions" }
+      : ["training", "course", "internship"].includes(topic)
+        ? { to: "/training", label: "Back to training" }
+        : { to: "/", label: "Back to home" };
 
   return (
     <>
@@ -24,6 +30,7 @@ export default function ContactPage() {
         title="Tell us what should work"
         accent="smarter."
         copy="Share the problem, the people it affects, and what a better outcome would look like. We’ll help you identify a focused next step."
+        backLink={backLink}
         actions={
           <>
             <a
@@ -39,12 +46,6 @@ export default function ContactPage() {
               Call +91 97670 37492 <Phone size={17} />
             </a>
           </>
-        }
-        aside={
-          <div className="contact-pulse">
-            <Sparkles size={34} aria-hidden="true" />
-            <span>OPEN TO NEW CONVERSATIONS</span>
-          </div>
         }
       />
       <section className="marketing-section">

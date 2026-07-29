@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import "../styles/marketing-pages.css";
 
@@ -23,15 +23,29 @@ export function Reveal({ children, className = "" }) {
   );
 }
 
-export function PageHero({ eyebrow, title, accent, copy, actions, aside }) {
+export function PageHero({
+  eyebrow,
+  title,
+  accent,
+  copy,
+  actions,
+  backLink,
+}) {
   return (
     <section className="marketing-hero">
       <div className="marketing-shell marketing-hero__grid">
         <motion.div
+          className="marketing-hero__content"
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
         >
+          {backLink && (
+            <Link className="marketing-back-link" to={backLink.to}>
+              <ArrowLeft size={16} aria-hidden="true" />
+              {backLink.label}
+            </Link>
+          )}
           <p className="marketing-eyebrow">{eyebrow}</p>
           <h1>
             {title} {accent && <em>{accent}</em>}
@@ -39,7 +53,6 @@ export function PageHero({ eyebrow, title, accent, copy, actions, aside }) {
           <p className="marketing-hero__copy">{copy}</p>
           {actions && <div className="marketing-actions">{actions}</div>}
         </motion.div>
-        {aside && <div className="marketing-hero__aside">{aside}</div>}
       </div>
     </section>
   );

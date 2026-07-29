@@ -42,13 +42,6 @@ export default function SolutionsPage() {
             <SecondaryLink to="/work">See selected work</SecondaryLink>
           </>
         }
-        aside={
-          <div className="marketing-orbit" aria-hidden="true">
-            <span>AI</span>
-            <i />
-            <i />
-          </div>
-        }
       />
 
       <section className="marketing-section">

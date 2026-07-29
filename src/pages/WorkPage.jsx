@@ -21,12 +21,6 @@ export default function WorkPage() {
             Build something similar
           </PrimaryLink>
         }
-        aside={
-          <div className="marketing-count">
-            <strong>03</strong>
-            <span>production-focused case studies</span>
-          </div>
-        }
       />
       <section className="marketing-section work-list">
         <div className="marketing-shell">

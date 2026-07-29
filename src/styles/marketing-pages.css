@@ -50,9 +50,14 @@
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.65fr);
+  grid-template-columns: minmax(0, 1000px);
+  justify-content: center;
   align-items: center;
-  gap: clamp(52px, 8vw, 130px);
+  text-align: center;
+}
+
+.marketing-hero__content {
+  width: 100%;
 }
 
 .marketing-eyebrow {
@@ -65,8 +70,8 @@
 }
 
 .marketing-hero h1 {
-  max-width: 12ch;
-  margin: 0;
+  max-width: 14ch;
+  margin: 0 auto;
   font-size: clamp(4rem, 7vw, 7.4rem);
   font-weight: 750;
   letter-spacing: -0.075em;
@@ -82,7 +87,7 @@
 
 .marketing-hero__copy {
   max-width: 680px;
-  margin: 30px 0 0;
+  margin: 30px auto 0;
   color: #174867;
   font-size: clamp(1.05rem, 1.5vw, 1.32rem);
   line-height: 1.7;
@@ -91,8 +96,43 @@
 .marketing-actions {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 12px;
   margin-top: 34px;
+}
+
+.marketing-back-link {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  padding: 0 15px;
+  border: 1px solid rgba(5, 61, 104, 0.18);
+  border-radius: 999px;
+  background: rgba(247, 253, 255, 0.62);
+  color: #0a5f94;
+  font-size: 0.78rem;
+  font-weight: 750;
+  letter-spacing: 0.02em;
+  box-shadow: 0 10px 30px rgba(2, 82, 134, 0.08);
+  backdrop-filter: blur(14px);
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.marketing-back-link:hover {
+  transform: translateY(-2px);
+  border-color: rgba(5, 97, 165, 0.4);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.marketing-back-link:focus-visible {
+  outline: 3px solid rgba(7, 105, 223, 0.34);
+  outline-offset: 3px;
 }
 
 .marketing-button {
@@ -126,105 +166,6 @@
 .marketing-button--secondary {
   background: rgba(247, 253, 255, 0.72);
   color: #073a66;
-}
-
-.marketing-hero__aside {
-  min-height: 380px;
-  display: grid;
-  place-items: center;
-}
-
-.marketing-orbit,
-.technology-signal,
-.programme-icon,
-.contact-pulse,
-.marketing-count,
-.about-mantra {
-  position: relative;
-  width: min(100%, 390px);
-  aspect-ratio: 1;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.58);
-  border-radius: 34px;
-  background:
-    linear-gradient(145deg, rgba(248, 253, 255, 0.52), rgba(203, 239, 255, 0.24));
-  box-shadow:
-    0 30px 70px rgba(2, 82, 134, 0.15),
-    inset 0 1px rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(20px) saturate(1.12);
-}
-
-.marketing-orbit::before,
-.marketing-orbit::after {
-  content: "";
-  position: absolute;
-  border: 1px solid rgba(7, 94, 166, 0.22);
-  border-radius: 50%;
-  animation: marketing-orbit 14s linear infinite;
-}
-
-.marketing-orbit::before {
-  width: 72%;
-  height: 72%;
-}
-
-.marketing-orbit::after {
-  width: 48%;
-  height: 48%;
-  animation-direction: reverse;
-}
-
-.marketing-orbit span {
-  z-index: 1;
-  width: 100px;
-  height: 100px;
-  display: grid;
-  place-items: center;
-  border-radius: 28px;
-  background: #0769df;
-  color: #fff;
-  font-size: 2rem;
-  font-weight: 800;
-  box-shadow: 0 22px 45px rgba(4, 84, 175, 0.25);
-}
-
-.marketing-orbit i {
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
-}
-
-.marketing-orbit i:nth-of-type(1) {
-  top: 22%;
-  right: 23%;
-}
-
-.marketing-orbit i:nth-of-type(2) {
-  bottom: 19%;
-  left: 25%;
-}
-
-.marketing-count {
-  align-content: center;
-  gap: 10px;
-  aspect-ratio: 1.2;
-}
-
-.marketing-count strong {
-  font-size: clamp(6rem, 9vw, 9rem);
-  letter-spacing: -0.09em;
-  line-height: 0.8;
-}
-
-.marketing-count span {
-  max-width: 16ch;
-  color: #164b6c;
-  font-weight: 700;
-  text-align: center;
 }
 
 .marketing-section {
@@ -526,40 +467,6 @@
   transform: scale(1.025);
 }
 
-.technology-signal {
-  grid-template-columns: repeat(3, 1fr);
-  align-content: center;
-  gap: 12px;
-  padding: 45px;
-}
-
-.technology-signal i {
-  height: 150px;
-  border-radius: 999px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), #0786d1);
-  animation: marketing-signal 2.8s ease-in-out infinite alternate;
-}
-
-.technology-signal i:nth-child(2) {
-  height: 220px;
-  animation-delay: -1s;
-}
-
-.technology-signal i:nth-child(3) {
-  height: 105px;
-  animation-delay: -2s;
-}
-
-.technology-signal span {
-  grid-column: 1 / -1;
-  margin-top: 18px;
-  color: #0b5f93;
-  font-size: 0.7rem;
-  font-weight: 850;
-  letter-spacing: 0.18em;
-  text-align: center;
-}
-
 .technology-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -703,11 +610,6 @@
   margin-top: auto;
 }
 
-.programme-icon {
-  aspect-ratio: 1.2;
-  color: #0769df;
-}
-
 .programme-detail,
 .about-story,
 .contact-brief {
@@ -723,37 +625,6 @@
   color: #42647b;
   font-size: 1.08rem;
   line-height: 1.8;
-}
-
-.about-mantra {
-  aspect-ratio: 1.2;
-  align-content: center;
-  justify-items: start;
-  gap: 4px;
-  padding: 50px;
-}
-
-.about-mantra span {
-  font-size: clamp(2rem, 3.2vw, 3.6rem);
-  font-weight: 780;
-  letter-spacing: -0.055em;
-}
-
-.about-mantra span:nth-child(2) {
-  color: #0871c0;
-}
-
-.contact-pulse {
-  aspect-ratio: 1.2;
-  align-content: center;
-  gap: 20px;
-  color: #0769df;
-}
-
-.contact-pulse span {
-  font-size: 0.7rem;
-  font-weight: 850;
-  letter-spacing: 0.16em;
 }
 
 .contact-grid {
@@ -794,19 +665,6 @@
   line-height: 1.65;
 }
 
-@keyframes marketing-orbit {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes marketing-signal {
-  to {
-    transform: scaleY(0.72);
-    opacity: 0.64;
-  }
-}
-
 @media (max-width: 980px) {
   .marketing-hero__grid,
   .process-grid,
@@ -815,20 +673,6 @@
   .about-story,
   .contact-brief {
     grid-template-columns: 1fr;
-  }
-
-  .marketing-hero__aside {
-    min-height: 280px;
-  }
-
-  .marketing-orbit,
-  .technology-signal,
-  .programme-icon,
-  .contact-pulse,
-  .marketing-count,
-  .about-mantra {
-    max-width: 500px;
-    aspect-ratio: 1.6;
   }
 
   .solution-grid,
@@ -864,10 +708,6 @@
 
   .marketing-hero h1 {
     font-size: clamp(3.2rem, 15vw, 5rem);
-  }
-
-  .marketing-hero__aside {
-    min-height: 210px;
   }
 
   .marketing-actions {
@@ -917,13 +757,5 @@
 
   .programme-card {
     min-height: 580px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .marketing-orbit::before,
-  .marketing-orbit::after,
-  .technology-signal i {
-    animation: none;
   }
 }
