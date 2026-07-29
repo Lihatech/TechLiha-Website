@@ -19,7 +19,7 @@
   align-items: center;
   padding: 150px 0 90px;
   overflow: hidden;
-  background: var(--liha-sky-background);
+  background: transparent;
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 
@@ -84,7 +84,7 @@
 .marketing-hero__copy {
   max-width: 680px;
   margin: 30px auto 0;
-  color: rgba(6, 43, 75, 0.82);
+  color: #062b4b;
   font-size: clamp(1.05rem, 1.5vw, 1.32rem);
   line-height: 1.7;
 }
@@ -168,8 +168,7 @@
   position: relative;
   padding: clamp(90px, 10vw, 150px) 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.34);
-  background:
-    linear-gradient(180deg, rgba(231, 250, 255, 0.58), rgba(202, 241, 251, 0.44));
+  background: transparent;
 }
 
 .marketing-section > .marketing-shell {
@@ -188,8 +187,7 @@
 }
 
 .marketing-section--mist {
-  background:
-    linear-gradient(145deg, rgba(220, 248, 255, 0.5), rgba(138, 220, 243, 0.34));
+  background: transparent;
 }
 
 .marketing-section__heading {
@@ -212,7 +210,7 @@
 .marketing-section__heading > p:last-child {
   max-width: 690px;
   margin: 25px 0 0;
-  color: #41637b;
+  color: #062b4b;
   font-size: 1.05rem;
   line-height: 1.75;
 }
@@ -331,7 +329,7 @@
   position: relative;
   padding: 22px;
   overflow: hidden;
-  background: rgba(121, 213, 241, 0.38);
+  background: transparent;
 }
 
 .marketing-cta__inner {
@@ -386,7 +384,7 @@
 }
 
 .work-case__copy > p {
-  color: #42647a;
+  color: #062b4b;
   font-size: 1.05rem;
   line-height: 1.75;
 }
@@ -618,7 +616,7 @@
 .programme-detail > div > p:last-child,
 .about-story > div:last-child p,
 .contact-brief > div:last-child {
-  color: #42647b;
+  color: #062b4b;
   font-size: 1.08rem;
   line-height: 1.8;
 }

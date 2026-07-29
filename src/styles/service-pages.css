@@ -6,7 +6,7 @@
 .services-page,
 .service-detail {
   --service-ink: #062b4b;
-  --service-copy: #3d627a;
+  --service-copy: #062b4b;
   --service-blue: #0875d1;
   --service-cyan: #35c3eb;
   color: var(--service-ink);
@@ -16,7 +16,7 @@
 .service-detail__hero {
   position: relative;
   overflow: hidden;
-  background: var(--liha-sky-background);
+  background: transparent;
 }
 
 .service-catalog-hero::after,
@@ -76,7 +76,7 @@
 .service-catalog-hero__content > p:last-of-type {
   max-width: 770px;
   margin: 30px auto 0;
-  color: #194d6d;
+  color: #062b4b;
   font-size: clamp(1.08rem, 1.55vw, 1.35rem);
   line-height: 1.7;
 }
@@ -118,7 +118,7 @@
 
 .service-catalog {
   padding: clamp(85px, 10vw, 145px) 0;
-  background: linear-gradient(180deg, rgba(232, 250, 255, 0.8), rgba(209, 242, 251, 0.58));
+  background: transparent;
 }
 
 .service-catalog__heading,
@@ -263,7 +263,7 @@
 .service-detail__hero-copy > p:not(.service-kicker) {
   max-width: 730px;
   margin: 29px 0 0;
-  color: #194d6d;
+  color: #062b4b;
   font-size: clamp(1.06rem, 1.5vw, 1.3rem);
   line-height: 1.72;
 }
@@ -303,7 +303,7 @@
 
 .service-detail__overview {
   padding: clamp(90px, 10vw, 145px) 0;
-  background: rgba(239, 251, 255, 0.83);
+  background: transparent;
 }
 
 .service-detail__overview-grid {
@@ -358,7 +358,7 @@
 
 .service-detail__capabilities {
   padding: clamp(90px, 10vw, 145px) 0;
-  background: linear-gradient(145deg, rgba(221, 247, 255, 0.76), rgba(164, 226, 244, 0.48));
+  background: transparent;
 }
 
 .service-capability-grid {
@@ -398,7 +398,7 @@
 
 .service-highlight {
   padding: clamp(80px, 9vw, 125px) 0;
-  background: rgba(240, 251, 255, 0.86);
+  background: transparent;
 }
 
 .service-highlight + .service-highlight {
@@ -426,7 +426,7 @@
 
 .service-detail__cta {
   padding: 22px;
-  background: rgba(105, 205, 237, 0.43);
+  background: transparent;
 }
 
 .service-detail__cta-inner {
