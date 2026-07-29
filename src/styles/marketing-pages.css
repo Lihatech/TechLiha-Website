@@ -23,21 +23,6 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-.marketing-hero::after {
-  content: "";
-  position: absolute;
-  right: -10vw;
-  bottom: -28vw;
-  width: 62vw;
-  height: 62vw;
-  border: 1px solid rgba(255, 255, 255, 0.34);
-  border-radius: 50%;
-  box-shadow:
-    0 0 0 8vw rgba(255, 255, 255, 0.07),
-    0 0 0 16vw rgba(255, 255, 255, 0.04);
-  pointer-events: none;
-}
-
 .marketing-hero__grid {
   position: relative;
   z-index: 1;
