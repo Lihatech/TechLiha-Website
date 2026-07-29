@@ -1,4 +1,4 @@
-// src/seo/seo.config.js
+// src/config/seo.config.js
 
 const SITE = {
   name: "Liha Tech",

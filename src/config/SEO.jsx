@@ -1,4 +1,4 @@
-// src/seo/SEO.jsx
+// src/config/SEO.jsx
 import { Helmet } from "react-helmet-async";
 import SITE, { SEO_DATA } from "./seo.config";
 

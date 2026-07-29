@@ -14,53 +14,65 @@ import { Analytics } from "@vercel/analytics/react";
 
 /* ---------------- Lazy Pages ---------------- */
 const NotFound = lazy(() => import("./pages/NotFoundPage"));
-const ParallaxLab = lazy(() => import("./parallax-lab/ParallaxLab"));
-const loadMarketingPage = (name) =>
-  lazy(() =>
-    import("./pages/MarketingPages").then((module) => ({
-      default: module[name],
-    })),
-  );
-const Solutions = loadMarketingPage("SolutionsPage");
-const Work = loadMarketingPage("WorkPage");
-const Technology = loadMarketingPage("TechnologyPage");
-const Training = loadMarketingPage("TrainingPage");
-const Course = loadMarketingPage("CoursePage");
-const Internship = loadMarketingPage("InternshipPage");
-const About = loadMarketingPage("AboutPage");
-const Contact = loadMarketingPage("ContactPage");
+const HomePage = lazy(() => import("./pages/HomePage"));
+const Solutions = lazy(() => import("./pages/SolutionsPage"));
+const Work = lazy(() => import("./pages/WorkPage"));
+const Technology = lazy(() => import("./pages/TechnologyPage"));
+const Training = lazy(() => import("./pages/TrainingPage"));
+const Course = lazy(() => import("./pages/CoursePage"));
+const Internship = lazy(() => import("./pages/InternshipPage"));
+const About = lazy(() => import("./pages/AboutPage"));
+const Contact = lazy(() => import("./pages/ContactPage"));
 
 /* ---------------- Service Details ---------------- */
-const Web = lazy(() => import("./ServiceDetail/WebDetail"));
-const Cloud = lazy(() => import("./ServiceDetail/CloudDetail"));
+const Web = lazy(() =>
+  import("./features/services/WebDevelopmentDetailPage")
+);
+const Cloud = lazy(() =>
+  import("./features/services/CloudMigrationDetailPage")
+);
 const BigDataServicePage = lazy(() =>
-  import("./ServiceDetail/BigDataServDetail")
+  import("./features/services/BigDataDetailPage")
 );
-const AiDataSci = lazy(() => import("./ServiceDetail/AiDataSciServDetail"));
-const Mobile = lazy(() => import("./ServiceDetail/AndroidServDetail"));
+const AiDataSci = lazy(() =>
+  import("./features/services/AiDataScienceDetailPage")
+);
+const Mobile = lazy(() =>
+  import("./features/services/MobileAppDetailPage")
+);
 const CyberSecurityServicePage = lazy(() =>
-  import("./ServiceDetail/CyberSecurityServicePage")
+  import("./features/services/CyberSecurityDetailPage")
 );
-const AwsServiceDetail = lazy(() => import("./ServiceDetail/AwsServiceDetail"));
+const AwsServiceDetail = lazy(() =>
+  import("./features/services/AwsDetailPage")
+);
 const QaTestingServicePage = lazy(() =>
-  import("./ServiceDetail/QaTestingServicePage")
+  import("./features/services/QaTestingDetailPage")
 );
 const EnterpriseServicePage = lazy(() =>
-  import("./ServiceDetail/EnterpriseServicePage")
+  import("./features/services/EnterpriseSolutionsDetailPage")
 );
 const DevOpsServicePage = lazy(() =>
-  import("./ServiceDetail/DevOpsServicePage")
+  import("./features/services/DevOpsDetailPage")
 );
 
 /* ---------------- Tech Details ---------------- */
-const Python = lazy(() => import("./TechDetails/PyDetail"));
-const Java = lazy(() => import("./TechDetails/JavaDetail"));
-const Bdata = lazy(() => import("./TechDetails/BigDataDetail"));
-const Php = lazy(() => import("./TechDetails/PhpDetail"));
-const Angular = lazy(() => import("./TechDetails/AngularDetail"));
-const Sap = lazy(() => import("./TechDetails/SapDetail"));
-const DevOps = lazy(() => import("./TechDetails/DevOpsDetail"));
-const Ai = lazy(() => import("./TechDetails/AiDetail"));
+const Python = lazy(() =>
+  import("./features/technologies/PythonDetailPage")
+);
+const Java = lazy(() => import("./features/technologies/JavaDetailPage"));
+const Bdata = lazy(() =>
+  import("./features/technologies/BigDataDetailPage")
+);
+const Php = lazy(() => import("./features/technologies/PhpDetailPage"));
+const Angular = lazy(() =>
+  import("./features/technologies/AngularDetailPage")
+);
+const Sap = lazy(() => import("./features/technologies/SapDetailPage"));
+const DevOps = lazy(() =>
+  import("./features/technologies/DevOpsDetailPage")
+);
+const Ai = lazy(() => import("./features/technologies/AiDetailPage"));
 
 /* ---------------- Route Configuration ---------------- */
 const routes = [
@@ -189,7 +201,7 @@ export default function App() {
                       title="AI Solutions, Software & Agentic AI Training | LihaTech"
                       description="LihaTech builds intelligent digital products and provides practical Agentic AI courses and internships."
                     />
-                    <ParallaxLab />
+                    <HomePage />
                   </PageTransition>
                 }
               />

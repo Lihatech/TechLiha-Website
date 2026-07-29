@@ -1,9 +1,9 @@
-// src/layouts/MainLayout.jsx
+// src/layout/MainLayout.jsx
 import { useEffect, useRef } from "react";
 import { Outlet } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import MarketingSky from "../components/MarketingSky";
+import MarketingSky from "../features/parallax/MarketingSky";
 import "../styles/site-shell.css";
 
 export default function MainLayout() {
