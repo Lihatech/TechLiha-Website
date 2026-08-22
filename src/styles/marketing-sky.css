@@ -61,13 +61,50 @@
 }
 
 .marketing-page .site-footer {
+  position: relative;
+  margin-top: 0;
+  padding-top: clamp(112px, 9vw, 145px);
   background:
-    linear-gradient(180deg, rgba(6, 75, 110, 0.78), #062b4b 18%, #041f37);
+    radial-gradient(circle at 16% 0%, rgba(205, 247, 255, 0.22), transparent 28%),
+    radial-gradient(circle at 84% 12%, rgba(255, 255, 255, 0.12), transparent 25%),
+    linear-gradient(
+      180deg,
+      #16b9dc 0%,
+      #0c84ac 20%,
+      #086482 38%,
+      #063e5b 62%,
+      #041f37 100%
+    );
+}
+
+.marketing-page .site-footer::before {
+  content: none;
+}
+
+@media (max-width: 1080px) {
+  .marketing-page .site-footer {
+    padding-top: 80px;
+  }
 }
 
 @media (max-width: 767px) {
   .marketing-sky {
     opacity: 0.88;
+  }
+
+  .marketing-page .site-footer {
+    margin-top: 0;
+    padding-top: 48px;
+  }
+
+  .marketing-page .site-footer::before {
+    content: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .marketing-page .site-footer {
+    padding-top: 48px;
   }
 }
 

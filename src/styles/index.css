@@ -1,6 +1,11 @@
 /* src/index.css */
 @import "tailwindcss";
 
+a,
+button {
+  touch-action: manipulation;
+}
+
 @keyframes dropdown {
   from {
     opacity: 0;

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { motion as Motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { ArrowUp } from "lucide-react";
 
 export default function ScrollToTopButton() {
@@ -52,7 +52,7 @@ export default function ScrollToTopButton() {
   return (
     <AnimatePresence>
       {visible && (
-        <motion.button
+        <Motion.button
           key="scroll-top"
           initial={{ opacity: 0, y: 32, scale: 0.9 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -90,7 +90,7 @@ export default function ScrollToTopButton() {
               stroke="rgba(255,255,255,0.15)"
               strokeWidth="3"
             />
-            <motion.circle
+            <Motion.circle
               cx="22"
               cy="22"
               r={radius}
@@ -106,7 +106,7 @@ export default function ScrollToTopButton() {
 
           {/* Icon */}
           <ArrowUp size={18} className="relative z-10" />
-        </motion.button>
+        </Motion.button>
       )}
     </AnimatePresence>
   );

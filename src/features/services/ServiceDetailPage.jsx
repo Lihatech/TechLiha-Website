@@ -39,10 +39,10 @@ const serviceIcons = {
 };
 
 const reveal = {
-  initial: { opacity: 0, y: 22 },
+  initial: { opacity: 0, y: 14 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, amount: 0.16 },
-  transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+  transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
 };
 
 export default function ServiceDetailPage({ service }) {
@@ -136,6 +136,25 @@ export default function ServiceDetailPage({ service }) {
                 className="service-capability"
                 key={capability.title}
                 {...revealProps}
+                whileHover={
+                  shouldReduceMotion
+                    ? undefined
+                    : {
+                        y: -5,
+                        transition: {
+                          duration: 0.24,
+                          ease: [0.22, 1, 0.36, 1],
+                        },
+                      }
+                }
+                transition={
+                  shouldReduceMotion
+                    ? { duration: 0 }
+                    : {
+                        ...reveal.transition,
+                        delay: index * 0.035,
+                      }
+                }
               >
                 <span>{String(index + 1).padStart(2, "0")}</span>
                 <h3>{capability.title}</h3>
@@ -149,7 +168,7 @@ export default function ServiceDetailPage({ service }) {
       {service.highlights?.map((highlight) => (
         <section className="service-highlight" key={highlight.title}>
           <MotionArticle className="service-shell service-highlight__inner" {...revealProps}>
-            <p className="service-kicker">Why LihaTech</p>
+            <p className="service-kicker">Why Techliha</p>
             <h2>{highlight.title}</h2>
             <div>
               {highlight.paragraphs.map((paragraph) => (

@@ -1,25 +1,25 @@
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import AutoBreadcrumb from "../../components/AutoBreadcrumb";
 
 /* Animation */
 const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  hidden: { opacity: 0, y: 14 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
 };
 
 const slideIn = {
-  hidden: { opacity: 0, x: -50 }, // slide from left
-  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  hidden: { opacity: 0, y: 14 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
 };
 export default function SapDetailPage() {
   return (
-    <section className="bg-white text-black">
+    <section className="technology-detail-page bg-white text-black">
       {/* ================= HERO ================= */}
       <div className="bg-slate-900 text-white">
         <div className="max-w-7xl mx-auto px-6 py-28">
-          <motion.div
+          <Motion.div
             variants={fadeUp}
             initial="hidden"
             animate="visible"
@@ -42,25 +42,27 @@ export default function SapDetailPage() {
               data-driven intelligence to support informed enterprise
               decision-making.
             </p>
-          </motion.div>
+          </Motion.div>
         </div>
       </div>
 
       {/* ================= OVERVIEW ================= */}
       <div className="max-w-7xl mx-auto px-6 py-24">
         <div className="grid md:grid-cols-2 gap-16 items-center">
-          {/* LEFT — IMAGE */}
+          {/* LEFT - IMAGE */}
           <div className="w-full h-full">
             <img
               src="/images/techImage/SAP.png"
               alt="Enterprise SAP ERP"
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover rounded-2xl"
             />
           </div>
 
-          {/* RIGHT — CONTENT (BG ONLY HERE) */}
+          {/* RIGHT - CONTENT (BG ONLY HERE) */}
           <div className="bg-[#FAF7F2] p-12 rounded-2xl">
-            <motion.h2
+            <Motion.h2
               className="text-3xl font-semibold mb-6"
               initial="hidden"
               whileInView="visible"
@@ -68,7 +70,7 @@ export default function SapDetailPage() {
               variants={slideIn}
             >
               Enterprise Resource Planning with SAP
-            </motion.h2>
+            </Motion.h2>
 
             <p className="text-lg text-black/70 leading-relaxed mb-6">
               SAP ERP is designed to unify business operations within a single,
@@ -78,7 +80,7 @@ export default function SapDetailPage() {
             </p>
 
             <p className="text-lg text-black/70 leading-relaxed">
-              At Liha Tech, we implement SAP solutions that align technology
+              At Techliha, we implement SAP solutions that align technology
               with business strategy. Our focus is on delivering stable,
               scalable ERP platforms that support long-term operational growth
               and evolving enterprise requirements.
@@ -90,7 +92,7 @@ export default function SapDetailPage() {
       {/* ================= SAP SERVICES ================= */}
       <div className="bg-[#FAF7F2]">
         <div className="max-w-7xl mx-auto px-6 py-24">
-          <motion.h2
+          <Motion.h2
             className="text-3xl font-semibold mb-6"
             initial="hidden"
             whileInView="visible"
@@ -98,7 +100,7 @@ export default function SapDetailPage() {
             variants={slideIn}
           >
             SAP Implementation & Consulting Services
-          </motion.h2>
+          </Motion.h2>
 
           <p className="text-lg text-black/70 leading-relaxed mb-6">
             Our SAP services cover the complete ERP lifecycle, including
@@ -126,7 +128,7 @@ export default function SapDetailPage() {
 
       {/* ================= BUSINESS VALUE ================= */}
       <div className="max-w-7xl mx-auto px-6 py-24">
-        <motion.h2
+        <Motion.h2
           className="text-3xl font-semibold mb-6"
           initial="hidden"
           whileInView="visible"
@@ -134,7 +136,7 @@ export default function SapDetailPage() {
           variants={slideIn}
         >
           Business Value Delivered by SAP
-        </motion.h2>
+        </Motion.h2>
 
         <p className="text-lg text-black/70 leading-relaxed mb-6">
           SAP ERP empowers organizations to streamline operations, automate
@@ -153,7 +155,7 @@ export default function SapDetailPage() {
       {/* ================= IMPLEMENTATION APPROACH ================= */}
       <div className="bg-slate-900 text-white">
         <div className="max-w-7xl mx-auto px-6 py-24">
-          <motion.h2
+          <Motion.h2
             className="text-3xl font-semibold mb-6"
             initial="hidden"
             whileInView="visible"
@@ -161,7 +163,7 @@ export default function SapDetailPage() {
             variants={slideIn}
           >
             Our SAP Implementation Approach
-          </motion.h2>
+          </Motion.h2>
 
           <p className="text-lg text-white/75 leading-relaxed mb-6">
             Our SAP implementation approach begins with a deep understanding of
@@ -181,7 +183,7 @@ export default function SapDetailPage() {
 
       {/* ================= CTA ================= */}
       <div className="max-w-7xl mx-auto px-6 py-24 text-center">
-        <motion.h2
+        <Motion.h2
           className="text-3xl font-semibold mb-6"
           initial="hidden"
           whileInView="visible"
@@ -189,10 +191,10 @@ export default function SapDetailPage() {
           variants={slideIn}
         >
           Transform Enterprise Operations with SAP
-        </motion.h2>
+        </Motion.h2>
 
         <p className="text-black/70 max-w-2xl mx-auto mb-10">
-          Partner with Liha Tech to implement SAP ERP solutions that improve
+          Partner with Techliha to implement SAP ERP solutions that improve
           visibility, optimize operations, and support sustainable business
           growth.
         </p>

@@ -20,8 +20,8 @@ const offerings = [
     number: "02",
     label: "Learn",
     title: "Teaching",
-    copy: "Through our online and offline Agentic AI course and internship, learners build practical skills through guided, hands-on work.",
-    items: ["Agentic AI course", "Online & offline", "Internship"],
+    copy: "Through our online and offline Agentic AI course, learners build practical skills through guided, hands-on work.",
+    items: ["Agentic AI course", "Online & offline", "Project-led"],
     href: "/training",
     linkLabel: "Explore Agentic AI learning",
     icon: GraduationCap,
@@ -47,12 +47,9 @@ export default function HomeOverviewSection({ revealed = true }) {
       timeline
         .from(".sky-offering-card", {
           autoAlpha: 0,
-          y: 38,
-          scale: 0.96,
-          rotationX: 4,
-          transformOrigin: "50% 100%",
-          stagger: 0.14,
-          duration: 0.56,
+          y: 18,
+          stagger: 0.08,
+          duration: 0.42,
           ease: "power2.out",
           clearProps: "transform",
         })
@@ -60,8 +57,8 @@ export default function HomeOverviewSection({ revealed = true }) {
           ".sky-about-panel",
           {
             autoAlpha: 0,
-            y: 26,
-            duration: 0.46,
+            y: 14,
+            duration: 0.38,
             ease: "power2.out",
             clearProps: "transform",
           },
@@ -86,7 +83,7 @@ export default function HomeOverviewSection({ revealed = true }) {
             Technology that moves businesses and people forward.
           </h2>
           <p className="sky-second__copy">
-            LihaTech brings development and learning together. We build practical digital
+            Techliha brings development and learning together. We build practical digital
             solutions for businesses and help aspiring professionals develop real-world
             technology skills.
           </p>
@@ -120,17 +117,18 @@ export default function HomeOverviewSection({ revealed = true }) {
         </div>
 
         <aside className="sky-about-panel" aria-labelledby="sky-about-title">
-          <p className="sky-about-panel__eyebrow">ABOUT LIHATECH</p>
+          <p className="sky-about-panel__eyebrow">ABOUT Techliha</p>
           <div>
             <h3 id="sky-about-title">
-              We build <span className="sky-about-panel__accent">technology—</span>and the{" "}
+              We build <span className="sky-about-panel__accent">technology -</span> and the{" "}
               <span className="sky-about-panel__accent">people</span> who will shape its future.
             </h3>
             <p>
-              LihaTech is a technology and learning company focused on creating meaningful
-              digital solutions and practical Agentic AI learning. We work with businesses
-              to turn ideas into useful products while helping aspiring professionals build
-              skills through our course, internship, and real-world experience.
+              Techliha is a Kolhapur-based IT services and technology consulting company.
+              We help businesses design, build, modernize, and scale secure digital systems
+              across AI, cloud, data engineering, enterprise software, DevOps, and
+              cybersecurity while helping aspiring professionals build practical skills
+              through Agentic AI training and real-world experience.
             </p>
           </div>
         </aside>

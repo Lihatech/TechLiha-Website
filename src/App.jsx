@@ -1,7 +1,7 @@
 // App.jsx
 import { Navigate, Routes, Route, useLocation } from "react-router-dom";
 import { Suspense, createElement, lazy, useEffect } from "react";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, MotionConfig } from "framer-motion";
 import { ErrorBoundary } from "react-error-boundary";
 
 import RouteLoader from "./components/RouteLoader";
@@ -20,7 +20,6 @@ const Work = lazy(() => import("./pages/WorkPage"));
 const Technology = lazy(() => import("./pages/TechnologyPage"));
 const Training = lazy(() => import("./pages/TrainingPage"));
 const Course = lazy(() => import("./pages/CoursePage"));
-const Internship = lazy(() => import("./pages/InternshipPage"));
 const About = lazy(() => import("./pages/AboutPage"));
 const Contact = lazy(() => import("./pages/ContactPage"));
 
@@ -81,11 +80,6 @@ const routes = [
   { path: "/technology", component: Technology, title: "Technology" },
   { path: "/training", component: Training, title: "Agentic AI Training" },
   { path: "/training/course", component: Course, title: "Agentic AI Course" },
-  {
-    path: "/training/internship",
-    component: Internship,
-    title: "Agentic AI Internship",
-  },
   { path: "/contact", component: Contact, title: "Contact Us" },
   { path: "/about", component: About, title: "About Us" },
 
@@ -169,7 +163,7 @@ export default function App() {
   const location = useLocation();
 
   return (
-    <>
+    <MotionConfig reducedMotion="user">
       <ScrollToTop />
       <LiquidGlassSystem />
 
@@ -198,8 +192,8 @@ export default function App() {
                 element={
                   <PageTransition>
                     <SEO
-                      title="AI Solutions, Software & Agentic AI Training | LihaTech"
-                      description="LihaTech builds intelligent digital products and provides practical Agentic AI courses and internships."
+                      title="AI Solutions, Software & Agentic AI Training | Techliha"
+                      description="Techliha builds intelligent digital products and provides practical Agentic AI courses."
                     />
                     <HomePage />
                   </PageTransition>
@@ -215,7 +209,7 @@ export default function App() {
                     path={path}
                     element={
                       <PageTransition>
-                        <SEO title={`${title} | LihaTech.com`} />
+                        <SEO title={`${title} | Techliha.com`} />
                         {createElement(component)}
                       </PageTransition>
                     }
@@ -227,7 +221,7 @@ export default function App() {
                   path="*"
                   element={
                     <PageTransition>
-                      <SEO title="404 - Page Not Found | LihaTech.com" />
+                      <SEO title="404 - Page Not Found | Techliha.com" />
                       <NotFound />
                     </PageTransition>
                   }
@@ -239,6 +233,6 @@ export default function App() {
       </ErrorBoundary>
       <Analytics />
       <ScrollToTopButton />
-    </>
+    </MotionConfig>
   );
 }

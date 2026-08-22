@@ -1,30 +1,30 @@
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import AutoBreadcrumb from "../../components/AutoBreadcrumb";
 
 /* ================= ANIMATIONS ================= */
 const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  hidden: { opacity: 0, y: 14 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
 };
 
 const slideIn = {
-  hidden: { opacity: 0, x: -50 },
+  hidden: { opacity: 0, y: 14 },
   visible: {
     opacity: 1,
-    x: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
+    y: 0,
+    transition: { duration: 0.4, ease: "easeOut" },
   },
 };
 
 export default function AiDetailPage() {
   return (
-    <section className="bg-white text-black">
+    <section className="technology-detail-page bg-white text-black">
       {/* ================= HERO ================= */}
       <div className="bg-slate-900 text-white">
         <div className="max-w-7xl mx-auto px-6 py-28">
-          <motion.div
+          <Motion.div
             variants={fadeUp}
             initial="hidden"
             animate="visible"
@@ -46,25 +46,27 @@ export default function AiDetailPage() {
               digital systems. We design and develop enterprise-grade AI
               solutions that are scalable, secure, and production-ready.
             </p>
-          </motion.div>
+          </Motion.div>
         </div>
       </div>
 
       {/* ================= OVERVIEW ================= */}
       <div className="max-w-7xl mx-auto px-6 py-24">
         <div className="grid md:grid-cols-2 gap-16 items-center">
-          {/* LEFT — IMAGE */}
+          {/* LEFT - IMAGE */}
           <div className="w-full h-full">
             <img
               src="/images/techImage/AI-sol.png"
               alt="Enterprise AI Development"
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover rounded-2xl"
             />
           </div>
 
-          {/* RIGHT — CONTENT */}
+          {/* RIGHT - CONTENT */}
           <div className="bg-[#FAF7F2] p-12 rounded-2xl">
-            <motion.h2
+            <Motion.h2
               className="text-3xl font-semibold mb-6"
               initial="hidden"
               whileInView="visible"
@@ -72,7 +74,7 @@ export default function AiDetailPage() {
               variants={slideIn}
             >
               Enterprise AI Application Development
-            </motion.h2>
+            </Motion.h2>
 
             <p className="text-lg text-black/70 leading-relaxed mb-6">
               AI has become a core driver of modern enterprise transformation.
@@ -81,7 +83,7 @@ export default function AiDetailPage() {
             </p>
 
             <p className="text-lg text-black/70 leading-relaxed">
-              At Liha Tech, we build AI solutions focused on scalability,
+              At Techliha, we build AI solutions focused on scalability,
               explainability, and long-term reliability. Our architectures are
               designed to integrate seamlessly with existing enterprise systems
               while supporting future innovation.
@@ -93,7 +95,7 @@ export default function AiDetailPage() {
       {/* ================= AI SERVICES ================= */}
       <div className="bg-[#FAF7F2]">
         <div className="max-w-7xl mx-auto px-6 py-24">
-          <motion.h2
+          <Motion.h2
             className="text-3xl font-semibold mb-6"
             initial="hidden"
             whileInView="visible"
@@ -101,7 +103,7 @@ export default function AiDetailPage() {
             variants={slideIn}
           >
             AI Development Services
-          </motion.h2>
+          </Motion.h2>
 
           <p className="text-lg text-black/70 leading-relaxed mb-6">
             Our AI development services cover the full lifecycle from strategy
@@ -125,7 +127,7 @@ export default function AiDetailPage() {
 
       {/* ================= AI USE CASES ================= */}
       <div className="max-w-7xl mx-auto px-6 py-24">
-        <motion.h2
+        <Motion.h2
           className="text-3xl font-semibold mb-6"
           initial="hidden"
           whileInView="visible"
@@ -133,7 +135,7 @@ export default function AiDetailPage() {
           variants={slideIn}
         >
           Common AI Use Cases
-        </motion.h2>
+        </Motion.h2>
 
         <p className="text-lg text-black/70 leading-relaxed mb-6">
           AI solutions are widely adopted across industries to enhance decision
@@ -151,7 +153,7 @@ export default function AiDetailPage() {
       {/* ================= APPROACH ================= */}
       <div className="bg-slate-900 text-white">
         <div className="max-w-7xl mx-auto px-6 py-24">
-          <motion.h2
+          <Motion.h2
             className="text-3xl font-semibold mb-6"
             initial="hidden"
             whileInView="visible"
@@ -159,7 +161,7 @@ export default function AiDetailPage() {
             variants={slideIn}
           >
             Our AI Development Approach
-          </motion.h2>
+          </Motion.h2>
 
           <p className="text-lg text-white/75 leading-relaxed mb-6">
             Our AI development approach begins with a deep understanding of
@@ -178,7 +180,7 @@ export default function AiDetailPage() {
 
       {/* ================= CTA ================= */}
       <div className="max-w-7xl mx-auto px-6 py-24 text-center">
-        <motion.h2
+        <Motion.h2
           className="text-3xl font-semibold mb-6"
           initial="hidden"
           whileInView="visible"
@@ -186,10 +188,10 @@ export default function AiDetailPage() {
           variants={slideIn}
         >
           Build Intelligent AI Solutions
-        </motion.h2>
+        </Motion.h2>
 
         <p className="text-black/70 max-w-2xl mx-auto mb-10">
-          Partner with Liha Tech to develop scalable, secure AI solutions that
+          Partner with Techliha to develop scalable, secure AI solutions that
           transform data into intelligent business outcomes.
         </p>
 

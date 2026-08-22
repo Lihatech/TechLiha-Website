@@ -1,26 +1,26 @@
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import AutoBreadcrumb from "../../components/AutoBreadcrumb";
 
 /* Animation Variants */
 const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  hidden: { opacity: 0, y: 14 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
 };
 
 const slideIn = {
-  hidden: { opacity: 0, x: -50 }, // slide from left
-  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  hidden: { opacity: 0, y: 14 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
 };
 
 export default function DevOpsDetailPage() {
   return (
-    <section className="bg-white text-black">
+    <section className="technology-detail-page bg-white text-black">
       {/* ================= HERO ================= */}
       <div className="bg-slate-900 text-white">
         <div className="max-w-7xl mx-auto px-6 py-28">
-          <motion.div
+          <Motion.div
             variants={fadeUp}
             initial="hidden"
             animate="visible"
@@ -38,11 +38,11 @@ export default function DevOpsDetailPage() {
 
             <p className="mt-6 text-lg text-white/80 leading-relaxed">
               Seamless collaboration, continuous delivery, frictionless systems,
-              and faster time-to-market with DevOps solutions. At LIHA TECH, we
+              and faster time-to-market with DevOps solutions. At Techliha, we
               provide reliable DevOps practices that ensure agile delivery for
               software-driven innovation.
             </p>
-          </motion.div>
+          </Motion.div>
         </div>
       </div>
 
@@ -55,13 +55,15 @@ export default function DevOpsDetailPage() {
             <img
               src="/images/techImage/Devops.png"
               alt="Accelerate Software Delivery with DevOps"
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover rounded-lg"
             />
           </div>
 
           {/* Right Side Content */}
           <div className="lg:w-1/2 w-full bg-purple-50 p-8 rounded-lg shadow-md">
-            <motion.h2
+            <Motion.h2
                   className="text-3xl font-semibold mb-6"
                   initial="hidden"
                   whileInView="visible"
@@ -69,7 +71,7 @@ export default function DevOpsDetailPage() {
                   variants={slideIn}
                 >
               Accelerate Software Delivery with DevOps
-                        </motion.h2>
+                        </Motion.h2>
 
 
             <p className="text-lg text-black/70 leading-relaxed mb-6">
@@ -89,7 +91,7 @@ export default function DevOpsDetailPage() {
             </p>
 
             <p className="text-lg text-black/70 leading-relaxed">
-              LIHA TECH DevOps experts work closely with your teams to establish
+              Techliha DevOps experts work closely with your teams to establish
               continuous integration, continuous delivery (CI/CD),
               infrastructure as code, automated monitoring, and rapid feedback
               mechanisms. This approach enables organizations to release quality
@@ -103,13 +105,13 @@ export default function DevOpsDetailPage() {
       {/* ================= METHODOLOGY ================= */}
       <div className="bg-[#FAF7F2]">
         <div className="max-w-7xl mx-auto px-6 py-24">
-          <motion.h2
+          <Motion.h2
                   className="text-3xl font-semibold mb-6"
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true }}
                   variants={slideIn}
-                >Our DevOps Approach            </motion.h2>
+                >Our DevOps Approach            </Motion.h2>
 
 
           <p className="text-lg text-black/70 leading-relaxed mb-6">
@@ -132,7 +134,7 @@ export default function DevOpsDetailPage() {
           </ul>
 
           <p className="text-lg text-black/70 leading-relaxed">
-            By combining the right culture, processes, and tools, LIHA TECH ensures
+            By combining the right culture, processes, and tools, Techliha ensures
             that software delivery is faster, reliable, and aligned with
             business objectives.
           </p>
@@ -141,19 +143,19 @@ export default function DevOpsDetailPage() {
 
       {/* ================= CTA ================= */}
       <div className="max-w-7xl mx-auto px-6 py-24 text-center">
-        <motion.h2
+        <Motion.h2
                   className="text-3xl font-semibold mb-6"
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true }}
                   variants={slideIn}
                 >
-          Drive Agile Innovation with LIHA TECH DevOps
-                    </motion.h2>
+          Drive Agile Innovation with Techliha DevOps
+                    </Motion.h2>
 
 
         <p className="text-black/70 max-w-2xl mx-auto mb-10">
-          Partner with LIHA TECH to implement DevOps solutions that accelerate
+          Partner with Techliha to implement DevOps solutions that accelerate
           software delivery, improve collaboration, and ensure operational
           excellence.
         </p>

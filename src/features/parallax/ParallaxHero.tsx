@@ -108,6 +108,18 @@ export function ParallaxHero({
   const typedQuestion = useTypedHeroQuestion(initialQuestionComplete);
   const heroRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [showVideo, setShowVideo] = useState(false);
+
+  useEffect(() => {
+    const videoQuery = window.matchMedia(
+      "(min-width: 721px) and (prefers-reduced-motion: no-preference)",
+    );
+    const syncVideoPreference = () => setShowVideo(videoQuery.matches);
+
+    syncVideoPreference();
+    videoQuery.addEventListener("change", syncVideoPreference);
+    return () => videoQuery.removeEventListener("change", syncVideoPreference);
+  }, []);
 
   useEffect(() => {
     const hero = heroRef.current;
@@ -153,22 +165,24 @@ export function ParallaxHero({
       window.cancelAnimationFrame(frame);
       video.pause();
     };
-  }, []);
+  }, [showVideo]);
 
   return (
     <section ref={heroRef} className="parallax-hero" id="ecosystem">
-      <video
-        ref={videoRef}
-        className="parallax-ocean-video"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        aria-hidden="true"
-      >
-        <source src={heroVideo} type="video/mp4" />
-      </video>
+      {showVideo && (
+        <video
+          ref={videoRef}
+          className="parallax-ocean-video"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+        >
+          <source src={heroVideo} type="video/mp4" />
+        </video>
+      )}
       <div className="parallax-ocean-overlay" aria-hidden="true" />
       <ParallaxContainer className="parallax-hero-inner">
         <motion.div
@@ -196,9 +210,9 @@ export function ParallaxHero({
             <i />
           </motion.div>
           <motion.p variants={heroReveal}>
-            LihaTech builds custom software, powerful websites, and AI workflows
+            Techliha builds custom software, powerful websites, and AI workflows
             that automate and accelerate your business. We also offer practical
-            Agentic AI courses and internships to help you stay future-ready.
+            Agentic AI courses to help you stay future-ready.
           </motion.p>
           <motion.div className="parallax-hero-actions" variants={heroReveal}>
             <ParallaxButton href={primaryHref}>Start Your Project</ParallaxButton>

@@ -304,7 +304,7 @@ export default function LiquidGlassSystem() {
           document.documentElement.dataset.liquidGlass = "css";
         }
       } catch (error) {
-        console.warn("LihaTech liquid glass enhancement could not start.", error);
+        console.warn("Techliha liquid glass enhancement could not start.", error);
         profileBatches.forEach(({ freshSurfaces }) => {
           restoreCssFallback(freshSurfaces);
         });

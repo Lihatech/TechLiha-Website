@@ -6,11 +6,11 @@ import {
   Check,
   Phone,
   Quote,
-  Users,
 } from "lucide-react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion as Motion, useReducedMotion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Footer from "../../components/Footer";
 import { projects } from "../../data/siteContent";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -18,13 +18,13 @@ gsap.registerPlugin(ScrollTrigger);
 const testimonials = [
   {
     quote:
-      "LIHA Tech demonstrated strong technical expertise and professionalism. The collaboration was smooth and results were delivered as promised.",
+      "Techliha demonstrated strong technical expertise and professionalism. The collaboration was smooth and results were delivered as promised.",
     name: "Gajana Bhole",
     role: "Director, VimDigitech, Pune",
   },
   {
     quote:
-      "Working with LIHA Tech was a great experience. Their team understands business needs and delivers scalable, reliable solutions.",
+      "Working with Techliha was a great experience. Their team understands business needs and delivers scalable, reliable solutions.",
     name: "Komal Deshmukh",
     role: "Founder, CodeNucleus Solutions, Pune",
   },
@@ -69,9 +69,9 @@ function SectionReveal({ children, className = "" }) {
 
       timeline.from(revealTargets, {
         autoAlpha: 0,
-        y: 18,
-        duration: 0.42,
-        stagger: 0.06,
+        y: 14,
+        duration: 0.38,
+        stagger: 0.05,
         ease: "power2.out",
       });
 
@@ -80,12 +80,9 @@ function SectionReveal({ children, className = "" }) {
           cardTargets,
           {
             autoAlpha: 0,
-            y: 34,
-            scale: 0.97,
-            rotationX: 3,
-            transformOrigin: "50% 100%",
-            duration: 0.5,
-            stagger: 0.08,
+            y: 18,
+            duration: 0.42,
+            stagger: 0.06,
             ease: "power2.out",
             clearProps: "transform",
           },
@@ -158,7 +155,7 @@ function ProjectGallery({ images, title }) {
         <div className="sky-project-gallery__glow" aria-hidden="true" />
         <div className="sky-project-gallery__frame">
           <AnimatePresence initial={false} custom={slideDirection}>
-            <motion.img
+            <Motion.img
               key={image.src}
               src={image.src}
               width={image.width}
@@ -210,7 +207,7 @@ function FeaturedSystemSection() {
             <SectionIntro
               eyebrow="SELECTED WORK"
               title="Real systems. Clear business outcomes."
-              copy="Three LihaTech projects built around practical problems, from the factory floor to conversational commerce."
+              copy="Three Techliha projects built around practical problems, from the factory floor to conversational commerce."
             />
           </div>
         </SectionReveal>
@@ -261,8 +258,8 @@ function LearningSection() {
             </div>
             <div className="sky-learning-header__copy">
               <p>
-                Choose a focused course or gain deeper practical experience through an
-                internship—both designed around Agentic AI.
+                Choose a focused online or offline course designed around practical
+                Agentic AI skills.
               </p>
               <div aria-label="Available learning formats">
                 <span>Online</span>
@@ -291,26 +288,6 @@ function LearningSection() {
               </ul>
               <a href="/training/course">
                 Ask about the course <ArrowRight size={15} />
-              </a>
-            </article>
-            <article id="agentic-ai-internship" data-sky-card>
-              <div className="sky-learning-paths__top">
-                <span><Users size={24} aria-hidden="true" /></span>
-                <b>02</b>
-              </div>
-              <p>PRACTICAL EXPERIENCE</p>
-              <h3>Agentic AI Internship</h3>
-              <p className="sky-learning-paths__summary">
-                Move from concepts to implementation through supervised Agentic AI
-                projects and practical workflows.
-              </p>
-              <ul>
-                <li><Check size={15} /> Work on guided Agentic AI projects</li>
-                <li><Check size={15} /> Build, test, and improve agent workflows</li>
-                <li><Check size={15} /> Create visible proof of practical experience</li>
-              </ul>
-              <a href="/training/internship">
-                Ask about the internship <ArrowRight size={15} />
               </a>
             </article>
           </div>
@@ -353,54 +330,30 @@ function TestimonialsSection() {
 
 function FinalInvitation() {
   return (
-    <>
-      <section className="sky-content-section sky-final" id="contact-lihatech">
-        <div className="sky-content-inner">
-          <SectionReveal className="sky-final-card">
-            <div data-sky-reveal>
-              <p className="sky-section-eyebrow">START A CONVERSATION</p>
-              <h2>Have a process that should work <em>smarter?</em></h2>
-            </div>
-            <div data-sky-reveal>
-              <p>
-                From a focused first release to a dependable enterprise platform,
-                let&apos;s shape the technology around the outcome you need.
-              </p>
-              <div className="sky-final-actions">
-                <a className="sky-button sky-button--light" href="/contact?topic=project">
-                  Start a project <ArrowRight size={16} />
-                </a>
-                <a className="sky-button sky-button--outline-light" href="tel:+919767037492">
-                  <Phone size={15} /> +91 97670 37492
-                </a>
-              </div>
-            </div>
-          </SectionReveal>
-        </div>
-      </section>
-
-      <footer className="sky-footer">
-        <div className="sky-content-inner sky-footer__inner">
-          <div>
-            <a className="sky-footer__brand" href="/">
-              <img src="/images/lihatech-logo-official.png" alt="" />
-              <span><b>LihaTech</b><small>Plan. Practice. Patience.</small></span>
-            </a>
-            <p>Practical, reliable, future-ready technology for businesses and people ready to move forward.</p>
+    <section className="sky-content-section sky-final" id="contact-techliha">
+      <div className="sky-content-inner">
+        <SectionReveal className="sky-final-card">
+          <div data-sky-reveal>
+            <p className="sky-section-eyebrow">START A CONVERSATION</p>
+            <h2>Have a process that should work <em>smarter?</em></h2>
           </div>
-          <nav aria-label="Footer">
-            <div><b>EXPLORE</b><a href="/services">What we build</a><a href="/work">Selected work</a><a href="/training/course">Agentic AI course</a><a href="/training/internship">Internship</a></div>
-            <div><b>COMPANY</b><a href="/services">Services</a><a href="/technology">Technology</a><a href="/about">About</a><a href="/contact">Contact</a><a href="https://www.linkedin.com/company/lihatech/posts/?feedView=all" target="_blank" rel="noreferrer">LinkedIn</a></div>
-            <div><b>CONTACT</b><a href="mailto:info@lihatech.com">info@lihatech.com</a><a href="tel:+919767037492">+91 97670 37492</a><span>Pune, India<br />Working worldwide</span></div>
-          </nav>
-        </div>
-        <div className="sky-content-inner sky-footer__bottom">
-          <span>© 2026 LIHATECH. ALL RIGHTS RESERVED.</span>
-          <span>PLAN · PRACTICE · PATIENCE</span>
-          <a href="#top">BACK TO TOP ↑</a>
-        </div>
-      </footer>
-    </>
+          <div data-sky-reveal>
+            <p>
+              From a focused first release to a dependable enterprise platform,
+              let&apos;s shape the technology around the outcome you need.
+            </p>
+            <div className="sky-final-actions">
+              <a className="sky-button sky-button--light" href="/contact?topic=project">
+                Start a project <ArrowRight size={16} />
+              </a>
+              <a className="sky-button sky-button--outline-light" href="tel:+919172743364">
+                <Phone size={15} /> +91 9172743364
+              </a>
+            </div>
+          </div>
+        </SectionReveal>
+      </div>
+    </section>
   );
 }
 
@@ -411,6 +364,7 @@ export default function HomeContentSections() {
       <LearningSection />
       <TestimonialsSection />
       <FinalInvitation />
+      <Footer />
     </>
   );
 }

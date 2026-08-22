@@ -14,7 +14,7 @@ export default function TrainingPage() {
         eyebrow="AGENTIC AI LEARNING"
         title="Learn the systems shaping"
         accent="what comes next."
-        copy="LihaTech offers one focused Agentic AI course—online or offline—and a practical internship for deeper implementation experience."
+        copy="Techliha offers one focused Agentic AI course, available online or offline, with guided practical learning."
         actions={
           <PrimaryLink to="/contact?topic=training">
             Talk to our learning team
@@ -27,7 +27,12 @@ export default function TrainingPage() {
             ([key, programme], index) => {
               const Icon = programme.icon;
               return (
-                <Reveal className="programme-card" key={key}>
+                <Reveal
+                  className="programme-card"
+                  key={key}
+                  delay={index * 0.045}
+                  interactive
+                >
                   <div className="programme-card__top">
                     <span>0{index + 1}</span>
                     <Icon size={27} aria-hidden="true" />
@@ -54,7 +59,7 @@ export default function TrainingPage() {
       <PageCTA
         eyebrow="FIND YOUR PATH"
         title="Start with the format that fits where you are now."
-        copy="Ask us about upcoming course batches, offline availability, or internship requirements."
+        copy="Ask us about upcoming course batches and offline availability."
         label="Ask about training"
       />
     </>

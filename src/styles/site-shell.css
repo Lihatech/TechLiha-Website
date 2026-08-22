@@ -24,7 +24,7 @@ body.marketing-page-active {
   position: fixed;
   z-index: 80;
   inset: 0 0 auto;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.42);
+  border-bottom: 0;
   background:
     linear-gradient(
       105deg,
@@ -72,8 +72,9 @@ body.marketing-page-active {
 
 .site-brand small {
   color: #0b2b54;
-  font-size: 9px;
-  font-weight: 550;
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.025em;
 }
 
 .site-header__nav {
@@ -86,7 +87,7 @@ body.marketing-page-active {
   position: relative;
   padding: 12px 0;
   color: #08264d;
-  font-size: 0.79rem;
+  font-size: 0.86rem;
   font-weight: 780;
   text-transform: uppercase;
 }
@@ -204,6 +205,12 @@ body.marketing-page-active {
   color: #eafaff;
 }
 
+.sky-composite-page .site-footer {
+  position: relative;
+  z-index: 4;
+  background: linear-gradient(180deg, #062b4b 0%, #041f37 32%, #041f37 100%);
+}
+
 .site-footer__main {
   display: grid;
   grid-template-columns: 1.7fr 0.8fr 0.8fr 1fr;
@@ -278,6 +285,15 @@ body.marketing-page-active {
   color: rgba(229, 248, 255, 0.7);
 }
 
+.site-header a:focus-visible,
+.site-header button:focus-visible,
+.site-mobile-menu a:focus-visible,
+.site-mobile-menu button:focus-visible,
+.site-footer a:focus-visible {
+  outline: 3px solid #78dafe;
+  outline-offset: 4px;
+}
+
 @media (max-width: 1080px) {
   .site-header__inner {
     grid-template-columns: 1fr auto;
@@ -293,21 +309,48 @@ body.marketing-page-active {
   }
 
   .site-footer__main {
-    grid-template-columns: 1.4fr 1fr 1fr;
+    grid-template-columns: minmax(240px, 1.25fr) repeat(2, minmax(0, 0.75fr));
+    gap: 32px;
+    padding-bottom: 50px;
   }
 
   .site-footer__contact {
-    grid-column: 2;
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(4, max-content) minmax(150px, 1fr);
+    gap: 8px clamp(18px, 3vw, 40px);
+    align-items: start;
+  }
+
+  .site-footer__contact > b {
+    grid-column: 1 / -1;
+    margin-bottom: 0;
+  }
+
+  .site-footer__contact a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .site-footer__contact span {
+    margin-top: 0;
+    justify-self: end;
   }
 }
 
 @media (max-width: 680px) {
+  .site-footer {
+    padding-top: 48px;
+  }
+
   .site-shell {
     width: min(calc(100% - 32px), 1400px);
   }
 
   .site-header__inner {
-    min-height: 68px;
+    min-height: calc(68px + env(safe-area-inset-top));
+    padding-top: env(safe-area-inset-top);
   }
 
   .site-brand img {
@@ -320,26 +363,194 @@ body.marketing-page-active {
   }
 
   .site-brand small {
-    font-size: 7px;
+    font-size: 9px;
+  }
+
+  .site-brand {
+    min-height: 44px;
   }
 
   .site-footer__main {
     grid-template-columns: 1fr 1fr;
+    gap: 20px 16px;
+    padding-bottom: 28px;
   }
 
-  .site-footer__about {
+  .site-footer__about,
+  .site-footer__contact {
     grid-column: 1 / -1;
   }
 
+  .site-footer__about > p {
+    display: none;
+  }
+
+  .site-footer nav {
+    gap: 4px;
+  }
+
+  .site-footer nav > b,
+  .site-footer__contact > b {
+    margin-bottom: 4px;
+  }
+
   .site-footer__contact {
-    grid-column: auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.95fr);
+    gap: 4px 16px;
+  }
+
+  .site-footer__contact > b,
+  .site-footer__contact > span {
+    grid-column: 1 / -1;
+  }
+
+  .site-footer__contact span {
+    margin-top: 8px;
+    justify-self: start;
   }
 
   .site-footer__bottom {
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding-top: 18px;
   }
 
   .site-footer__bottom span:nth-child(2) {
     display: none;
+  }
+
+  .site-footer__bottom a {
+    display: none;
+  }
+
+  .site-mobile-menu {
+    min-height: 100dvh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding:
+      max(20px, env(safe-area-inset-top))
+      max(20px, env(safe-area-inset-right))
+      max(20px, env(safe-area-inset-bottom))
+      max(20px, env(safe-area-inset-left));
+  }
+
+  .site-mobile-menu nav {
+    height: auto;
+    min-height: calc(100dvh - 96px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+    padding-block: 24px;
+  }
+
+  .site-footer nav a,
+  .site-footer__contact a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .technology-detail-page nav[aria-label="Breadcrumb"] {
+    flex-wrap: wrap;
+    row-gap: 2px;
+  }
+
+  .technology-detail-page nav[aria-label="Breadcrumb"] a {
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .technology-detail-page .p-12,
+  .technology-detail-page .p-8 {
+    padding: clamp(24px, 6vw, 36px);
+  }
+
+  .technology-detail-page .py-24 {
+    padding-block: clamp(64px, 10vw, 80px);
+  }
+
+  .technology-detail-page .py-28 {
+    padding-top: calc(100px + env(safe-area-inset-top));
+    padding-bottom: 72px;
+  }
+
+  .technology-detail-page [class*="gap-16"] {
+    gap: 40px;
+  }
+
+  .technology-detail-page [class*="gap-12"] {
+    gap: 32px;
+  }
+
+  .technology-detail-page img[class*="h-[420px]"] {
+    max-height: 380px;
+  }
+
+  .technology-detail-page a[class*="px-8"] {
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .site-footer__contact a,
+  .site-footer__bottom,
+  .technology-detail-page {
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 420px) {
+  .site-shell {
+    width: calc(100% - 24px);
+  }
+
+  .site-brand {
+    min-height: 44px;
+    gap: 10px;
+  }
+
+  .site-brand b {
+    font-size: 19px;
+  }
+
+  .site-brand small {
+    font-size: 8px;
+  }
+
+  .site-mobile-menu nav a {
+    gap: 16px;
+    padding-block: 12px;
+    font-size: clamp(1.85rem, 10vw, 2.6rem);
+  }
+
+  .site-footer {
+    padding-top: 48px;
+    padding-bottom: max(24px, env(safe-area-inset-bottom));
+  }
+
+  .technology-detail-page nav[aria-label="Breadcrumb"] span[class*="mx-"] {
+    margin-inline: 8px;
+  }
+
+  .technology-detail-page .p-12,
+  .technology-detail-page .p-8 {
+    padding: 24px;
+  }
+
+  .technology-detail-page .py-24 {
+    padding-block: 64px;
+  }
+
+  .technology-detail-page .py-28 {
+    padding-top: calc(92px + env(safe-area-inset-top));
+    padding-bottom: 64px;
+  }
+
+  .technology-detail-page a[class*="px-8"] {
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+    text-align: center;
   }
 }

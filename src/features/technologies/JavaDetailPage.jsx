@@ -1,23 +1,23 @@
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import AutoBreadcrumb from "../../components/AutoBreadcrumb";
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  hidden: { opacity: 0, y: 14 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
 };
 const slideIn = {
-  hidden: { opacity: 0, x: -50 }, // slide from left
-  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  hidden: { opacity: 0, y: 14 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
 };
 export default function JavaDetailPage() {
   return (
-    <section className="bg-white text-black">
+    <section className="technology-detail-page bg-white text-black">
       {/* ================= HERO ================= */}
       <div className="bg-slate-900 text-white">
         <div className="max-w-7xl mx-auto px-6 py-28">
-          <motion.div
+          <Motion.div
             variants={fadeUp}
             initial="hidden"
             animate="visible"
@@ -34,13 +34,13 @@ export default function JavaDetailPage() {
             </h1>
 
             <p className="mt-6 text-lg text-white/80 leading-relaxed">
-              At Liha Tech, we provide enterprise-grade Java development
+              At Techliha, we provide enterprise-grade Java development
               services designed to build secure, scalable, and high-performance
               applications. Java remains one of the most trusted technologies
               for mission-critical systems, offering stability, portability, and
               long-term maintainability across industries.
             </p>
-          </motion.div>
+          </Motion.div>
         </div>
       </div>
 
@@ -52,13 +52,15 @@ export default function JavaDetailPage() {
             <img
               src="/images/techImage/java.png"
               alt="Enterprise Java Development"
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover rounded-lg"
             />
           </div>
 
           {/* Right Side Content */}
           <div className="lg:w-1/2 w-full bg-blue-50 p-8 rounded-lg shadow-md">
-            <motion.h2
+            <Motion.h2
                   className="text-3xl font-semibold mb-6"
                   initial="hidden"
                   whileInView="visible"
@@ -66,13 +68,13 @@ export default function JavaDetailPage() {
                   variants={slideIn}
                 >
               Enterprise Java Application Development
-                        </motion.h2>
+                        </Motion.h2>
 
 
             <p className="text-lg text-black/70 leading-relaxed mb-6">
               Java has been the backbone of enterprise software for decades,
               powering large-scale business platforms, financial systems, and
-              mission-critical applications. At Liha Tech, we leverage Java’s
+              mission-critical applications. At Techliha, we leverage Java’s
               mature ecosystem to develop applications that are reliable,
               secure, and designed for long-term growth.
             </p>
@@ -90,7 +92,7 @@ export default function JavaDetailPage() {
       {/* ================= JAVA SERVICES ================= */}
       <div className="bg-[#FAF7F2]">
         <div className="max-w-7xl mx-auto px-6 py-24">
-          <motion.h2
+          <Motion.h2
                   className="text-3xl font-semibold mb-6"
                   initial="hidden"
                   whileInView="visible"
@@ -98,11 +100,11 @@ export default function JavaDetailPage() {
                   variants={slideIn}
                 >
             Java Development Services
-                      </motion.h2>
+                      </Motion.h2>
 
 
           <p className="text-lg text-black/70 leading-relaxed mb-6">
-            Liha Tech delivers end-to-end Java development services, covering
+            Techliha delivers end-to-end Java development services, covering
             the complete application lifecycle. From planning and system design
             to development, testing, and deployment, our team ensures
             high-quality outcomes at every stage.
@@ -127,13 +129,13 @@ export default function JavaDetailPage() {
 
       {/* ================= USE CASES ================= */}
       <div className="max-w-7xl mx-auto px-6 py-24">
-        <motion.h2
+        <Motion.h2
                   className="text-3xl font-semibold mb-6"
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true }}
                   variants={slideIn}
-                >Common Java Use Cases            </motion.h2>
+                >Common Java Use Cases            </Motion.h2>
 
 
         <p className="text-lg text-black/70 leading-relaxed mb-6">
@@ -154,7 +156,7 @@ export default function JavaDetailPage() {
       {/* ================= DEVELOPMENT PROCESS ================= */}
       <div className="bg-slate-900 text-white">
         <div className="max-w-7xl mx-auto px-6 py-24">
-          <motion.h2
+          <Motion.h2
                   className="text-3xl font-semibold mb-6"
                   initial="hidden"
                   whileInView="visible"
@@ -162,7 +164,7 @@ export default function JavaDetailPage() {
                   variants={slideIn}
                 >
             Our Java Development Approach
-                      </motion.h2>
+                      </Motion.h2>
 
 
           <p className="text-lg text-white/75 leading-relaxed mb-6">
@@ -174,7 +176,7 @@ export default function JavaDetailPage() {
 
           <p className="text-lg text-white/75 leading-relaxed">
             Through structured development, rigorous testing, and continuous
-            support, Liha Tech ensures that Java applications remain reliable,
+            support, Techliha ensures that Java applications remain reliable,
             efficient, and future-ready. Our focus is on delivering solutions
             that provide lasting business value.
           </p>
@@ -183,7 +185,7 @@ export default function JavaDetailPage() {
 
       {/* ================= CTA ================= */}
       <div className="max-w-7xl mx-auto px-6 py-24 text-center">
-        <motion.h2
+        <Motion.h2
                   className="text-3xl font-semibold mb-6"
                   initial="hidden"
                   whileInView="visible"
@@ -191,11 +193,11 @@ export default function JavaDetailPage() {
                   variants={slideIn}
                 >
           Build Enterprise Applications with Java
-                    </motion.h2>
+                    </Motion.h2>
 
 
         <p className="text-black/70 max-w-2xl mx-auto mb-10">
-          Partner with Liha Tech to develop secure, scalable Java applications
+          Partner with Techliha to develop secure, scalable Java applications
           designed to support long-term business success.
         </p>
 

@@ -1,4 +1,4 @@
-import { BriefcaseBusiness, GraduationCap } from "lucide-react";
+import { GraduationCap } from "lucide-react";
 
 export const trainingProgrammes = {
   course: {
@@ -20,27 +20,6 @@ export const trainingProgrammes = {
       "Instructor-led",
       "Project-based",
       "Completion pathway",
-    ],
-  },
-  internship: {
-    eyebrow: "PRACTICAL EXPERIENCE",
-    title: "Agentic AI Internship",
-    accent: "Turn knowledge into proof.",
-    copy: "A supervised experience for applying Agentic AI concepts through practical projects, reviews, and visible implementation work.",
-    audience:
-      "Learners with basic technical foundations who are ready to build, test, and improve real agent workflows.",
-    icon: BriefcaseBusiness,
-    outcomes: [
-      "Work on guided Agentic AI projects",
-      "Translate requirements into agent workflows",
-      "Test, debug, and improve AI behaviour",
-      "Create visible proof of practical experience",
-    ],
-    format: [
-      "Guided projects",
-      "Mentor reviews",
-      "Practical delivery",
-      "Portfolio outcomes",
     ],
   },
 };

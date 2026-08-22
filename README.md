@@ -1,6 +1,6 @@
-# Liha Tech Website
+# techliha Website
 
-A professional, responsive website for **Liha Tech Pvt. Ltd.**, showcasing their IT services, training programs, and enterprise solutions. The site is built with **React**, **Tailwind CSS**, and **React Router**, featuring modern design elements, interactive sections, and a clean, professional layout.
+A professional, responsive website for **techliha Pvt. Ltd.**, showcasing their IT services, training programs, and enterprise solutions. The site is built with **React**, **Tailwind CSS**, and **React Router**, featuring modern design elements, interactive sections, and a clean, professional layout.
 
 ---
 
@@ -37,7 +37,7 @@ A professional, responsive website for **Liha Tech Pvt. Ltd.**, showcasing their
 
 ### Footer
 
-- About Liha Tech description with company logo.
+- About techliha description with company logo.
 - Services and Company navigation links.
 - Contact info (Email & Phone) with icons.
 - Social media links with brand colors.

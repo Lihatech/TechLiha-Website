@@ -16,7 +16,7 @@ export default function TechnologyPage() {
         eyebrow="TECHNOLOGY"
         title="Modern foundations."
         accent="Practical choices."
-        copy="We choose technology for reliability, maintainability, and fit—not fashion. The stack follows the product and the people who will own it."
+        copy="We choose technology for reliability, maintainability, and fit - not fashion. The stack follows the product and the people who will own it."
         actions={
           <>
             <PrimaryLink to="/services">Explore services</PrimaryLink>
@@ -31,16 +31,23 @@ export default function TechnologyPage() {
             <h2>A stack built to keep moving.</h2>
           </Reveal>
           <div className="technology-grid">
-            {technologies.map((technology) => (
-              <Reveal className="technology-card" key={technology.title}>
+            {technologies.map((technology, index) => (
+              <Reveal
+                className="technology-card"
+                key={technology.title}
+                delay={index * 0.045}
+                interactive
+              >
                 <span>{technology.label}</span>
                 <h3>{technology.title}</h3>
                 <p>{technology.copy}</p>
                 <Link
+                  className="technology-card__link"
                   to={technology.href}
                   aria-label={`Explore ${technology.title}`}
                 >
-                  <ArrowRight size={18} />
+                  <span>Explore</span>
+                  <ArrowRight size={18} aria-hidden="true" />
                 </Link>
               </Reveal>
             ))}
@@ -63,7 +70,7 @@ export default function TechnologyPage() {
               "Modular decisions that support change without unnecessary complexity.",
             ],
           ].map(([title, copy], index) => (
-            <Reveal key={title}>
+            <Reveal key={title} delay={index * 0.045} interactive>
               <span>0{index + 1}</span>
               <h3>{title}</h3>
               <p>{copy}</p>

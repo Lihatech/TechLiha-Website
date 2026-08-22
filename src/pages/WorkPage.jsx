@@ -24,8 +24,12 @@ export default function WorkPage() {
       />
       <section className="marketing-section work-list">
         <div className="marketing-shell">
-          {projects.map((project) => (
-            <Reveal className="work-case" key={project.title}>
+          {projects.map((project, index) => (
+            <Reveal
+              className="work-case"
+              key={project.title}
+              delay={index * 0.045}
+            >
               <div className="work-case__copy">
                 <p className="marketing-eyebrow">
                   {project.number} / {project.eyebrow}

@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import {
   Layers,
   Cpu,
@@ -12,17 +12,17 @@ import { Link } from "react-router-dom";
 import AutoBreadcrumb from "../../components/AutoBreadcrumb";
 
 const slideIn = {
-  hidden: { opacity: 0, x: -50 }, // slide from left
-  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  hidden: { opacity: 0, y: 14 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
 };
 
 export default function AngularDetailPage() {
   return (
-    <section className="bg-white text-slate-900">
+    <section className="technology-detail-page bg-white text-slate-900">
       {/* ================= HERO ================= */}
       <div className="relative bg-slate-950 text-white">
         <div className="max-w-7xl mx-auto px-6 py-28">
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -30,36 +30,36 @@ export default function AngularDetailPage() {
           >
             <AutoBreadcrumb className="mb-6" />
 
-            <motion.p
+            <Motion.p
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
               className="uppercase tracking-wider text-sm text-white/60"
             >
               Technology
-            </motion.p>
+            </Motion.p>
 
-            <motion.h1
+            <Motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
               className="mt-4 text-4xl md:text-5xl font-semibold leading-tight"
             >
               Angular Application
-            </motion.h1>
+            </Motion.h1>
 
-            <motion.p
+            <Motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.6 }}
               className="mt-6 text-lg text-white/75 leading-relaxed"
             >
-              At Liha Tech, we build scalable, secure, and high-performance
+              At Techliha, we build scalable, secure, and high-performance
               Angular applications for enterprises and growing businesses. Our
               approach focuses on structured architecture, long-term
               maintainability, and seamless user experiences.
-            </motion.p>
-          </motion.div>
+            </Motion.p>
+          </Motion.div>
         </div>
       </div>
 
@@ -74,13 +74,15 @@ export default function AngularDetailPage() {
                 <img
                   src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=1200"
                   alt="Enterprise Angular Development"
+                  loading="lazy"
+                  decoding="async"
                   className="rounded-3xl shadow-lg object-cover w-full h-[420px]"
                 />
               </div>
 
               {/* CONTENT */}
               <div className="max-w-5xl">
-                <motion.h2
+                <Motion.h2
                   className="text-3xl font-semibold mb-6"
                   initial="hidden"
                   whileInView="visible"
@@ -88,7 +90,7 @@ export default function AngularDetailPage() {
                   variants={slideIn}
                 >
                   Why Angular for Enterprise Applications
-                </motion.h2>
+                </Motion.h2>
 
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   Angular is a powerful frontend framework designed for building
@@ -99,7 +101,7 @@ export default function AngularDetailPage() {
                 </p>
 
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  At Liha Tech, we leverage Angular to create applications that
+                  At Techliha, we leverage Angular to create applications that
                   are easy to maintain, highly testable, and capable of
                   supporting evolving business requirements. Our focus is on
                   clean code, predictable architecture, and delivering
@@ -114,7 +116,7 @@ export default function AngularDetailPage() {
       {/* ================= CORE CAPABILITIES ================= */}
       <div className="bg-slate-50">
         <div className="max-w-7xl mx-auto px-6 py-24">
-           <motion.h2
+           <Motion.h2
                   className="text-3xl font-semibold mb-6"
                   initial="hidden"
                   whileInView="visible"
@@ -122,7 +124,7 @@ export default function AngularDetailPage() {
                   variants={slideIn}
                 >
             Core Angular Capabilities
-          </motion.h2>
+          </Motion.h2>
 
           <div className="grid md:grid-cols-3 gap-10">
             <Capability
@@ -151,7 +153,7 @@ export default function AngularDetailPage() {
 
       {/* ================= USE CASES ================= */}
       <div className="max-w-7xl mx-auto px-6 py-24">
-         <motion.h2
+         <Motion.h2
                   className="text-3xl font-semibold mb-6"
                   initial="hidden"
                   whileInView="visible"
@@ -159,7 +161,7 @@ export default function AngularDetailPage() {
                   variants={slideIn}
                 >
           Business & Enterprise Use Cases
-        </motion.h2>
+        </Motion.h2>
 
         <div className="grid md:grid-cols-2 gap-12">
           <UseCase
@@ -195,7 +197,7 @@ export default function AngularDetailPage() {
       {/* ================= DEVELOPMENT LIFECYCLE ================= */}
       <div className="bg-slate-950 text-white">
         <div className="max-w-7xl mx-auto px-6 py-24">
-          <motion.h2
+          <Motion.h2
                   className="text-3xl font-semibold mb-6"
                   initial="hidden"
                   whileInView="visible"
@@ -203,7 +205,7 @@ export default function AngularDetailPage() {
                   variants={slideIn}
                 >
             Our Angular Development Process
-          </motion.h2>
+          </Motion.h2>
 
           <div className="grid md:grid-cols-4 gap-8">
             <ProcessStep
@@ -240,7 +242,7 @@ export default function AngularDetailPage() {
       {/* ================= CTA ================= */}
       <div className="max-w-7xl mx-auto px-6 py-24 text-center">
         <h2 className="text-3xl font-semibold mb-6">
-          Build Scalable Angular Applications with Liha Tech
+          Build Scalable Angular Applications with Techliha
         </h2>
 
         <p className="text-slate-700 max-w-2xl mx-auto mb-10">

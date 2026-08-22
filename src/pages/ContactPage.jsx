@@ -9,17 +9,16 @@ export default function ContactPage() {
   const [searchParams] = useSearchParams();
   const topic = searchParams.get("topic");
   const subjectMap = {
-    project: "New LihaTech project enquiry",
+    project: "New Techliha project enquiry",
     training: "Agentic AI training enquiry",
     course: "Agentic AI course enquiry",
-    internship: "Agentic AI internship enquiry",
   };
-  const subject = subjectMap[topic] || "LihaTech enquiry";
+  const subject = subjectMap[topic] || "Techliha enquiry";
   const emailHref = `mailto:info@lihatech.com?subject=${encodeURIComponent(subject)}`;
   const backLink =
     topic === "project"
       ? { to: "/services", label: "Back to services" }
-      : ["training", "course", "internship"].includes(topic)
+      : ["training", "course"].includes(topic)
         ? { to: "/training", label: "Back to training" }
         : { to: "/", label: "Back to home" };
 
@@ -37,42 +36,52 @@ export default function ContactPage() {
               className="marketing-button marketing-button--primary"
               href={emailHref}
             >
-              Email LihaTech <Mail size={17} />
+              Email Techliha <Mail size={17} />
             </a>
             <a
               className="marketing-button marketing-button--secondary"
-              href="tel:+919767037492"
+              href="tel:+919172743364"
             >
-              Call +91 97670 37492 <Phone size={17} />
+              Call +91 9172743364 <Phone size={17} />
             </a>
           </>
         }
       />
       <section className="marketing-section">
         <div className="marketing-shell contact-grid">
-          <Reveal className="contact-card">
+          <Reveal className="contact-card" delay={0} interactive>
             <Mail size={24} />
             <p className="marketing-eyebrow">EMAIL</p>
             <h2>info@lihatech.com</h2>
-            <p>Projects, partnerships, course enquiries, and internships.</p>
+            <p>Projects, partnerships, and course enquiries.</p>
             <a href={emailHref}>
               Write to us <ArrowRight size={16} />
             </a>
           </Reveal>
-          <Reveal className="contact-card">
+          <Reveal className="contact-card" delay={0.045} interactive>
             <Phone size={24} />
             <p className="marketing-eyebrow">PHONE</p>
-            <h2>+91 97670 37492</h2>
+            <h2>+91 9172743364</h2>
             <p>Monday to Friday, 9:00 AM–6:00 PM IST.</p>
-            <a href="tel:+919767037492">
-              Call LihaTech <ArrowRight size={16} />
+            <a href="tel:+919172743364">
+              Call Techliha <ArrowRight size={16} />
             </a>
           </Reveal>
-          <Reveal className="contact-card">
+          <Reveal className="contact-card" delay={0.09} interactive>
             <MapPin size={24} />
             <p className="marketing-eyebrow">LOCATION</p>
-            <h2>Pune, India</h2>
-            <p>Working with businesses and learners worldwide.</p>
+            <h2>Kolhapur, Maharashtra</h2>
+            <p>
+              3rd Floor, DRS Group Tower, 2851/A, Subhash Road, B Ward,
+              Jawahar Nagar, Kolhapur 416012.
+            </p>
+            <a
+              href="https://share.google/DXyxnxlz308kCO12w"
+              target="_blank"
+              rel="noreferrer"
+            >
+              View on Google Maps <ArrowRight size={16} />
+            </a>
           </Reveal>
         </div>
       </section>

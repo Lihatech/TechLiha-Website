@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import MarketingSky from "../features/parallax/MarketingSky";
 import "../styles/site-shell.css";
+import "../styles/shared-motion.css";
 
 export default function MainLayout() {
   const pageRef = useRef(null);

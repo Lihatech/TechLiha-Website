@@ -1,25 +1,25 @@
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import AutoBreadcrumb from "../../components/AutoBreadcrumb";
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  hidden: { opacity: 0, y: 14 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
 };
 
 const slideIn = {
-  hidden: { opacity: 0, x: -50 }, // slide from left
-  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  hidden: { opacity: 0, y: 14 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
 };
 
 export default function BigDataDetailPage() {
   return (
-    <section className="bg-white text-black">
+    <section className="technology-detail-page bg-white text-black">
       {/* HERO */}
       <div className="bg-slate-900 text-white">
         <div className="max-w-7xl mx-auto px-6 py-28">
-          <motion.div
+          <Motion.div
             variants={fadeUp}
             initial="hidden"
             animate="visible"
@@ -33,13 +33,13 @@ export default function BigDataDetailPage() {
               Big Data Development
             </h1>
             <p className="mt-6 text-lg text-white/80 leading-relaxed">
-              Liha Tech designs and implements Big Data analytics solutions that
+              Techliha designs and implements Big Data analytics solutions that
               transform large volumes of raw data into actionable business
               intelligence. Our platforms prioritize reliability, scalability,
               and clarity, empowering organizations to make informed decisions
               with confidence.
             </p>
-          </motion.div>
+          </Motion.div>
         </div>
       </div>
 
@@ -51,13 +51,15 @@ export default function BigDataDetailPage() {
             <img
               src="/images/techImage/big-data.png"
               alt="Enterprise Big Data Solutions"
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover rounded-lg"
             />
           </div>
 
           {/* Right Side Content */}
           <div className="lg:w-1/2 w-full bg-green-50 p-8 rounded-lg shadow-md">
-            <motion.h2
+            <Motion.h2
               className="text-3xl font-semibold mb-6"
               initial="hidden"
               whileInView="visible"
@@ -65,7 +67,7 @@ export default function BigDataDetailPage() {
               variants={slideIn}
             >
               Big Data Engineering
-            </motion.h2>
+            </Motion.h2>
 
             <p className="text-lg text-black/70 leading-relaxed mb-6">
               Our Big Data solutions capture, process, and analyze data from
@@ -86,7 +88,7 @@ export default function BigDataDetailPage() {
       {/* CAPABILITIES */}
       <div className="bg-[#FAF7F2]">
         <div className="max-w-7xl mx-auto px-6 py-24">
-          <motion.h2
+          <Motion.h2
             className="text-3xl font-semibold mb-6"
             initial="hidden"
             whileInView="visible"
@@ -94,7 +96,7 @@ export default function BigDataDetailPage() {
             variants={slideIn}
           >
             Core Analytics Capabilities
-          </motion.h2>
+          </Motion.h2>
 
           <p className="text-lg text-black/70 leading-relaxed mb-6">
             Our analytics capabilities include structured and unstructured data
@@ -112,7 +114,7 @@ export default function BigDataDetailPage() {
 
       {/* BUSINESS IMPACT */}
       <div className="max-w-7xl mx-auto px-6 py-24">
-        <motion.h2
+        <Motion.h2
           className="text-3xl font-semibold mb-6"
           initial="hidden"
           whileInView="visible"
@@ -120,7 +122,7 @@ export default function BigDataDetailPage() {
           variants={slideIn}
         >
           Business Impact{" "}
-        </motion.h2>
+        </Motion.h2>
 
         <p className="text-lg text-black/70 leading-relaxed mb-6">
           Our Big Data solutions accelerate decision-making, enhance operational
@@ -136,7 +138,7 @@ export default function BigDataDetailPage() {
 
       {/* CTA */}
       <div className="max-w-7xl mx-auto px-6 py-24 text-center">
-        <motion.h2
+        <Motion.h2
           className="text-3xl font-semibold mb-6"
           initial="hidden"
           whileInView="visible"
@@ -144,10 +146,10 @@ export default function BigDataDetailPage() {
           variants={slideIn}
         >
           Unlock the Value of Your Data
-        </motion.h2>
+        </Motion.h2>
 
         <p className="text-black/70 max-w-2xl mx-auto mb-10 leading-relaxed">
-          Liha Tech helps organizations convert complex data into actionable
+          Techliha helps organizations convert complex data into actionable
           insights, enabling measurable business outcomes and strategic growth.
         </p>
         <Link

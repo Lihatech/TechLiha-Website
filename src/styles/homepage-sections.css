@@ -25,8 +25,8 @@
 
 .sky-section-eyebrow {
   margin: 0;
-  color: rgba(6, 43, 75, 0.72);
-  font-size: 0.7rem;
+  color: #174763;
+  font-size: 0.88rem;
   font-weight: 780;
   letter-spacing: 0.2em;
 }
@@ -46,8 +46,9 @@
 .sky-section-copy {
   max-width: 650px;
   margin: 26px 0 0;
-  color: rgba(6, 43, 75, 0.74);
-  font-size: clamp(1rem, 1.4vw, 1.12rem);
+  color: #173d58;
+  font-size: clamp(1.14rem, 1.45vw, 1.25rem);
+  font-weight: 520;
   line-height: 1.72;
   text-wrap: pretty;
 }
@@ -438,7 +439,7 @@
 
 .sky-projects__header .sky-section-copy {
   margin: 0 0 5px;
-  font-size: clamp(1rem, 1.3vw, 1.08rem);
+  font-size: clamp(1.12rem, 1.35vw, 1.22rem);
 }
 
 .sky-project-list {
@@ -505,8 +506,8 @@
 
 .sky-project-copy__meta p {
   margin: 0;
-  color: rgba(6, 43, 75, 0.66);
-  font-size: 0.68rem;
+  color: #22516d;
+  font-size: 0.8rem;
   font-weight: 780;
   letter-spacing: 0.18em;
 }
@@ -530,8 +531,9 @@
 .sky-project-copy__description {
   max-width: 540px;
   margin: 22px 0 0;
-  color: rgba(6, 43, 75, 0.78);
-  font-size: clamp(0.96rem, 1.25vw, 1.06rem);
+  color: #173d58;
+  font-size: clamp(1.08rem, 1.3vw, 1.18rem);
+  font-weight: 520;
   line-height: 1.65;
 }
 
@@ -562,8 +564,8 @@
 
 .sky-project-copy__outcome p {
   margin: 0;
-  color: rgba(6, 43, 75, 0.68);
-  font-size: 0.84rem;
+  color: #244e67;
+  font-size: 0.96rem;
   font-weight: 620;
   line-height: 1.55;
 }
@@ -581,9 +583,9 @@
   padding: 8px 11px;
   border: 1px solid rgba(6, 43, 75, 0.18);
   border-radius: 999px;
-  color: rgba(6, 43, 75, 0.76);
+  color: #214c65;
   background: rgba(255, 255, 255, 0.64);
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   font-weight: 650;
   transition:
     border-color 200ms ease,
@@ -608,7 +610,7 @@
   margin-top: 20px;
   border-bottom: 1px solid rgba(6, 43, 75, 0.34);
   color: var(--sky-navy);
-  font-size: 0.82rem;
+  font-size: 0.94rem;
   font-weight: 760;
   transition: gap 200ms ease, border-color 200ms ease;
 }
@@ -929,8 +931,9 @@
 .sky-learning-header__copy > p {
   max-width: 510px;
   margin: 0;
-  color: rgba(6, 43, 75, 0.7);
-  font-size: clamp(0.96rem, 1.3vw, 1.08rem);
+  color: #234b63;
+  font-size: clamp(1.08rem, 1.35vw, 1.2rem);
+  font-weight: 520;
   line-height: 1.68;
 }
 
@@ -950,13 +953,13 @@
   border-radius: 999px;
   color: #07547e;
   background: rgba(255, 255, 255, 0.58);
-  font-size: 0.7rem;
+  font-size: 0.84rem;
   font-weight: 760;
 }
 
 .sky-learning-paths {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: 16px;
   margin-top: clamp(44px, 6vw, 74px);
 }
@@ -1028,7 +1031,7 @@
 .sky-learning-paths article > p {
   margin: 30px 0 0;
   color: rgba(6, 43, 75, 0.55);
-  font-size: 0.62rem;
+  font-size: 0.78rem;
   font-weight: 820;
   letter-spacing: 0.15em;
   line-height: 1.5;
@@ -1052,14 +1055,14 @@
   max-width: 510px;
   margin-top: 22px;
   color: rgba(6, 43, 75, 0.7);
-  font-size: 0.9rem;
+  font-size: 1.06rem;
   font-weight: 500;
   letter-spacing: 0;
   line-height: 1.65;
 }
 
 .sky-learning-paths article:first-child .sky-learning-paths__summary {
-  color: rgba(234, 252, 255, 0.72);
+  color: rgba(234, 252, 255, 0.88);
 }
 
 .sky-learning-paths ul {
@@ -1075,12 +1078,12 @@
   grid-template-columns: 18px 1fr;
   gap: 9px;
   color: rgba(6, 43, 75, 0.68);
-  font-size: 0.8rem;
+  font-size: 0.94rem;
   line-height: 1.48;
 }
 
 .sky-learning-paths article:first-child li {
-  color: rgba(234, 252, 255, 0.74);
+  color: rgba(234, 252, 255, 0.88);
 }
 
 .sky-learning-paths li svg {
@@ -1102,7 +1105,7 @@
   border: 1px solid rgba(3, 105, 161, 0.18);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.58);
-  font-size: 0.78rem;
+  font-size: 0.9rem;
   font-weight: 780;
   transition:
     gap 200ms ease,
@@ -1193,12 +1196,12 @@
 }
 
 .sky-voice-grid article > div b {
-  font-size: 0.76rem;
+  font-size: 0.9rem;
 }
 
 .sky-voice-grid article > div small {
-  color: rgba(6, 43, 75, 0.55);
-  font-size: 0.62rem;
+  color: #315b73;
+  font-size: 0.78rem;
 }
 
 .sky-final {
@@ -1226,7 +1229,7 @@
 }
 
 .sky-final .sky-section-eyebrow {
-  color: rgba(228, 249, 255, 0.58);
+  color: rgba(228, 249, 255, 0.86);
 }
 
 .sky-final h2 {
@@ -1241,8 +1244,8 @@
 
 .sky-final-card > div:last-child > p {
   margin: 0;
-  color: rgba(226, 248, 255, 0.72);
-  font-size: 0.94rem;
+  color: rgba(226, 248, 255, 0.88);
+  font-size: 1.08rem;
   line-height: 1.7;
 }
 
@@ -1263,99 +1266,6 @@
   border-color: rgba(232, 250, 255, 0.22);
   color: #e8fbff;
   background: rgba(227, 250, 255, 0.07);
-}
-
-.sky-footer {
-  position: relative;
-  z-index: 4;
-  padding: 74px 24px 26px;
-  color: rgba(229, 249, 255, 0.72);
-  background: linear-gradient(180deg, #062b4b 0%, #041f37 32%, #041f37 100%);
-}
-
-.sky-footer__inner {
-  display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  gap: 70px;
-  padding-bottom: 62px;
-}
-
-.sky-footer__inner > div:first-child > p {
-  max-width: 370px;
-  margin: 24px 0 0;
-  font-size: 0.82rem;
-  line-height: 1.68;
-}
-
-.sky-footer__brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  color: #e9fbff;
-}
-
-.sky-footer__brand img {
-  width: 43px;
-  height: 43px;
-  object-fit: contain;
-}
-
-.sky-footer__brand span {
-  display: grid;
-  gap: 3px;
-}
-
-.sky-footer__brand b {
-  font-size: 1.02rem;
-}
-
-.sky-footer__brand small {
-  color: rgba(229, 249, 255, 0.48);
-  font-size: 0.55rem;
-  letter-spacing: 0.08em;
-}
-
-.sky-footer nav {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 38px;
-}
-
-.sky-footer nav > div {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 12px;
-}
-
-.sky-footer nav b {
-  margin-bottom: 6px;
-  color: rgba(229, 249, 255, 0.4);
-  font-size: 0.55rem;
-  letter-spacing: 0.14em;
-}
-
-.sky-footer nav a,
-.sky-footer nav span {
-  color: rgba(232, 250, 255, 0.72);
-  font-size: 0.74rem;
-  line-height: 1.55;
-}
-
-.sky-footer nav a:hover {
-  color: #fff;
-}
-
-.sky-footer__bottom {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  padding-top: 22px;
-  border-top: 1px solid rgba(229, 249, 255, 0.09);
-  color: rgba(229, 249, 255, 0.38);
-  font-size: 0.55rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -1400,6 +1310,10 @@
   }
 
   .sky-process-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sky-voice-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1507,10 +1421,6 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .sky-voice-grid {
-    grid-template-columns: 1fr;
-  }
-
   .sky-voice-grid article {
     min-height: 300px;
   }
@@ -1524,13 +1434,35 @@
     padding-top: 50px;
   }
 
-  .sky-footer__inner {
-    grid-template-columns: 1fr;
-    gap: 48px;
-  }
 }
 
 @media (max-width: 520px) {
+  .sky-content-section {
+    padding: 90px 16px;
+  }
+
+  .sky-voice-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 42px;
+  }
+
+  .sky-voice-grid article {
+    min-height: 0;
+    padding: 22px;
+    border-radius: 20px;
+  }
+
+  .sky-voice-grid article:nth-child(even) {
+    margin-left: 18px;
+  }
+
+  .sky-voice-grid blockquote {
+    margin: 22px 0 28px;
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+
   .sky-section-intro h2,
   .sky-final h2 {
     font-size: clamp(2.8rem, 13vw, 4.2rem);
@@ -1539,8 +1471,7 @@
   .sky-product-features,
   .sky-process-grid,
   .sky-service-rail > div,
-  .sky-learning-paths,
-  .sky-footer nav {
+  .sky-learning-paths {
     grid-template-columns: 1fr;
   }
 
@@ -1560,8 +1491,20 @@
     padding: 46px 22px 40px;
   }
 
+  .sky-project-list {
+    display: block;
+    border-top: 1px solid rgba(6, 43, 75, 0.14);
+  }
+
   .sky-project-row {
     padding: 46px 20px;
+    border: 0;
+    border-bottom: 1px solid rgba(6, 43, 75, 0.14);
+    border-radius: 0;
+  }
+
+  .sky-project-row:last-child {
+    border-bottom: 1px solid rgba(6, 43, 75, 0.12);
   }
 
   .sky-project-copy h3 {
@@ -1650,9 +1593,31 @@
     width: 100%;
   }
 
-  .sky-footer__bottom {
-    flex-direction: column;
-    align-items: flex-start;
+}
+
+@media (max-width: 420px) {
+  .sky-content-section {
+    padding: 82px 12px;
+  }
+
+  .sky-section-intro h2,
+  .sky-final h2 {
+    font-size: clamp(2.45rem, 12vw, 3.35rem);
+  }
+
+  .sky-product-feature,
+  .sky-process-card,
+  .sky-learning-paths article,
+  .sky-voice-grid article {
+    padding: 22px;
+  }
+
+  .sky-learning-program {
+    padding: 24px 18px;
+  }
+
+  .sky-final-card {
+    padding-inline: 6px;
   }
 }
 

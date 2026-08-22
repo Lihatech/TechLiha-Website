@@ -1,4 +1,4 @@
-# LihaTech Homepage Content Blueprint
+# techliha Homepage Content Blueprint
 
 This document is the content source of truth for the homepage prototype in
 `/parallax-lab`. It intentionally avoids unverified statistics and unnamed
@@ -6,7 +6,7 @@ client claims.
 
 ## 01. Ocean hero
 
-**Purpose:** Introduce LihaTech as both a technology partner and a practical
+**Purpose:** Introduce techliha as both a technology partner and a practical
 learning partner.
 
 **Primary action:** Start your project  
@@ -39,10 +39,10 @@ Three visitor-friendly pillars:
 
 ## 04. Featured system: Twin_AI
 
-**Eyebrow:** Built by LihaTech  
+**Eyebrow:** Built by techliha  
 **Headline:** Meet customers where they already are.
 
-Twin_AI is an AI-powered WhatsApp platform published by LihaTech. Its public
+Twin_AI is an AI-powered WhatsApp platform published by techliha. Its public
 feature set includes:
 
 - AI-powered product recommendations
@@ -52,15 +52,15 @@ feature set includes:
 - Business analytics and reports
 - 24/7 automated customer support
 
-Avoid claiming a specific conversion or revenue improvement until LihaTech has
+Avoid claiming a specific conversion or revenue improvement until techliha has
 approved measured results.
 
-## 05. How LihaTech works
+## 05. How techliha works
 
 **Eyebrow:** Build what matters  
 **Headline:** Start focused. Learn quickly. Scale with confidence.
 
-The process is based on LihaTech's public position that successful products
+The process is based on techliha's public position that successful products
 should launch with the most valuable feature set and improve through real user
 feedback.
 
@@ -99,7 +99,7 @@ certification promises until the corresponding programmes are confirmed.
 
 ## 07. Client voices
 
-Use the three testimonials currently published on LihaTech.com:
+Use the three testimonials currently published on techliha.com:
 
 - Gajana Bhole — Director, VimDigitech, Pune
 - Komal Deshmukh — Founder, CodeNucleus Solutions, Pune
@@ -114,12 +114,12 @@ Use the three testimonials currently published on LihaTech.com:
 **Phone:** +91 97670 37492
 
 Primary action: Start a project  
-Secondary action: Call LihaTech
+Secondary action: Call techliha
 
 ## Source notes
 
 - Official website: https://www.lihatech.com/
 - LinkedIn company feed: https://www.linkedin.com/company/lihatech/posts/?feedView=all
-- Publicly indexed Twin_AI post and MVP post from the LihaTech LinkedIn company
+- Publicly indexed Twin_AI post and MVP post from the techliha LinkedIn company
   activity, retrieved through public LinkedIn profiles that shared the posts.
 

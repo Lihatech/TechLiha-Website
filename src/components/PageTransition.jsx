@@ -1,4 +1,6 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
+
+const MotionContainer = motion.div;
 
 const variants = {
   initial: {
@@ -16,18 +18,20 @@ const variants = {
 };
 
 export default function PageTransition({ children }) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
-    <motion.main
+    <MotionContainer
       variants={variants}
-      initial="initial"
-      animate="animate"
-      exit="exit"
+      initial={shouldReduceMotion ? false : "initial"}
+      animate={shouldReduceMotion ? undefined : "animate"}
+      exit={shouldReduceMotion ? undefined : "exit"}
       transition={{
-        duration: 0.25,
+        duration: shouldReduceMotion ? 0 : 0.25,
         ease: "easeInOut",
       }}
     >
       {children}
-    </motion.main>
+    </MotionContainer>
   );
 }

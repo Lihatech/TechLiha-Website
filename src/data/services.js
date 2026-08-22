@@ -182,7 +182,7 @@ export const services = [
       "Scalable, secure, and future-ready web platforms engineered for enterprise environments and long-term growth.",
     overviewTitle: "Service Overview",
     overview: [
-      "LihaTech is a leading web and mobile design and development company delivering scalable web development solutions across industries. Our team brings over a decade of experience in building robust, high-performing digital platforms.",
+      "Techliha is a leading web and mobile design and development company delivering scalable web development solutions across industries. Our team brings over a decade of experience in building robust, high-performing digital platforms.",
       "We specialize in complete web development lifecycles from strategy and design to development, testing, and deployment. Our developers stay ahead of evolving technologies and enterprise trends to deliver future-proof solutions.",
       "With expertise across modern and traditional technologies such as Laravel, Angular, Java, Drupal, Magento, and more, we ensure your digital presence truly reflects your brand while meeting strict enterprise requirements.",
     ],
@@ -454,7 +454,7 @@ export const services = [
     overviewTitle: "Secure Every Layer of Your Technology",
     overview: [
       "Regardless of whether you are running existing software or building new digital platforms, cyber security must be embedded at every level. A single vulnerability can expose sensitive data, disrupt operations, and damage customer trust.",
-      "LihaTech partners with organizations at every stage of their technology journey to proactively identify risks, strengthen defenses, and build resilient systems.",
+      "Techliha partners with organizations at every stage of their technology journey to proactively identify risks, strengthen defenses, and build resilient systems.",
     ],
     capabilitiesTitle: "Core Cyber Security Capabilities",
     capabilities: [
@@ -490,7 +490,7 @@ export const services = [
       {
         title: "Your Shield Against Cyber Threats",
         paragraphs: [
-          "Partner with LihaTech to protect your systems, customers, and reputation with enterprise-grade cyber security.",
+          "Partner with Techliha to protect your systems, customers, and reputation with enterprise-grade cyber security.",
         ],
       },
     ],
@@ -510,7 +510,7 @@ export const services = [
       "Introducing security earlier into the application lifecycle and efficiently managing your infrastructure with modern DevOps practices.",
     overviewTitle: "Secure, Efficient, Cloud-Native DevOps",
     overview: [
-      "With DevOps solutions from LihaTech, security is integrated early into your development lifecycle, minimizing vulnerabilities while aligning IT with business objectives.",
+      "With DevOps solutions from Techliha, security is integrated early into your development lifecycle, minimizing vulnerabilities while aligning IT with business objectives.",
       "Let our experts manage your infrastructure using modern DevOps tools and techniques, facilitate cloud migration, or build cloud-native applications. Achieve the benefits of running technology in the cloud while maintaining cost efficiency and business focus.",
       "Our DevOps specialists have helped hundreds of companies worldwide and are ready to optimize your workflow and infrastructure.",
     ],
