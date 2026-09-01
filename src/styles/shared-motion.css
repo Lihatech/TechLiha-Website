@@ -138,7 +138,6 @@
     .contact-card,
     .principles-grid > div,
     .value-grid > div,
-    .service-card,
     .service-capability
   ):is(:hover, :focus-within) :is(h2, h3) {
     color: #07547e;

@@ -1,7 +1,20 @@
+import aiDataScienceImage from "../assets/services/ai-data-science.jpg";
+import awsImage from "../assets/services/aws.jpg";
+import bigDataImage from "../assets/services/big-data.jpg";
+import cloudMigrationImage from "../assets/services/cloud-migration.jpg";
+import cyberSecurityImage from "../assets/services/cyber-security.jpg";
+import devopsImage from "../assets/services/devops.jpg";
+import enterpriseSolutionsImage from "../assets/services/enterprise-solutions.jpg";
+import mobileImage from "../assets/services/mobile.jpg";
+import qaTestingImage from "../assets/services/qa-testing.jpg";
+import webImage from "../assets/services/web.jpg";
+
 export const services = [
   {
     slug: "ai-data-science",
     path: "/services/ai-data-science",
+    image: aiDataScienceImage,
+    imageAlt: "Enterprise AI analytics room with glowing data streams and neural network visualization",
     cardTitle: "AI & Data Science",
     cardSummary:
       "Machine learning, predictive analytics, and intelligent automation built on enterprise data.",
@@ -68,6 +81,8 @@ export const services = [
   {
     slug: "cloud-migration",
     path: "/services/cloud-migration",
+    image: cloudMigrationImage,
+    imageAlt: "Modern data center with server racks and a glowing cloud migration stream",
     cardTitle: "Cloud Migration",
     cardSummary:
       "Legacy modernization with cloud-native architecture and automation.",
@@ -115,6 +130,8 @@ export const services = [
   {
     slug: "aws",
     path: "/services/aws",
+    image: awsImage,
+    imageAlt: "Cloud operations room with server racks, monitoring panels, and scalable infrastructure",
     cardTitle: "AWS Solutions",
     cardSummary:
       "Secure and scalable solutions built on Amazon Web Services.",
@@ -172,6 +189,8 @@ export const services = [
   {
     slug: "web",
     path: "/services/web",
+    image: webImage,
+    imageAlt: "Modern web development workspace with responsive interface panels on glass screens",
     cardTitle: "Web Development",
     cardSummary:
       "High-performance web platforms using modern frameworks.",
@@ -232,6 +251,8 @@ export const services = [
   {
     slug: "mobile",
     path: "/services/mobile",
+    image: mobileImage,
+    imageAlt: "Mobile app testing lab with connected smartphones and cloud infrastructure",
     cardTitle: "Android Development",
     cardSummary: "Enterprise-grade Android applications.",
     icon: "mobile",
@@ -288,6 +309,8 @@ export const services = [
   {
     slug: "big-data",
     path: "/services/big-data",
+    image: bigDataImage,
+    imageAlt: "Large-scale data operations room with glowing analytics and pipeline streams",
     cardTitle: "Big Data Engineering",
     cardSummary: "Scalable data platforms and pipelines.",
     icon: "data",
@@ -344,6 +367,8 @@ export const services = [
   {
     slug: "qa-testing",
     path: "/services/qa-testing",
+    image: qaTestingImage,
+    imageAlt: "Automated mobile testing lab with devices, validation paths, and performance systems",
     cardTitle: "QA & Testing",
     cardSummary: "Reliability, performance, and security assurance.",
     icon: "quality",
@@ -393,6 +418,8 @@ export const services = [
   {
     slug: "enterprise-solutions",
     path: "/services/enterprise-solutions",
+    image: enterpriseSolutionsImage,
+    imageAlt: "Enterprise operations center with connected cloud systems and automation dashboards",
     cardTitle: "Enterprise Solutions",
     cardSummary: "Custom systems aligned with business strategy.",
     icon: "enterprise",
@@ -443,6 +470,8 @@ export const services = [
   {
     slug: "cyber-security",
     path: "/services/cyber-security",
+    image: cyberSecurityImage,
+    imageAlt: "Security operations room with server racks and a glowing digital protection shield",
     cardTitle: "Cyber Security",
     cardSummary: "Protection against modern cyber threats.",
     icon: "security",
@@ -500,6 +529,8 @@ export const services = [
   {
     slug: "devops",
     path: "/services/devops",
+    image: devopsImage,
+    imageAlt: "Cloud operations room with luminous delivery pipeline rails and server infrastructure",
     cardTitle: "DevOps Solutions",
     cardSummary:
       "Security-first infrastructure and automated delivery for cloud-native operations.",

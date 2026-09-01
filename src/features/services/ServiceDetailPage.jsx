@@ -1,18 +1,7 @@
 import {
   ArrowLeft,
   ArrowRight,
-  BadgeCheck,
-  BrainCircuit,
-  Building2,
   Check,
-  Cloud,
-  Code2,
-  Database,
-  Globe2,
-  ServerCog,
-  ShieldCheck,
-  Smartphone,
-  Workflow,
 } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -22,22 +11,6 @@ import "../../styles/service-pages.css";
 const MotionArticle = motion.article;
 const MotionDiv = motion.div;
 
-const serviceIcons = {
-  ai: BrainCircuit,
-  cloud: Cloud,
-  aws: ServerCog,
-  server: ServerCog,
-  web: Globe2,
-  mobile: Smartphone,
-  data: Database,
-  qa: BadgeCheck,
-  quality: BadgeCheck,
-  enterprise: Building2,
-  security: ShieldCheck,
-  devops: Workflow,
-  code: Code2,
-};
-
 const reveal = {
   initial: { opacity: 0, y: 14 },
   whileInView: { opacity: 1, y: 0 },
@@ -46,7 +19,6 @@ const reveal = {
 };
 
 export default function ServiceDetailPage({ service }) {
-  const Icon = serviceIcons[service.icon] ?? Code2;
   const serviceNumber = services.findIndex((item) => item.slug === service.slug) + 1;
   const shouldReduceMotion = useReducedMotion();
   const revealProps = shouldReduceMotion ? {} : reveal;
@@ -86,11 +58,19 @@ export default function ServiceDetailPage({ service }) {
               </Link>
             </div>
 
-            <div className="service-detail__hero-mark" aria-hidden="true">
-              <span>{String(serviceNumber).padStart(2, "0")}</span>
-              <Icon size={58} strokeWidth={1.5} />
-              <small>{service.cardTitle}</small>
-            </div>
+            <aside className="service-detail__summary-card">
+              <div className="service-detail__summary-top">
+                <span>Service at a glance</span>
+                <strong>{String(serviceNumber).padStart(2, "0")}</strong>
+              </div>
+              <h2>{service.cardTitle}</h2>
+              <p>{service.cardSummary}</p>
+              <div className="service-detail__summary-points">
+                {service.capabilities.slice(0, 3).map((capability) => (
+                  <span key={capability.title}>{capability.title}</span>
+                ))}
+              </div>
+            </aside>
           </MotionDiv>
         </div>
       </section>

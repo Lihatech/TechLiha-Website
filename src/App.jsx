@@ -56,22 +56,9 @@ const DevOpsServicePage = lazy(() =>
 );
 
 /* ---------------- Tech Details ---------------- */
-const Python = lazy(() =>
-  import("./features/technologies/PythonDetailPage")
+const TechnologyDetail = lazy(() =>
+  import("./features/technologies/TechnologyDetailPage")
 );
-const Java = lazy(() => import("./features/technologies/JavaDetailPage"));
-const Bdata = lazy(() =>
-  import("./features/technologies/BigDataDetailPage")
-);
-const Php = lazy(() => import("./features/technologies/PhpDetailPage"));
-const Angular = lazy(() =>
-  import("./features/technologies/AngularDetailPage")
-);
-const Sap = lazy(() => import("./features/technologies/SapDetailPage"));
-const DevOps = lazy(() =>
-  import("./features/technologies/DevOpsDetailPage")
-);
-const Ai = lazy(() => import("./features/technologies/AiDetailPage"));
 
 /* ---------------- Route Configuration ---------------- */
 const routes = [
@@ -130,14 +117,7 @@ const routes = [
     title: "DevOps Services",
   },
 
-  { path: "/tech/python", component: Python, title: "Python" },
-  { path: "/tech/java", component: Java, title: "Java" },
-  { path: "/tech/big-data", component: Bdata, title: "Big Data" },
-  { path: "/tech/php", component: Php, title: "PHP" },
-  { path: "/tech/angular", component: Angular, title: "Angular" },
-  { path: "/tech/sap", component: Sap, title: "SAP" },
-  { path: "/tech/devops", component: DevOps, title: "DevOps" },
-  { path: "/tech/ai", component: Ai, title: "AI" },
+  { path: "/tech/:slug", component: TechnologyDetail, title: "Technology" },
 ];
 
 /* ---------------- SEO Helper ---------------- */

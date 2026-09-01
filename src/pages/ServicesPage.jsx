@@ -118,6 +118,16 @@ export default function ServicesPage() {
                         <Icon size={24} aria-hidden="true" />
                       </span>
                     </span>
+                    <span className="service-card__media">
+                      <img
+                        src={service.image}
+                        width="900"
+                        height="900"
+                        alt={service.imageAlt}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </span>
                     <h3>{service.cardTitle}</h3>
                     <p>{service.cardSummary}</p>
                     <span className="service-card__link">

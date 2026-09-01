@@ -313,6 +313,47 @@
   line-height: 1.65;
 }
 
+.technology-detail-copy {
+  max-width: 760px;
+  padding: clamp(28px, 4vw, 52px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 28px;
+  background: linear-gradient(145deg, rgba(240, 252, 255, 0.94), rgba(167, 230, 249, 0.7));
+  box-shadow: 0 24px 60px rgba(3, 68, 108, 0.12);
+}
+
+.technology-detail-copy p {
+  margin: 0;
+  color: #214c67;
+  font-size: 1.08rem;
+  line-height: 1.78;
+}
+
+.technology-detail-copy p + p {
+  margin-top: 20px;
+}
+
+.technology-detail-capabilities {
+  color: #062b4b;
+}
+
+.technology-detail-capabilities .marketing-eyebrow,
+.technology-detail-capabilities .process-row span {
+  color: #0876b9;
+}
+
+.technology-detail-capabilities .process-row {
+  border-bottom-color: rgba(6, 43, 75, 0.16);
+}
+
+.technology-detail-capabilities .process-row h3 {
+  color: #062b4b;
+}
+
+.technology-detail-capabilities .process-row p {
+  color: #214c67;
+}
+
 .marketing-cta {
   position: relative;
   padding: 22px;

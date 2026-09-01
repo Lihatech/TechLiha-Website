@@ -14,6 +14,9 @@ import "../styles/home-page.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Temporary test switch: use ordinary page flow while the hero video is disabled.
+const HERO_SCROLL_EFFECTS_ENABLED = false;
+
 const DEFAULT_CONTROLS = {
   scroll: true,
   pointer: true,
@@ -31,8 +34,12 @@ export default function HomePage() {
   const unlockContentRef = useRef(null);
   const unlockCutoutsRef = useRef(null);
   const unlockGlassRef = useRef(null);
-  const [skyRevealed, setSkyRevealed] = useState(prefersReducedMotion);
-  const [parallaxReady, setParallaxReady] = useState(prefersReducedMotion);
+  const [skyRevealed, setSkyRevealed] = useState(
+    () => !HERO_SCROLL_EFFECTS_ENABLED || prefersReducedMotion(),
+  );
+  const [parallaxReady, setParallaxReady] = useState(
+    () => HERO_SCROLL_EFFECTS_ENABLED && prefersReducedMotion(),
+  );
 
   useEffect(() => {
     document.body.classList.add("sky-prototype-active");
@@ -44,6 +51,8 @@ export default function HomePage() {
   }, []);
 
   useLayoutEffect(() => {
+    if (!HERO_SCROLL_EFFECTS_ENABLED) return undefined;
+
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reducedMotion) return undefined;
 
@@ -115,6 +124,8 @@ export default function HomePage() {
   }, []);
 
   useEffect(() => {
+    if (!HERO_SCROLL_EFFECTS_ENABLED) return undefined;
+
     const sky = skyRef.current;
     if (!sky) return undefined;
 
@@ -218,7 +229,23 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div ref={compositeRef} className="parallax-page sky-composite-page" id="top">
+    <div
+      ref={compositeRef}
+      className={`parallax-page sky-composite-page${
+        HERO_SCROLL_EFFECTS_ENABLED ? "" : " sky-composite-page--static"
+      }`}
+      id="top"
+    >
+      {!HERO_SCROLL_EFFECTS_ENABLED && (
+        <div className="home-static-sky" aria-hidden="true">
+          <SkyBackground
+            controls={DEFAULT_CONTROLS}
+            pageRef={compositeRef}
+            revealed
+            parallaxReady
+          />
+        </div>
+      )}
       <Header />
       <main>
         <ParallaxHero
@@ -238,12 +265,14 @@ export default function HomePage() {
           </div>
           <div className="sky-prototype">
             <div ref={unlockContentRef} className="sky-unlock-content">
-              <SkyBackground
-                controls={DEFAULT_CONTROLS}
-                pageRef={skyRef}
-                revealed={skyRevealed}
-                parallaxReady={parallaxReady}
-              />
+              {HERO_SCROLL_EFFECTS_ENABLED && (
+                <SkyBackground
+                  controls={DEFAULT_CONTROLS}
+                  pageRef={skyRef}
+                  revealed={skyRevealed}
+                  parallaxReady={parallaxReady}
+                />
+              )}
               <HomeOverviewSection revealed={skyRevealed} />
               <HomeContentSections />
             </div>

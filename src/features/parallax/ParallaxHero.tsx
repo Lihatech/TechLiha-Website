@@ -1,8 +1,14 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import {
+  ArrowUpRight,
+  Bot,
+  BrainCircuit,
+  MessageCircleMore,
+  ScanSearch,
+  ShieldCheck,
+} from "lucide-react";
 import { Link } from "react-router-dom";
-import heroVideo from "../../assets/BG video.mp4";
 import "../../styles/parallax-hero.css";
 
 const heroQuestions = [
@@ -12,6 +18,27 @@ const heroQuestions = [
   { lead: "for a website that ", accent: "performs and converts?" },
   { lead: "to upskill for ", accent: "the future?" },
   { lead: "to train your team in ", accent: "Agentic AI?" },
+];
+
+const heroProofProjects = [
+  {
+    eyebrow: "WHATSAPP AUTOMATION",
+    title: "Twin_AI Commerce Assistant",
+    tags: ["Meta WhatsApp API", "RAG"],
+    icon: Bot,
+  },
+  {
+    eyebrow: "CONVERSATIONAL COMMERCE",
+    title: "AI Fragrance Consultant",
+    tags: ["Recommendations", "Context memory"],
+    icon: MessageCircleMore,
+  },
+  {
+    eyebrow: "INDUSTRIAL AI",
+    title: "AI Parts Identification",
+    tags: ["AI OCR", "Quality logging"],
+    icon: ScanSearch,
+  },
 ];
 
 const heroReveal = {
@@ -107,82 +134,9 @@ export function ParallaxHero({
 }) {
   const typedQuestion = useTypedHeroQuestion(initialQuestionComplete);
   const heroRef = useRef<HTMLElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [showVideo, setShowVideo] = useState(false);
-
-  useEffect(() => {
-    const videoQuery = window.matchMedia(
-      "(min-width: 721px) and (prefers-reduced-motion: no-preference)",
-    );
-    const syncVideoPreference = () => setShowVideo(videoQuery.matches);
-
-    syncVideoPreference();
-    videoQuery.addEventListener("change", syncVideoPreference);
-    return () => videoQuery.removeEventListener("change", syncVideoPreference);
-  }, []);
-
-  useEffect(() => {
-    const hero = heroRef.current;
-    const video = videoRef.current;
-    if (!hero || !video) return undefined;
-
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      video.pause();
-      return undefined;
-    }
-
-    let frame = 0;
-    const syncPlayback = () => {
-      frame = 0;
-      const bounds = hero.getBoundingClientRect();
-      const skyTop = document
-        .querySelector("#sky-experience")
-        ?.getBoundingClientRect().top;
-      const beforeSkyLock = skyTop === undefined || skyTop > 1;
-      const visible =
-        beforeSkyLock &&
-        bounds.bottom > window.innerHeight * 0.08 &&
-        bounds.top < window.innerHeight;
-
-      if (visible) {
-        video.play().catch(() => undefined);
-      } else {
-        video.pause();
-      }
-    };
-
-    const queuePlaybackSync = () => {
-      if (!frame) frame = window.requestAnimationFrame(syncPlayback);
-    };
-
-    syncPlayback();
-    window.addEventListener("scroll", queuePlaybackSync, { passive: true });
-    window.addEventListener("resize", queuePlaybackSync);
-
-    return () => {
-      window.removeEventListener("scroll", queuePlaybackSync);
-      window.removeEventListener("resize", queuePlaybackSync);
-      window.cancelAnimationFrame(frame);
-      video.pause();
-    };
-  }, [showVideo]);
 
   return (
     <section ref={heroRef} className="parallax-hero" id="ecosystem">
-      {showVideo && (
-        <video
-          ref={videoRef}
-          className="parallax-ocean-video"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          aria-hidden="true"
-        >
-          <source src={heroVideo} type="video/mp4" />
-        </video>
-      )}
       <div className="parallax-ocean-overlay" aria-hidden="true" />
       <ParallaxContainer className="parallax-hero-inner">
         <motion.div
@@ -221,6 +175,48 @@ export function ParallaxHero({
             </ParallaxButton>
           </motion.div>
         </motion.div>
+
+        <aside className="hero-ai-showcase" aria-label="Selected Techliha AI systems">
+          <div className="hero-ai-showcase__orbit" aria-hidden="true" />
+          <div className="hero-ai-showcase__core">
+            <span className="hero-ai-showcase__core-icon">
+              <BrainCircuit size={38} strokeWidth={1.55} aria-hidden="true" />
+            </span>
+            <small>TECHLIHA AI</small>
+            <strong>Applied intelligence</strong>
+            <p>Built around real business workflows</p>
+          </div>
+
+          {heroProofProjects.map((project, index) => {
+            const ProjectIcon = project.icon;
+
+            return (
+              <Link
+                className={`hero-ai-project hero-ai-project--${index + 1}`}
+                key={project.title}
+                to="/work"
+              >
+                <span className="hero-ai-project__icon">
+                  <ProjectIcon size={20} strokeWidth={1.8} aria-hidden="true" />
+                </span>
+                <span className="hero-ai-project__copy">
+                  <small>{project.eyebrow}</small>
+                  <strong>{project.title}</strong>
+                  <span>{project.tags.join(" · ")}</span>
+                </span>
+                <ArrowUpRight size={16} strokeWidth={1.8} aria-hidden="true" />
+              </Link>
+            );
+          })}
+
+          <div className="hero-ai-showcase__trust">
+            <ShieldCheck size={18} strokeWidth={1.8} aria-hidden="true" />
+            <span>
+              <strong>Project-backed capabilities</strong>
+              <small>Explore the systems behind our work</small>
+            </span>
+          </div>
+        </aside>
       </ParallaxContainer>
     </section>
   );
