@@ -850,6 +850,10 @@
   content: none;
 }
 
+.sky-composite-page--static .parallax-ocean-overlay {
+  display: none;
+}
+
 .sky-composite-page--static .parallax-hero-inner {
   min-height: 100svh;
 }
