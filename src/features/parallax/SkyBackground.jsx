@@ -364,7 +364,7 @@ export default function SkyBackground({ controls, pageRef, revealed, parallaxRea
 
   useLayoutEffect(() => {
     const root = rootRef.current;
-    const page = pageRef.current;
+    const page = pageRef.current ?? root?.closest(".parallax-page, .marketing-page");
     if (!root || !page) return undefined;
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
