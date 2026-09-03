@@ -368,7 +368,7 @@ export default function SkyBackground({ controls, pageRef, revealed, parallaxRea
     if (!root || !page) return undefined;
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const desktopPointer = window.matchMedia("(min-width: 768px) and (hover: hover) and (pointer: fine)").matches;
+    const desktopPointer = window.matchMedia("(min-width: 768px) and (any-hover: hover) and (any-pointer: fine)").matches;
     const mobileFactor = window.matchMedia("(max-width: 767px)").matches ? 0.46 : 1;
     const intensity = controls.intensity / 100;
     const cleanups = [];
