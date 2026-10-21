@@ -251,6 +251,7 @@ export default function HomePage() {
         <ParallaxHero
           primaryHref="/contact"
           secondaryHref="/training"
+          internshipHref="/internship-application"
           animateOnMount={false}
           initialQuestionComplete
         />

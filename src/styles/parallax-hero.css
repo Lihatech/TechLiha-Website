@@ -230,6 +230,18 @@
   color: #0751d1;
 }
 
+.parallax-hero-actions .parallax-button--internship {
+  border-color: rgba(4, 96, 130, 0.34);
+  background: rgba(221, 250, 255, 0.78);
+  color: #07516d;
+}
+
+.parallax-hero-actions .parallax-button--internship:hover {
+  border-color: #087d9b;
+  background: #ecfdff;
+  color: #064961;
+}
+
 .hero-ai-showcase {
   position: relative;
   flex: 0 0 500px;

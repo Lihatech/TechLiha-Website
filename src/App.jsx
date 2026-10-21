@@ -22,6 +22,9 @@ const Training = lazy(() => import("./pages/TrainingPage"));
 const Course = lazy(() => import("./pages/CoursePage"));
 const About = lazy(() => import("./pages/AboutPage"));
 const Contact = lazy(() => import("./pages/ContactPage"));
+const InternshipApplication = lazy(() =>
+  import("./pages/InternshipApplicationPage"),
+);
 
 /* ---------------- Service Details ---------------- */
 const Web = lazy(() =>
@@ -68,6 +71,11 @@ const routes = [
   { path: "/training", component: Training, title: "Agentic AI Training" },
   { path: "/training/course", component: Course, title: "Agentic AI Course" },
   { path: "/contact", component: Contact, title: "Contact Us" },
+  {
+    path: "/internship-application",
+    component: InternshipApplication,
+    title: "Internship Application",
+  },
   { path: "/about", component: About, title: "About Us" },
 
   { path: "/services/web", component: Web, title: "Web Development" },

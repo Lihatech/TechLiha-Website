@@ -63,7 +63,7 @@ function ParallaxButton({
 }: {
   children: ReactNode;
   href: string;
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "internship";
 }) {
   return (
     <Link className={`parallax-button parallax-button--${variant}`} to={href}>
@@ -124,11 +124,13 @@ function useTypedHeroQuestion(initiallyComplete = false) {
 export function ParallaxHero({
   primaryHref = "/contact",
   secondaryHref = "/training",
+  internshipHref = "/internship-application",
   animateOnMount = true,
   initialQuestionComplete = false,
 }: {
   primaryHref?: string;
   secondaryHref?: string;
+  internshipHref?: string;
   animateOnMount?: boolean;
   initialQuestionComplete?: boolean;
 }) {
@@ -172,6 +174,9 @@ export function ParallaxHero({
             <ParallaxButton href={primaryHref}>Start Your Project</ParallaxButton>
             <ParallaxButton href={secondaryHref} variant="secondary">
               Explore Training
+            </ParallaxButton>
+            <ParallaxButton href={internshipHref} variant="internship">
+              Apply for Internship
             </ParallaxButton>
           </motion.div>
         </motion.div>

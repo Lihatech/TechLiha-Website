@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { ArrowUpRight, Menu, X } from "lucide-react";
+import { ArrowUpRight, BriefcaseBusiness, Menu, X } from "lucide-react";
 import { Link, NavLink } from "react-router-dom";
 
 const AnimatedMenu = motion.div;
@@ -98,9 +98,15 @@ export default function Header() {
               </NavLink>
             ))}
           </nav>
-          <Link className="site-header__cta" to="/contact">
-            Start a Project <ArrowUpRight size={16} aria-hidden="true" />
-          </Link>
+          <div className="site-header__actions">
+            <Link className="site-header__cta" to="/contact">
+              Start a Project <ArrowUpRight size={16} aria-hidden="true" />
+            </Link>
+            <Link className="site-header__internship" to="/internship-application">
+              <BriefcaseBusiness size={15} aria-hidden="true" />
+              Apply Internship
+            </Link>
+          </div>
           <button
             ref={menuButtonRef}
             className="site-header__menu"
@@ -154,6 +160,10 @@ export default function Header() {
               <NavLink to="/contact" onClick={() => setOpen(false)}>
                 <span>0{navItems.length + 1}</span>
                 Contact
+              </NavLink>
+              <NavLink to="/internship-application" onClick={() => setOpen(false)}>
+                <span>08</span>
+                Apply Internship
               </NavLink>
             </nav>
           </AnimatedMenu>

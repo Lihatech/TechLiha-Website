@@ -126,6 +126,35 @@ body.marketing-page-active {
   transition: transform 0.25s ease;
 }
 
+.site-header__actions {
+  display: flex;
+  align-items: center;
+  justify-self: end;
+  gap: 10px;
+}
+
+.site-header__internship {
+  min-height: 46px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 14px;
+  border: 1px solid rgba(7, 105, 223, 0.3);
+  border-radius: 10px;
+  background: rgba(239, 250, 255, 0.76);
+  color: #07518b !important;
+  font-size: 0.75rem;
+  font-weight: 800;
+  white-space: nowrap;
+  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+
+.site-header__internship:hover {
+  transform: translateY(-2px);
+  border-color: #0769df;
+  background: #fff;
+}
+
 .site-header__cta:hover {
   transform: translateY(-2px);
 }
@@ -300,7 +329,7 @@ body.marketing-page-active {
   }
 
   .site-header__nav,
-  .site-header__cta {
+  .site-header__actions {
     display: none;
   }
 
