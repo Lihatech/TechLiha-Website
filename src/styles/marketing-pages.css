@@ -964,6 +964,12 @@
   letter-spacing: 0.03em;
 }
 
+.required-star {
+  margin-left: 4px;
+  color: #c53636;
+  font-weight: 900;
+}
+
 .internship-form__field input,
 .internship-form__field select,
 .internship-form__field textarea {

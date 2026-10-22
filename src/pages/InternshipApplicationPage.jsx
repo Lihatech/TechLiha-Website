@@ -12,9 +12,10 @@ const initialForm = {
   phone: "",
   location: "",
   education: "",
-  internshipArea: "",
+  college: "",
+  passoutYear: "",
+  domain: "",
   skills: "",
-  portfolioLink: "",
   cvFile: null,
   motivation: "",
   consent: false,
@@ -123,22 +124,19 @@ export default function InternshipApplicationPage() {
                   <Field label="Email address" name="email" type="email" value={form.email} onChange={updateField} required />
                   <Field label="Phone / WhatsApp" name="phone" value={form.phone} onChange={updateField} required />
                   <Field label="Location" name="location" value={form.location} onChange={updateField} />
-                  <Field label="Education" name="education" value={form.education} onChange={updateField} placeholder="Degree, course, or current study" />
+                  <Field label="Education / Degree & Branch" name="education" value={form.education} onChange={updateField} placeholder="Example: B.Tech (AI/ML)" required />
+                  <Field label="College" name="college" value={form.college} onChange={updateField} required />
+                  <Field label="Passout year" name="passoutYear" type="number" min="1950" max={new Date().getFullYear() + 1} value={form.passoutYear} onChange={updateField} placeholder="Example: 2026" required />
                   <div className="internship-form__field">
-                    <label htmlFor="internshipArea">Internship area</label>
-                    <select id="internshipArea" name="internshipArea" value={form.internshipArea} onChange={updateField} required>
-                      <option value="">Select an area</option>
+                    <FormLabel htmlFor="domain" required>Domain</FormLabel>
+                    <select id="domain" name="domain" value={form.domain} onChange={updateField} required>
+                      <option value="">Select a domain</option>
                       <option>Software Development</option>
-                      <option>Web Development</option>
-                      <option>AI & Data Science</option>
-                      <option>Cybersecurity</option>
-                      <option>QA Testing</option>
-                      <option>Other</option>
+                      <option>AI & ML Engineer</option>
                     </select>
                   </div>
-                  <Field label="Portfolio / LinkedIn / GitHub link" name="portfolioLink" type="url" value={form.portfolioLink} onChange={updateField} />
                   <div className="internship-form__field">
-                    <label htmlFor="cvFile">Resume / CV</label>
+                    <FormLabel htmlFor="cvFile" required>Resume / CV</FormLabel>
                     <input
                       id="cvFile"
                       name="cvFile"
@@ -152,13 +150,13 @@ export default function InternshipApplicationPage() {
                       {form.cvFile ? ` Selected: ${form.cvFile.name}` : ""}
                     </small>
                   </div>
-                  <Field className="internship-form__field--full" label="Skills" name="skills" value={form.skills} onChange={updateField} placeholder="Example: React, Python, SQL, Figma" />
-                  <Field className="internship-form__field--full" label="Why do you want to join us?" name="motivation" value={form.motivation} onChange={updateField} as="textarea" required />
+                  <Field className="internship-form__field--full" label="Skills" name="skills" value={form.skills} onChange={updateField} placeholder="Example: React, Python, SQL, Figma" required />
+                  <Field className="internship-form__field--full" label="Why do you want to join us? (Optional)" name="motivation" value={form.motivation} onChange={updateField} as="textarea" />
                 </div>
 
                 <label className="internship-form__consent">
                   <input type="checkbox" name="consent" checked={form.consent} onChange={updateField} />
-                  <span>I agree that Techliha may review these details for internship selection.</span>
+                  <span>I agree that Techliha may review these details for internship selection.<span className="required-star" aria-hidden="true">*</span></span>
                 </label>
 
                 {status.message && (
@@ -182,12 +180,22 @@ export default function InternshipApplicationPage() {
 
 function Field({ label, name, value, onChange, type = "text", as = "input", className = "", ...props }) {
   const Component = as;
+  const required = Boolean(props.required);
 
   return (
     <div className={`internship-form__field ${className}`}>
-      <label htmlFor={name}>{label}</label>
+      <FormLabel htmlFor={name} required={required}>{label}</FormLabel>
       <Component id={name} name={name} type={as === "input" ? type : undefined} value={value} onChange={onChange} {...props} />
     </div>
+  );
+}
+
+function FormLabel({ children, required = false, ...props }) {
+  return (
+    <label {...props}>
+      {children}
+      {required && <span className="required-star" aria-hidden="true">*</span>}
+    </label>
   );
 }
 

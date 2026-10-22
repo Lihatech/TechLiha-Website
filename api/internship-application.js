@@ -8,7 +8,16 @@ export default async function handler(request, response) {
   }
 
   const data = request.body || {};
-  const requiredFields = ["fullName", "email", "phone", "internshipArea"];
+  const requiredFields = [
+    "fullName",
+    "email",
+    "phone",
+    "education",
+    "college",
+    "passoutYear",
+    "domain",
+    "skills",
+  ];
 
   if (requiredFields.some((field) => !String(data[field] || "").trim())) {
     response.status(400).json({

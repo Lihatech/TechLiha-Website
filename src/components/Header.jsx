@@ -120,6 +120,10 @@ export default function Header() {
           </button>
         </div>
       </header>
+      <Link className="site-mobile-internship" to="/internship-application">
+        <BriefcaseBusiness size={16} aria-hidden="true" />
+        Apply Internship
+      </Link>
 
       <AnimatePresence>
         {open && (

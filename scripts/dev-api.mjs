@@ -26,7 +26,16 @@ const server = createServer(async (request, response) => {
 
   try {
     const data = await readJson(request);
-    const requiredFields = ["fullName", "email", "phone", "internshipArea"];
+    const requiredFields = [
+      "fullName",
+      "email",
+      "phone",
+      "education",
+      "college",
+      "passoutYear",
+      "domain",
+      "skills",
+    ];
     const cvFile = data.cvFile;
     const allowedTypes = [
       "application/pdf",
