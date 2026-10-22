@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, BriefcaseBusiness, Menu, X } from "lucide-react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
 const AnimatedMenu = motion.div;
 
@@ -27,6 +27,7 @@ function Brand({ onClick }) {
 }
 
 export default function Header() {
+  const location = useLocation();
   const [open, setOpen] = useState(false);
   const menuButtonRef = useRef(null);
   const closeButtonRef = useRef(null);
@@ -120,10 +121,12 @@ export default function Header() {
           </button>
         </div>
       </header>
-      <Link className="site-mobile-internship" to="/internship-application">
-        <BriefcaseBusiness size={16} aria-hidden="true" />
-        Apply Internship
-      </Link>
+      {location.pathname !== "/internship-application" && (
+        <Link className="site-mobile-internship" to="/internship-application">
+          <BriefcaseBusiness size={16} aria-hidden="true" />
+          Apply Internship
+        </Link>
+      )}
 
       <AnimatePresence>
         {open && (
