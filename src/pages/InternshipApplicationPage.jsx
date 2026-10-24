@@ -123,7 +123,7 @@ export default function InternshipApplicationPage() {
                   <Field label="Full name" name="fullName" value={form.fullName} onChange={updateField} required />
                   <Field label="Email address" name="email" type="email" value={form.email} onChange={updateField} required />
                   <Field label="Phone / WhatsApp" name="phone" value={form.phone} onChange={updateField} required />
-                  <Field label="Location" name="location" value={form.location} onChange={updateField} />
+                  <Field label="Location" name="location" value={form.location} onChange={updateField} required />
                   <Field label="Education / Degree & Branch" name="education" value={form.education} onChange={updateField} placeholder="Example: B.Tech (AI/ML)" required />
                   <Field label="College" name="college" value={form.college} onChange={updateField} required />
                   <Field label="Passout year" name="passoutYear" type="number" min="1950" max={new Date().getFullYear() + 1} value={form.passoutYear} onChange={updateField} placeholder="Example: 2026" required />

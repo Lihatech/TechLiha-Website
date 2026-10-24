@@ -30,6 +30,7 @@ const server = createServer(async (request, response) => {
       "fullName",
       "email",
       "phone",
+      "location",
       "education",
       "college",
       "passoutYear",

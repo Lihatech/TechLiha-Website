@@ -12,6 +12,7 @@ export default async function handler(request, response) {
     "fullName",
     "email",
     "phone",
+    "location",
     "education",
     "college",
     "passoutYear",
